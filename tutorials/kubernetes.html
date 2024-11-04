@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Kubernetes* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/tutorials/kubernetes.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Kubernetes* Best Practices" href="kubernetes-bp.html" />
+    <link rel="prev" title="Kata Containers*" href="kata.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="kubernetes-bp.html" title="Kubernetes* Best Practices"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kata.html" title="Kata Containers*"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Kubernetes*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="kubernetes">
+<span id="id1"></span><h1>Kubernetes*<a class="headerlink" href="#kubernetes" title="Link to this heading">¶</a></h1>
+<p>This tutorial describes how to install, configure, and start the <a class="reference external" href="https://kubernetes.io/">Kubernetes
+container orchestration system</a> on Clear Linux* OS.</p>
+<p>A Kubernetes cluster can be setup on Clear Linux OS using the Clear Linux OS cloud-native-setup
+scripts to automate the process or can be setup through a manual step-by-step
+process. This tutorial covers both scenarios.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#background" id="id6">Background</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id7">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#set-up-kubernetes-automatically" id="id8">Set up Kubernetes automatically</a></p></li>
+<li><p><a class="reference internal" href="#set-up-kubernetes-manually" id="id9">Set up Kubernetes manually</a></p></li>
+<li><p><a class="reference internal" href="#initialize-the-master-node" id="id10">Initialize the master node</a></p></li>
+<li><p><a class="reference internal" href="#use-your-cluster" id="id11">Use your cluster</a></p></li>
+<li><p><a class="reference internal" href="#troubleshooting" id="id12">Troubleshooting</a></p></li>
+<li><p><a class="reference internal" href="#reference" id="id13">Reference</a></p></li>
+</ul>
+</nav>
+<section id="background">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Background</a><a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS has builtin integrations to make setting up Kubernetes using a variety of
+<a class="reference external" href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/">container runtimes</a>.</p>
+<p>For more background information see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-kubernetes">What is Kubernetes?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-a-container-network-interface-cni">What is a Container Network Interface (CNI)?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-a-container-runtime-interface-cri">What is a Container Runtime Interface (CRI)?</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-cri-o">What is CRI+O?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-containerd">What is containerd?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-docker">What is Docker?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#what-is-kata-containers">What is Kata Containers*?</a></p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>This tutorial assumes you have already installed Clear Linux OS. For detailed
+instructions on installing Clear Linux OS on a bare metal system, follow the <a class="reference internal" href="../get-started/bare-metal-install-desktop.html#bare-metal-install-desktop"><span class="std std-ref">bare
+metal installation tutorial</span></a>.</p>
+<ol class="arabic">
+<li><p>Review and make sure the <a class="reference external" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/#before-you-begin">requirements for kubeadm</a>
+are satisfied for the host system.</p></li>
+<li><p>Before you continue, update your Clear Linux OS installation with the following
+command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>update
+</pre></div>
+</div>
+<p>Learn about the benefits of having an up-to-date system for cloud
+orchestration on the <a class="reference internal" href="../guides/clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a> page.</p>
+</li>
+<li><p>Kubernetes, a set of supported <abbr title="Container Runtime Interface">CRI</abbr>
+runtimes, <abbr title="Container Network Interface">CNI</abbr> and <a class="reference external" href="https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples">cloud-native-setup
+scripts</a> are included in the <a class="reference external" href="https://github.com/clearlinux/clr-bundles/blob/master/bundles/cloud-native-basic">cloud-native-basic</a> bundle. Install the
+cloud-native-basic bundle to get these components:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>cloud-native-basic
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="set-up-kubernetes-automatically">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Set up Kubernetes automatically</a><a class="headerlink" href="#set-up-kubernetes-automatically" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS provides <a class="reference external" href="https://github.com/clearlinux/cloud-native-setup/tree/master/clr-k8s-examples">cloud-native-setup scripts</a> to automate system setup and
+Kubernetes cluster initialization which allows you to get a cluster up and
+running quickly.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, the scripts will update Clear Linux OS to the latest version, set up the
+system as a Kubernetes master-node with <strong>canal for container networking</strong>
+and <strong>crio for container runtime</strong>, and taint the master node to allow
+workloads to run on it. Kata is installed as an optional alternative
+runtime. The script can be configured to use other CNI’s and CRI’s by
+following the directions on the <a class="reference external" href="https://github.com/clearlinux/cloud-native-setup/blob/master/clr-k8s-examples/README.md">README</a>.</p>
+<p>See <a class="reference internal" href="#what-is-a-container-network-interface-cni">What is a Container Network Interface (CNI)?</a> and <a class="reference internal" href="#what-is-a-container-runtime-interface-cri">What is a
+Container Runtime Interface (CRI)?</a> for more information.</p>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If network proxy settings are required for Internet connectivity, configure
+them now because the scripts will propagate proxy configuration based on
+the running configuration. It is especially important to set the
+<strong class="command">no_proxy</strong> variable appropriately for Kubernetes.</p>
+<p>The script will also modify the <code class="file docutils literal notranslate"><span class="pre">/etc/environment</span></code> and
+<code class="file docutils literal notranslate"><span class="pre">/etc/profile.d/proxy.sh</span></code> files, if they exist, with the proxy
+environment variables in the running shell when the script is executed.</p>
+<p>See the <a class="reference internal" href="#setting-proxy-servers-for-kubernetes">Setting proxy servers for Kubernetes</a> section for details.</p>
+</div>
+<ol class="arabic">
+<li><p>Run the <code class="file docutils literal notranslate"><span class="pre">system-setup.sh</span></code> script to configure the Clear Linux OS system
+settings.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/usr/share/clr-k8s-examples/setup_system.sh
+</pre></div>
+</div>
+</li>
+<li><p>Stop docker and containerd to avoid conflicting CRIs being detected. The
+scripts use CRIO for the CRI.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>docker
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>containerd
+</pre></div>
+</div>
+</li>
+<li><p>Install git as it’s a dependency of the <code class="file docutils literal notranslate"><span class="pre">create_stack.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>git
+</pre></div>
+</div>
+</li>
+<li><p>Run the <code class="file docutils literal notranslate"><span class="pre">create_stack.sh</span></code> script to initialize the Kubernetes node
+and setup a container network plugin.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/usr/share/clr-k8s-examples/create_stack.sh<span class="w"> </span>minimal
+</pre></div>
+</div>
+</li>
+<li><p>Follow the output on the screen and continue onto the section on <a class="reference external" href="#use-your-cluster">using
+your cluster</a>.</p></li>
+</ol>
+<section id="uninstalling">
+<h3>Uninstalling<a class="headerlink" href="#uninstalling" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>If you need to delete the Kubernetes cluster or want to start from scratch
+run the <code class="file docutils literal notranslate"><span class="pre">reset_stack.sh</span></code> script.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This will stop components in the stack including Kubernetes, all CNI and
+CRIs <strong>and will delete</strong> all containers and networks.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>/usr/share/clr-k8s-examples/reset_stack.sh
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="set-up-kubernetes-manually">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Set up Kubernetes manually</a><a class="headerlink" href="#set-up-kubernetes-manually" title="Link to this heading">¶</a></h2>
+<section id="configure-host-system">
+<h3>Configure host system<a class="headerlink" href="#configure-host-system" title="Link to this heading">¶</a></h3>
+<p>This tutorial uses the basic default Kubernetes configuration to get started.
+You can customize your Kubernetes configuration according to your specific
+deployment and security needs.</p>
+<p>The Kubernetes administration tool, <strong class="command">kubeadm</strong>, performs some
+“<a class="reference external" href="https://kubernetes.io/docs/reference/setup-tools/kubeadm/implementation-details/#preflight-checks">preflight checks</a>” when initializing and starting a cluster. The steps
+below are necessary to ensure those preflight checks pass successfully.</p>
+<ol class="arabic">
+<li><p>Enable IP forwarding:</p>
+<ul>
+<li><p>Create the file <code class="file docutils literal notranslate"><span class="pre">/etc/sysctl.d/60-k8s.conf</span></code> to set the
+<strong class="command">net.ipv4.ip_forward</strong> parameter</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d/
+
+sudo<span class="w"> </span>tee<span class="w"> </span>/etc/sysctl.d/99-kubernetes-cri.conf<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;EOF</span>
+<span class="s">net.bridge.bridge-nf-call-iptables  = 1</span>
+<span class="s">net.ipv4.ip_forward                 = 1</span>
+<span class="s">net.bridge.bridge-nf-call-ip6tables = 1</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Apply the change:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sysctl<span class="w"> </span>--system
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Disable swap:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>mask<span class="w"> </span><span class="k">$(</span>sed<span class="w"> </span>-n<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;s#^/var/\([0-9a-z]*\).*#var-\1.swap#p&#39;</span><span class="w"> </span>/proc/swaps<span class="k">)</span><span class="w"> </span><span class="m">2</span>&gt;/dev/null
+sudo<span class="w"> </span>swapoff<span class="w"> </span>-a
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Kubernetes is designed to work without swap. Performance degradation of other workloads can occur
+with swap disabled on systems with constrained memory resources.</p>
+</div>
+</li>
+<li><p>Add the the system’s hostname to the <code class="file docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file. Kubernetes
+will read this file to locate the master host.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;127.0.0.1 localhost `hostname`&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>--append<span class="w"> </span>/etc/hosts
+</pre></div>
+</div>
+</li>
+<li><p>Enable the kubelet agent service to start at boot automatically:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>kubelet.service
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If network proxy settings are required for Internet connectivity, configure
+them now because the scripts will propagate proxy configuration based on
+the running configuration. It is especially important to set the
+<strong class="command">no_proxy</strong> variable for Kubernetes. See the <a class="reference internal" href="#setting-proxy-servers-for-kubernetes">Setting proxy servers
+for Kubernetes</a> section for details.</p>
+</div>
+</section>
+</section>
+<section id="initialize-the-master-node">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Initialize the master node</a><a class="headerlink" href="#initialize-the-master-node" title="Link to this heading">¶</a></h2>
+<p>In Kubernetes, a master node is part of the <a class="reference external" href="https://kubernetes.io/docs/concepts/#kubernetes-control-plane">Kubernetes Control Plane</a>.</p>
+<p>Initializing a new Kubernetes cluster involves crafting a <strong class="command">kubeadm
+init</strong> command. Adding parameters to this command can control the fundamental
+operating components of the cluster. This means it is important to understand
+and choose network and runtime options before running a <strong class="command">kubeadm
+init</strong> command.</p>
+<section id="choose-a-pod-network-add-on">
+<h3>Choose a pod network add-on<a class="headerlink" href="#choose-a-pod-network-add-on" title="Link to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="#what-is-a-container-network-interface-cni">What is a Container Network Interface (CNI)?</a> for information on what
+pod network add-ons and CNIs.</p>
+<p>It is important to decide which CNI will be used early because some pod
+network add-ons require configuration during cluster initialization. Check
+whether or not your add-on requires special flags when you initialize the
+master control plane.</p>
+<p>If your chosen network add-on requires appending to the <strong class="command">kubeadm
+init</strong> command, make note of it before continuing. For example, if you choose
+the <em>flannel</em> pod network add-on, then in later steps you must add the
+following to the <strong class="command">kubeadm init</strong> command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">--pod-network-cidr 10.244.0.0/16</span>
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The version of CNI plugins installed needs to be compatible with the
+version of Kubernetes that is installed otherwise the cluster may fail.
+Check the Kubernetes version with <strong class="command">kubeadm version -o short</strong> and
+refer to the documentation of the CNI plugins to obtain a compatible
+version.</p>
+</div>
+</section>
+<section id="choose-a-container-runtime">
+<h3>Choose a container runtime<a class="headerlink" href="#choose-a-container-runtime" title="Link to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="#what-is-a-container-runtime-interface-cri">What is a Container Runtime Interface (CRI)?</a> for more information on
+what a CRI is.</p>
+<p>Clear Linux OS supports Kubernetes with the various runtimes
+below with or without <a class="reference external" href="https://katacontainers.io/">Kata Containers</a>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cri-o.io/">CRI+O</a></p></li>
+<li><p><a class="reference external" href="https://containerd.io/">containerd</a></p></li>
+<li><p><a class="reference external" href="https://www.docker.com/">Docker</a></p></li>
+</ul>
+<p>The container runtime that you choose will dictate the steps necessary to
+initialize the master cluster with <strong class="command">kubeadm init</strong>.</p>
+<section id="cri-o">
+<h4>CRI+O<a class="headerlink" href="#cri-o" title="Link to this heading">¶</a></h4>
+<p>For information on CRI+O as a Kubernetes CRI, see <a class="reference internal" href="#what-is-cri-o">What is
+CRI+O?</a>. To use CRI+O as the Kubernetes CRI:</p>
+<ol class="arabic">
+<li><p>Start the CRI-O service and enable it to run at boot automatically:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>crio.service
+</pre></div>
+</div>
+<p>When the crio service starts for the first time, it will create a
+configuration file for crio at <code class="file docutils literal notranslate"><span class="pre">/etc/crio/crio.conf</span></code>.</p>
+</li>
+<li><p>Run the kubeadm command to initialize the master node with the
+<strong class="command">--cri-socket</strong> parameter:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You may need to add additional parameters to the command below,
+depending the pod network addon in use.</p>
+<p>In this example, the <strong class="command">--pod-network-cidr 10.244.0.0/16</strong>
+parameter is to use <em>flannel</em> as the pod networking. See <a class="reference internal" href="#choose-a-pod-network-add-on">Choose a pod
+network add-on</a> for more information.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>kubeadm<span class="w"> </span>init<span class="w"> </span><span class="se">\</span>
+--cri-socket<span class="o">=</span>unix:///run/crio/crio.sock<span class="w"> </span><span class="se">\</span>
+--pod-network-cidr<span class="w"> </span><span class="m">10</span>.244.0.0/16
+</pre></div>
+</div>
+</li>
+<li><p>(Optional) By default, CRI+O will use runc as the default
+runtime. CRI+O can optionally provide Kata Containers as a runtime. See
+the <a class="reference internal" href="#add-the-kata-runtime-to-kubernetes">Add the Kata runtime to Kubernetes</a> section for details.</p>
+<p>With CRI+O, the <a class="reference external" href="https://katacontainers.io/">Kata Containers</a>  can be set as the runtime with a
+per-pod <em>RuntimeClass</em> annotation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using CRI-O + Kata Containers as the runtime and choose the
+<em>flannel</em> for pod networking (see <a class="reference internal" href="#choose-a-pod-network-add-on">Choose a pod network add-on</a>), the
+<code class="file docutils literal notranslate"><span class="pre">/etc/crio/crio.conf</span></code> file needs to include the value below. On
+Clear Linux OS this is done automatically.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[crio.runtime]</span>
+<span class="go">manage_network_ns_lifecycle = true</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Once the cluster initialization is complete, continue reading about how to
+<a class="reference internal" href="#use-your-cluster">Use your cluster</a>.</p></li>
+</ol>
+</section>
+<section id="containerd">
+<h4>containerd<a class="headerlink" href="#containerd" title="Link to this heading">¶</a></h4>
+<p>For information on containerd as as Kubernetes CRI, see <a class="reference internal" href="#what-is-containerd">What is
+containerd?</a>. To use containerd as the Kubernetes CRI:</p>
+<ol class="arabic">
+<li><p>Start the containerd service and enable it to run at boot automatically:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>containerd.service
+</pre></div>
+</div>
+</li>
+<li><p>Configure kubelet to use containerd. and reload the service.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w">  </span>/etc/systemd/system/kubelet.service.d/
+
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF | sudo tee  /etc/systemd/system/kubelet.service.d/0-containerd.conf</span>
+<span class="s">[Service]</span>
+<span class="s">Environment=&quot;KUBELET_EXTRA_ARGS=--container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix:///run/containerd/containerd.sock&quot;</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configure kubelet to use systemd as the cgroup driver. and reload the
+service.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/system/kubelet.service.d/
+
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF | sudo tee  /etc/systemd/system/kubelet.service.d/10-cgroup-driver.conf</span>
+<span class="s">[Service]</span>
+<span class="s">Environment=&quot;KUBELET_EXTRA_ARGS=--cgroup-driver=systemd&quot;</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Reload the systemd manager configuration.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</pre></div>
+</div>
+</li>
+<li><p>Run the kubeadm command to initialize the master node with the
+<strong class="command">--cri-socket</strong> parameter:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You may need to add additional parameters to the command below,
+depending the pod network addon in use.</p>
+<p>In this example, the <strong class="command">--pod-network-cidr 10.244.0.0/16</strong>
+parameter is to use <em>flannel</em> as the pod networking. See <a class="reference internal" href="#choose-a-pod-network-add-on">Choose a pod
+network add-on</a> for more information.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>kubeadm<span class="w"> </span>init<span class="w"> </span><span class="se">\</span>
+--cri-socket<span class="o">=</span>/run/containerd/containerd.sock
+--pod-network-cidr<span class="w"> </span><span class="m">10</span>.244.0.0/16
+</pre></div>
+</div>
+</li>
+<li><p>(Optional) By default, containerd will use runc as the default
+runtime. containerd can optionally provide Kata Containers as a runtime.
+See the <a class="reference internal" href="#add-the-kata-runtime-to-kubernetes">Add the Kata runtime to Kubernetes</a> section for details.</p>
+<p>With containerd, the <a class="reference external" href="https://katacontainers.io/">Kata Containers</a>  can be set as the runtime with a
+per-pod <em>RuntimeClass</em> annotation.</p>
+</li>
+<li><p>Once the cluster initialization is complete, continue reading about how to
+<a class="reference internal" href="#use-your-cluster">Use your cluster</a>.</p></li>
+</ol>
+</section>
+<section id="docker">
+<h4>Docker<a class="headerlink" href="#docker" title="Link to this heading">¶</a></h4>
+<p>For information on Docker, see <a class="reference internal" href="#what-is-docker">What is Docker?</a>. To use Docker as the
+Kubernetes container runtime:</p>
+<ol class="arabic">
+<li><p>Make sure Docker is installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>containers-basic
+</pre></div>
+</div>
+</li>
+<li><p>Start the Docker service and enable it to start automatically at boot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">systemctl</span> <span class="n">enable</span> <span class="o">--</span><span class="n">now</span> <span class="n">docker</span><span class="o">.</span><span class="n">service</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configure kubelet to use the Clear Linux OS directory for cni-plugins and reload the
+service.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w">  </span>/etc/systemd/system/kubelet.service.d/
+
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF | sudo tee  /etc/systemd/system/kubelet.service.d/0-cni.conf</span>
+<span class="s">[Service]</span>
+<span class="s">Environment=&quot;KUBELET_EXTRA_ARGS=--cni-bin-dir=/usr/libexec/cni&quot;</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</pre></div>
+</div>
+</li>
+<li><p>Run the kubeadm command to initialize the master node:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You may need to add additional parameters to the command below,
+depending the pod network addon in use.</p>
+<p>In this example, the <strong class="command">--pod-network-cidr 10.244.0.0/16</strong>
+parameter is to use <em>flannel</em> as the pod networking. See <a class="reference internal" href="#choose-a-pod-network-add-on">Choose a pod
+network add-on</a> for more information.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>kubeadm<span class="w"> </span>init<span class="w"> </span><span class="se">\</span>
+--pod-network-cidr<span class="w"> </span><span class="m">10</span>.244.0.0/16
+</pre></div>
+</div>
+</li>
+<li><p>Once the cluster initialization is complete, continue reading about how to
+<a class="reference internal" href="#use-your-cluster">Use your cluster</a>.</p></li>
+</ol>
+</section>
+<section id="add-the-kata-runtime-to-kubernetes">
+<h4>Add the Kata runtime to Kubernetes<a class="headerlink" href="#add-the-kata-runtime-to-kubernetes" title="Link to this heading">¶</a></h4>
+<p>For information on Kata as a container runtime, see <a class="reference internal" href="#what-is-kata-containers">What is Kata Containers*?</a>.
+Using Kata Containers is optional.</p>
+<p>You can use <em>kata-deploy</em> to install all the necessary parts of Kata
+Containers after you have a Kubernetes cluster running with one of the CRI’s
+using the default runc runtime. Follow the steps in the Kubernetes quick start
+section of the  <a class="reference external" href="https://github.com/kata-containers/packaging/tree/master/kata-deploy#kubernetes-quick-start">kata-containers GitHub README</a>
+to install Kata.</p>
+</section>
+</section>
+</section>
+<section id="use-your-cluster">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Use your cluster</a><a class="headerlink" href="#use-your-cluster" title="Link to this heading">¶</a></h2>
+<p>Once your master control plane is successfully initialized, follow the
+instructions presented about how to use your cluster and its <em>IP</em>, <em>token</em>,
+and <em>hash</em> values are displayed. It is important that you record this
+information because it is required to join additional nodes to the cluster.</p>
+<p>A successful initialization looks like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Your Kubernetes control-plane has initialized successfully!</span>
+
+<span class="go">To start using your cluster, you need to run the following as a regular user:</span>
+
+<span class="go">mkdir -p $HOME/.kube</span>
+<span class="go">sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</span>
+<span class="go">sudo chown $(id -u):$(id -g) $HOME/.kube/config</span>
+
+<span class="go">...</span>
+
+<span class="go">You can now join any number of machines by running the following on each node</span>
+<span class="go">as root:</span>
+
+<span class="go">kubeadm join &lt;control-plane-host&gt;:&lt;control-plane-port&gt; --token &lt;token&gt; --discovery-token-ca-cert-hash sha256:&lt;hash&gt;</span>
+</pre></div>
+</div>
+<p>With the first node of the cluster setup, you can continue expanding the
+cluster with additional nodes and start deploying containerized applications.
+For further information on using Kubernetes, see <a class="reference internal" href="#related-topics">Related topics</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, the master node does not run any pods for security reasons. To
+setup a single-node cluster and allow the master node to also run pods, the
+master node will need to be untained. See the Kubernetes documentation on
+<a class="reference external" href="https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#control-plane-node-isolation">control plane node isolation</a>.</p>
+</div>
+</section>
+<section id="troubleshooting">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<section id="package-configuration-customization">
+<h3>Package configuration customization<a class="headerlink" href="#package-configuration-customization" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS is a stateless system that looks for user-defined package configuration
+files in the <code class="file docutils literal notranslate"><span class="pre">/etc/&lt;package-name&gt;</span></code> directory to be used as default. If
+user-defined files are not found, Clear Linux OS uses the distribution-provided
+configuration files for each package.</p>
+<p>If you customize any of the default package configuration files, you <strong>must</strong>
+store the customized files in the <code class="file docutils literal notranslate"><span class="pre">/etc/</span></code> directory. If you edit any of
+the distribution-provided default files, your changes will be lost in the next
+system update as the default files will be overwritten with the updated files.</p>
+<p>Learn more about <a class="reference internal" href="../guides/clear/stateless.html#stateless"><span class="std std-ref">Stateless</span></a> in Clear Linux OS.</p>
+</section>
+<section id="logs">
+<h3>Logs<a class="headerlink" href="#logs" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Check the kubelet service logs <strong class="command">sudo journalctl -u kubelet</strong></p></li>
+</ul>
+</section>
+<section id="setting-proxy-servers-for-kubernetes">
+<h3>Setting proxy servers for Kubernetes<a class="headerlink" href="#setting-proxy-servers-for-kubernetes" title="Link to this heading">¶</a></h3>
+<p>If you receive any of the messages below, check outbound Internet access. You
+may be behind a proxy server.</p>
+<blockquote>
+<div><ul>
+<li><p>Images cannot be pulled.</p></li>
+<li><p>Connection refused error.</p></li>
+<li><p>Connection timed-out or Access Refused errors.</p></li>
+<li><p>The warnings when <strong class="command">kubeadm init</strong> is run.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[WARNING HTTPProxy]: Connection to &quot;https://&lt;HOST-IP&gt;&quot; uses proxy &quot;&lt;PROXY-SERVER&gt;&quot;. If that is not intended, adjust your proxy settings</span>
+<span class="go">[WARNING HTTPProxyCIDR]: connection to &quot;10.96.0.0/12&quot; uses proxy &quot;&lt;PROXY-SERVER&gt;&quot;. This may lead to malfunctional cluster setup. Make sure that Pod and Services IP ranges specified correctly as exceptions in proxy configuration</span>
+<span class="go">[WARNING HTTPProxyCIDR]: connection to &quot;10.244.0.0/16&quot; uses proxy &quot;&lt;PROXY-SERVER&gt;&quot;. This may lead to malfunctional cluster setup. Make sure that Pod and Services IP ranges specified correctly as exceptions in proxy configuration</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<p>If you use an outbound proxy server, you must configure proxy settings
+appropriately for all components in the stack including <strong class="command">kubectl</strong> and
+container runtime services.</p>
+<p>Configure the <a class="reference internal" href="../guides/network/proxy.html#proxy"><span class="std std-ref">proxy settings</span></a>, using the standard <em>HTTP_PROXY</em>,
+<em>HTTPS_PROXY</em>, and <em>NO_PROXY</em> environment variables. The <em>NO_PROXY</em> values are
+especially important for Kubernetes to ensure private IP traffic does not try
+to go out the proxy.</p>
+<ol class="arabic">
+<li><p>Set your environment proxy variables. Ensure that your local IP address is
+<strong>explicitly included</strong> in the environment variable <em>NO_PROXY</em>. Setting
+<em>localhost</em> is not sufficient!</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span>http://proxy.example.com:80
+<span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span>http://proxy.example.com:443
+<span class="nb">export</span><span class="w"> </span><span class="nv">no_proxy</span><span class="o">=</span>.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,<span class="sb">`</span>hostname<span class="sb">`</span>,localhost
+</pre></div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong class="command">kubeadm</strong> commands specifically use these shell variables for proxy
+configuration. Ensure they are set your running terminal before running
+<strong class="command">kubeadm</strong> commands.</p>
+</div>
+</li>
+<li><p>Run the following command to add systemd drop-in configurations for each
+service to include proxy settings:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">services</span><span class="o">=(</span>kubelet<span class="w"> </span>docker<span class="w"> </span>crio<span class="w"> </span>containerd<span class="o">)</span>
+<span class="k">for</span><span class="w"> </span>s<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">services</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;/etc/systemd/system/</span><span class="si">${</span><span class="nv">s</span><span class="si">}</span><span class="s2">.service.d/&quot;</span>
+cat<span class="w"> </span><span class="s">&lt;&lt; EOF | sudo tee &quot;/etc/systemd/system/${s}.service.d/proxy.conf&quot;</span>
+<span class="s">[Service]</span>
+<span class="s">Environment=&quot;HTTP_PROXY=${http_proxy}&quot;</span>
+<span class="s">Environment=&quot;HTTPS_PROXY=${https_proxy}&quot;</span>
+<span class="s">Environment=&quot;SOCKS_PROXY=${socks_proxy}&quot;</span>
+<span class="s">Environment=&quot;NO_PROXY=${no_proxy}&quot;</span>
+<span class="s">EOF</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</li>
+<li><p>Reload the systemd manager configuration.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If you had a previously failed initialization due to a proxy issue, restart
+the process with the <strong class="command">kubeadm reset</strong> command.</p>
+</section>
+<section id="dns-issues">
+<h3>DNS issues<a class="headerlink" href="#dns-issues" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p>&lt;HOSTNAME&gt; not found in &lt;IP&gt; message.</p>
+<blockquote>
+<div><p>Your DNS server may not be appropriately configured. Try adding an entry
+to the <code class="file docutils literal notranslate"><span class="pre">/etc/hosts</span></code> file with your host’s IP and Name.</p>
+<p>Use the commands <strong class="command">hostname</strong> and <strong class="command">hostname -I</strong> to
+retrieve them.</p>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="m">10</span>.200.50.20<span class="w"> </span>myhost
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>coredns pods are stuck in container creating state and logs show entries
+similar to one of the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">  Warning  FailedCreatePodSandBox  5m7s                 kubelet, kata3     Failed to create pod sandbox: rpc error: code = Unknown desc = failed to get network JSON for pod sandbox k8s_coredns-&lt;ID&gt;&gt;-5gpj2_kube-system_&lt;UUID&gt;): cannot convert version [&quot;&quot; &quot;0.1.0&quot; &quot;0.2.0&quot;] to 0.4.0</span>
+
+<span class="go">In this case the :file:`/etc/cni/net.d/10-flannel.conf` or another CNI file</span>
+<span class="go">is using an incompatible version. Delete the file and restart the stack.</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Warning  FailedCreatePodSandBox  117s (x197 over 45m)  kubelet, kata3     (combined from similar events): Failed to create pod sandbox: rpc error: code = Unknown desc = failed to create pod network sandbox k8s_coredns-&lt;ID&gt;&gt;-npsm5_kube-system_&lt;UUID&gt;: error getting ClusterInformation: Get https://[10.96.0.1]:443/apis/crd.projectcalico.org/v1/clusterinformations/default: x509: certificate signed by unknown authority (possibly because of &quot;crypto/rsa: verification error&quot; while trying to verify candidate authority certificate &quot;kubernetes&quot;)</span>
+</pre></div>
+</div>
+<p>In this case, there may be multiple CNI configuration files in the
+<code class="file docutils literal notranslate"><span class="pre">/etc/cni/net.d</span></code> folder. Delete all the files in this directory and
+restart the stack.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Warning  FailedScheduling  55s (x3 over 2m12s)  default-scheduler  0/1</span>
+<span class="go">nodes are available: 1 node(s) had taints that the pod didn&#39;t tolerate.</span>
+</pre></div>
+</div>
+<p>In this case, there may be multiple CNI configuration files in the
+<code class="file docutils literal notranslate"><span class="pre">/etc/cni/net.d</span></code> folder. Delete all the files in this directory, apply
+a CNI plugin, and restart the stack.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="reference">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Reference</a><a class="headerlink" href="#reference" title="Link to this heading">¶</a></h2>
+<section id="what-is-kubernetes">
+<h3>What is Kubernetes?<a class="headerlink" href="#what-is-kubernetes" title="Link to this heading">¶</a></h3>
+<p>Kubernetes (K8s) is an open source system for automating deployment, scaling,
+and management of containerized applications. It groups containers that make
+up an application into logical units for easy management and discovery.</p>
+<p>Kubernetes supports using a variety of <a class="reference external" href="https://kubernetes.io/docs/setup/production-environment/container-runtimes/">container runtimes</a>.</p>
+</section>
+<section id="what-is-a-container-network-interface-cni">
+<h3>What is a Container Network Interface (CNI)?<a class="headerlink" href="#what-is-a-container-network-interface-cni" title="Link to this heading">¶</a></h3>
+<p>In Kubernetes, a <a class="reference external" href="https://kubernetes.io/docs/concepts/workloads/pods/pod/">pod</a> is a group of one
+or more containers and is the smallest deployable unit of computing in a
+Kubernetes cluster. Pods have shared storage/network internally but
+communication between pods requires additional configuration. If you want your
+pods to be able to communicate with each other you must choose and install a
+<a class="reference external" href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network">pod network add-on</a>.</p>
+<p>Some pod network add-ons enable advanced functionality with physical networks
+or cloud provider networks.</p>
+</section>
+<section id="what-is-a-container-runtime-interface-cri">
+<h3>What is a Container Runtime Interface (CRI)?<a class="headerlink" href="#what-is-a-container-runtime-interface-cri" title="Link to this heading">¶</a></h3>
+<p>Container runtimes are the underlying fabric that pod workloads execute inside
+of. Different container runtimes offer different balances between features,
+performance, and security.</p>
+<p>Kubernetes allows integration various container runtimes via a container
+runtime interface (CRI).</p>
+<section id="what-is-cri-o">
+<h4>What is CRI+O?<a class="headerlink" href="#what-is-cri-o" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://cri-o.io/">CRI+O</a> is a lightweight alternative to using Docker as
+the runtime for kubernetes. It allows Kubernetes to use any OCI-compliant
+runtime as the container runtime for running pods, such as runc and
+Kata Containers as the container runtimes.</p>
+<p>CRI+O allows setting a different runtime per-pod.</p>
+</section>
+<section id="what-is-containerd">
+<h4>What is containerd?<a class="headerlink" href="#what-is-containerd" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://containerd.io/">containerd</a> is the runtime that the Docker engine
+is built on top of.</p>
+<p>Kubernetes can use containerd directly instead of going through the Docker
+engine for increased robustness and performance. See the <a class="reference external" href="https://kubernetes.io/blog/2018/05/24/kubernetes-containerd-integration-goes-ga/">blog post on
+kubernetes containerd integration</a>
+for more details.</p>
+<p>containerd allows setting a different runtime per-pod.</p>
+</section>
+<section id="what-is-docker">
+<h4>What is Docker?<a class="headerlink" href="#what-is-docker" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="https://www.docker.com/">Docker</a> is an engine for running software packaged
+as functionally complete units, called containers, using the same operating
+system kernel.</p>
+<p>The default built-in runtime provided by Kubernetes is using the system Docker
+installation via Dockershim and as a result is one of the simplest to use. One
+limitation of using Dockershim is that all pods on the Kubernetes node will
+inherit and use the default runtime that Docker is set to use. To be able to
+specify a container runtime per-Kerbernetes service, use CRI+O or containerd.</p>
+</section>
+</section>
+<section id="what-is-kata-containers">
+<h3>What is Kata Containers*?<a class="headerlink" href="#what-is-kata-containers" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://katacontainers.io/">Kata Containers</a> is an alternative OCI compatible runtime that secures
+container workloads in a lightweight virtual machine. It provides stronger
+workloads isolation using hardware virtualization technology as a second layer
+of defense for untrusted workloads or multi-tenant scenarios.</p>
+<p>The Kata Containers (kata-runtime) adheres to <abbr title="Open Container Initiative*">OCI</abbr> guidelines and works seamlessly with Kubernetes through Docker,
+containerd, or CRI+O.</p>
+</section>
+<section id="related-topics">
+<h3>Related topics<a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-3">Understanding basic Kubernetes architecture</a></p></li>
+<li><p>Installing a <a class="reference external" href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#pod-network">pod network add-on</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/#join-nodes">Joining your nodes</a></p></li>
+<li><p><a class="reference external" href="https://kubernetes.io/docs/user-journeys/users/application-developer/foundational/#section-2">Deploying an application to your cluster</a></p></li>
+<li><p>See our document on <a class="reference internal" href="kubernetes-bp.html#kubernetes-bp"><span class="std std-ref">Kubernetes best practices</span></a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Kubernetes*</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#set-up-kubernetes-automatically">Set up Kubernetes automatically</a><ul>
+<li><a class="reference internal" href="#uninstalling">Uninstalling</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#set-up-kubernetes-manually">Set up Kubernetes manually</a><ul>
+<li><a class="reference internal" href="#configure-host-system">Configure host system</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#initialize-the-master-node">Initialize the master node</a><ul>
+<li><a class="reference internal" href="#choose-a-pod-network-add-on">Choose a pod network add-on</a></li>
+<li><a class="reference internal" href="#choose-a-container-runtime">Choose a container runtime</a><ul>
+<li><a class="reference internal" href="#cri-o">CRI+O</a></li>
+<li><a class="reference internal" href="#containerd">containerd</a></li>
+<li><a class="reference internal" href="#docker">Docker</a></li>
+<li><a class="reference internal" href="#add-the-kata-runtime-to-kubernetes">Add the Kata runtime to Kubernetes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#use-your-cluster">Use your cluster</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#package-configuration-customization">Package configuration customization</a></li>
+<li><a class="reference internal" href="#logs">Logs</a></li>
+<li><a class="reference internal" href="#setting-proxy-servers-for-kubernetes">Setting proxy servers for Kubernetes</a></li>
+<li><a class="reference internal" href="#dns-issues">DNS issues</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#reference">Reference</a><ul>
+<li><a class="reference internal" href="#what-is-kubernetes">What is Kubernetes?</a></li>
+<li><a class="reference internal" href="#what-is-a-container-network-interface-cni">What is a Container Network Interface (CNI)?</a></li>
+<li><a class="reference internal" href="#what-is-a-container-runtime-interface-cri">What is a Container Runtime Interface (CRI)?</a><ul>
+<li><a class="reference internal" href="#what-is-cri-o">What is CRI+O?</a></li>
+<li><a class="reference internal" href="#what-is-containerd">What is containerd?</a></li>
+<li><a class="reference internal" href="#what-is-docker">What is Docker?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#what-is-kata-containers">What is Kata Containers*?</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="kata.html"
+                          title="previous chapter">Kata Containers*</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="kubernetes-bp.html"
+                          title="next chapter">Kubernetes* Best Practices</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/kubernetes.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="kubernetes-bp.html" title="Kubernetes* Best Practices"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="kata.html" title="Kata Containers*"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Kubernetes*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

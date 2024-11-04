@@ -1,0 +1,399 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>cloud-config &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/cloud-config.5.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ucd-data-fetch" href="ucd-data-fetch.1.html" />
+    <link rel="prev" title="ucd" href="ucd.1.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ucd-data-fetch.1.html" title="ucd-data-fetch"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ucd.1.html" title="ucd"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cloud-config</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cloud-config">
+<h1>cloud-config<a class="headerlink" href="#cloud-config" title="Link to this heading">¶</a></h1>
+<p><a class="reference external" href="cloud-config.5.html">cloud-config(5)</a> – User data format used by <a class="reference external" href="ucd.1.html">ucd(1)</a></p>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">user-data</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">#cloud-config</span></code></p>
+<p>cloud-config data is provided by the cloud infrastructure to a cloud
+instance. This data is parsed by <code class="docutils literal notranslate"><span class="pre">cloud-init(1)</span></code> which then configures
+the cloud instance based on the information in the cloud-config.</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>The user-data as provided can be of several formats. <code class="docutils literal notranslate"><span class="pre">cloud-init(1)</span></code>
+supports the <code class="docutils literal notranslate"><span class="pre">cloud-config</span></code> format, but also supports generic shell
+scripts. If the user-data starts with <code class="docutils literal notranslate"><span class="pre">#!</span></code>, it is assumed that the
+user-data is a generic shell script, and <code class="docutils literal notranslate"><span class="pre">cloud-init</span></code> will attempt to
+execute the data as a script. If the user-data starts with the
+<code class="docutils literal notranslate"><span class="pre">#cloud-config</span></code> stanza, it is assumed the user-data is in the
+<code class="docutils literal notranslate"><span class="pre">cloud-config</span></code> format, described below.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">cloud-config</span></code> format is used to structure configuration data
+provided to the cloud instance. This data is structured in the YAML
+format (<code class="docutils literal notranslate"><span class="pre">http://yaml.org</span></code>). Note that <code class="docutils literal notranslate"><span class="pre">cloud-init</span></code>(1) uses the
+libyaml library, which supports YAML version 1.1.</p>
+<p>In the YAML content, the root node (the document) contains a sequence of
+directives. These directives inform cloud-init that the content of the
+directive are processed by a directive-specific handler, or “module”.</p>
+<p>cloud-init includes many modules, each expecting a specifically
+constructed content. This document lists the correct format and
+organization of each data section for the supported modules, describes
+their effect, and states various parameters for each option.</p>
+<p>Table of implemented directives. Column 3 (“Ref”) and column 4
+(“CoreOS”) list whether the reference specification or the CoreOS
+implementation support these directives. Note that implementation
+details may differ, due to the underlying differences in Operating
+Systems.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Directive</span>           <span class="o">|</span><span class="n">Description</span>                          <span class="o">|</span><span class="n">Ref</span><span class="o">.</span> <span class="o">|</span><span class="n">CoreOS</span><span class="o">.</span>
+<span class="o">--------------------|-------------------------------------|-----|-------</span>
+<span class="n">groups</span>              <span class="o">|</span><span class="n">Configure</span> <span class="n">user</span> <span class="n">account</span> <span class="n">groups</span>        <span class="o">|</span><span class="n">yes</span>  <span class="o">|</span><span class="n">no</span>
+<span class="n">package_upgrade</span>     <span class="o">|</span><span class="n">Perform</span> <span class="n">a</span> <span class="n">software</span> <span class="n">update</span>            <span class="o">|</span><span class="n">yes</span>  <span class="o">|</span><span class="n">no</span>
+<span class="n">packages</span>            <span class="o">|</span><span class="n">Install</span> <span class="n">additional</span> <span class="n">software</span>          <span class="o">|</span><span class="n">yes</span>  <span class="o">|</span><span class="n">no</span>
+<span class="n">runcmd</span>              <span class="o">|</span><span class="n">Execute</span> <span class="n">system</span> <span class="n">commands</span>              <span class="o">|</span><span class="n">yes</span>  <span class="o">|</span><span class="n">no</span>
+<span class="n">service</span>             <span class="o">|</span><span class="n">Perform</span> <span class="n">system</span> <span class="n">service</span> <span class="n">configuration</span> <span class="o">|</span><span class="n">no</span>   <span class="o">|</span><span class="n">no</span>
+<span class="n">ssh_authorized_keys</span> <span class="o">|</span><span class="n">Provision</span> <span class="n">SSH</span> <span class="n">public</span> <span class="n">keys</span>            <span class="o">|</span><span class="n">yes</span>  <span class="o">|</span><span class="n">yes</span>
+<span class="n">users</span>               <span class="o">|</span><span class="n">Configure</span> <span class="n">user</span> <span class="n">accounts</span>              <span class="o">|</span><span class="n">yes</span>  <span class="o">|</span><span class="n">yes</span>
+<span class="n">write_files</span>         <span class="o">|</span><span class="n">Write</span> <span class="n">content</span> <span class="n">to</span> <span class="n">arbitrary</span> <span class="n">files</span>     <span class="o">|</span><span class="n">yes</span>  <span class="o">|</span><span class="n">yes</span>
+<span class="n">hostname</span>            <span class="o">|</span><span class="n">Define</span> <span class="n">the</span> <span class="n">system</span><span class="s1">&#39;s hostname         |yes  |yes</span>
+<span class="n">envar</span>               <span class="o">|</span><span class="n">Set</span> <span class="n">environment</span> <span class="n">variables</span>            <span class="o">|</span><span class="n">no</span>   <span class="o">|</span><span class="n">no</span>
+<span class="n">bootcmd</span>             <span class="o">|</span><span class="n">Execute</span> <span class="n">system</span> <span class="n">commands</span> <span class="n">on</span> <span class="n">first</span> <span class="n">boot</span><span class="o">|</span><span class="n">no</span>   <span class="o">|</span><span class="n">no</span>
+<span class="n">wait_for_network</span>    <span class="o">|</span><span class="n">Halt</span> <span class="n">execution</span> <span class="n">until</span> <span class="n">network</span> <span class="ow">is</span> <span class="n">up</span>   <span class="o">|</span><span class="n">no</span>   <span class="o">|</span><span class="n">no</span>
+</pre></div>
+</div>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<p>For each of the directives listed in the table above, zero or more
+options may be provided. The list below documents the implemented
+options per directive. The “Type” field values are:</p>
+<section id="types">
+<h3>TYPES<a class="headerlink" href="#types" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span>       <span class="o">|</span><span class="n">Description</span>
+<span class="o">-----------|-------------------------------------------------------------------</span>
+<span class="n">boolean</span>    <span class="o">|</span><span class="n">Either</span> <span class="n">true</span><span class="p">,</span> <span class="n">false</span><span class="p">,</span> <span class="n">yes</span><span class="p">,</span> <span class="n">no</span><span class="p">,</span> <span class="mi">0</span> <span class="ow">or</span> <span class="mi">1</span> <span class="p">(</span><span class="n">upper</span> <span class="n">case</span> <span class="ow">and</span> <span class="n">initial</span> <span class="n">capitol</span>
+           <span class="o">|</span><span class="n">letter</span> <span class="n">versions</span> <span class="n">treated</span> <span class="n">identical</span><span class="p">)</span>
+<span class="n">string</span>     <span class="o">|</span><span class="n">A</span> <span class="n">generic</span> <span class="n">string</span> <span class="n">encoded</span> <span class="n">value</span><span class="o">.</span> <span class="n">Can</span> <span class="n">be</span> <span class="n">multiline</span> <span class="ow">or</span> <span class="n">YAML</span> <span class="n">encoded</span>
+           <span class="o">|</span><span class="n">content</span>
+<span class="n">integer</span>    <span class="o">|</span><span class="n">A</span> <span class="n">string</span> <span class="n">encoded</span> <span class="n">decimal</span> <span class="n">integer</span> <span class="n">value</span>
+<span class="n">octal</span>      <span class="o">|</span><span class="n">A</span> <span class="n">string</span> <span class="n">encoded</span> <span class="n">octal</span> <span class="n">integer</span> <span class="n">value</span>
+<span class="nb">hex</span>        <span class="o">|</span><span class="n">A</span> <span class="n">string</span> <span class="n">encoded</span> <span class="n">hexadecimal</span> <span class="n">integer</span> <span class="n">value</span>
+<span class="p">[]</span>         <span class="o">|</span><span class="k">if</span> <span class="n">a</span> <span class="nb">type</span> <span class="ow">is</span> <span class="n">listed</span> <span class="k">with</span> <span class="p">[]</span> <span class="n">appended</span><span class="p">,</span> <span class="n">it</span> <span class="n">means</span> <span class="n">there</span> <span class="n">may</span> <span class="n">be</span> <span class="n">zero</span> <span class="ow">or</span>
+           <span class="o">|</span><span class="n">more</span> <span class="n">values</span><span class="p">,</span> <span class="n">lists</span> <span class="n">of</span> <span class="n">values</span> <span class="ow">or</span> <span class="nb">any</span> <span class="n">arbitrary</span> <span class="n">depth</span> <span class="n">of</span> <span class="n">these</span> <span class="n">nested</span>
+<span class="o">*</span>          <span class="o">|</span><span class="n">Indicates</span> <span class="n">this</span> <span class="n">value</span> <span class="n">isn</span><span class="s1">&#39;t a separate key, but directly the</span>
+           <span class="o">|</span><span class="n">associated</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">root</span> <span class="n">node</span><span class="o">.</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">applicable</span> <span class="k">for</span> <span class="n">directives</span>
+           <span class="o">|</span><span class="n">that</span> <span class="n">only</span> <span class="n">have</span> <span class="n">a</span> <span class="n">single</span> <span class="n">configuration</span> <span class="n">parameter</span><span class="p">,</span>
+           <span class="o">|</span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span> <span class="s2">&quot;package_upgrade&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="groups">
+<h3>groups<a class="headerlink" href="#groups" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="n">name</span>      <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">user</span> <span class="n">account</span> <span class="n">group</span> <span class="ow">and</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">place</span> <span class="n">listed</span> <span class="n">user</span> <span class="n">account</span> <span class="n">names</span> <span class="ow">in</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">that</span> <span class="n">group</span>
+</pre></div>
+</div>
+</section>
+<section id="package-upgrade">
+<h3>package_upgrade<a class="headerlink" href="#package-upgrade" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="n">boolean</span>  <span class="o">|</span><span class="n">yes</span>         <span class="o">|</span><span class="n">Enables</span> <span class="ow">or</span> <span class="n">disables</span> <span class="n">whether</span> <span class="n">software</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">update</span> <span class="ow">is</span> <span class="n">performed</span>
+</pre></div>
+</div>
+<p>This option implies the <code class="docutils literal notranslate"><span class="pre">wait_for_network</span></code> option.</p>
+</section>
+<section id="packages">
+<h3>packages<a class="headerlink" href="#packages" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="n">name</span>      <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Enables</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">software</span> <span class="n">bundles</span>
+</pre></div>
+</div>
+<p>This option implies the <code class="docutils literal notranslate"><span class="pre">wait_for_network</span></code> option.</p>
+</section>
+<section id="runcmd">
+<h3>runcmd<a class="headerlink" href="#runcmd" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Executes</span> <span class="n">a</span> <span class="n">command</span><span class="p">,</span> <span class="k">if</span> <span class="n">the</span> <span class="n">item</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span><span class="p">,</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">the</span> <span class="nb">list</span> <span class="n">will</span> <span class="n">be</span> <span class="n">converted</span> <span class="n">to</span> <span class="n">a</span> <span class="n">string</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="ow">and</span> <span class="n">executed</span> <span class="k">as</span> <span class="n">a</span> <span class="n">command</span> <span class="n">line</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="hostname">
+<h3>hostname<a class="headerlink" href="#hostname" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">yes</span>         <span class="o">|</span><span class="n">Defines</span> <span class="n">the</span> <span class="n">system</span><span class="s1">&#39;s hostname</span>
+</pre></div>
+</div>
+</section>
+<section id="service">
+<h3>service<a class="headerlink" href="#service" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="n">start</span>     <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Start</span> <span class="n">units</span>
+<span class="n">stop</span>      <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Stop</span> <span class="n">units</span>
+<span class="n">restart</span>   <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Restart</span> <span class="n">units</span>
+<span class="n">enable</span>    <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Enable</span> <span class="n">units</span> <span class="n">to</span> <span class="n">start</span> <span class="n">automatically</span>
+<span class="n">disable</span>   <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Disable</span> <span class="n">units</span> <span class="kn">from</span> <span class="nn">starting</span> <span class="n">automatically</span>
+<span class="n">reload</span>    <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Reload</span> <span class="n">service</span> <span class="n">units</span>
+<span class="n">isolate</span>   <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Change</span> <span class="n">target</span> <span class="n">to</span> <span class="n">a</span> <span class="n">new</span> <span class="n">unit</span>
+<span class="n">mask</span>      <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Prevent</span> <span class="n">units</span> <span class="kn">from</span> <span class="nn">starting</span>
+<span class="n">unmask</span>    <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Remove</span> <span class="n">unit</span> <span class="n">start</span> <span class="n">prevention</span> <span class="n">mask</span>
+</pre></div>
+</div>
+</section>
+<section id="ssh-authorized-keys">
+<h3>ssh_authorized_keys<a class="headerlink" href="#ssh-authorized-keys" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Specifies</span> <span class="n">an</span> <span class="n">SSH</span> <span class="n">public</span> <span class="n">key</span> <span class="n">value</span><span class="p">,</span> <span class="k">as</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">string</span><span class="o">.</span> <span class="n">This</span> <span class="n">will</span> <span class="n">be</span> <span class="n">added</span> <span class="n">to</span> <span class="n">the</span> <span class="n">default</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">user</span> <span class="n">account</span><span class="s1">&#39;s SSH configuration</span>
+</pre></div>
+</div>
+</section>
+<section id="users">
+<h3>users<a class="headerlink" href="#users" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="p">[]</span>       <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">This</span> <span class="n">directive</span> <span class="n">expects</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">user</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">definitions</span><span class="o">.</span> <span class="n">Each</span> <span class="n">definition</span> <span class="n">can</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">additionally</span> <span class="n">specify</span> <span class="n">the</span> <span class="n">following</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">sub</span><span class="o">-</span><span class="n">options</span><span class="p">:</span>
+<span class="n">name</span>      <span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">yes</span>         <span class="o">|</span><span class="n">A</span> <span class="n">user</span> <span class="n">account</span> <span class="n">name</span> <span class="n">to</span> <span class="n">be</span> <span class="n">created</span>
+<span class="n">gecos</span>     <span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">A</span> <span class="n">real</span> <span class="n">user</span> <span class="n">name</span><span class="p">,</span> <span class="n">can</span> <span class="n">be</span> <span class="n">left</span> <span class="n">empty</span>
+<span class="n">homedir</span>   <span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">A</span> <span class="n">home</span> <span class="n">directory</span> <span class="n">path</span><span class="o">.</span> <span class="n">Default</span> <span class="n">under</span> <span class="s2">&quot;/home&quot;</span>
+<span class="n">primary</span><span class="o">-</span><span class="n">group</span><span class="o">|</span><span class="n">string</span><span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">A</span> <span class="n">group</span> <span class="n">name</span><span class="o">.</span>
+<span class="n">groups</span>    <span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Comma</span><span class="o">-</span><span class="n">separated</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">group</span> <span class="n">names</span> <span class="ow">or</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">single</span> <span class="n">group</span> <span class="n">name</span><span class="o">.</span> <span class="n">Specifies</span> <span class="n">additional</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">groups</span> <span class="n">to</span> <span class="n">put</span> <span class="n">this</span> <span class="n">user</span> <span class="n">account</span> <span class="n">into</span>
+<span class="n">lock</span><span class="o">-</span><span class="n">passwd</span><span class="o">|</span><span class="n">boolean</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Lock</span> <span class="n">the</span> <span class="n">user</span> <span class="n">account</span>
+<span class="n">inactive</span>  <span class="o">|</span><span class="n">boolean</span>  <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Mark</span> <span class="n">the</span> <span class="n">user</span> <span class="n">account</span> <span class="k">as</span> <span class="n">inactive</span>
+<span class="n">passwd</span>    <span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Password</span> <span class="nb">hash</span> <span class="k">for</span> <span class="n">the</span> <span class="n">user</span> <span class="n">account</span>
+<span class="n">no</span><span class="o">-</span><span class="n">create</span><span class="o">-</span><span class="n">home</span><span class="o">|</span><span class="n">boolean</span><span class="o">|</span><span class="n">no</span>        <span class="o">|</span><span class="n">Omits</span> <span class="n">creating</span> <span class="n">a</span> <span class="n">home</span> <span class="n">directory</span>
+<span class="n">no</span><span class="o">-</span><span class="n">user</span><span class="o">-</span><span class="n">group</span><span class="o">|</span><span class="n">boolean</span><span class="o">|</span><span class="n">no</span>         <span class="o">|</span><span class="n">Omits</span> <span class="n">group</span> <span class="n">creating</span> <span class="k">for</span> <span class="n">the</span> <span class="n">account</span>
+<span class="n">no</span><span class="o">-</span><span class="n">log</span><span class="o">-</span><span class="n">init</span><span class="o">|</span><span class="n">boolean</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Omits</span> <span class="n">this</span> <span class="n">account</span> <span class="kn">from</span> <span class="nn">lastlog</span><span class="o">/</span><span class="n">faillog</span>
+<span class="n">expiredate</span><span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">A</span> <span class="n">date</span> <span class="n">at</span> <span class="n">which</span> <span class="n">to</span> <span class="n">expire</span> <span class="n">the</span> <span class="n">password</span>
+<span class="n">ssh</span><span class="o">-</span><span class="n">authorized</span><span class="o">-</span><span class="n">keys</span><span class="o">|</span><span class="n">string</span><span class="p">[]</span><span class="o">|</span><span class="n">no</span>  <span class="o">|</span><span class="n">Add</span> <span class="n">SSH</span> <span class="n">public</span> <span class="n">keys</span> <span class="n">to</span> <span class="n">ssh</span> <span class="n">configuration</span>
+<span class="n">sudo</span>      <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Add</span> <span class="n">sudoers</span> <span class="n">lines</span> <span class="k">for</span> <span class="n">this</span> <span class="n">account</span><span class="p">,</span> <span class="n">the</span> <span class="n">account</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="n">name</span> <span class="ow">is</span> <span class="n">automatically</span> <span class="n">prepended</span>
+<span class="n">system</span>    <span class="o">|</span><span class="n">boolean</span>  <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Make</span> <span class="n">the</span> <span class="n">account</span> <span class="n">a</span> <span class="n">system</span> <span class="n">account</span>
+</pre></div>
+</div>
+</section>
+<section id="write-files">
+<h3>write_files<a class="headerlink" href="#write-files" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Option    |Type     |Required    |Function
+----------|---------|------------|-----------------------------------
+*         |[]       |no          |This directive expects a list of write_files
+          |         |            |definitions. Each definition itself contains the
+          |         |            |following options:
+content   |string   |yes         |The content to write to a file
+path      |string   |yes         |The full path and filename of the file to
+          |         |            |be written out
+owner     |string   |no          |Username and optionally group name, separated
+          |         |            |by &quot;:&quot; or &quot;.&quot;. Defaults to &quot;root.root&quot;
+permissions|octal   |no          |Octal value describing the file permissions
+          |         |            |default value is influenced according to
+          |         |            |`umask`
+</pre></div>
+</div>
+</section>
+<section id="envar">
+<h3>envar<a class="headerlink" href="#envar" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="n">string</span>   <span class="o">|</span><span class="n">yes</span>         <span class="o">|</span><span class="n">Add</span> <span class="n">environment</span> <span class="n">variables</span> <span class="n">to</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">profile</span><span class="o">.</span><span class="n">d</span><span class="o">/</span><span class="n">cloud</span><span class="o">-</span><span class="n">init</span><span class="o">.</span><span class="n">sh</span>
+          <span class="o">|</span>         <span class="o">|</span>            <span class="o">|</span><span class="ow">and</span> <span class="n">to</span> <span class="n">current</span> <span class="n">cloud</span><span class="o">-</span><span class="n">init</span> <span class="n">process</span>
+</pre></div>
+</div>
+</section>
+<section id="bootcmd">
+<h3>bootcmd<a class="headerlink" href="#bootcmd" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="n">string</span><span class="p">[]</span> <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Similar</span> <span class="n">to</span> <span class="n">runcmd</span> <span class="n">but</span> <span class="n">bootcmd</span> <span class="n">will</span> <span class="n">run</span> <span class="n">only</span> <span class="n">on</span> <span class="n">first</span> <span class="n">boot</span>
+</pre></div>
+</div>
+</section>
+<section id="wait-for-network">
+<h3>wait_for_network<a class="headerlink" href="#wait-for-network" title="Link to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span>    <span class="o">|</span><span class="n">Type</span>     <span class="o">|</span><span class="n">Required</span>    <span class="o">|</span><span class="n">Function</span>
+<span class="o">----------|---------|------------|-----------------------------------</span>
+<span class="o">*</span>         <span class="o">|</span><span class="n">boolean</span>  <span class="o">|</span><span class="n">no</span>          <span class="o">|</span><span class="n">Enable</span> <span class="n">to</span> <span class="n">force</span> <span class="n">waiting</span> <span class="k">for</span> <span class="n">a</span> <span class="n">functional</span> <span class="n">network</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>This option makes the program wait until an active network is detected.
+To prevent waiting, ensure that this option is disabled explicitly
+disabled, before other options are used. This may be needed when using
+the <code class="docutils literal notranslate"><span class="pre">packages</span></code> or <code class="docutils literal notranslate"><span class="pre">package_upgrade</span></code> options, which imply that this
+option is used.</p>
+</section>
+</section>
+<section id="copyright">
+<h2>COPYRIGHT<a class="headerlink" href="#copyright" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Copyright (C) 2017 Intel Corporation, License: CC-BY-SA-3.0</p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">cloud-init</span></code>(1)</p>
+</section>
+<section id="notes">
+<h2>NOTES<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h2>
+<p>Creative Commons Attribution-ShareAlike 3.0 Unported</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">cloud-config</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a><ul>
+<li><a class="reference internal" href="#types">TYPES</a></li>
+<li><a class="reference internal" href="#groups">groups</a></li>
+<li><a class="reference internal" href="#package-upgrade">package_upgrade</a></li>
+<li><a class="reference internal" href="#packages">packages</a></li>
+<li><a class="reference internal" href="#runcmd">runcmd</a></li>
+<li><a class="reference internal" href="#hostname">hostname</a></li>
+<li><a class="reference internal" href="#service">service</a></li>
+<li><a class="reference internal" href="#ssh-authorized-keys">ssh_authorized_keys</a></li>
+<li><a class="reference internal" href="#users">users</a></li>
+<li><a class="reference internal" href="#write-files">write_files</a></li>
+<li><a class="reference internal" href="#envar">envar</a></li>
+<li><a class="reference internal" href="#bootcmd">bootcmd</a></li>
+<li><a class="reference internal" href="#wait-for-network">wait_for_network</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#copyright">COPYRIGHT</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+<li><a class="reference internal" href="#notes">NOTES</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ucd.1.html"
+                          title="previous chapter">ucd</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ucd-data-fetch.1.html"
+                          title="next chapter">ucd-data-fetch</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/cloud-config.5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ucd-data-fetch.1.html" title="ucd-data-fetch"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ucd.1.html" title="ucd"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">cloud-config</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

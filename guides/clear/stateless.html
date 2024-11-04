@@ -1,0 +1,272 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Stateless &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/clear/stateless.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="swupd" href="swupd.html" />
+    <link rel="prev" title="OS Security" href="security.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="swupd.html" title="swupd"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="security.html" title="OS Security"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Stateless</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="stateless">
+<span id="id1"></span><h1>Stateless<a class="headerlink" href="#stateless" title="Link to this heading">¶</a></h1>
+<p>In most operating systems, user data, system data, and configuration files
+can become intermingled, which can make them challenging to manage.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/stateless-1.png"><img alt="Stateless: User and system files mixed" src="../../_images/stateless-1.png" style="width: 412.2px; height: 225.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Without stateless, user and system files become mixed on the filesystem over time.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Clear Linux* OS has a stateless design philosophy with the goal to provide an
+<abbr title="operating system">OS</abbr> that functions without excessive user
+configuration or customization. Stateless in this context does <em>not</em> mean
+ephemeral or non-persistent.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#file-level-separation" id="id4">File-level separation</a></p></li>
+<li><p><a class="reference internal" href="#software-configuration" id="id5">Software configuration</a></p></li>
+<li><p><a class="reference internal" href="#system-reset" id="id6">System reset</a></p></li>
+<li><p><a class="reference internal" href="#additional-information" id="id7">Additional information</a></p></li>
+</ul>
+</nav>
+<section id="file-level-separation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">File-level separation</a><a class="headerlink" href="#file-level-separation" title="Link to this heading">¶</a></h2>
+<p>To accomplish a stateless design, the Clear Linux OS filesystem hierarchy is separated
+between user-owned areas and Clear Linux OS-owned areas.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/stateless-2.png"><img alt="Stateless: User and system files separation" src="../../_images/stateless-2.png" style="width: 411.3px; height: 224.1px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: With stateless, user and system files are separated on the filesystem.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="system-area">
+<h3>System area<a class="headerlink" href="#system-area" title="Link to this heading">¶</a></h3>
+<p>Files under the <code class="file docutils literal notranslate"><span class="pre">/usr</span></code> directory are managed by Clear Linux OS as system files
+(except <code class="file docutils literal notranslate"><span class="pre">/usr/local</span></code>).
+Files written under the <code class="file docutils literal notranslate"><span class="pre">/usr</span></code> directory by users can get removed
+through system updates with <a class="reference internal" href="swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a>. This operating
+assumption allows Clear Linux OS to verify and maintain integrity of system files.</p>
+</section>
+<section id="user-areas">
+<h3>User areas<a class="headerlink" href="#user-areas" title="Link to this heading">¶</a></h3>
+<p>Files under the <code class="file docutils literal notranslate"><span class="pre">/usr/local</span></code>, <code class="file docutils literal notranslate"><span class="pre">/etc/</span></code>, <code class="file docutils literal notranslate"><span class="pre">/opt</span></code>, <code class="file docutils literal notranslate"><span class="pre">/home</span></code>,
+and <code class="file docutils literal notranslate"><span class="pre">/var</span></code> directories are owned and managed by the user. A freshly
+installed Clear Linux OS system will only have a minimal set of files in the
+<code class="file docutils literal notranslate"><span class="pre">/etc/</span></code> directory and software installed by Clear Linux OS does not write to
+<code class="file docutils literal notranslate"><span class="pre">/etc</span></code>. This operating assumption allows Clear Linux OS users to clearly identify
+the configuration that makes their system unique.</p>
+</section>
+</section>
+<section id="software-configuration">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Software configuration</a><a class="headerlink" href="#software-configuration" title="Link to this heading">¶</a></h2>
+<p>With stateless separation, default software configurations are read in order
+from predefined source code, Clear Linux OS provided defaults, and user-provided
+configuration.</p>
+<section id="default-configurations">
+<h3>Default configurations<a class="headerlink" href="#default-configurations" title="Link to this heading">¶</a></h3>
+<p>Software in Clear Linux OS provides default configuration values so that it is
+immediately functional, except for some that require additional configuration.</p>
+<p>If an upstream software puts default configurations in multiple locations
+such as <code class="file docutils literal notranslate"><span class="pre">/usr/</span></code> and <code class="file docutils literal notranslate"><span class="pre">/etc</span></code>, it will be modified by the Clear Linux OS
+distro to comply with the stateless design.  Also, some default configurations
+may be modified to close security loopholes.  Defaults will reside
+under <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults</span></code>.  These files can be referenced as
+templates for customization.</p>
+<p>For example, after installing the <cite>httpd</cite> bundle for Apache web server, its
+default configurations appear in the <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/httpd/</span></code> directory.</p>
+</section>
+<section id="overriding-configurations">
+<h3>Overriding configurations<a class="headerlink" href="#overriding-configurations" title="Link to this heading">¶</a></h3>
+<p>If a configuration needs to be changed, the appropriate file should be
+modified by the user under <code class="file docutils literal notranslate"><span class="pre">/etc/</span></code>. If the configuration file does not
+already exist, it can be created in the appropriate location.</p>
+<p>User-defined configuration files should contain the minimal set of desired
+changes and rely on default configuration for the rest.</p>
+<p>For example, a customized Apache configuration can be used instead by:</p>
+<ol class="arabic">
+<li><p>Install the Apache web server bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>httpd
+</pre></div>
+</div>
+</li>
+<li><p>Create the destination directory for the configuration.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/etc/httpd
+</pre></div>
+</div>
+</li>
+<li><p>Copy the default configuration as a reference template.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>cp<span class="w"> </span>/usr/share/defaults/httpd/httpd.conf<span class="w"> </span>/etc/httpd/
+</pre></div>
+</div>
+</li>
+<li><p>Make any desired modifications to the configurations.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudoedit<span class="w"> </span>/etc/httpd/httpd.conf
+</pre></div>
+</div>
+</li>
+<li><p>Reload the service or reboot the system to pickup any changes.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span>daemon-reload<span class="w"> </span>httpd<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>httpd
+</pre></div>
+</div>
+</li>
+</ol>
+<p>This pattern can be used to modify the configurations of other programs too.
+The <a class="reference external" href="https://github.com/clearlinux/clr-man-pages/blob/master/stateless.7.rst">stateless man page</a> has application-specific examples.</p>
+</section>
+</section>
+<section id="system-reset">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">System reset</a><a class="headerlink" href="#system-reset" title="Link to this heading">¶</a></h2>
+<p>One advantage of the stateless design is that the system defaults can be
+easily restored by simply deleting everything under <code class="file docutils literal notranslate"><span class="pre">/etc/</span></code> and
+<code class="file docutils literal notranslate"><span class="pre">/var</span></code>.</p>
+<p>Running the commands below effectively performs a system reset as if it was
+just installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/etc
+sudo<span class="w"> </span>rm<span class="w"> </span>-rf<span class="w"> </span>/var
+</pre></div>
+</div>
+<p>In other Linux distributions, this can be a catastrophic action that may render
+a system unable to boot and/or inaccessible.</p>
+</section>
+<section id="additional-information">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Additional information</a><a class="headerlink" href="#additional-information" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/clearlinux/clr-man-pages/blob/master/stateless.7.rst">stateless man page</a></p></li>
+<li><p><a class="reference internal" href="../kernel/firmware.html#firmware"><span class="std std-ref">Firmware</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Stateless</a><ul>
+<li><a class="reference internal" href="#file-level-separation">File-level separation</a><ul>
+<li><a class="reference internal" href="#system-area">System area</a></li>
+<li><a class="reference internal" href="#user-areas">User areas</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#software-configuration">Software configuration</a><ul>
+<li><a class="reference internal" href="#default-configurations">Default configurations</a></li>
+<li><a class="reference internal" href="#overriding-configurations">Overriding configurations</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#system-reset">System reset</a></li>
+<li><a class="reference internal" href="#additional-information">Additional information</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="security.html"
+                          title="previous chapter">OS Security</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="swupd.html"
+                          title="next chapter">swupd</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/clear/stateless.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="swupd.html" title="swupd"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="security.html" title="OS Security"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Stateless</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

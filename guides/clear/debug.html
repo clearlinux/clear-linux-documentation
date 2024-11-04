@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Debug system &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/clear/debug.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Kubernetes* migration" href="k8s-migration.html" />
+    <link rel="prev" title="Kernels" href="compatible-kernels.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="k8s-migration.html" title="Kubernetes* migration"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compatible-kernels.html" title="Kernels"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Debug system</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="debug-system">
+<span id="debug"></span><h1>Debug system<a class="headerlink" href="#debug-system" title="Link to this heading">¶</a></h1>
+<p>Clear Linux* OS introduces a novel approach to system software debugging using
+<em>clr-debug-info</em>. On the client side, the Clear Linux OS debug system obtains any
+necessary debug information on-the-fly over a network during a debugging
+session. On the server side, the system curates and compresses debug
+information into small pieces for efficient downloading.</p>
+<p>For developers, this avoids the interruption during debugging that usually
+happens when debug information is missing. This can be especially useful on
+systems where storage is limited.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#background" id="id2">Background</a></p></li>
+<li><p><a class="reference internal" href="#usage" id="id3">Usage</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id4">Implementation</a></p></li>
+</ul>
+</nav>
+<section id="background">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Background</a><a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>Software that is compiled and packaged for general usage in an operating
+system typically only contains components that are used to execute the
+program, such as binaries and libraries. Extra developer data, such as the
+actual source code and symbol information, are separated and excluded for
+efficiency.</p>
+<p>The debug information helps relate binary code to human readable source code
+lines and variables. Most of the time, this auxiliary information
+is not needed;
+however without it, debugging a program results in limited visibility.</p>
+</section>
+<section id="usage">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Usage</a><a class="headerlink" href="#usage" title="Link to this heading">¶</a></h2>
+<p>The clr-debug-info system is integrated into Clear Linux OS and seamlessly engages once
+installed.</p>
+<ol class="arabic">
+<li><p>Install the <em>dev-utils</em> bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>dev-utils
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <em>telemetrics</em> and <em>performance-tools</em> bundles also include
+clr-debug-info.</p>
+</div>
+</li>
+<li><p>Start a debugging session against a program using a debugger, such as GDB.
+For example, to debug <em>gnome-control-center</em> execute the following
+command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gdb<span class="w"> </span>/usr/bin/gnome-control-center
+</pre></div>
+</div>
+</li>
+</ol>
+<p>As you step through the program and debug information is needed, the
+clr_debug_daemon obtains it in the background.</p>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading">¶</a></h2>
+<p>The implementation of the Clear Linux OS debug system is open source and available on
+GitHub at: <a class="reference external" href="https://github.com/clearlinux/clr-debug-info/">https://github.com/clearlinux/clr-debug-info/</a></p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/debug-diagram.png"><img alt="Debug system communication flow" src="../../_images/debug-diagram.png" style="width: 400px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: The communication flow of the Clear Linux OS debug system</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The Clear Linux OS debug system implements a <abbr title="filesystem in userspace">FUSE</abbr>
+filesystem mounted at <code class="file docutils literal notranslate"><span class="pre">/usr/lib/debug</span></code> and <code class="file docutils literal notranslate"><span class="pre">/usr/src/debug</span></code>. The
+FUSE filesystem starts automatically. You can verify its status by executing
+<strong class="command">systemctl status clr_debug_fuse.service</strong>.</p>
+<p>The <em>clr_debug_daemon</em> is responsible for fetching the appropriate package
+debug content from the server and making it available for any debugging
+programs that need it. It is socket activated whenever a request to the local
+FUSE filesystem occurs. You can verify its status with <strong class="command">systemctl
+status clr_debug_daemon.service</strong>.</p>
+<p>Clear Linux OS hosts debuginfo content packaged for consumption by Clear Linux OS debug clients at
+<a class="reference external" href="https://download.clearlinux.org/debuginfo/">https://download.clearlinux.org/debuginfo/</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Debug system</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="compatible-kernels.html"
+                          title="previous chapter">Kernels</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="k8s-migration.html"
+                          title="next chapter">Kubernetes* migration</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/clear/debug.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="k8s-migration.html" title="Kubernetes* migration"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compatible-kernels.html" title="Kernels"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Debug system</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Install using clr-installer and a configuration file &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/install-configfile.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Clear Linux OS Over the Network with iPXE" href="ipxe-install.html" />
+    <link rel="prev" title="Install Clear Linux* OS from the live server" href="bare-metal-install-server.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="ipxe-install.html" title="Install Clear Linux OS Over the Network with iPXE"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bare-metal-install-server.html" title="Install Clear Linux* OS from the live server"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install using clr-installer and a configuration file</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="install-using-clr-installer-and-a-configuration-file">
+<span id="install-configfile"></span><h1>Install using clr-installer and a configuration file<a class="headerlink" href="#install-using-clr-installer-and-a-configuration-file" title="Link to this heading">¶</a></h1>
+<p>In addition to the interactive GUI and text-based modes,
+<strong class="command">clr-installer</strong> also supports an unattended mode where you
+simply provide it a YAML configuration file.</p>
+<p>This guide shows you two examples of how to use its unattended mode.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id1">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#download-and-make-bootable-usb-of-the-live-server-image" id="id2">Download and make bootable USB of the live server image</a></p></li>
+<li><p><a class="reference internal" href="#example-1-fresh-installation-onto-bare-metal" id="id3">Example 1: Fresh installation onto bare metal</a></p></li>
+<li><p><a class="reference internal" href="#example-2-replicate-a-previous-installation" id="id4">Example 2: Replicate a previous installation</a></p></li>
+<li><p><a class="reference internal" href="#references" id="id5">References</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>For installation onto bare metal, ensure that your target system
+supports these requirements:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../reference/system-requirements.html#system-requirements"><span class="std std-ref">Recommended minimum system requirements</span></a></p></li>
+<li><p><a class="reference internal" href="compatibility-check.html#compatibility-check"><span class="std std-ref">Check Processor Compatibility</span></a></p></li>
+</ul>
+</section>
+<section id="download-and-make-bootable-usb-of-the-live-server-image">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Download and make bootable USB of the live server image</a><a class="headerlink" href="#download-and-make-bootable-usb-of-the-live-server-image" title="Link to this heading">¶</a></h2>
+<p>See <a class="reference internal" href="bootable-usb.html#bootable-usb"><span class="std std-ref">Create a bootable USB drive using Etcher*</span></a>.</p>
+</section>
+<section id="example-1-fresh-installation-onto-bare-metal">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Example 1: Fresh installation onto bare metal</a><a class="headerlink" href="#example-1-fresh-installation-onto-bare-metal" title="Link to this heading">¶</a></h2>
+<p>This example uses a YAML configuration file to perform a new installation.</p>
+<ol class="arabic">
+<li><p>Boot up the Clear Linux OS Live Server USB thumb drive.</p></li>
+<li><p>Select <span class="guilabel">Clear Linux OS</span> from the menu.</p></li>
+<li><p>In the console window, log in as <cite>root</cite> and set a password.</p></li>
+<li><p>Verify you have a network connection to the Internet and configure proxy
+settings if you’re working behind a firewall.</p></li>
+<li><p>Download a sample YAML configuration file. For example, if you want to
+install Clear Linux OS with a desktop GUI, you might want to use <code class="file docutils literal notranslate"><span class="pre">live-desktop.yaml</span></code>.
+Or you can use the <code class="file docutils literal notranslate"><span class="pre">live-server.yaml</span></code> if you want to install a non-GUI version
+of Clear Linux OS.</p>
+<ul>
+<li><p><em>Desktop:</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-O<span class="w"> </span>https://cdn.download.clearlinux.org/current/config/image/live-desktop.yaml
+</pre></div>
+</div>
+</li>
+<li><p><em>Server:</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-O<span class="w"> </span>https://cdn.download.clearlinux.org/current/config/image/live-server.yaml
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Edit the YAML configuration file and change the settings as needed.</p>
+<p>Commonly-changed settings include (refer to the example below):</p>
+<ol class="loweralpha simple">
+<li><p>Under <em>block-devices</em> (line 15), set your target media.  For example: <code class="docutils literal notranslate"><span class="pre">file:</span> <span class="pre">&quot;/dev/sda&quot;</span></code>.</p></li>
+<li><p>Under <em>targetMedia</em> (line 34), set the third partition size to “0” to use the entire disk space.</p></li>
+<li><p>Under <em>bundles</em> (line 37), add additional bundles as needed.</p></li>
+<li><p>Delete the <em>post-install</em> section unless you have post-installation scripts.</p></li>
+<li><p>Under <em>Version</em> (line 50), set a version number. To use the latest version, set to “0”.</p></li>
+</ol>
+<p>See <a class="reference external" href="https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md">Installer YAML Syntax</a> for more details.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="gp">          #</span>clear-linux-config
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="gp">          # </span>c-basic-offset:<span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w"> </span>tab-width:<span class="w"> </span><span class="m">2</span><span class="p">;</span><span class="w"> </span>indent-tabs-mode:<span class="w"> </span>nil
+<span class="linenos"> 4</span><span class="gp">          # </span>vi:<span class="w"> </span><span class="nb">set</span><span class="w"> </span><span class="nv">shiftwidth</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">tabstop</span><span class="o">=</span><span class="m">2</span><span class="w"> </span>expandtab:
+<span class="linenos"> 5</span><span class="gp">          # </span>:indentSize<span class="o">=</span><span class="m">2</span>:tabSize<span class="o">=</span><span class="m">2</span>:noTabs<span class="o">=</span>true:
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="gp">          # </span>File:<span class="w">         </span>developer-live-server.yaml
+<span class="linenos"> 8</span><span class="gp">          # </span>Use<span class="w"> </span>Case:<span class="w">     </span>Live<span class="w"> </span>Image<span class="w"> </span>which<span class="w"> </span>boots<span class="w"> </span>into<span class="w"> </span>login<span class="w"> </span>prompt
+<span class="linenos"> 9</span><span class="gp">          #               </span>Optionally<span class="w"> </span>allows<span class="w"> </span><span class="k">for</span><span class="w"> </span>installing<span class="w"> </span>Clear<span class="w"> </span>Linux<span class="w"> </span>OS
+<span class="linenos">10</span><span class="gp">          #               </span>using<span class="w"> </span>the<span class="w"> </span>TUI<span class="w"> </span>clr-installer<span class="w"> </span>by<span class="w"> </span>running<span class="w"> </span>clr-installer
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="gp">          # </span>switch<span class="w"> </span>between<span class="w"> </span>aliases<span class="w"> </span><span class="k">if</span><span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>install<span class="w"> </span>to<span class="w"> </span>an<span class="w"> </span>actual<span class="w"> </span>block<span class="w"> </span>device
+<span class="linenos">13</span><span class="gp">          # </span>i.e<span class="w"> </span>/dev/sda
+<span class="hll"><span class="linenos">14</span><span class="go">          block-devices: [</span>
+</span><span class="hll"><span class="linenos">15</span><span class="go">             {name: &quot;bdevice&quot;, file: &quot;/dev/sda&quot;}</span>
+</span><span class="linenos">16</span><span class="go">          ]</span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="go">          targetMedia:</span>
+<span class="linenos">19</span><span class="go">          - name: ${bdevice}</span>
+<span class="linenos">20</span><span class="go">            type: disk</span>
+<span class="linenos">21</span><span class="go">            children:</span>
+<span class="linenos">22</span><span class="go">            - name: ${bdevice}1</span>
+<span class="linenos">23</span><span class="go">              fstype: vfat</span>
+<span class="linenos">24</span><span class="go">              mountpoint: /boot</span>
+<span class="linenos">25</span><span class="go">              size: &quot;150M&quot;</span>
+<span class="linenos">26</span><span class="go">              type: part</span>
+<span class="linenos">27</span><span class="go">            - name: ${bdevice}2</span>
+<span class="linenos">28</span><span class="go">              fstype: swap</span>
+<span class="linenos">29</span><span class="go">              size: &quot;32M&quot;</span>
+<span class="linenos">30</span><span class="go">              type: part</span>
+<span class="linenos">31</span><span class="go">            - name: ${bdevice}3</span>
+<span class="linenos">32</span><span class="go">              fstype: ext4</span>
+<span class="linenos">33</span><span class="go">              mountpoint: /</span>
+<span class="hll"><span class="linenos">34</span><span class="go">              size: &quot;0&quot;</span>
+</span><span class="linenos">35</span><span class="go">              type: part</span>
+<span class="linenos">36</span>
+<span class="hll"><span class="linenos">37</span><span class="go">          bundles: [os-core, os-core-update, NetworkManager, clr-installer, vim]</span>
+</span><span class="linenos">38</span>
+<span class="linenos">39</span><span class="go">          autoUpdate: false</span>
+<span class="linenos">40</span><span class="go">          postArchive: false</span>
+<span class="linenos">41</span><span class="go">          postReboot: false</span>
+<span class="linenos">42</span><span class="go">          telemetry: false</span>
+<span class="linenos">43</span><span class="go">          iso: true</span>
+<span class="linenos">44</span><span class="go">          keepImage: true</span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="go">          keyboard: us</span>
+<span class="linenos">47</span><span class="go">          language: en_US.UTF-8</span>
+<span class="linenos">48</span><span class="go">          kernel: kernel-native</span>
+<span class="linenos">49</span>
+<span class="hll"><span class="linenos">50</span><span class="go">          version: 30010</span>
+</span></pre></div>
+</div>
+</li>
+<li><p>Start the unattended installation using the <cite>–config</cite> option.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>clr-installer<span class="w"> </span>--config<span class="w"> </span>live-server.yaml
+</pre></div>
+</div>
+</li>
+<li><p>Reboot your system after installation is completed.</p></li>
+</ol>
+</section>
+<section id="example-2-replicate-a-previous-installation">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Example 2: Replicate a previous installation</a><a class="headerlink" href="#example-2-replicate-a-previous-installation" title="Link to this heading">¶</a></h2>
+<p>This example uses a saved configuration file from a previous installation,
+which you can use to easily clone the installation on additional machines
+, ideally with the same hardware configuration.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be aware of the following when applying a saved configuration on a new machine:</p>
+<ul class="simple">
+<li><p>Make sure the target media on the new machine matches up</p></li>
+<li><p>The users’ credentials will be replicated as well</p></li>
+</ul>
+</div>
+<ol class="arabic">
+<li><p>On a system where Clear Linux OS was installed, open a terminal window.</p></li>
+<li><p>Get root privilege.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>su
+</pre></div>
+</div>
+</li>
+<li><p>Copy the <code class="file docutils literal notranslate"><span class="pre">clr-installer.yaml</span></code> from <code class="file docutils literal notranslate"><span class="pre">/root</span></code> to a USB thumb drive.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>/root/clr-installer.yaml<span class="w"> </span>&lt;USB-thumb-drive&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Install on target system.</p>
+<ol class="loweralpha">
+<li><p>Boot up the Clear Linux OS Live Server USB thumb drive.</p></li>
+<li><p>Select <span class="guilabel">Clear Linux OS</span> from the menu.</p></li>
+<li><p>In the console window, log in as <cite>root</cite> and set a password.</p></li>
+<li><p>Verify you have a network connection to the Internet and configure proxy
+settings if you’re working behind a firewall.</p></li>
+<li><p>Plug in and mount the USB thumb drive containing the retrieved
+<code class="file docutils literal notranslate"><span class="pre">clr-installer.yaml</span></code> configuration file.</p></li>
+<li><p>Doublecheck to make sure the target media in the saved configuration file
+matches with the target system’s.</p></li>
+<li><p>Start the installation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>clr-installer<span class="w"> </span>--config<span class="w"> </span>clr-installer.yaml
+</pre></div>
+</div>
+</li>
+<li><p>Reboot your system after installation is completed.</p></li>
+</ol>
+</li>
+</ol>
+</section>
+<section id="references">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">References</a><a class="headerlink" href="#references" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/clearlinux/clr-installer">Clear Linux Installer</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md">Installer YAML Syntax</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Install using clr-installer and a configuration file</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#download-and-make-bootable-usb-of-the-live-server-image">Download and make bootable USB of the live server image</a></li>
+<li><a class="reference internal" href="#example-1-fresh-installation-onto-bare-metal">Example 1: Fresh installation onto bare metal</a></li>
+<li><a class="reference internal" href="#example-2-replicate-a-previous-installation">Example 2: Replicate a previous installation</a></li>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bare-metal-install-server.html"
+                          title="previous chapter">Install Clear Linux* OS from the live server</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="ipxe-install.html"
+                          title="next chapter">Install Clear Linux OS Over the Network with iPXE</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/get-started/install-configfile.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="ipxe-install.html" title="Install Clear Linux OS Over the Network with iPXE"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bare-metal-install-server.html" title="Install Clear Linux* OS from the live server"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install using clr-installer and a configuration file</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

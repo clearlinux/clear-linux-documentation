@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>PHP and PHP-FPM &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/tutorials/php.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Redis*" href="redis.html" />
+    <link rel="prev" title="OpenFaaS*" href="openfaas.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="redis.html" title="Redis*"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="openfaas.html" title="OpenFaaS*"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PHP and PHP-FPM</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="php-and-php-fpm">
+<span id="php"></span><h1>PHP and PHP-FPM<a class="headerlink" href="#php-and-php-fpm" title="Link to this heading">¶</a></h1>
+<p>This tutorial describes how to configure and use <abbr title="PHP: Hypertext Preprocessor">PHP</abbr>
+and <abbr title="PHP FastCGI Process Manager">PHP-FPM</abbr> on Clear Linux* OS.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#background" id="id2">Background</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id3">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#configure-php" id="id4">Configure PHP</a></p></li>
+<li><p><a class="reference internal" href="#install-php-extensions" id="id5">Install PHP extensions</a></p></li>
+<li><p><a class="reference internal" href="#enable-php-extensions" id="id6">Enable PHP extensions</a></p></li>
+<li><p><a class="reference internal" href="#configure-php-fpm" id="id7">Configure PHP-FPM</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>The <a class="reference external" href="https://www.php.net/">PHP language</a> is an Open Source general-purpose scripting language that is popular
+with web-developers who leverage its ability to create dynamically generated
+web pages. <a class="reference external" href="https://php-fpm.org/">PHP-FPM</a> is a PHP FastCGI implementation that controls process
+management, workers, and logging for PHP. The two applications work together,
+but each one has its own configuration.</p>
+<p>This tutorial specifically addresses PHP and PHP-FPM, however, it provides a
+general guide for working with applications in the Clear Linux OS <a class="reference internal" href="../guides/clear/stateless.html#stateless"><span class="std std-ref">Stateless</span></a>
+environment.</p>
+</section>
+<section id="background">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Background</a><a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>By default, PHP looks for configuration settings in the <code class="file docutils literal notranslate"><span class="pre">php.ini</span></code> file,
+which resides in the <code class="file docutils literal notranslate"><span class="pre">usr/share/defaults/php/</span></code> path. Because Clear Linux OS is a
+<a class="reference internal" href="../guides/clear/stateless.html#stateless"><span class="std std-ref">Stateless</span></a> operating system, you must create an optional configuration
+file to override the default values. Every time <strong class="command">swupd</strong> updates the
+system, it overwrites changes to the <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults</span></code> file
+structure. To save your configuration options through updates, you must create
+a PHP configuration file in a location that will not be overwritten. The
+recommended location is within the <code class="file docutils literal notranslate"><span class="pre">/etc</span></code> file structure, which is why this
+tutorial creates a <code class="file docutils literal notranslate"><span class="pre">/etc/php.d</span></code> directory.</p>
+<p>The PHP-FPM configuration file is separate from the <code class="file docutils literal notranslate"><span class="pre">php.ini</span></code> file used
+by PHP, however it has a similar default path restriction. Clear Linux OS installs the
+default <code class="file docutils literal notranslate"><span class="pre">php-fpm.conf</span></code> file in <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/php</span></code>. This
+file with its default values is overwritten during each software update.
+However, PHP-FPM requires that the configuration file exist in that location,
+and, by design, does not read configuration options from a different path.
+This tutorial describes a solution to changing PHP-FPM configuration options
+in Clear Linux OS, by manually  overriding the php-fpm.service unit in systemd to pass
+an explicit location to a custom <code class="file docutils literal notranslate"><span class="pre">php-fpm.conf</span></code> file.</p>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p><a class="reference internal" href="../get-started/bare-metal-install-desktop.html#bare-metal-install-desktop"><span class="std std-ref">Install</span></a> Clear Linux OS on your host system.</p></li>
+<li><p>Use <strong class="command">swupd</strong> to install the <code class="file docutils literal notranslate"><span class="pre">php-basic</span></code> bundle:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>php-basic
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>PHP does not require a web server for operation. If you need a web
+server, refer to <a class="reference internal" href="lamp-server.html#lamp-server-install"><span class="std std-ref">LAMP Web Server</span></a> for instructions on setting
+up a <abbr title="Linux, Apache*, MySQL*, PHP">LAMP</abbr> server, or use
+<strong class="command">swupd</strong> to install <code class="file docutils literal notranslate"><span class="pre">nginx</span></code> or similar.</p>
+</div>
+</section>
+<section id="configure-php">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Configure PHP</a><a class="headerlink" href="#configure-php" title="Link to this heading">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This section does <strong>not</strong> describe configuration for the PHP-FPM service, which is
+described later in this guide.</p>
+</div>
+<p>This section creates a <code class="file docutils literal notranslate"><span class="pre">/etc/php.d</span></code> directory for all PHP configuration
+files to work around the default path restriction.</p>
+<ol class="arabic">
+<li><p>Create a <code class="file docutils literal notranslate"><span class="pre">php.ini</span></code> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/php.d
+sudo<span class="w"> </span>touch<span class="w"> </span>/etc/php.d/my-php.ini
+</pre></div>
+</div>
+<p>This file can be edited with any of your specific configuration
+requirements, and will not be overwritten when <strong class="command">swupd</strong> performs
+an update. The <a class="reference external" href="https://www.php.net/manual/en/configuration.file.php">PHP configuration file</a> documentation contains details
+about what you can set in this file.</p>
+</li>
+<li><p>Verify the location of the PHP configuration files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>--ini
+</pre></div>
+</div>
+<p>You should see output like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Configuration File (php.ini) Path: /usr/share/defaults/php/</span>
+<span class="go">Loaded Configuration File:         /usr/share/defaults/php/php.ini</span>
+<span class="go">Scan for additional .ini files in: /etc/php.d</span>
+<span class="go">Additional .ini files parsed:</span>
+</pre></div>
+</div>
+<p>This output indicates that PHP will read the <code class="file docutils literal notranslate"><span class="pre">php.ini</span></code> file from
+<code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/php</span></code> and will then load any further
+configuration from <code class="file docutils literal notranslate"><span class="pre">.ini</span></code> files in <code class="file docutils literal notranslate"><span class="pre">/etc/php.d/</span></code>. The
+<code class="file docutils literal notranslate"><span class="pre">my-php.ini</span></code> file in <code class="file docutils literal notranslate"><span class="pre">/etc/php.d</span></code> contains your configuration
+details, and allows the defaults to be read from
+<code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/php/</span></code>. Note that the <code class="file docutils literal notranslate"><span class="pre">my-php.ini</span></code> file
+has not been parsed, because the file has no content at this
+point and is disregarded.</p>
+</li>
+</ol>
+</section>
+<section id="install-php-extensions">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Install PHP extensions</a><a class="headerlink" href="#install-php-extensions" title="Link to this heading">¶</a></h2>
+<p>PHP extensions are compiled libraries designed to enable specific functions in
+your PHP code. Clear Linux OS provides PHP extensions in the <code class="file docutils literal notranslate"><span class="pre">php-extras</span></code> bundle.</p>
+<ol class="arabic">
+<li><p>Install the bundle with swupd:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>php-extras
+</pre></div>
+</div>
+</li>
+<li><p>Find the list of extensions included in the <a class="reference external" href="https://clearlinux.org/software/bundle/php-extras">php-extras</a> bundle on the
+Clear Linux OS <a class="reference external" href="https://clearlinux.org/software/">Store</a>.</p></li>
+</ol>
+</section>
+<section id="enable-php-extensions">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Enable PHP extensions</a><a class="headerlink" href="#enable-php-extensions" title="Link to this heading">¶</a></h2>
+<p>To enable an installed extension, you must add it to the <code class="file docutils literal notranslate"><span class="pre">php.ini</span></code> file
+for the composer.</p>
+<ol class="arabic">
+<li><p>Create the <code class="file docutils literal notranslate"><span class="pre">my-php.ini</span></code> file using the directive to load the
+php-imagick extension:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;extension=imagick.so&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/etc/php.d/my-php.ini
+</pre></div>
+</div>
+</li>
+<li><p>Restart the php-fpm service for PHP to pick up the modification to the
+<code class="file docutils literal notranslate"><span class="pre">/etc/php.d/my-php.ini</span></code> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>php-fpm
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the imagick extension has been loaded by searching through the
+runtime list of loaded PHP Modules:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>php<span class="w"> </span>-m<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>imagick
+</pre></div>
+</div>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To enable an extension, you must install it, add it to the
+<code class="file docutils literal notranslate"><span class="pre">my-php.ini</span></code> file, and restart the <code class="file docutils literal notranslate"><span class="pre">php-fpm</span></code> service. However,
+some extensions may have configuration options, which will be documented by
+the extension maintainer. Add the options you need to the
+<code class="file docutils literal notranslate"><span class="pre">/etc/php.d/my-php.ini</span></code> file as described in the extension’s
+documentation. Be sure to restart <code class="file docutils literal notranslate"><span class="pre">php-fpm</span></code> after changing the file.</p>
+</div>
+</section>
+<section id="configure-php-fpm">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Configure PHP-FPM</a><a class="headerlink" href="#configure-php-fpm" title="Link to this heading">¶</a></h2>
+<p>The PHP-FPM configuration file is separate from the <code class="file docutils literal notranslate"><span class="pre">php.ini</span></code> file used
+by PHP, however, it has a similar default path restriction. Follow the steps
+below to configure PHP-FPM.</p>
+<ol class="arabic">
+<li><p>Copy the <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/php/php-fpm.conf</span></code> file to the
+<code class="file docutils literal notranslate"><span class="pre">/etc/php.d</span></code> file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>cp<span class="w"> </span>/usr/share/defaults/php/php-fpm.conf<span class="w"> </span>/etc/php.d/php-fpm.conf
+</pre></div>
+</div>
+</li>
+<li><p>Make changes to the <code class="file docutils literal notranslate"><span class="pre">php-fpm.conf</span></code> file as needed. The
+<a class="reference external" href="https://www.php.net/manual/en/install.fpm.configuration.php">FPM documentation</a> has details on the configuration options available
+to PHP-FPM.</p></li>
+<li><p>Edit the systemd service unit file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>edit<span class="w"> </span>--full<span class="w"> </span>php-fpm.service
+</pre></div>
+</div>
+<p>This opens the <code class="file docutils literal notranslate"><span class="pre">php-fpm.service</span></code> file for systemd in your editor.</p>
+</li>
+<li><p>Change the <strong class="command">ExecStart</strong> configuration to add the
+<strong class="command">--fpm-config</strong> option to point to the custom location:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[Unit]</span>
+<span class="go">Description=The PHP FastCGI Process Manager</span>
+<span class="go">After=syslog.target network.target</span>
+
+<span class="go">[Service]</span>
+<span class="go">Type=notify</span>
+<span class="go">PIDFile=/run/php-fpm.pid</span>
+<span class="go">ExecStart=/usr/sbin/php-fpm --nodaemonize --fpm-config /etc/php.d/php-fpm.conf</span>
+<span class="go">ExecReload=/bin/kill -USR2 $MAINPID</span>
+<span class="go">PrivateTmp=true</span>
+
+<span class="go">[Install]</span>
+<span class="go">WantedBy=multi-user.target</span>
+</pre></div>
+</div>
+</li>
+<li><p>Restart the service:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>php-fpm.service
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the new path has been picked up:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>php-fpm.service
+</pre></div>
+</div>
+<p>You should see the new path in the output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">● php-fpm.service - The PHP FastCGI Process Manager</span>
+<span class="go">Loaded: loaded (/etc/systemd/system/php-fpm.service; enabled; vendor preset: disabled)</span>
+<span class="go">Active: active (running) since Thu 2019-10-17 13:19:34 PDT; 8min ago</span>
+<span class="go">Main PID: 14452 (php-fpm)</span>
+<span class="go">Status: &quot;Processes active: 0, idle: 0, Requests: 0, slow: 0, Traffic: 0req/sec&quot;</span>
+<span class="go"> Tasks: 1</span>
+<span class="go">Memory: 11.1M</span>
+<span class="go">CGroup: /system.slice/php-fpm.service</span>
+<span class="go">        └─14452 php-fpm: master process (/etc/php.d/php-fpm.conf)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">PHP and PHP-FPM</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#configure-php">Configure PHP</a></li>
+<li><a class="reference internal" href="#install-php-extensions">Install PHP extensions</a></li>
+<li><a class="reference internal" href="#enable-php-extensions">Enable PHP extensions</a></li>
+<li><a class="reference internal" href="#configure-php-fpm">Configure PHP-FPM</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="openfaas.html"
+                          title="previous chapter">OpenFaaS*</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="redis.html"
+                          title="next chapter">Redis*</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/php.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="redis.html" title="Redis*"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="openfaas.html" title="OpenFaaS*"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">PHP and PHP-FPM</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

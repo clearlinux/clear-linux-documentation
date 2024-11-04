@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>VMware* Workstation Pro &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/tutorials/vmware-workstation.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WordPress* Server" href="wordpress.html" />
+    <link rel="prev" title="TensorFlow* machine learning" href="tensorflow-machine-learning.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="wordpress.html" title="WordPress* Server"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tensorflow-machine-learning.html" title="TensorFlow* machine learning"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">VMware* Workstation Pro</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="vmware-workstation-pro">
+<span id="vmware-workstation"></span><h1>VMware* Workstation Pro<a class="headerlink" href="#vmware-workstation-pro" title="Link to this heading">¶</a></h1>
+<p>VMware Workstation Pro allows you to run multiple operating systems as
+<abbr title="virtual machines">VMs</abbr> on a single host. It is a more advanced version
+of VMware Workstation Player.</p>
+<p>This tutorial shows how to do a manual installation of VMware Workstation
+Pro on a Clear Linux* OS host using the console plus the VMware Workstation Pro GUI.</p>
+<p>VMware Workstation Pro on Linux installs two major components:</p>
+<ol class="arabic simple">
+<li><p>VMware hypervisor software</p></li>
+<li><p>VMware kernel modules</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clear Linux OS is not an officially supported host OS for VMware Workstation Pro. This
+tutorial follows the generic Linux installation instructions with details
+specific to a manual installation on Clear Linux OS.</p>
+</div>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>Enable virtualization in the BIOS before installing VMware Workstation Pro.</p>
+</section>
+<section id="install-vmware-workstation-pro">
+<h2>Install VMware Workstation Pro<a class="headerlink" href="#install-vmware-workstation-pro" title="Link to this heading">¶</a></h2>
+<p>Use the console installer to install the VMware Workstation Pro hypervisor
+software:</p>
+<ol class="arabic">
+<li><p>Download
+<a class="reference external" href="https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html">VMware Workstation Pro for Linux</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The downloaded file is named with a <code class="file docutils literal notranslate"><span class="pre">.bundle</span></code> file extension but
+this is not a Clear Linux OS <a class="reference internal" href="../guides/clear/bundles.html#bundles-guide"><span class="std std-ref">bundle</span></a>!</p>
+</div>
+</li>
+<li><p>In a terminal, <strong class="command">cd</strong> to the directory where the <cite>.bundle</cite> installation
+file was saved.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Downloads/
+</pre></div>
+</div>
+</li>
+<li><p>Make the <cite>.bundle</cite> installation file executable. Replace
+[VMware-Workstation-xxxx-xxxx.architecture] with the actual file name.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>./<span class="o">[</span>VMware-Workstation-xxxx-xxxx.architecture<span class="o">]</span>.bundle
+</pre></div>
+</div>
+</li>
+<li><p>Start the installation.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./VMware-Workstation-<span class="o">[</span>xxxx-xxxx<span class="o">]</span>.architecture.bundle
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Extracting VMware Installer...done.</span>
+</pre></div>
+</div>
+</li>
+<li><p>When prompted to specify the system service scripts directory, use the common
+suggestion:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">System service scripts directory (commonly /etc/init.d).: /etc/init.d</span>
+</pre></div>
+</div>
+<p>You will see output similar to the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Installing VMware VMX 15.5.0</span>
+<span class="go">    Configuring...No rc*.d style init script directories were given to the installer.</span>
+<span class="go">You must manually add the necessary links to ensure that the vmware    ]  49%</span>
+<span class="go">service at /etc/init.d/vmware is automatically started and stopped on</span>
+<span class="go">Installing VMware Workstation 15.5.0</span>
+<span class="go">    Configuring...</span>
+<span class="go">[######################################################################] 100%</span>
+<span class="go">Installation was successful.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During installation you will get an error about “No rc*.d style init
+script directories” being given. This can safely be ignored as Clear Linux OS uses
+<strong class="command">systemd</strong>.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="install-vmware-kernel-modules">
+<h2>Install VMware kernel modules<a class="headerlink" href="#install-vmware-kernel-modules" title="Link to this heading">¶</a></h2>
+<p>After installing VMware Workstation Pro, additional VMware kernel modules must
+be compiled and installed. Before installing the VMware kernel modules, install
+DKMS, which will provide the necessary tools to add the VMware kernel modules.</p>
+<section id="install-dkms">
+<h3>Install DKMS<a class="headerlink" href="#install-dkms" title="Link to this heading">¶</a></h3>
+<p>The <strong class="command">kernel-native-dkms</strong> bundle provides the DKMS program and Linux
+kernel headers, which are placed under <code class="file docutils literal notranslate"><span class="pre">/usr/lib/modules/$(uname</span>
+<span class="pre">-r)/build/include/</span></code> and are required to compile kernel modules.</p>
+<p>The <strong class="command">kernel-native-dkms</strong> bundle also:</p>
+<ul class="simple">
+<li><p>Adds a <cite>systemd</cite> update trigger
+(<code class="file docutils literal notranslate"><span class="pre">/usr/lib/systemd/system/dkms-new-kernel.service</span></code>) to automatically
+run DKMS to rebuild modules after a kernel upgrade occurs with <a class="reference internal" href="../guides/clear/swupd.html#swupd-guide"><span class="std std-ref">swupd
+update</span></a>.</p></li>
+<li><p>Disables kernel module signature verification by appending a kernel
+command-line parameter (<strong class="command">module.sig_unenforce</strong>) from the
+<code class="file docutils literal notranslate"><span class="pre">/usr/share/kernel/cmdline.d/clr-ignore-mod-sig.conf</span></code> file.</p></li>
+<li><p>Adds a notification to the Message of the Day (MOTD) indicating kernel
+module signature verification is disabled.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We recommend that you always review the <strong class="command">swupd update</strong> output
+to make sure kernel modules were successfully rebuilt against the new
+kernel. This is especially important for systems where a successful boot
+relies on a kernel module.</p>
+</div>
+<p id="kernel-modules-dkms-install-begin-alt">Install the <strong class="command">kernel-native-dkms</strong> or <strong class="command">kernel-lts-dkms</strong>
+bundle.</p>
+<ol class="arabic">
+<li><p>Determine which kernel variant is running on Clear Linux OS. Only the <em>native</em>
+and <em>lts</em> kernels are enabled to build and load out-of-tree kernel modules
+with DKMS.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uname<span class="w"> </span>-r
+<span class="go">5.XX.YY-ZZZZ.native</span>
+</pre></div>
+</div>
+<p>Ensure <em>.native</em> or <em>.lts</em> is in the kernel name.</p>
+</li>
+<li><p>Install the DKMS bundle corresponding to the installed kernel. Use
+<strong class="command">kernel-native-dkms</strong> for the native kernel or
+<strong class="command">kernel-lts-dkms</strong> for the lts kernel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>kernel-native-dkms
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>kernel-lts-dkms
+</pre></div>
+</div>
+</li>
+<li><p>Update the Clear Linux OS bootloader and reboot, and
+ensure that you can start the new kernel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-boot-manager<span class="w"> </span>update
+reboot
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="install-kernel-modules">
+<h3>Install kernel modules<a class="headerlink" href="#install-kernel-modules" title="Link to this heading">¶</a></h3>
+<p>Launch the VMware Workstation Pro GUI to finish the installation and build the
+needed kernel modules.</p>
+<ol class="arabic simple">
+<li><p>On the Clear Linux OS desktop, find the VMware Workstation Pro icon and click to launch.</p></li>
+<li><p>Click through the installation customization screens as directed in the
+VMware Kernel Module Updater.</p></li>
+<li><p>On the last screen click <span class="guilabel">Finish</span>. VMware Workstation Pro will launch.</p></li>
+<li><p>Create and configure a new VM!</p></li>
+</ol>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<p>If problems occur during installation, the recommended first step is to identify
+which major component the issues are occurring in (hypervisor or kernel modules).
+This will help direct further troubleshooting.</p>
+<p>Troubleshooting tips:</p>
+<ul>
+<li><p>If the issue is with compiling the kernel modules and you are running the native
+kernel, try installing the LTS kernel instead.</p></li>
+<li><p>If modules failed to install or load, check logs in <code class="file docutils literal notranslate"><span class="pre">/tmp/vmware-&lt;username&gt;/*.log</span></code></p></li>
+<li><p>Try re-installing all VMware modules with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>vmware-modconfig<span class="w"> </span>--console<span class="w"> </span>--install-all
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">VMware* Workstation Pro</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#install-vmware-workstation-pro">Install VMware Workstation Pro</a></li>
+<li><a class="reference internal" href="#install-vmware-kernel-modules">Install VMware kernel modules</a><ul>
+<li><a class="reference internal" href="#install-dkms">Install DKMS</a></li>
+<li><a class="reference internal" href="#install-kernel-modules">Install kernel modules</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="tensorflow-machine-learning.html"
+                          title="previous chapter">TensorFlow* machine learning</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="wordpress.html"
+                          title="next chapter">WordPress* Server</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/vmware-workstation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="wordpress.html" title="WordPress* Server"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tensorflow-machine-learning.html" title="TensorFlow* machine learning"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">VMware* Workstation Pro</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

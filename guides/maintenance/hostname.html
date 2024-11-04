@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modify hostname &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/maintenance/hostname.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Query package info from upstream repository" href="query-upstream.html" />
+    <link rel="prev" title="Fix a broken installation" href="fix-broken-install.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="query-upstream.html" title="Query package info from upstream repository"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="fix-broken-install.html" title="Fix a broken installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modify hostname</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="modify-hostname">
+<span id="hostname"></span><h1>Modify hostname<a class="headerlink" href="#modify-hostname" title="Link to this heading">¶</a></h1>
+<p>This guide describes how to modify and view the hostname of your Clear Linux* OS
+system.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
+<li><p><a class="reference internal" href="#set-your-hostname" id="id2">Set your hostname</a></p></li>
+<li><p><a class="reference internal" href="#view-your-hostname" id="id3">View your hostname</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>By default, Clear Linux OS installations have a machine generated name, which is a
+long string of letters and numbers. The generated name is fine for computers
+but is not human-friendly. Administrators and users will often want to rename
+their machines with a name that is easier to remember, type, and search
+for. Renaming a machine also makes it easier to identify, by including
+meaningful data in the name.  The following examples show human-friendly machine
+names:</p>
+<ul class="simple">
+<li><p><em>regression-test</em></p></li>
+<li><p><em>sally-test-box1</em></p></li>
+<li><p><em>az-bldg2-lab</em></p></li>
+</ul>
+</section>
+<section id="set-your-hostname">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Set your hostname</a><a class="headerlink" href="#set-your-hostname" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS uses the <strong class="command">hostnamectl</strong> command to display and modify the machine
+name. <strong class="command">hostnamectl</strong> is part of the <strong class="command">os-core</strong> bundle, which
+provides a basic Linux* user space and utilities.</p>
+<p>This example sets the hostname to <em>telemetry-test-2-h15</em>, to identify a
+Clear Linux OS telemetry test machine on the second floor at grid location H15.
+Make sure to reboot after setting a new hostname.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>hostnamectl<span class="w"> </span>set-hostname<span class="w"> </span>telemetry-test-2-h15
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There are three types of hostname: <em>static</em>, <em>transient</em>, and <em>pretty</em>.
+The most common is the static hostname. Static hostnames must be between
+two and 63 characters long, must start and end with a letter or number,
+and may contain letters (case-insensitive), numbers, dashes, or dots.</p>
+<p>If the static hostname exists, it is used to generate the transient hostname,
+which is maintained by the kernel. The transient hostname can be changed
+by DHCP or mDNS at runtime.</p>
+<p>The pretty hostname is a free-form UTF8 name used for presentation to the user.</p>
+</div>
+</section>
+<section id="view-your-hostname">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">View your hostname</a><a class="headerlink" href="#view-your-hostname" title="Link to this heading">¶</a></h2>
+<p>View your current hostname using the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>hostnamectl
+</pre></div>
+</div>
+<p>You should see output similar to:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Static hostname   : telemetry-test-2-h15</span>
+<span class="go">Pretty hostname   : telemetry-test-2-h15</span>
+<span class="go">Icon name         : computer-desktop</span>
+<span class="go">Chassis           : desktop</span>
+<span class="go">Machine ID        : 4d0d60207a904ebbab96680a51ac1339</span>
+<span class="go">Boot ID           : 98d3514e5a984e8cbbdf46a2f0d6b397</span>
+<span class="go">Operating System  : Clear Linux OS</span>
+<span class="go">Kernel            : Linux 4.18.8-632.native</span>
+<span class="go">Architecture      : x86-64</span>
+</pre></div>
+</div>
+<p><strong>Congratulations!</strong> You successfully modified the hostname of your Clear Linux OS system.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Modify hostname</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#set-your-hostname">Set your hostname</a></li>
+<li><a class="reference internal" href="#view-your-hostname">View your hostname</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="fix-broken-install.html"
+                          title="previous chapter">Fix a broken installation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="query-upstream.html"
+                          title="next chapter">Query package info from upstream repository</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/maintenance/hostname.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="query-upstream.html" title="Query package info from upstream repository"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="fix-broken-install.html" title="Fix a broken installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modify hostname</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

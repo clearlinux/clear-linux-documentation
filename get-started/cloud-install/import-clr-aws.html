@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Import Clear Linux Image and Launch Instance on AWS &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/cloud-install/import-clr-aws.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clear Linux* OS on QingCloud*" href="qingcloud.html" />
+    <link rel="prev" title="Clear Linux* OS on Google Cloud Platform*" href="gce.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="qingcloud.html" title="Clear Linux* OS on QingCloud*"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gce.html" title="Clear Linux* OS on Google Cloud Platform*"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Import Clear Linux Image and Launch Instance on AWS</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="import-clear-linux-image-and-launch-instance-on-aws">
+<span id="import-clr-aws"></span><h1>Import Clear Linux Image and Launch Instance on AWS<a class="headerlink" href="#import-clear-linux-image-and-launch-instance-on-aws" title="Link to this heading">¶</a></h1>
+<p>Clear Linux is available on the AWS marketplace.  However, it may not
+be the latest version because we only update the marketplace on a
+periodic basis, as often as weekly or but maybe monthly as well.
+If you want to use the latest release from us or upload your own
+custom image, follow this guide.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id29">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#download-or-create-a-cl-image-for-aws" id="id30">Download or create a Clear Linux OS image for AWS</a></p></li>
+<li><p><a class="reference internal" href="#create-an-s3-bucket" id="id31">Create an S3 bucket</a></p></li>
+<li><p><a class="reference internal" href="#upload-the-cl-image-into-the-bucket" id="id32">Upload the Clear Linux OS image into the bucket</a></p></li>
+<li><p><a class="reference internal" href="#add-a-user-to-iam-with-aws-cli-privilege" id="id33">Add a user to IAM with AWS_CLI privilege</a></p></li>
+<li><p><a class="reference internal" href="#install-and-configure-the-aws-cli-tool-on-your-system" id="id34">Install and configure the AWS CLI tool on your system</a></p></li>
+<li><p><a class="reference internal" href="#import-a-snapshot-of-the-cl-image" id="id35">Import a snapshot of the Clear Linux OS image</a></p></li>
+<li><p><a class="reference internal" href="#create-an-ami-from-the-snapshot" id="id36">Create an AMI from the snapshot</a></p></li>
+<li><p><a class="reference internal" href="#launch-an-instance" id="id37">Launch an instance</a></p></li>
+<li><p><a class="reference internal" href="#connect-to-your-cl-instance" id="id38">Connect to your Clear Linux OS instance</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id39">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id29" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>You are familiar with AWS and how to use it</p></li>
+</ul>
+</section>
+<section id="download-or-create-a-cl-image-for-aws">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Download or create a Clear Linux OS image for AWS</a><a class="headerlink" href="#download-or-create-a-cl-image-for-aws" title="Link to this heading">¶</a></h2>
+<p>Obtain an AWS Clear Linux OS image using one of these methods.</p>
+<section id="download-pre-built-image">
+<h3>Download pre-built image<a class="headerlink" href="#download-pre-built-image" title="Link to this heading">¶</a></h3>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://clearlinux.org/downloads">Downloads</a> page and download the
+<em>Amazon* Web Services (AWS)</em> image.</p></li>
+<li><p>Uncompress it.</p></li>
+</ol>
+</section>
+<section id="create-a-custom-image-using-clr-installer">
+<h3>Create a custom image using clr-installer<a class="headerlink" href="#create-a-custom-image-using-clr-installer" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>On a Clear Linux OS system, open a terminal.</p></li>
+<li><p>Install the <cite>clr-installer</cite> bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>clr-installer
+</pre></div>
+</div>
+</li>
+<li><p>Download a sample <a class="reference external" href="https://cdn.download.clearlinux.org/current/config/image/aws.yaml">aws.yaml</a> configuration file.</p></li>
+<li><p>Make changes to the configuration file as needed.
+See <a class="reference external" href="https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md">Installer YAML Syntax</a> for more information on clr-installer
+configuration YAML syntax.</p></li>
+<li><p>Download the <a class="reference external" href="https://cdn.download.clearlinux.org/current/config/image/aws-disable-root.sh">AWS image post-install script</a> and make it executable.</p></li>
+<li><p>Produce an image with clr-installer.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>clr-installer<span class="w"> </span>--template<span class="w"> </span><span class="nv">$PWD</span>/aws.yaml
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="create-an-s3-bucket">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Create an S3 bucket</a><a class="headerlink" href="#create-an-s3-bucket" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Log into AWS.</p></li>
+<li><p>Go to <span class="guilabel">Services</span>, <span class="guilabel">Storage</span>, and select <span class="guilabel">S3</span>.
+See Figure 1.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-01.png"><img alt="AWS Services - S3 Management Console" src="../../_images/import-clr-aws-01.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: AWS Services - S3 Management Console</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">+ Create bucket</span>.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-02.png"><img alt="AWS S3 - Create bucket" src="../../_images/import-clr-aws-02.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: AWS S3 - Create bucket</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Set a bucket name and select a region.
+See Figure 3.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-03.png"><img alt="AWS S3 - Create bucket - Set bucket name and region" src="../../_images/import-clr-aws-03.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: AWS S3 - Create bucket - Set bucket name and region</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Leave the <span class="guilabel">Configure options</span> and <span class="guilabel">Set permissions</span>
+settings as is or configure as desired.  See Figure 4 and 5.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-04.png"><img alt="AWS S3 - Create bucket - Configure options" src="../../_images/import-clr-aws-04.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: AWS S3 - Create bucket - Configure options</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-05.png"><img alt="AWS S3 - Create bucket - Set permissions" src="../../_images/import-clr-aws-05.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: AWS S3 - Create bucket - Set permissions</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>At the <span class="guilabel">Review</span> screen, click <span class="guilabel">Create bucket</span>.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-06.png"><img alt="AWS S3 - Create bucket - Review" src="../../_images/import-clr-aws-06.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: AWS S3 - Create bucket - Review</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The created bucket should appear.  See Figure 7.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-07.png"><img alt="AWS S3 - Created bucket" src="../../_images/import-clr-aws-07.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: AWS S3 - Created bucket</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="upload-the-cl-image-into-the-bucket">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Upload the Clear Linux OS image into the bucket</a><a class="headerlink" href="#upload-the-cl-image-into-the-bucket" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Click on the bucket.
+See Figure 8.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-08.png"><img alt="AWS S3 - Select bucket" src="../../_images/import-clr-aws-08.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: AWS S3 - Select bucket</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Upload</span>.
+See Figure 9.</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-09.png"><img alt="AWS S3 - Upload" src="../../_images/import-clr-aws-09.png" style="width: 875.6999999999999px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: AWS S3 - Upload</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Add files</span> and select the Clear Linux OS image file to upload.
+See Figure 10.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-10.png"><img alt="AWS S3 - Add files" src="../../_images/import-clr-aws-10.png" style="width: 875.6999999999999px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 10: AWS S3 - Add files</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Next</span>.  Leave remaining settings as is or set as desired.
+See Figure 11, Figure 12, and Figure 13.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-11.png"><img alt="AWS S3 - Add files" src="../../_images/import-clr-aws-11.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 11: AWS S3 - Add files</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-12.png"><img alt="AWS S3 - Set permissions" src="../../_images/import-clr-aws-12.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 12: AWS S3 - Set permissions</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-13.png"><img alt="AWS S3 - Set properties" src="../../_images/import-clr-aws-13.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 13: AWS S3 - Set properties</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Upload</span> to upload the image.
+See Figure 14.</p>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-14.png"><img alt="AWS S3 - Upload" src="../../_images/import-clr-aws-14.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 14: AWS S3 - Upload</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="add-a-user-to-iam-with-aws-cli-privilege">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">Add a user to IAM with AWS_CLI privilege</a><a class="headerlink" href="#add-a-user-to-iam-with-aws-cli-privilege" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Go to <span class="guilabel">Services</span>, <span class="guilabel">Security, Identity, &amp; Compliance</span>,
+and select <span class="guilabel">IAM</span>.
+See Figure 15.</p>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-15.png"><img alt="AWS Services - IAM" src="../../_images/import-clr-aws-15.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 15: AWS Services - IAM</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the left navigation bar under <span class="guilabel">Access management</span>,
+select <span class="guilabel">Users</span>.
+See Figure 16.</p>
+<figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-16.png"><img alt="AWS AIM - Access management" src="../../_images/import-clr-aws-16.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 16: AWS AIM - Access management</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Add user</span>.
+See Figure 17.</p>
+<figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-17.png"><img alt="AWS AIM - Add user" src="../../_images/import-clr-aws-17.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 17: AWS AIM - Add user</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Under the <span class="guilabel">Set user details</span> section, enter a user name.
+See Figure 18.</p>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-18.png"><img alt="AWS AIM - Enter user name and select access type" src="../../_images/import-clr-aws-18.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 18: AWS AIM - Enter user name and select access type</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Under the <span class="guilabel">Select AWS access type</span> section,
+checkmark <span class="guilabel">Programmatic access</span>.
+See Figure 18.</p></li>
+<li><p>Click <span class="guilabel">Next: Permissions</span>.</p></li>
+<li><p>Under <span class="guilabel">Set permissions</span>, select <span class="guilabel">Add user to group</span>.
+See Figure 19.</p>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-19.png"><img alt="AWS AIM - Set user permissions" src="../../_images/import-clr-aws-19.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 19: AWS AIM - Set user permissions</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Under <span class="guilabel">Add user to group</span>, enter <cite>AWS_CLI</cite> into search window.
+Checkmark <span class="guilabel">AWS_CLI</span>.
+See Figure 19.</p></li>
+<li><p>Click <span class="guilabel">Next: Tags</span>.</p></li>
+<li><p>Click <span class="guilabel">Next: Review</span>.</p></li>
+<li><p>Click <span class="guilabel">Create user</span>.
+See Figure 20.</p>
+<figure class="align-default" id="id20">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-20.png"><img alt="AWS AIM - Create user" src="../../_images/import-clr-aws-20.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 20: AWS AIM - Create user</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>After the user is successfully added, save the <span class="guilabel">Access key ID</span>
+and the <span class="guilabel">Secret access key</span>.  These will be used when setting up
+the AWS CLI tool at a later step.
+See Figure 21.</p>
+<figure class="align-default" id="id21">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-21.png"><img alt="AWS AIM - Access key ID and secret access key" src="../../_images/import-clr-aws-21.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 21: AWS AIM - Access key ID and secret access key</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Close</span>.</p></li>
+</ol>
+</section>
+<section id="install-and-configure-the-aws-cli-tool-on-your-system">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink">Install and configure the AWS CLI tool on your system</a><a class="headerlink" href="#install-and-configure-the-aws-cli-tool-on-your-system" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>To install the tool on Clear Linux OS, simply run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>cloud-api
+</pre></div>
+</div>
+</li>
+<li><p>Configure it with your security credentials, default region,
+and default output format. See <a class="reference external" href="https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-configure.html">Configuring the AWS CLI</a> for more information.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aws<span class="w"> </span>configure
+</pre></div>
+</div>
+<p>Below is an example (using the security credentials that was created in
+the previous section):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">AWS Access Key ID [None]: AKIA5LEGQPQ3EUB3JMS7</span>
+<span class="go">AWS Secret Access Key [None]: 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</span>
+<span class="go">Default region name [None]: us-west-2</span>
+<span class="go">Default output format [None]: json</span>
+</pre></div>
+</div>
+</li>
+<li><p>Verify your credentials are good.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aws<span class="w"> </span>iam<span class="w"> </span>list-access-keys
+</pre></div>
+</div>
+<p>If you get something like the example below, then make sure you set your
+system date and time properly.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">An error occurred (SignatureDoesNotMatch) when calling the ListAccessKeys operation: Signature expired: 20200305T153154Z is now earlier than 20200305T231847Z (20200305T233347Z - 15 min.)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="import-a-snapshot-of-the-cl-image">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Import a snapshot of the Clear Linux OS image</a><a class="headerlink" href="#import-a-snapshot-of-the-cl-image" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Create a <code class="file docutils literal notranslate"><span class="pre">container.json</span></code> with the description of the image to import.
+Specify the name of the S3 bucket that was created earlier for the
+<cite>S3Bucket</cite> field and the name of Clear Linux OS image that was uploaded to the S3 bucket
+for the <cite>S3Key</cite>.</p>
+<p>Here’s an example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;Description&quot;: &quot;My Clear Linux AWS 32400 Image&quot;,</span>
+<span class="go">  &quot;Format&quot;: &quot;raw&quot;,</span>
+<span class="go">  &quot;UserBucket&quot;: {</span>
+<span class="go">    &quot;S3Bucket&quot;: &quot;my-clearlinux-bucket&quot;,</span>
+<span class="go">    &quot;S3Key&quot;: &quot;clear-32400-aws.img&quot;</span>
+<span class="go">  }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Import a snapshot of the image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aws<span class="w"> </span>ec2<span class="w"> </span>import-snapshot<span class="w"> </span><span class="se">\</span>
+--description<span class="w"> </span><span class="s2">&quot;My Clear Linux AWS 32400 Snapshot&quot;</span><span class="w"> </span><span class="se">\</span>
+--disk-container<span class="w"> </span>file://container.json
+</pre></div>
+</div>
+<p>You should get an output similar this example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">  {</span>
+<span class="go">    &quot;Description&quot;: &quot;My Clear Linux AWS 32400 Snapshot&quot;,</span>
+<span class="go">    &quot;ImportTaskId&quot;: &quot;import-snap-00fa9ccd98e9b8378&quot;,</span>
+<span class="go">    &quot;SnapshotTaskDetail&quot;: {</span>
+<span class="go">        &quot;Description&quot;: &quot;My Clear Linux AWS 32400 Snapshot&quot;,</span>
+<span class="go">        &quot;DiskImageSize&quot;: 0.0,</span>
+<span class="go">        &quot;Format&quot;: &quot;RAW&quot;,</span>
+<span class="go">        &quot;Progress&quot;: &quot;3&quot;,</span>
+<span class="go">        &quot;Status&quot;: &quot;active&quot;,</span>
+<span class="go">        &quot;StatusMessage&quot;: &quot;pending&quot;,</span>
+<span class="go">        &quot;UserBucket&quot;: {</span>
+<span class="go">            &quot;S3Bucket&quot;: &quot;my-clearlinux-bucket&quot;,</span>
+<span class="go">            &quot;S3Key&quot;: &quot;clear-32400-aws.img&quot;</span>
+<span class="go">        }</span>
+<span class="go">    }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Using the <cite>ImportTaskId</cite> from the previous step, check the status
+of the import.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">snapshot_id</span><span class="o">=</span><span class="k">$(</span>aws<span class="w"> </span>ec2<span class="w"> </span>describe-import-snapshot-tasks<span class="w"> </span><span class="se">\</span>
+--import-task-ids<span class="w"> </span><span class="s2">&quot;import-snap-00fa9ccd98e9b8378&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>SnapshotId<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="w"> </span><span class="s1">&#39;&quot;&#39;</span><span class="w"> </span><span class="s1">&#39;{print $4}&#39;</span><span class="k">)</span>
+</pre></div>
+</div>
+<p>Wait for the <cite>Status</cite> field to show <cite>completed</cite> before proceeding.</p>
+<p>The resulting <cite>snapshot_id</cite> will be used to create an AMI in
+the next section.</p>
+</li>
+</ol>
+</section>
+<section id="create-an-ami-from-the-snapshot">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Create an AMI from the snapshot</a><a class="headerlink" href="#create-an-ami-from-the-snapshot" title="Link to this heading">¶</a></h2>
+<p>There are 2 methods to create an AMI from the snapshot.</p>
+<ul>
+<li><p><em>AWS CLI Method</em>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aws<span class="w"> </span>ec2<span class="w"> </span>register-image<span class="w"> </span><span class="se">\</span>
+--name<span class="w"> </span><span class="s2">&quot;My-Clear-Linux-32400-AMI&quot;</span><span class="w"> </span><span class="se">\</span>
+--description<span class="w"> </span><span class="s2">&quot;My Clear Linux 32400 AMI&quot;</span><span class="w"> </span><span class="se">\</span>
+--architecture<span class="w"> </span>x86_64<span class="w"> </span><span class="se">\</span>
+--virtualization-type<span class="w"> </span>hvm<span class="w"> </span><span class="se">\</span>
+--ena-support<span class="w"> </span><span class="se">\</span>
+--root-device-name<span class="w"> </span><span class="s2">&quot;/dev/sda1&quot;</span><span class="w"> </span><span class="se">\</span>
+--block-device-mappings<span class="w"> </span><span class="s2">&quot;[</span>
+<span class="s2">  {</span>
+<span class="s2">    \”Deviceame\&quot;: \&quot;/dev/sda1\&quot;,</span>
+<span class="s2">    \&quot;Ebs\&quot;: {</span>
+<span class="s2">      \&quot;SnapshotId\&quot;: \&quot;</span><span class="nv">$snapshot_id</span><span class="s2">\&quot;</span>
+<span class="s2">    }</span>
+<span class="s2">  }</span>
+<span class="s2">]&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p><em>GUI Method</em>:</p>
+<ol class="arabic">
+<li><p>Go to <span class="guilabel">Services</span>, <span class="guilabel">Compute</span>, and select
+<span class="guilabel">EC2</span>.
+See Figure 22.</p>
+<figure class="align-default" id="id22">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-22.png"><img alt="AWS Services - EC2" src="../../_images/import-clr-aws-22.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 22: AWS Services - EC2</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Snapshots</span>.
+See Figure 23.</p>
+<figure class="align-default" id="id23">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-23.png"><img alt="AWS Services - Snapshots" src="../../_images/import-clr-aws-23.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 23: AWS Services - Snapshots</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Locate the snaphot using the <cite>Snapshot ID</cite>.
+See Figure 24.</p>
+<figure class="align-default" id="id24">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-24.png"><img alt="AWS Services - Snapshots" src="../../_images/import-clr-aws-24.png" style="width: 873.5999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 24: AWS Services - Snapshots</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Right-click it and select <span class="guilabel">Create Image</span>.</p></li>
+<li><p>Configure as follows:</p>
+<ul class="simple">
+<li><p>Enter the name in the <span class="guilabel">Name</span> field</p></li>
+<li><p>Enter the description in the <span class="guilabel">Description</span> field</p></li>
+<li><p>Set the <span class="guilabel">Architecture</span> as <cite>x86_64</cite></p></li>
+<li><p>Set the <span class="guilabel">Virtualization type</span> as <cite>Hardware-assisted virtualization</cite></p></li>
+<li><p>Set the <span class="guilabel">Root device name</span> as <cite>/dev/sda1</cite></p></li>
+</ul>
+<p>See Figure 25.</p>
+<figure class="align-default" id="id25">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-25.png"><img alt="AWS Services - Snapshots" src="../../_images/import-clr-aws-25.png" style="width: 945.6999999999999px; height: 599.1999999999999px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 25: AWS Services - Snapshots</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Create</span>.</p></li>
+</ol>
+</li>
+</ul>
+</section>
+<section id="launch-an-instance">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Launch an instance</a><a class="headerlink" href="#launch-an-instance" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Go to <span class="guilabel">Services</span>, <span class="guilabel">Compute</span>, and select
+<span class="guilabel">EC2</span>.
+See Figure 26.</p>
+<figure class="align-default" id="id26">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-26.png"><img alt="AWS Services - EC2" src="../../_images/import-clr-aws-26.png" style="width: 875.0px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 26: AWS Services - EC2</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Launch Instance</span> dropdown and select
+<span class="guilabel">Launch Instance</span>.
+See Figure 27.</p>
+<figure class="align-default" id="id27">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-27.png"><img alt="AWS Services - Launch instance" src="../../_images/import-clr-aws-27.png" style="width: 875.6999999999999px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 27: AWS Services - Launch instance</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the left navigation bar, select <span class="guilabel">My AMIs</span>.
+See Figure 28.</p>
+<figure class="align-default" id="id28">
+<a class="reference internal image-reference" href="../../_images/import-clr-aws-28.png"><img alt="AWS Services - Select AMI" src="../../_images/import-clr-aws-28.png" style="width: 875.6999999999999px; height: 598.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 28: AWS Services - Select AMI</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Find your AMI and click <span class="guilabel">Select</span>.</p></li>
+<li><p>From here onward, configure the details of your instance as desired
+and launch it.</p></li>
+</ol>
+</section>
+<section id="connect-to-your-cl-instance">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">Connect to your Clear Linux OS instance</a><a class="headerlink" href="#connect-to-your-cl-instance" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Follow these steps to <a class="reference external" href="https://docs.01.org/clearlinux/latest/get-started/cloud-install/aws-web.html#connect-to-your-clear-linux-os-basic-instance">connect to your instance</a>.</p></li>
+</ol>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id39" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="azure.html#azure"><span class="std std-ref">Clear Linux* OS on Microsoft* Azure*</span></a></p></li>
+<li><p><a class="reference internal" href="gce.html#gce"><span class="std std-ref">Clear Linux* OS on Google Cloud Platform*</span></a></p></li>
+<li><p><a class="reference internal" href="digitalocean.html#clr-digitalocean"><span class="std std-ref">Clear Linux* OS on DigitalOcean*</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Import Clear Linux Image and Launch Instance on AWS</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#download-or-create-a-cl-image-for-aws">Download or create a Clear Linux OS image for AWS</a><ul>
+<li><a class="reference internal" href="#download-pre-built-image">Download pre-built image</a></li>
+<li><a class="reference internal" href="#create-a-custom-image-using-clr-installer">Create a custom image using clr-installer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-an-s3-bucket">Create an S3 bucket</a></li>
+<li><a class="reference internal" href="#upload-the-cl-image-into-the-bucket">Upload the Clear Linux OS image into the bucket</a></li>
+<li><a class="reference internal" href="#add-a-user-to-iam-with-aws-cli-privilege">Add a user to IAM with AWS_CLI privilege</a></li>
+<li><a class="reference internal" href="#install-and-configure-the-aws-cli-tool-on-your-system">Install and configure the AWS CLI tool on your system</a></li>
+<li><a class="reference internal" href="#import-a-snapshot-of-the-cl-image">Import a snapshot of the Clear Linux OS image</a></li>
+<li><a class="reference internal" href="#create-an-ami-from-the-snapshot">Create an AMI from the snapshot</a></li>
+<li><a class="reference internal" href="#launch-an-instance">Launch an instance</a></li>
+<li><a class="reference internal" href="#connect-to-your-cl-instance">Connect to your Clear Linux OS instance</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="gce.html"
+                          title="previous chapter">Clear Linux* OS on Google Cloud Platform*</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="qingcloud.html"
+                          title="next chapter">Clear Linux* OS on QingCloud*</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/cloud-install/import-clr-aws.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="qingcloud.html" title="Clear Linux* OS on QingCloud*"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gce.html" title="Clear Linux* OS on Google Cloud Platform*"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Import Clear Linux Image and Launch Instance on AWS</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

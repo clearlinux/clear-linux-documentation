@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>About &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=a56c686a"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/about.html" />
+    <link rel="icon" href="_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="#" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Guides" href="guides/index.html" />
+    <link rel="prev" title="Clear Linux* OS container images" href="get-started/containers/container-images.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="guides/index.html" title="Guides"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="get-started/containers/container-images.html" title="Clear Linux* OS container images"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation for Clear Linux* project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">About</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="about">
+<span id="id1"></span><h1>About<a class="headerlink" href="#about" title="Link to this heading">¶</a></h1>
+<p>Clear Linux* OS does things differently. Our software architecture provides a
+unique and innovative platform for Linux* developers focused on
+performance and security for compute, server, and the cloud.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-cl" id="id4">What is Clear Linux OS?</a></p></li>
+<li><p><a class="reference internal" href="#what-cl-isn-t" id="id5">What Clear Linux OS isn’t?</a></p></li>
+<li><p><a class="reference internal" href="#is-cl-completely-open-source" id="id6">Is Clear Linux OS completely Open Source?</a></p></li>
+<li><p><a class="reference internal" href="#who-is-the-target-audience" id="id7">Who is the target audience?</a></p></li>
+<li><p><a class="reference internal" href="#how-does-cl-address-security" id="id8">How does Clear Linux OS address security?</a></p></li>
+<li><p><a class="reference internal" href="#whats-the-thinking-around-server-vs-desktop" id="id9">What’s the thinking around Server vs. Desktop?</a></p></li>
+<li><p><a class="reference internal" href="#what-makes-cl-different" id="id10">What makes Clear Linux OS different?</a></p></li>
+<li><p><a class="reference internal" href="#why-create-new-components-rather-than-modifying-existing-projects" id="id11">Why create new components rather than modifying existing projects?</a></p></li>
+<li><p><a class="reference internal" href="#which-components-are-used-in-clear-linux" id="id12">Which Components are used in Clear Linux?</a></p></li>
+</ul>
+</nav>
+<section id="what-is-cl">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">What is Clear Linux OS?</a><a class="headerlink" href="#what-is-cl" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS is an open source, rolling-release Linux distribution, optimized for
+performance and security from the cloud to the Edge. Designed from the ground up,
+Clear Linux OS provides an industry blueprint on how to incorporate Intel® architecture
+features for a modern, modular Linux OS. Clear Linux OS is not based on any other Linux
+distro.</p>
+</section>
+<section id="what-cl-isn-t">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">What Clear Linux OS isn’t?</a><a class="headerlink" href="#what-cl-isn-t" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS is not intended to be a general-purpose Linux distribution, suitable
+for novice end-users. While we ship common applications, our purpose isn’t
+to make an OS for routine desktop tasks and provide immunity from all
+security threats in all situations. Our unique focus means that what we consider <em>essential</em> use cases, <em>optional</em> use cases, or even <em>unsupported</em> use cases, differs from other Linux distros. See our <a class="reference internal" href="#target-audience"><span class="std std-ref">target audience</span></a> below.</p>
+</section>
+<section id="is-cl-completely-open-source">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Is Clear Linux OS completely Open Source?</a><a class="headerlink" href="#is-cl-completely-open-source" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS aims to be completely open source. Our project <a class="reference external" href="https://github.com/clearlinux">source code</a> and
+<a class="reference external" href="https://github.com/clearlinux-pkgs/">packages source code</a> are available on GitHub*. When considering projects
+for inclusion, we check that they are in active development and are well
+maintained. We have a very strict requirement for not accepting proprietary
+packages and non-open source components.  For example, many Linux distros
+may not be able to include certain media codecs due to
+<a class="reference internal" href="FAQ/index.html#licensing-restrict"><span class="std std-ref">licensing restrictions</span></a>, but manual installation and <a class="reference external" href="https://community.clearlinux.org/t/about-the-3rd-party-sw-category/4072">third party alternatives</a> are available.</p>
+</section>
+<section id="who-is-the-target-audience">
+<span id="target-audience"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Who is the target audience?</a><a class="headerlink" href="#who-is-the-target-audience" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS mainly targets professionals in IT, DevOps, Cloud/Container deployments, and <abbr title="Artificial Intelligence">AI</abbr>.</p>
+<p>Rather than making a standard Linux distribution, the Clear Linux OS team decided to
+build a unique Linux distro. Developing a distro in house allows us to experiment and iterate faster, which means we continually optimize performance and deliver security patches, <a class="reference internal" href="#release-cadence"><span class="std std-ref">several times per week</span></a>. Yet our experiments are only valuable if our software architecture gives you the freedom to innovate, too. To improve manageability, Clear Linux OS employs a <a class="reference internal" href="guides/clear/stateless.html#stateless"><span class="std std-ref">Stateless</span></a> design, separating user and system management.</p>
+<p>We leverage the pool of knowledge and skills at Intel to drive improvements to Clear Linux OS.</p>
+<p>Intel has worked with the Linux community and other distros for many years.
+Understanding what it takes to integrate features in our own Linux distro
+helps us collaborate with other distro owners and submit enhancements to
+upstream. We demonstrate the value of our distro by offering users the same
+tools we use. For example, <a class="reference internal" href="guides/clear/mixer.html#mixer"><span class="std std-ref">mixer</span></a>, a tool unique to Clear Linux OS, allows users
+to build custom derivatives and act as their own <abbr title="Operating System Vendor">OSV</abbr>.</p>
+<p>For more details on Clear Linux OS features, visit our <a class="reference internal" href="guides/index.html#cl-guides"><span class="std std-ref">Clear Linux</span></a> guides.</p>
+</section>
+<section id="how-does-cl-address-security">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">How does Clear Linux OS address security?</a><a class="headerlink" href="#how-does-cl-address-security" title="Link to this heading">¶</a></h2>
+<p>Several <a class="reference internal" href="guides/clear/security.html#security"><span class="std std-ref">security features</span></a> are designed to work
+out-of-the-box, yet they’re not intended to be intrusive. We focus on
+<em>essential</em> use cases and ignore <em>unwanted</em> or <em>unsupported</em> use cases.
+For example, while Clear Linux OS does not enable antivirus by default, we provide a
+bundle for it (<code class="docutils literal notranslate"><span class="pre">clamav</span></code>). We leave antivirus configuration to our users.
+In addition, firewalls are less important if the OS doesn’t expose services
+to the outside by default. In Clear Linux OS, we enforce this strategy by disabling
+network services by default - e.g. <code class="docutils literal notranslate"><span class="pre">mariadb</span></code> listens on a UNIX socket;
+<code class="docutils literal notranslate"><span class="pre">nginx</span></code> won’t listen at all; and other services similarly are restricted
+from being accessed over the network. This strategy alone makes firewall
+software much less urgent–there simply isn’t anything that a firewall could
+easily block.</p>
+</section>
+<section id="whats-the-thinking-around-server-vs-desktop">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">What’s the thinking around Server vs. Desktop?</a><a class="headerlink" href="#whats-the-thinking-around-server-vs-desktop" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS focuses on performance for server and cloud use-cases first because
+many design decisions associated with them are applicable to other
+use-cases, such as IoT and the desktop client. While our initial focus was
+on the command line, we realized that many people valued the ease-of-use of
+a desktop environment.  Whereas in the past we tried to accommodate those
+interested in a desktop version, we were forced to confront clear limits as
+to how we could meet this need. Clear Linux OS minimizes the customizations and patches in support of the desktop and provides a generic GNOME implementation. Other window managers or desktops are available; however, testing in Clear Linux OS is focused on GNOME.</p>
+</section>
+<section id="what-makes-cl-different">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">What makes Clear Linux OS different?</a><a class="headerlink" href="#what-makes-cl-different" title="Link to this heading">¶</a></h2>
+<section id="release-cadence">
+<span id="id2"></span><h3>Release Cadence<a class="headerlink" href="#release-cadence" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS updates are based on a rolling release that can occur daily, up to a few
+times per week. Each release has a unique version number that identifies
+every component in the OS from kernel, to driver, to tool, to GUI
+application. Most components are included in entities called <a class="reference internal" href="reference/bundles/bundles.html#bundles"><span class="std std-ref">bundles</span></a>.</p>
+</section>
+<section id="updates">
+<h3>Updates<a class="headerlink" href="#updates" title="Link to this heading">¶</a></h3>
+<p>By default, Clear Linux OS automatically checks for updates, ensuring the latest
+performance and security fixes are installed as soon as they are available.
+Clear Linux OS stays in lockstep with upstream for current security upgrades and is
+designed to rapidly deliver security mitigations to customers.
+<a class="reference internal" href="guides/clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a> is designed to manage updates and bundles.</p>
+</section>
+<section id="ease-of-use">
+<h3>Ease of Use<a class="headerlink" href="#ease-of-use" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS makes it easier to manage a number of difficult problems.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="guides/clear/autoproxy.html#autoproxy"><span class="std std-ref">Autoproxy</span></a> makes it possible for Clear Linux OS tools to operate in some proxy
+environments without needing to be configured.</p></li>
+<li><p><a class="reference internal" href="guides/clear/stateless.html#stateless"><span class="std std-ref">Stateless</span></a> means that configuration settings are easier to manage
+and remain untouched when system software is updated.</p></li>
+<li><p><a class="reference internal" href="guides/clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a> simplifies managing software and maintaining
+compatibility.</p></li>
+</ul>
+</section>
+<section id="custom-derivatives">
+<h3>Custom Derivatives<a class="headerlink" href="#custom-derivatives" title="Link to this heading">¶</a></h3>
+<p>The same tools used to build the Clear Linux OS are available <em>in</em> the OS. These tools can be used to create a custom distribution that continues to benefit from upstream rolling releases.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/clear-lifecycle.png"><img alt="Creating and managing a Clear Linux* OS  version (or derivative)" src="_images/clear-lifecycle.png" style="width: 600.0px; height: 337.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Creating and managing a Clear Linux* OS version (or derivative)</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="create">
+<h3>Create<a class="headerlink" href="#create" title="Link to this heading">¶</a></h3>
+<p>To create a custom distribution you need to understand how to use the
+<a class="reference internal" href="guides/clear/autospec.html#autospec"><span class="std std-ref">autospec</span></a> and <a class="reference internal" href="guides/clear/mixer.html#mixer"><span class="std std-ref">mixer</span></a> tools. Additional training materials are available in the <a class="reference external" href="https://github.com/clearlinux/how-to-clear">how-to-clear</a> GitHub project to help you get started with Clear Linux OS tools.</p>
+</section>
+<section id="deploy">
+<h3>Deploy<a class="headerlink" href="#deploy" title="Link to this heading">¶</a></h3>
+<p>We also provide training on how to <a class="reference internal" href="guides/maintenance/deploy-at-scale.html#deploy-at-scale"><span class="std std-ref">Deploy at Scale</span></a>.</p>
+</section>
+<section id="administrate">
+<h3>Administrate<a class="headerlink" href="#administrate" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS provides a <a class="reference internal" href="guides/clear/telemetrics.html#telem-guide"><span class="std std-ref">Telemetrics</span></a> solution for collecting useful information
+about a deployment, as well as <a class="reference internal" href="guides/clear/debug.html#debug"><span class="std std-ref">Debug system</span></a> capabilities.</p>
+</section>
+</section>
+<section id="why-create-new-components-rather-than-modifying-existing-projects">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Why create new components rather than modifying existing projects?</a><a class="headerlink" href="#why-create-new-components-rather-than-modifying-existing-projects" title="Link to this heading">¶</a></h2>
+<p>One question that’s often asked: “Why did you develop your own solution
+instead of using &lt;XYZ&gt;?” (e.g. <a class="reference external" href="https://community.clearlinux.org/t/why-does-clearlinux-use-swupd-and-not-apt-deb-rpm/">swupd post</a>).  We do evaluate existing
+projects for inclusion in Clear Linux OS, yet there are cases where our unique
+architecture and components would require too much customization to use
+off-the-shelf projects.  In other situations, we may feel that using a new
+language to develop the component would give us a performance advantage,
+ease code development and maintenance, and grow the skills of our engineers
+on new and upcoming programming languages.  And yes, sometimes there are
+personal biases for and against some projects by the architects and
+engineers.  We tend to move fast, and sometimes it’s easier to live with
+suboptimal choices until we have the time or incentive to re-architect them
+properly.</p>
+</section>
+<section id="which-components-are-used-in-clear-linux">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Which Components are used in Clear Linux?</a><a class="headerlink" href="#which-components-are-used-in-clear-linux" title="Link to this heading">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+<col style="width: 33.3%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Component</p></th>
+<th class="head"><p>Enabled in OS/Bundle</p></th>
+<th class="head"><p>Optional</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OS Installer</p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/clr-installer/">Clear Linux installer</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Bootloader</p></td>
+<td><p><a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd-boot.html">systemd-boot</a> (UEFI) / <a class="reference external" href="https://wiki.syslinux.org/wiki/index.php?title=The_Syslinux_Project">syslinux</a> (Legacy)</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Boot Manager</p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/clr-boot-manager">Clear Linux Boot Manager</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Configuration initialization and management</p></td>
+<td><p><em>NA</em></p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/micro-config-drive">micro-config-drive</a> (minimal cloud-init), Ansible</p></td>
+</tr>
+<tr class="row-even"><td><p>Software component installer, manager, updater</p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/swupd-client">swupd</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Software bundle generator -</p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/mixer-tools">mixer</a> and <a class="reference external" href="https://github.com/clearlinux/clr-distro-factory">Clear Linux Distro Factory</a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Software package builder</p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/common">autospec</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Software debugging</p></td>
+<td><p><em>NA</em></p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/clr-debug-info">clr-debug-info</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Unified TLS Trust Store Management</p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/clrtrust">clrtrust</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>System and software telemetry</p></td>
+<td><p><em>NA</em></p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/telemetrics-backend">Telemetrics</a> (disabled by default)</p></td>
+</tr>
+<tr class="row-even"><td><p>File system</p></td>
+<td><p><a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Main_Page">EXT4</a> (default for rootfs), <a class="reference external" href="https://www.kernel.org/doc/html/latest/filesystems/vfat.html">VFAT</a>, <a class="reference external" href="https://ext4.wiki.kernel.org/index.php/Main_Page">EXT2 and EXT3</a>, <a class="reference external" href="https://www.kernel.org/doc/Documentation/filesystems/f2fs.txt">F2FS</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Disk encryption</p></td>
+<td><p><em>NA</em></p></td>
+<td><p><a class="reference external" href="https://gitlab.com/cryptsetup/cryptsetup/">LUKS</a></p></td>
+</tr>
+<tr class="row-even"><td><p>System /Service manager</p></td>
+<td><p><a class="reference external" href="https://www.freedesktop.org/wiki/Software/systemd/">systemd</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Display manager</p></td>
+<td><p><a class="reference external" href="https://www.gnome.org/">GNOME</a></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">KDE</span></code>, <code class="docutils literal notranslate"><span class="pre">Xfce</span></code>, <code class="docutils literal notranslate"><span class="pre">lightdm</span></code>, <code class="docutils literal notranslate"><span class="pre">sddm</span></code>  (see <a class="reference external" href="https://clearlinux.org/software">Clear Linux store</a>)</p></td>
+</tr>
+<tr class="row-even"><td><p>Display services (Desktop installed)</p></td>
+<td><p><a class="reference external" href="https://www.x.org/">X.Org</a></p></td>
+<td><p><a class="reference external" href="https://wayland.freedesktop.org/">Wayland</a> compositor</p></td>
+</tr>
+<tr class="row-odd"><td><p>Network services</p></td>
+<td><p><a class="reference external" href="https://wiki.gnome.org/Projects/NetworkManager">NetworkManager</a> by default, <a class="reference external" href="https://www.freedesktop.org/software/systemd/man/systemd.network.html">systemd-networkd</a> See Note below.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>SSH Port scanning blocker</p></td>
+<td><p><a class="reference external" href="https://github.com/clearlinux/tallow">Tallow</a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Firewall</p></td>
+<td><p><em>NA</em></p></td>
+<td><p>iptables and <a class="reference external" href="https://docs.01.org/clearlinux/latest/guides/network/firewall.html#firewalld">firewalld</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Antivirus</p></td>
+<td><p><em>NA</em></p></td>
+<td><p><a class="reference external" href="https://www.clamav.net/">ClamAV*</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Web browser</p></td>
+<td><p><a class="reference external" href="https://lynx.invisible-island.net/">Lynx</a> or <a class="reference external" href="http://links.twibright.com/">links</a> for text environments, <a class="reference external" href="https://www.mozilla.org/en-US/firefox/">Firefox*</a> for GUI</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Additional Software</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software">Supplied Bundles</a></p></td>
+<td><p>Flatpak, 3rd-party software bundles</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Clear Linux OS OS images targeted for cloud deployments continue to use
+<code class="docutils literal notranslate"><span class="pre">systemd-networkd</span></code> to manage network connections.  In earlier Clear Linux OS,
+<code class="docutils literal notranslate"><span class="pre">systemd-networkd</span></code> was used to manage Ethernet interfaces and NetworkManager was used for wireless interfaces.</p>
+</div>
+<p><em>Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.</em></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">About</a><ul>
+<li><a class="reference internal" href="#what-is-cl">What is Clear Linux OS?</a></li>
+<li><a class="reference internal" href="#what-cl-isn-t">What Clear Linux OS isn’t?</a></li>
+<li><a class="reference internal" href="#is-cl-completely-open-source">Is Clear Linux OS completely Open Source?</a></li>
+<li><a class="reference internal" href="#who-is-the-target-audience">Who is the target audience?</a></li>
+<li><a class="reference internal" href="#how-does-cl-address-security">How does Clear Linux OS address security?</a></li>
+<li><a class="reference internal" href="#whats-the-thinking-around-server-vs-desktop">What’s the thinking around Server vs. Desktop?</a></li>
+<li><a class="reference internal" href="#what-makes-cl-different">What makes Clear Linux OS different?</a><ul>
+<li><a class="reference internal" href="#release-cadence">Release Cadence</a></li>
+<li><a class="reference internal" href="#updates">Updates</a></li>
+<li><a class="reference internal" href="#ease-of-use">Ease of Use</a></li>
+<li><a class="reference internal" href="#custom-derivatives">Custom Derivatives</a></li>
+<li><a class="reference internal" href="#create">Create</a></li>
+<li><a class="reference internal" href="#deploy">Deploy</a></li>
+<li><a class="reference internal" href="#administrate">Administrate</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#why-create-new-components-rather-than-modifying-existing-projects">Why create new components rather than modifying existing projects?</a></li>
+<li><a class="reference internal" href="#which-components-are-used-in-clear-linux">Which Components are used in Clear Linux?</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="get-started/containers/container-images.html"
+                          title="previous chapter">Clear Linux* OS container images</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="guides/index.html"
+                          title="next chapter">Guides</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/about.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="guides/index.html" title="Guides"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="get-started/containers/container-images.html" title="Clear Linux* OS container images"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Documentation for Clear Linux* project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">About</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

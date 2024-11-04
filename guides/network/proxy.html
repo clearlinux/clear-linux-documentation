@@ -1,0 +1,240 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Proxy Configuration &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/network/proxy.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Set system time" href="time.html" />
+    <link rel="prev" title="Enable and configure SSH service" href="openssh-server.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="time.html" title="Set system time"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="openssh-server.html" title="Enable and configure SSH service"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Proxy Configuration</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="proxy-configuration">
+<span id="proxy"></span><h1>Proxy Configuration<a class="headerlink" href="#proxy-configuration" title="Link to this heading">¶</a></h1>
+<p>When working behind a corporate proxy server, one typically has to configure
+proxy settings for applications to reach the Internet.  Clear Linux* OS has
+implemented an <a class="reference internal" href="../clear/autoproxy.html#autoproxy"><span class="std std-ref">Autoproxy</span></a> feature to try and eliminate manual
+configurations as much as possible.  However, there are still some applications
+that cannot take full advantage of the <a class="reference internal" href="../clear/autoproxy.html#autoproxy"><span class="std std-ref">Autoproxy</span></a> feature due to their
+own ways of configuring proxy settings.  This guide shows you how to configure
+proxy settings for some of the known applications manually.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id1">Prerequisites</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>You have installed Clear Linux OS on your host system.</p>
+<p>For detailed instructions on installing Clear Linux OS on a bare metal system, visit
+the <a class="reference internal" href="../../get-started/bare-metal-install-desktop.html#bare-metal-install-desktop"><span class="std std-ref">bare metal installation guide</span></a>.</p>
+</li>
+</ul>
+<section id="general-proxy-settings-for-many-applications">
+<h3>General proxy settings for many applications<a class="headerlink" href="#general-proxy-settings-for-many-applications" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>First, apply these general proxy settings which should work for many
+applications.  If they do not work for a specific application, such as the
+ones listed below, apply application-specific proxy settings as needed.</p>
+<p>Proxy settings:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>export http_proxy=http://&lt;YOUR.HTTP-PROXY.URL:PORT&gt;
+export https_proxy=http://&lt;YOUR.HTTPS-PROXY.URL:PORT&gt;
+export ftp_proxy=http://&lt;YOUR.FTP-PROXY.URL:PORT&gt;
+export socks_proxy=http://&lt;YOUR.SOCKS-PROXY.URL:PORT&gt;
+export no_proxy=&quot;&lt;YOUR-DOMAIN&gt;,localhost&quot;
+export HTTP_PROXY=$http_proxy
+export HTTPS_PROXY=$https_proxy
+export FTP_PROXY=$ftp_proxy
+export SOCKS_PROXY=$socks_proxy
+export NO_PROXY=$no_proxy
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><em>User-specific</em>, put them in <code class="file docutils literal notranslate"><span class="pre">$HOME/.bashrc</span></code>.</p></li>
+<li><p><em>For all users</em>, put them in <code class="file docutils literal notranslate"><span class="pre">/etc/profile.d/proxy.conf</span></code>.</p></li>
+</ul>
+</li>
+<li><p>For the proxies to take effect, either <strong class="command">source</strong> the file manually
+or log out and log back in.</p></li>
+</ol>
+</section>
+<section id="docker">
+<h3>Docker*<a class="headerlink" href="#docker" title="Link to this heading">¶</a></h3>
+<p>Please refer the official Docker links on how to configure proxies:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.docker.com/network/proxy/#configure-the-docker-client">Docker client</a></p></li>
+<li><p><a class="reference external" href="https://docs.docker.com/config/daemon/systemd/#httphttps-proxy">Docker daemon</a></p></li>
+</ul>
+</section>
+<section id="git-over-ssh">
+<h3>git over SSH<a class="headerlink" href="#git-over-ssh" title="Link to this heading">¶</a></h3>
+<p>Add the following to your <code class="file docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> file:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>host github.com
+     port 22
+     user git
+     ProxyCommand connect-proxy -S &lt;YOUR.SSH-PROXY.URL:PORT&gt; %h %p
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Though <strong class="command">netcat</strong> is included with Clear Linux OS, it is not the BSD version,
+which is the one usually used to enable git over SSH.</p>
+</div>
+</section>
+<section id="autospec-mock">
+<h3>autospec/mock<a class="headerlink" href="#autospec-mock" title="Link to this heading">¶</a></h3>
+<p><a class="reference internal" href="../clear/autospec.html#autospec"><span class="std std-ref">autospec</span></a> uses mock to do builds.  Configure mock’s proxy settings with
+these steps:</p>
+<ol class="arabic">
+<li><p>Override the general mock configuration file with a custom one, otherwise
+your settings will get overwritten each time autospec is updated.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/mock
+sudo<span class="w"> </span>cp<span class="w"> </span>~/clearlinux/projects/common/conf/clear.cfg<span class="w"> </span>/etc/mock/clear-custom.cfg
+</pre></div>
+</div>
+</li>
+<li><p><strong class="command">sudoedit</strong> <code class="file docutils literal notranslate"><span class="pre">/etc/mock/clear-custom.cfg</span></code> and add the highlighted
+lines.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>...
+config_opts[&#39;use_bootstrap_container&#39;] = False
+<span class="hll">config_opts[&#39;http_proxy&#39;] = &#39;&lt;YOUR.HTTP.PROXY.URL&gt;:&lt;PORT&gt;&#39;
+</span><span class="hll">config_opts[&#39;https_proxy&#39;] = &#39;&lt;YOUR.HTTPS.PROXY.URL&gt;:&lt;PORT&gt;&#39;
+</span><span class="hll">config_opts[&#39;no_proxy&#39;] = &#39;&lt;YOUR.DOMAIN&gt;,192.168.0.0/16,localhost,127.0.0.0/8&#39;
+</span></pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="kubernetes">
+<h3>Kubernetes<a class="headerlink" href="#kubernetes" title="Link to this heading">¶</a></h3>
+<p>See <a class="reference internal" href="../../tutorials/kubernetes.html#kubernetes"><span class="std std-ref">Setting proxy servers for Kubernetes</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Proxy Configuration</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#general-proxy-settings-for-many-applications">General proxy settings for many applications</a></li>
+<li><a class="reference internal" href="#docker">Docker*</a></li>
+<li><a class="reference internal" href="#git-over-ssh">git over SSH</a></li>
+<li><a class="reference internal" href="#autospec-mock">autospec/mock</a></li>
+<li><a class="reference internal" href="#kubernetes">Kubernetes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="openssh-server.html"
+                          title="previous chapter">Enable and configure SSH service</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="time.html"
+                          title="next chapter">Set system time</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/network/proxy.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="time.html" title="Set system time"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="openssh-server.html" title="Enable and configure SSH service"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Proxy Configuration</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

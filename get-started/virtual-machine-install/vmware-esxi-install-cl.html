@@ -1,0 +1,446 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS on VMware* ESXi &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/virtual-machine-install/vmware-esxi-install-cl.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Increase Virtual Disk Size of an Image" href="../../guides/maintenance/increase-virtual-disk-size.html" />
+    <link rel="prev" title="Clear Linux* OS on VMware* Workstation Player" href="vmw-player.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../guides/maintenance/increase-virtual-disk-size.html" title="Increase Virtual Disk Size of an Image"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="vmw-player.html" title="Clear Linux* OS on VMware* Workstation Player"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on VMware* ESXi</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-on-vmware-esxi">
+<span id="vmware-esxi-install-cl"></span><h1>Clear Linux* OS on VMware* ESXi<a class="headerlink" href="#cl-attr-on-vmware-esxi" title="Link to this heading">¶</a></h1>
+<p>This page explains how to create a new <abbr title="Virtual Machine">VM</abbr> and
+manually install Clear Linux* OS on the new VM with VMware ESXi 6.5.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id17">Overview</a></p></li>
+<li><p><a class="reference internal" href="#download-the-latest-cl-installer-iso" id="id18">Download the latest Clear Linux OS installer ISO</a></p></li>
+<li><p><a class="reference internal" href="#upload-the-cl-installer-iso-to-the-vmware-server" id="id19">Upload the Clear Linux OS installer ISO to the VMware server</a></p></li>
+<li><p><a class="reference internal" href="#create-and-configure-a-new-vm" id="id20">Create and configure a new VM</a></p></li>
+<li><p><a class="reference internal" href="#install-cl-into-the-new-vm" id="id21">Install Clear Linux OS into the new VM</a></p></li>
+<li><p><a class="reference internal" href="#reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl" id="id22">Reconfigure the VM’s settings to boot the newly-installed Clear Linux OS</a></p></li>
+<li><p><a class="reference internal" href="#power-on-the-vm-and-boot-cl" id="id23">Power on the VM and boot Clear Linux OS</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.vmware.com/products/esxi-and-esx.html">VMware ESXi</a> is a type 1 bare-metal hypervisor that runs directly on top
+of server hardware. With VMware ESXi, you can create, configure, manage, and
+run Clear Linux OS virtual machines in the cloud.</p>
+<p>Manually installing Clear Linux OS on a new VM gives additional configuration flexibility
+during installation. For example: alternate disk sizes, number of partitions,
+pre-installed bundles, etc.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VMware also offers a type 2 hypervisor designed for the desktop environment, called <a class="reference external" href="https://www.vmware.com/products/workstation-player.html">VMware Workstation Player</a>. Refer to
+<a class="reference internal" href="vmw-player.html#vmw-player"><span class="std std-ref">Clear Linux* OS on VMware* Workstation Player</span></a> for more information.</p>
+<p>Visit <a class="reference internal" href="../../reference/image-types.html#image-types"><span class="std std-ref">Clear Linux* OS image types</span></a> to learn more about all available images.</p>
+</div>
+</section>
+<section id="download-the-latest-cl-installer-iso">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Download the latest Clear Linux OS installer ISO</a><a class="headerlink" href="#download-the-latest-cl-installer-iso" title="Link to this heading">¶</a></h2>
+<p>Get the latest Clear Linux OS installer ISO image from the <a class="reference external" href="https://cdn.download.clearlinux.org/image/">image</a> repository.
+Look for <code class="file docutils literal notranslate"><span class="pre">clear-[version</span> <span class="pre">number]-installer.iso.xz</span></code>.</p>
+<p>We also provide instructions for downloading and verifying a Clear Linux ISO.
+For more information, refer to <a class="reference internal" href="../../guides/maintenance/download-verify-decompress.html#download-verify-decompress"><span class="std std-ref">Download, verify, and decompress a Clear Linux* OS image</span></a>.</p>
+</section>
+<section id="upload-the-cl-installer-iso-to-the-vmware-server">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Upload the Clear Linux OS installer ISO to the VMware server</a><a class="headerlink" href="#upload-the-cl-installer-iso-to-the-vmware-server" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Connect to the VMware server and log into an account with sufficient
+permission to create and manage VMs.</p></li>
+<li><p>Under the <span class="guilabel">Navigator</span> window, select <span class="guilabel">Storage</span>.
+See Figure 1.</p></li>
+<li><p>Under the <span class="guilabel">Datastores</span> tab, click the <span class="guilabel">Datastore browser</span>
+button.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-1.png"><img alt="VMware ESXi - Navigator &gt; Storage" src="../../_images/vmware-esxi-install-cl-1.png" style="width: 1154.0px; height: 225.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: VMware ESXi - Navigator &gt; Storage</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Create directory</span> button and name the directory <cite>ISOs</cite>.
+See Figure 2.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-2.png"><img alt="VMware ESXi - Datastore &gt; Create directory" src="../../_images/vmware-esxi-install-cl-2.png" style="width: 1154.0px; height: 442.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: VMware ESXi - Datastore &gt; Create directory</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select the newly-created directory and click the <span class="guilabel">Upload</span> button.
+See Figure 3.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-3.png"><img alt="VMware ESXi - Datastore &gt; Upload ISO" src="../../_images/vmware-esxi-install-cl-3.png" style="width: 1154.0px; height: 442.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: VMware ESXi - Datastore &gt; Upload ISO</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select the decompressed Clear Linux OS installer ISO file <code class="file docutils literal notranslate"><span class="pre">clear-[version</span> <span class="pre">number]-installer.iso</span></code>
+and upload it.</p></li>
+</ol>
+</section>
+<section id="create-and-configure-a-new-vm">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Create and configure a new VM</a><a class="headerlink" href="#create-and-configure-a-new-vm" title="Link to this heading">¶</a></h2>
+<p>In this section, you will create a new VM, configure its basic parameters such
+as drive size, number of CPUs, memory size, and then attach the Clear Linux OS installer ISO.</p>
+<ol class="arabic">
+<li><p>Under the <span class="guilabel">Navigator</span> window, select <span class="guilabel">Virtual Machines</span>.
+See Figure 4.</p></li>
+<li><p>In the right window, click the <span class="guilabel">Create / Register VM</span> button.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-4.png"><img alt="VMware ESXi - Navigator &gt; Virtual Machines" src="../../_images/vmware-esxi-install-cl-4.png" style="width: 1154.0px; height: 212.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: VMware ESXi - Navigator &gt; Virtual Machines</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the <span class="guilabel">Select creation type</span> step:</p>
+<ol class="arabic">
+<li><p>Select the <span class="guilabel">Create a new virtual machine</span> option.
+See Figure 5.</p></li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-5.png"><img alt="VMware ESXi - Create a new virtual machine" src="../../_images/vmware-esxi-install-cl-5.png" style="width: 1154.0px; height: 542.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: VMware ESXi - Create a new virtual machine</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>On the <span class="guilabel">Select a name and guest OS</span> step:</p>
+<ol class="arabic">
+<li><p>Give the new VM a name in the <span class="guilabel">Name</span> field. See Figure 6.</p></li>
+<li><p>Set the <span class="guilabel">Compatibility</span> option to <span class="guilabel">ESXi 6.5 virtual machine</span>.</p></li>
+<li><p>Set the <span class="guilabel">Guest OS family</span> option to <span class="guilabel">Linux</span>.</p></li>
+<li><p>Set the <span class="guilabel">Guest OS version</span> option to <span class="guilabel">Other 3.x or later Linux (64-bit)</span>.</p></li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-6.png"><img alt="VMware ESXi - Give a name and select guest OS type" src="../../_images/vmware-esxi-install-cl-6.png" style="width: 1154.0px; height: 541.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: VMware ESXi - Give a name and select guest OS type</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>On the <span class="guilabel">Select storage</span> step:</p>
+<ol class="arabic simple">
+<li><p>Accept the default option.</p></li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p></li>
+</ol>
+</li>
+<li><p>On the <span class="guilabel">Customize settings</span> step:</p>
+<ol class="arabic">
+<li><p>Click the <span class="guilabel">Virtual Hardware</span> button. See Figure 7.</p></li>
+<li><p>Expand the <span class="guilabel">CPU</span> setting and enable <span class="guilabel">Hardware virtualization</span> by
+checking <span class="guilabel">Expose hardware assisted virtualization to the guest OS</span>.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-7.png"><img alt="VMware ESXi - Enable hardware virtualization" src="../../_images/vmware-esxi-install-cl-7.png" style="width: 1154.0px; height: 559.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: VMware ESXi - Enable hardware virtualization</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Set <span class="guilabel">Memory</span> size to 2048MB (2GB). See Figure 8.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-8.png"><img alt="VMware ESXi - Set memory size" src="../../_images/vmware-esxi-install-cl-8.png" style="width: 1154.0px; height: 557.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: VMware ESXi - Set memory size</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Clear Linux OS installer ISO needs a minimum of 2GB of RAM to work properly.
+You can reduce the memory size after the installation completes if you want,
+because a minimum Clear Linux OS installation can function on as little as 128MB of RAM.
+See <a class="reference internal" href="../../reference/system-requirements.html#system-requirements"><span class="std std-ref">Recommended minimum system requirements</span></a> for more details.</p>
+</div>
+</li>
+<li><p>Set <span class="guilabel">Hard disk 1</span> to the desired capacity. See Figure 9.</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-9.png"><img alt="VMware ESXi - Set hard disk size" src="../../_images/vmware-esxi-install-cl-9.png" style="width: 1154.0px; height: 557.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: VMware ESXi - Set hard disk size</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A minimum Clear Linux OS installation can exist on 600MB of drive space.
+See <a class="reference internal" href="../../reference/system-requirements.html#system-requirements"><span class="std std-ref">Recommended minimum system requirements</span></a> for more details.</p>
+</div>
+</li>
+<li><p>Attach the Clear Linux OS installer ISO.  For the <span class="guilabel">CD/DVD Drive 1</span> setting,
+click the drop-down list to the right of it and select the <span class="guilabel">Datastore ISO file</span>
+option.  Then select the Clear Linux OS installer ISO <code class="file docutils literal notranslate"><span class="pre">clear-[version</span> <span class="pre">number]-installer.iso</span></code>
+that you previously uploaded to the VMware server. See Figure 10.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-10.png"><img alt="VMware ESXi - Set CD/DVD to boot installer ISO" src="../../_images/vmware-esxi-install-cl-10.png" style="width: 1154.0px; height: 564.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 10: VMware ESXi - Set CD/DVD to boot installer ISO</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p></li>
+<li><p>Click the <span class="guilabel">Finish</span> button.</p></li>
+</ol>
+</section>
+<section id="install-cl-into-the-new-vm">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Install Clear Linux OS into the new VM</a><a class="headerlink" href="#install-cl-into-the-new-vm" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Power on the VM.</p>
+<ol class="arabic">
+<li><p>Under the <span class="guilabel">Navigator</span> window, select <span class="guilabel">Virtual Machines</span>.
+See Figure 11.</p></li>
+<li><p>In the right window, select the newly-created VM.</p></li>
+<li><p>Click the <span class="guilabel">Power on</span> button.</p></li>
+<li><p>Click on the icon representing the VM to bring it into view and maximize
+its window.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-11.png"><img alt="VMware ESXi - Navigator &gt; Virtual Machines &gt; Power on VM" src="../../_images/vmware-esxi-install-cl-11.png" style="width: 1154.0px; height: 344.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 11: VMware ESXi - Navigator &gt; Virtual Machines &gt; Power on VM</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>Follow the <a class="reference internal" href="../bare-metal-install-desktop.html#install-on-target-start"><span class="std std-ref">Install from live image</span></a> guide to complete the installation of
+Clear Linux OS.</p></li>
+<li><p>After the installation is complete, follow the Clear Linux OS instruction to reboot it.
+This will restart the installer again.</p></li>
+</ol>
+</section>
+<section id="reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Reconfigure the VM’s settings to boot the newly-installed Clear Linux OS</a><a class="headerlink" href="#reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl" title="Link to this heading">¶</a></h2>
+<p>After Clear Linux OS has been installed using the installer ISO, it must be detached so
+it will not run again.  Also, in order to boot the newly-installed Clear Linux OS, you must
+enable UEFI support.</p>
+<ol class="arabic">
+<li><p>Power off the VM.</p>
+<ol class="arabic">
+<li><p>Click the <span class="guilabel">Actions</span> button - located on the top-right corner
+of the VM’s windows - and go to the <span class="guilabel">Power</span> setting and
+select the <span class="guilabel">Power off</span> option. See Figure 12.</p>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-12.png"><img alt="VMware ESXi - Actions &gt; Power off" src="../../_images/vmware-esxi-install-cl-12.png" style="width: 1154.0px; height: 298.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 12: VMware ESXi - Actions &gt; Power off</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>Edit the VM settings.</p>
+<ol class="arabic">
+<li><p>Click the <span class="guilabel">Actions</span> button again and select <span class="guilabel">Edit settings</span>.
+See Figure 13.</p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-13.png"><img alt="VMware ESXi - Actions &gt; Edit settings" src="../../_images/vmware-esxi-install-cl-13.png" style="width: 1154.0px; height: 421.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 13: VMware ESXi - Actions &gt; Edit settings</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>Disconnect the CD/DVD to stop it from booting the Clear Linux OS installer ISO again.</p>
+<ol class="arabic">
+<li><p>Click the <span class="guilabel">Virtual Hardware</span> button.  See Figure 14.</p></li>
+<li><p>For the <span class="guilabel">CD/DVD Drive 1</span> setting, uncheck the
+<span class="guilabel">Connect</span> checkbox.</p>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-14.png"><img alt="VMware ESXi - Disconnect the CD/DVD drive" src="../../_images/vmware-esxi-install-cl-14.png" style="width: 1154.0px; height: 586.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 14: VMware ESXi - Disconnect the CD/DVD drive</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>Clear Linux OS needs UEFI support in order to boot.  Enable it.</p>
+<ol class="arabic">
+<li><p>Click the <span class="guilabel">VM Options</span> button. See Figure 15.</p></li>
+<li><p>Expand the <span class="guilabel">Boot Options</span> setting.</p></li>
+<li><p>For the <span class="guilabel">Firmware</span> setting, click the drop-down list to the right
+of it and select the <span class="guilabel">EFI</span> option.</p>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-15.png"><img alt="VMware ESXi - Set boot firmware to EFI" src="../../_images/vmware-esxi-install-cl-15.png" style="width: 1154.0px; height: 576.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 15: VMware ESXi - Set boot firmware to EFI</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>Click the <span class="guilabel">Save</span> button.</p></li>
+</ol>
+</section>
+<section id="power-on-the-vm-and-boot-cl">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Power on the VM and boot Clear Linux OS</a><a class="headerlink" href="#power-on-the-vm-and-boot-cl" title="Link to this heading">¶</a></h2>
+<p>After configuring the settings above, power on the VM.</p>
+<ol class="arabic">
+<li><p>Under the <span class="guilabel">Navigator</span> window, select <span class="guilabel">Virtual Machines</span>.
+See Figure 16.</p></li>
+<li><p>In the right window, select the VM.</p></li>
+<li><p>Click the <span class="guilabel">Power on</span> button.</p></li>
+<li><p>Click on the icon representing the VM to bring it into view and maximize
+its window.</p>
+<figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="../../_images/vmware-esxi-install-cl-16.png"><img alt="VMware ESXi - Navigator &gt; Virtual Machines &gt; Power on VM" src="../../_images/vmware-esxi-install-cl-16.png" style="width: 1154.0px; height: 344.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 16: VMware ESXi - Navigator &gt; Virtual Machines &gt; Power on VM</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Clear Linux* OS on VMware* ESXi</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#download-the-latest-cl-installer-iso">Download the latest Clear Linux OS installer ISO</a></li>
+<li><a class="reference internal" href="#upload-the-cl-installer-iso-to-the-vmware-server">Upload the Clear Linux OS installer ISO to the VMware server</a></li>
+<li><a class="reference internal" href="#create-and-configure-a-new-vm">Create and configure a new VM</a></li>
+<li><a class="reference internal" href="#install-cl-into-the-new-vm">Install Clear Linux OS into the new VM</a></li>
+<li><a class="reference internal" href="#reconfigure-the-vm-s-settings-to-boot-the-newly-installed-cl">Reconfigure the VM’s settings to boot the newly-installed Clear Linux OS</a></li>
+<li><a class="reference internal" href="#power-on-the-vm-and-boot-cl">Power on the VM and boot Clear Linux OS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="vmw-player.html"
+                          title="previous chapter">Clear Linux* OS on VMware* Workstation Player</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../../guides/maintenance/increase-virtual-disk-size.html"
+                          title="next chapter">Increase Virtual Disk Size of an Image</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/virtual-machine-install/vmware-esxi-install-cl.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../guides/maintenance/increase-virtual-disk-size.html" title="Increase Virtual Disk Size of an Image"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="vmw-player.html" title="Clear Linux* OS on VMware* Workstation Player"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on VMware* ESXi</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

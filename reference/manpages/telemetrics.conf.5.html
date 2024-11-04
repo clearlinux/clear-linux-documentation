@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>telemetrics.conf &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/telemetrics.conf.5.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="telem-record-gen" href="telem-record-gen.1.html" />
+    <link rel="prev" title="tallow.patterns" href="tallow.patterns.5.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="telem-record-gen.1.html" title="telem-record-gen"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tallow.patterns.5.html" title="tallow.patterns"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">telemetrics.conf</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="telemetrics-conf">
+<h1>telemetrics.conf<a class="headerlink" href="#telemetrics-conf" title="Link to this heading">¶</a></h1>
+<section id="telemetry-service-configuration-file">
+<h2>Telemetry service configuration file<a class="headerlink" href="#telemetry-service-configuration-file" title="Link to this heading">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(C) 2017 Intel Corporation, CC-BY-SA-3.0</p>
+</dd>
+<dt class="field-even">Manual section<span class="colon">:</span></dt>
+<dd class="field-even"><p>5</p>
+</dd>
+</dl>
+<section id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/telemetrics/telemetrics.conf</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/share/defaults/telemetrics/telemetrics.conf</span></code></p>
+</section>
+<section id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
+<p>This file contains configuration parameters for the <a class="reference external" href="telemprobd.1.html">telemprobd(1)</a> and <a class="reference external" href="telempostd.1.html">telempostd(1)</a> telemetry service daemons. The daemon reads this file at startup if it exists.</p>
+</section>
+<section id="syntax">
+<h3>SYNTAX<a class="headerlink" href="#syntax" title="Link to this heading">¶</a></h3>
+<p>The configuration file contains <code class="docutils literal notranslate"><span class="pre">key=value</span></code> pairs, formatted as plain
+text, one option per line. Comments can be added by preceding them with the
+<code class="docutils literal notranslate"><span class="pre">#</span></code> character. All configuration options should be in a section marked
+with <code class="docutils literal notranslate"><span class="pre">[settings]</span></code>.</p>
+</section>
+<section id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">server=&lt;url&gt;</span></code></p>
+<p>Server URL including protocol designator.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">socket_path=&lt;path&gt;</span></code></p>
+<p>Path to the socket that <cite>telemprobd</cite> will listen on.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cainfo=&lt;path&gt;</span></code></p>
+<p>Certificate file to use for validation of SSL endpoint.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tidheader=&lt;header&gt;</span></code></p>
+<p>Telemetry ID in header format, usually <code class="docutils literal notranslate"><span class="pre">tidheader=X-Telemetry-TID:&lt;uuid&gt;</span></code>
+post header used to group records in ingestion service, which may be
+ingesting for more than one set of clients. Can be set to any string.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">record_expiry=&lt;minutes&gt;</span></code></p>
+<p>Record expiry time in minutes.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spool_dir=&lt;dir&gt;</span></code></p>
+<p>Local spool directory used to store records being processed.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spool_max_size=&lt;kB&gt;</span></code></p>
+<p>maximum size of the spool directory in kB. A value of <code class="docutils literal notranslate"><span class="pre">-1</span></code> indicates
+no limit. The block size of the files in this directory is considered,
+and not the actual size of the record itself.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spool_process_time=&lt;seconds&gt;</span></code></p>
+<p>Time in seconds for processing spool. Valid range: 120..300. Values
+outside this range are clamped.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rate_limit_enabled=&lt;true|false&gt;</span></code></p>
+<p>Enable rate limiting. If this is set to false then all rate-limiting
+disabled. It is possible to disable each rate-limit individually below.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">record_burst_limit=&lt;limit&gt;</span></code></p>
+<p>Rate limiting record burst limit. Valid Range:  0..``INT_MAX``, -1 = disabled.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">record_window_length=&lt;minutes&gt;</span></code></p>
+<p>Rate limiting record window length in minutes. Valid Range: 0..59.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">byte_burst_limit=&lt;limit&gt;</span></code></p>
+<p>Rate limiting byte burst limit. Valid Range:  0..`INT_MAX`, -1 = disabled.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">byte_window_length=&lt;minutes&gt;</span></code></p>
+<p>Rate limiting byte window length in minutes. Valid Range: 0..59.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rate_limit_strategy=&lt;strategy&gt;</span></code></p>
+<p>Rate limit strategy - what to do with record if rate-limiting prevents
+delivery over network. Valid stategies: <code class="docutils literal notranslate"><span class="pre">spool</span></code>, <code class="docutils literal notranslate"><span class="pre">drop</span></code>.</p>
+</li>
+</ul>
+</section>
+<section id="see-also">
+<h3>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="telemprobd.1.html">telemprobd(1)</a></p></li>
+<li><p><a class="reference external" href="telempostd.1.html">telempostd(1)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clearlinux/telemetrics-client">https://github.com/clearlinux/telemetrics-client</a></p></li>
+<li><p><a class="reference external" href="https://clearlinux.org/documentation/">https://clearlinux.org/documentation/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">telemetrics.conf</a><ul>
+<li><a class="reference internal" href="#telemetry-service-configuration-file">Telemetry service configuration file</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#syntax">SYNTAX</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="tallow.patterns.5.html"
+                          title="previous chapter">tallow.patterns</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="telem-record-gen.1.html"
+                          title="next chapter">telem-record-gen</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/telemetrics.conf.5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="telem-record-gen.1.html" title="telem-record-gen"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tallow.patterns.5.html" title="tallow.patterns"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">telemetrics.conf</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

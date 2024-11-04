@@ -1,0 +1,367 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Download, verify, and decompress a Clear Linux* OS image &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/maintenance/download-verify-decompress.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Enable systemd-boot Menu" href="enable-systemd-boot-menu.html" />
+    <link rel="prev" title="Developer Workstation" href="developer-workstation.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="enable-systemd-boot-menu.html" title="Enable systemd-boot Menu"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="developer-workstation.html" title="Developer Workstation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Download, verify, and decompress a Clear Linux* OS image</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="download-verify-and-decompress-a-cl-attr-image">
+<span id="download-verify-decompress"></span><h1>Download, verify, and decompress a Clear Linux* OS image<a class="headerlink" href="#download-verify-and-decompress-a-cl-attr-image" title="Link to this heading">¶</a></h1>
+<p>This guide describes the available types of Clear Linux OS images, where to
+download them, how to verify their integrity, and how to decompress them.
+Follow the steps for your OS.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#linux-os-steps" id="id8">Linux OS steps</a></p></li>
+<li><p><a class="reference internal" href="#macos-steps" id="id9">macOS* steps</a></p></li>
+<li><p><a class="reference internal" href="#windows-os-steps" id="id10">Windows* OS steps</a></p></li>
+<li><p><a class="reference internal" href="#image-types" id="id11">Image types</a></p></li>
+</ul>
+</nav>
+<p>Clear Linux* OS offers many types of <a class="reference external" href="https://clearlinux.org/downloads">images</a> for different platforms and environments.</p>
+<p id="incl-image-filename">The naming convention of a Clear Linux OS image filename is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">clear-[version number]-[image type].[compression type]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <em>[version number]</em> field specifies the version number.</p></li>
+<li><p>The <em>[image type]</em> field specifies the type of image and its corresponding
+file format.</p></li>
+<li><p>The <em>[compression type]</em> field specifies the compression type. Two types of
+compression methods are used: GNU* zip (<em>.gz</em>) and XZ (<em>.xz</em>).</p></li>
+</ul>
+<section id="linux-os-steps">
+<span id="download-verify-decompress-linux"></span><h2><a class="toc-backref" href="#id8" role="doc-backlink">Linux OS steps</a><a class="headerlink" href="#linux-os-steps" title="Link to this heading">¶</a></h2>
+<section id="verify-the-integrity-of-the-cl-image">
+<span id="verify-linux"></span><h3>Verify the integrity of the Clear Linux OS image<a class="headerlink" href="#verify-the-integrity-of-the-cl-image" title="Link to this heading">¶</a></h3>
+<p>Before you use a downloaded Clear Linux OS image, verify its integrity. This action
+eliminates the small chance of a corrupted image due to download issues. To
+support verification, each released Clear Linux OS image has a corresponding SHA512
+checksum file designated with the suffix <cite>-SHA512SUMS</cite>.</p>
+<ol class="arabic">
+<li><p>Download the corresponding SHA512 checksum file of your Clear Linux OS <a class="reference external" href="https://clearlinux.org/downloads">image</a>.</p></li>
+<li><p>Open a Terminal.</p></li>
+<li><p>Go to the directory with the downloaded image and checksum files.</p></li>
+<li><p>Verify the integrity of the image and compare it to its original checksum
+with the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sha512sum<span class="w"> </span>-c<span class="w"> </span>./clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.<span class="o">[</span>compression<span class="w"> </span>type<span class="o">]</span>-SHA512SUMS
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If the checksum of the downloaded image is different than the original
+checksum, a warning is displayed with a message indicating the computed
+checksum does <strong>not</strong> match. Otherwise, the name of the image is printed on
+the screen followed by <cite>OK</cite>.</p>
+<p>For a more in-depth discussion of image verification including checking the
+certificate see <a class="reference internal" href="validate-signatures.html#image-content-validation"><span class="std std-ref">Image content validation</span></a>.</p>
+</section>
+<section id="decompress-the-cl-image">
+<h3>Decompress the Clear Linux OS image<a class="headerlink" href="#decompress-the-cl-image" title="Link to this heading">¶</a></h3>
+<p>Released Clear Linux OS images are compressed with either GNU zip (<em>.gz</em>) or XZ
+(<em>.xz</em>). The compression type depends on the target platform or
+environment. To decompress the image, follow these steps:</p>
+<ol class="arabic">
+<li><p>Open a Terminal.</p></li>
+<li><p>Go to the directory with the downloaded image.</p>
+<p>To decompress an XZ image, enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>unxz<span class="w"> </span>clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.xz
+</pre></div>
+</div>
+<p>To decompress a GZ image, enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gunzip<span class="w"> </span>clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.gz
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="macos-steps">
+<span id="download-verify-decompress-mac"></span><h2><a class="toc-backref" href="#id9" role="doc-backlink">macOS* steps</a><a class="headerlink" href="#macos-steps" title="Link to this heading">¶</a></h2>
+<section id="verify-mac">
+<span id="id1"></span><h3>Verify the integrity of the Clear Linux OS image<a class="headerlink" href="#verify-mac" title="Link to this heading">¶</a></h3>
+<p>Before you use a downloaded Clear Linux OS image, verify its integrity. This action
+eliminates the small chance of a corrupted image due to download issues. To
+support verification, each released Clear Linux OS image has a corresponding SHA512
+checksum file designated with the suffix <cite>-SHA512SUMS</cite>.</p>
+<ol class="arabic">
+<li><p>Download the corresponding SHA512 checksum file of your Clear Linux OS <a class="reference external" href="https://clearlinux.org/downloads">image</a>.</p></li>
+<li><p>Open a Terminal.</p></li>
+<li><p>Go to the directory with the downloaded image and checksum files.</p></li>
+<li><p>Verify the integrity of the image and compare it to its original checksum
+with the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>shasum<span class="w"> </span>-a512<span class="w"> </span>clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.<span class="o">[</span>compression<span class="w"> </span>type<span class="o">]</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>diff<span class="w"> </span>clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.<span class="o">[</span>compression<span class="w"> </span>type<span class="o">]</span>-SHA512SUMS<span class="w"> </span>-
+</pre></div>
+</div>
+</li>
+</ol>
+<p>If the checksum of the downloaded image is different than the original
+checksum, the differences will be displayed. Otherwise, an empty output indicates
+a match and your downloaded image is good.</p>
+</section>
+<section id="id2">
+<h3>Decompress the Clear Linux OS image<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h3>
+<p>We compress all released Clear Linux OS images by default with either GNU zip
+(<cite>.gz</cite>) or xz (<cite>.xz</cite>). The compression type we use depends on the target
+platform or environment. To decompress the image, follow these steps:</p>
+<ol class="arabic">
+<li><p>Open a Terminal.</p></li>
+<li><p>Go to the directory with the downloaded image.</p></li>
+<li><p>Use the <strong class="command">gunzip</strong> command to decompress either compression type. For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gunzip<span class="w"> </span>clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.xz
+gunzip<span class="w"> </span>clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.gz
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="windows-os-steps">
+<span id="download-verify-decompress-windows"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink">Windows* OS steps</a><a class="headerlink" href="#windows-os-steps" title="Link to this heading">¶</a></h2>
+<section id="verify-windows">
+<span id="id3"></span><h3>Verify the integrity of the Clear Linux OS image<a class="headerlink" href="#verify-windows" title="Link to this heading">¶</a></h3>
+<p>Before you use a downloaded Clear Linux OS image, verify its integrity. This action
+eliminates the small chance of a corrupted image due to download issues. To
+support verification, each released Clear Linux OS image has a corresponding SHA512
+checksum file designated with the suffix <cite>-SHA512SUMS</cite>.</p>
+<ol class="arabic">
+<li><p>Download the corresponding SHA512 checksum file of your Clear Linux OS <a class="reference external" href="https://clearlinux.org/downloads">image</a>.</p></li>
+<li><p>Start Command Prompt.</p></li>
+<li><p>Go to the directory with the downloaded image and checksum files.</p></li>
+<li><p>Get the SHA512 checksum of the image with the command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CertUtil<span class="w"> </span>-hashfile<span class="w"> </span>./clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-<span class="o">[</span>image<span class="w"> </span>type<span class="o">]</span>.<span class="o">[</span>compression<span class="w"> </span>type<span class="o">]</span><span class="w"> </span>SHA512
+</pre></div>
+</div>
+</li>
+<li><p>Manually compare the output with the original checksum value shown in
+the downloaded checksum file and make sure they match.</p></li>
+</ol>
+</section>
+<section id="id4">
+<h3>Decompress the Clear Linux OS image<a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<p>Released Clear Linux OS images are compressed with either GNU zip (<em>.gz</em>) or XZ
+(<em>.xz</em>). The compression type depends on the target platform or
+environment. To decompress the image, follow these steps:</p>
+<ol class="arabic">
+<li><p>Download and install <a class="reference external" href="http://www.7-zip.org/">7-Zip</a>.</p></li>
+<li><p>Go to the directory with the downloaded image and right-click it.</p></li>
+<li><p>From the pop-up menu, select <span class="guilabel">7-Zip</span> and select
+<span class="guilabel">Extract Here</span> as shown in Figure 1.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/download-verify-decompress-windows-fig-1.png"><img alt="7-Zip extract file" src="../../_images/download-verify-decompress-windows-fig-1.png" style="width: 852.0px; height: 569.6px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Windows 7-Zip extract file.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+</section>
+<section id="image-types">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Image types</a><a class="headerlink" href="#image-types" title="Link to this heading">¶</a></h2>
+<p>Table 1 lists the currently available images that are platform independent.
+Table 2 lists the currently available images that are platform specific.</p>
+<table class="docutils align-default" id="id6">
+<caption><span class="caption-text">Table 1: Types of platform-independent Clear Linux OS images</span><a class="headerlink" href="#id6" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Image Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>live-desktop.img or live-desktop.iso</p></td>
+<td><p>Image for booting to GNOME* desktop to preview or install the OS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>live-server.img or live-server.iso</p></td>
+<td><p>Image for booting to server command prompt to preview or install the OS.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id7">
+<caption><span class="caption-text">Table 2: Types of platform-specific Clear Linux OS images</span><a class="headerlink" href="#id7" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Image Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>aws.img</p></td>
+<td><p>Image suitable for use with Amazon* AWS*.</p></td>
+</tr>
+<tr class="row-odd"><td><p>cloudguest.img</p></td>
+<td><p>Image with generic cloud guest virtual machine (VM) requirements
+installed.</p></td>
+</tr>
+<tr class="row-even"><td><p>gce.tar</p></td>
+<td><p>Image with the Google Compute Engine (GCE) specific kernel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>azure-hyperv.vhd</p></td>
+<td><p>Image for Microsoft* Azure and Hyper-V generation 1 VMs. Includes
+<a class="reference internal" href="../clear/compatible-kernels.html#vm-kernels"><span class="std std-ref">optimized kernel</span></a> for Hyper-V.</p></td>
+</tr>
+<tr class="row-even"><td><p>kvm.img</p></td>
+<td><p>Image for booting in a simple VM with start_qemu.sh. Includes
+<a class="reference internal" href="../clear/compatible-kernels.html#vm-kernels"><span class="std std-ref">optimized kernel</span></a> for KVM.</p></td>
+</tr>
+<tr class="row-odd"><td><p>kvm-legacy.img</p></td>
+<td><p>Image for booting in a simple VM using legacy BIOS, if using
+start_qemu.sh make sure to remove -bios parameter.</p></td>
+</tr>
+<tr class="row-even"><td><p>pxe.tar</p></td>
+<td><p>Image suitable for use with PXE server.</p></td>
+</tr>
+<tr class="row-odd"><td><p>vmware.vmdk</p></td>
+<td><p>Virtual Machine Disk for VMware* platforms including Player,
+Workstation, and ESXi.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Download, verify, and decompress a Clear Linux* OS image</a><ul>
+<li><a class="reference internal" href="#linux-os-steps">Linux OS steps</a><ul>
+<li><a class="reference internal" href="#verify-the-integrity-of-the-cl-image">Verify the integrity of the Clear Linux OS image</a></li>
+<li><a class="reference internal" href="#decompress-the-cl-image">Decompress the Clear Linux OS image</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#macos-steps">macOS* steps</a><ul>
+<li><a class="reference internal" href="#verify-mac">Verify the integrity of the Clear Linux OS image</a></li>
+<li><a class="reference internal" href="#id2">Decompress the Clear Linux OS image</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows-os-steps">Windows* OS steps</a><ul>
+<li><a class="reference internal" href="#verify-windows">Verify the integrity of the Clear Linux OS image</a></li>
+<li><a class="reference internal" href="#id4">Decompress the Clear Linux OS image</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#image-types">Image types</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="developer-workstation.html"
+                          title="previous chapter">Developer Workstation</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="enable-systemd-boot-menu.html"
+                          title="next chapter">Enable systemd-boot Menu</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/maintenance/download-verify-decompress.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="enable-systemd-boot-menu.html" title="Enable systemd-boot Menu"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="developer-workstation.html" title="Developer Workstation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Download, verify, and decompress a Clear Linux* OS image</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

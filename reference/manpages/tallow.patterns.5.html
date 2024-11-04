@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>tallow.patterns &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/tallow.patterns.5.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="telemetrics.conf" href="telemetrics.conf.5.html" />
+    <link rel="prev" title="tallow.conf" href="tallow.conf.5.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="telemetrics.conf.5.html" title="telemetrics.conf"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tallow.conf.5.html" title="tallow.conf"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">tallow.patterns</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="tallow-patterns">
+<h1>tallow.patterns<a class="headerlink" href="#tallow-patterns" title="Link to this heading">¶</a></h1>
+<p>Tallow pattern matching configuration files.</p>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="tallow.1.html">tallow(1)</a> uses regular expressions to match journal entries and extract
+an IP address from them. JSON files are used to configure the patterns
+and banning thresholds used by <a class="reference external" href="tallow.1.html">tallow(1)</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/tallow/*.json</span></code> <code class="docutils literal notranslate"><span class="pre">/usr/share/tallow/*.json</span></code></p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="tallow.1.html">tallow(1)</a> uses regular expressions to match journal entries and extract
+an IP address from them. JSON files are used to configure the patterns
+and banning thresholds used by <a class="reference external" href="tallow.1.html">tallow(1)</a>. This adds the ability to
+extend the patterns <a class="reference external" href="tallow.1.html">tallow(1)</a> will recognize. Many JSON files can exist
+for logical grouping. The <a class="reference external" href="tallow.1.html">tallow(1)</a> daemon will read all JSON files in
+the configuration directories at startup.</p>
+<p><a class="reference external" href="tallow.1.html">tallow(1)</a> operates with default pattern definitions
+in<code class="docutils literal notranslate"><span class="pre">/usr/share/tallow/*.json</span></code>. Users can add more patterns with their
+own JSON files under <code class="docutils literal notranslate"><span class="pre">/etc/tallow</span></code>. The default JSON files can be
+overridden by creating the same file under <code class="docutils literal notranslate"><span class="pre">/etc/tallow</span></code>.</p>
+</section>
+<section id="file-format">
+<h2>FILE FORMAT<a class="headerlink" href="#file-format" title="Link to this heading">¶</a></h2>
+<p>Pattern configuration files use the JavaScript Object Notation (JSON)
+format.</p>
+<p>The JSON must be two levels deep and all properties are required. The
+root object is an array containing objects with a <code class="docutils literal notranslate"><span class="pre">filter</span></code> key and an
+<code class="docutils literal notranslate"><span class="pre">items</span></code> key.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">filter</span></code> is a string that defines a field for filtering the journal
+file. This helps make sure patterns are only matched to a subset of
+journal entries. See systemd.journal-fields(7) for valid journal
+fields.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">items</span></code> is an array of objects that contains three elements:
+<code class="docutils literal notranslate"><span class="pre">ban</span></code>, <code class="docutils literal notranslate"><span class="pre">score</span></code>, and <code class="docutils literal notranslate"><span class="pre">pattern</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">ban</span></code> is an integer that defines the number of seconds to ban
+originating IP for. If this value is &gt; 0, the IP address get
+banned immediately when a journal entry matches <code class="docutils literal notranslate"><span class="pre">pattern</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">score</span></code> is a double that defines a value to add to the
+accumulated “score” of an originating IP address each time a
+journal entry matches the <code class="docutils literal notranslate"><span class="pre">pattern</span></code>. If the combined score is &gt;
+1.0, tallow bans the originating IP for the default time of 1
+hour. The <code class="docutils literal notranslate"><span class="pre">ban</span></code> element value above is not used for bans made
+due to <code class="docutils literal notranslate"><span class="pre">score</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pattern</span></code> is a string that defines a Perl Compatible Regular
+Expressions (PCRE) to match against the filtered journal entries.
+The PCRE should extract exactly one substring: the originating IP
+address for <a class="reference external" href="tallow.1.html">tallow(1)</a>. See systemd.journal-fields(7) for valid
+journal fields.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="examples">
+<h2>EXAMPLES<a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>The JSON below is a snippet from one of the default pattern
+configuration files for blocking certain failed <code class="docutils literal notranslate"><span class="pre">sshd</span></code> connections.</p>
+<p>The first pattern will ban an IP address after it fails to login 6
+times causing it to reach a total score &gt; 1.0.</p>
+<p>The second pattern will ban an IP address for 10 seconds every time a
+login is attempted with an invalid user. Additionally, it will ban
+the IP address for 1 hour if it attempts to login with an invalid
+user 6 times causing it to reach a total score &gt; 1.0.</p>
+<p>See the <code class="docutils literal notranslate"><span class="pre">/usr/share/tallow/sshd.json</span></code> file for more <code class="docutils literal notranslate"><span class="pre">sshd</span></code>
+examples.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="s2">&quot;SYSLOG_IDENTIFIER=sshd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;ban&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+        <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;MESSAGE=Failed .* for .* from ([0-9a-z:.]+) port </span><span class="se">\\</span><span class="s2">d+ ssh2&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;ban&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+        <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span>
+        <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;MESSAGE=Invalid user .* from ([0-9a-z:.]+) port </span><span class="se">\\</span><span class="s2">d+&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>The JSON below defines a pattern for blocking connections based on
+error logs from <code class="docutils literal notranslate"><span class="pre">nginx-mainline</span></code> if placed in a
+<code class="docutils literal notranslate"><span class="pre">/etc/tallow/nginx-mainline.json</span></code> file.</p>
+<p>The pattern will ban an IP address for 15 seconds every time it
+attempts to access a script that does not exist. Additionally, it
+will ban the IP address for 1 hour if it attempts to access invalid
+scripts 4 times causing it to reach a total score &gt; 1.0.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">&quot;filter&quot;</span><span class="p">:</span> <span class="s2">&quot;SYSLOG_IDENTIFIER=nginx-mainline&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;items&quot;</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;ban&quot;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="s2">&quot;score&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+        <span class="s2">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;.Primary script unknown. while reading response header from upstream, client: ([0-9a-z:.]+),&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="tallow.1.html">tallow(1)</a>, <a class="reference external" href="tallow.conf.5.html">tallow.conf(5)</a></p>
+</section>
+<section id="bugs">
+<h2>BUGS<a class="headerlink" href="#bugs" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">tallow</span></code> is <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">A</span> <span class="pre">SECURITY</span> <span class="pre">SOLUTION</span></code>, nor does it protect against
+random password logins. An attacker may still be able to logon to your
+systems if you allow password logins.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">tallow.patterns</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#file-format">FILE FORMAT</a></li>
+<li><a class="reference internal" href="#examples">EXAMPLES</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+<li><a class="reference internal" href="#bugs">BUGS</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="tallow.conf.5.html"
+                          title="previous chapter">tallow.conf</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="telemetrics.conf.5.html"
+                          title="next chapter">telemetrics.conf</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/tallow.patterns.5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="telemetrics.conf.5.html" title="telemetrics.conf"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tallow.conf.5.html" title="tallow.conf"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">tallow.patterns</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Check Processor Compatibility &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/compatibility-check.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Create a bootable USB drive using Etcher*" href="bootable-usb.html" />
+    <link rel="prev" title="Get started" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="bootable-usb.html" title="Create a bootable USB drive using Etcher*"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Get started"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Check Processor Compatibility</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="check-processor-compatibility">
+<span id="compatibility-check"></span><h1>Check Processor Compatibility<a class="headerlink" href="#check-processor-compatibility" title="Link to this heading">¶</a></h1>
+<p>Before installing Clear Linux* OS, check your host system’s processor compatibility using one of
+the following options:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This does not check other system components (for example: storage and
+graphics) for compatibility with Clear Linux OS.</p>
+</div>
+<section id="option-1-use-the-clear-linux-check-config-sh-script-on-an-existing-linux-system">
+<h2>Option 1: Use the <strong class="command">clear-linux-check-config.sh</strong> script on an existing Linux system<a class="headerlink" href="#option-1-use-the-clear-linux-check-config-sh-script-on-an-existing-linux-system" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Download the <a class="reference external" href="https://cdn.download.clearlinux.org/current/clear-linux-check-config.sh">clear-linux-check-config.sh</a> file.</p>
+<p>If a browser is not available, use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-O<span class="w"> </span>https://cdn.download.clearlinux.org/current/clear-linux-check-config.sh
+</pre></div>
+</div>
+</li>
+<li><p>Make the script executable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>clear-linux-check-config.sh
+</pre></div>
+</div>
+</li>
+<li><p>Run the script.</p>
+<ol class="arabic">
+<li><p>Check to see if the host’s processor is capable of running Clear Linux OS.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./clear-linux-check-config.sh<span class="w"> </span>host
+</pre></div>
+</div>
+</li>
+<li><p>Check to see if the host is capable of running Clear Linux OS in a container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./clear-linux-check-config.sh<span class="w"> </span>container
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The script prints a list of test results similar to the output below.
+All items should return a <cite>SUCCESS</cite> status. This example indicates the
+host’s processor supports running Clear Linux OS.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Checking if host is capable of running Clear Linux* OS</span>
+
+<span class="go">SUCCESS: 64-bit CPU (lm)</span>
+<span class="go">SUCCESS: Supplemental Streaming SIMD Extensions 3 (ssse3)</span>
+<span class="go">SUCCESS: Streaming SIMD Extension v4.1 (sse4_1)</span>
+<span class="go">SUCCESS: Streaming SIMD Extensions v4.2 (sse4_2)</span>
+<span class="go">SUCCESS: Carry-less Multiplication extensions (pclmulqdq)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<section id="option-2-use-a-cl-live-image-on-a-non-linux-system">
+<h3>Option 2: Use a Clear Linux OS live image on a non-Linux system<a class="headerlink" href="#option-2-use-a-cl-live-image-on-a-non-linux-system" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p><a class="reference external" href="https://clearlinux.org/downloads">Download</a> either the <cite>Desktop</cite> or <cite>Server</cite> version of the live image ISO.</p></li>
+<li><p>Follow the instruction to <a class="reference internal" href="bootable-usb.html#bootable-usb"><span class="std std-ref">Create a bootable USB drive using Etcher*</span></a>.</p></li>
+<li><p>Boot up the Clear Linux OS live image on the USB.</p></li>
+<li><p>Check compatibility as follows:</p>
+<ul>
+<li><p><em>Desktop version:</em></p>
+<ol class="loweralpha">
+<li><p>Open a terminal.</p></li>
+<li><p>Check compatibility.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-installer<span class="w"> </span>--system-check
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p><em>Server version:</em></p>
+<ol class="loweralpha">
+<li><p>Log in as <cite>root</cite> and set a password.</p></li>
+<li><p>Check compatibility.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>clr-installer<span class="w"> </span>--system-check
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+</ul>
+<p>Expected output for a compatible host processor:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Checking for required CPU feature: lm [success]</span>
+<span class="go">Checking for required CPU feature: sse4_2 [success]</span>
+<span class="go">Checking for required CPU feature: sse4_1 [success]</span>
+<span class="go">Checking for required CPU feature: pclmulqdq [success]</span>
+<span class="go">Checking for required CPU feature: ssse3 [success]</span>
+<span class="go">Success: System is compatible</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Check Processor Compatibility</a><ul>
+<li><a class="reference internal" href="#option-1-use-the-clear-linux-check-config-sh-script-on-an-existing-linux-system">Option 1: Use the <strong class="command">clear-linux-check-config.sh</strong> script on an existing Linux system</a><ul>
+<li><a class="reference internal" href="#option-2-use-a-cl-live-image-on-a-non-linux-system">Option 2: Use a Clear Linux OS live image on a non-Linux system</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="index.html"
+                          title="previous chapter">Get started</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bootable-usb.html"
+                          title="next chapter">Create a bootable USB drive using Etcher*</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/get-started/compatibility-check.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="bootable-usb.html" title="Create a bootable USB drive using Etcher*"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Get started"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Check Processor Compatibility</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

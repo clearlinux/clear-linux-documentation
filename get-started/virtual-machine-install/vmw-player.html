@@ -1,0 +1,511 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS on VMware* Workstation Player &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/virtual-machine-install/vmw-player.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clear Linux* OS on VMware* ESXi" href="vmware-esxi-install-cl.html" />
+    <link rel="prev" title="Clear Linux* OS on VirtualBox*" href="virtualbox-cl-installer.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="vmware-esxi-install-cl.html" title="Clear Linux* OS on VMware* ESXi"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="virtualbox-cl-installer.html" title="Clear Linux* OS on VirtualBox*"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on VMware* Workstation Player</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-on-vmware-workstation-player">
+<span id="vmw-player"></span><h1>Clear Linux* OS on VMware* Workstation Player<a class="headerlink" href="#cl-attr-on-vmware-workstation-player" title="Link to this heading">¶</a></h1>
+<p>This guide explains how to set up the VMware* Workstation Player 15.5.1
+hypervisor and instantiate a VM instance of Clear Linux OS by installing it using
+an ISO or using a pre-built image.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id17">Overview</a></p></li>
+<li><p><a class="reference internal" href="#install-the-vmware-workstation-player-hypervisor" id="id18">Install the VMware Workstation Player hypervisor</a></p></li>
+<li><p><a class="reference internal" href="#create-a-blank-vm" id="id19">Create a blank VM</a></p></li>
+<li><p><a class="reference internal" href="#enable-uefi-boot-support" id="id20">Enable UEFI boot support</a></p></li>
+<li><p><a class="reference internal" href="#instantiate-cl" id="id21">Instantiate Clear Linux OS</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id22">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://www.vmware.com/products/workstation-player.html">VMware Workstation Player</a> is a type 2 hypervisor. It runs on top of
+Windows* or Linux* operating systems. With VMware Workstation Player,
+you can create, configure, manage, and run Clear Linux* OS
+<abbr title="Virtual Machines">VMs</abbr> on your local system.</p>
+<p>VMware offers a type 1 hypervisor called <a class="reference external" href="https://www.vmware.com/products/esxi-and-esx.html">VMware ESXi</a> designed for the
+cloud environment. For information on how to install Clear Linux OS as guest OS on
+it, see <a class="reference internal" href="vmware-esxi-install-cl.html#vmware-esxi-install-cl"><span class="std std-ref">Clear Linux* OS on VMware* ESXi</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The screenshots in this document show the Windows version of the
+VMware Workstation Player 15.5.1. The menus and prompts are similar to those
+in other versions and for the Linux version, save some minor wording
+differences.</p>
+</div>
+</section>
+<section id="install-the-vmware-workstation-player-hypervisor">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink">Install the VMware Workstation Player hypervisor</a><a class="headerlink" href="#install-the-vmware-workstation-player-hypervisor" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Enable Intel® Virtualization Technology (Intel® VT) and
+Intel® Virtualization Technology for Directed I/O (Intel® VT-d) in
+your system’s BIOS.</p></li>
+<li><p><a class="reference external" href="https://www.vmware.com/products/workstation-player.html">VMware Workstation Player</a> is available for Windows and Linux.
+Download your preferred version.</p></li>
+<li><p>Install VMware Workstation Player by following the instructions
+appropriate for your system’s OS:</p>
+<ul>
+<li><p>On supported Linux distros:</p>
+<ol class="loweralpha">
+<li><p>Ensure your Linux distro is running a GUI desktop.</p></li>
+<li><p>Start a terminal emulator.</p></li>
+<li><p>Start the installer by issuing the command below and follow the
+guided steps.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo sh ./VMware-Player-&lt;version number&gt;.x86_64.bundle</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>On Windows:</p>
+<ol class="loweralpha simple">
+<li><p>Start the installer.</p></li>
+<li><p>Follow the setup wizard.</p></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<p>For additional help, see the <a class="reference external" href="https://docs.vmware.com/en/VMware-Workstation-Player/index.html">VMware Workstation Player Documentation</a>.</p>
+</section>
+<section id="create-a-blank-vm">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink">Create a blank VM</a><a class="headerlink" href="#create-a-blank-vm" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">VMware</span> <span class="pre">Workstation</span> <span class="pre">Player</span></code> app.</p></li>
+<li><p>On the home screen, click <span class="guilabel">Create a New Virtual Machine</span>. See
+Figure 1.</p>
+<figure class="dropshadow align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/vmw-player-01.png"><img alt="VMware Workstation Player - Create a new virtual machine" src="../../_images/vmw-player-01.png" style="width: 700.0px; height: 561.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: VMware Workstation Player - Create a new virtual
+machine</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <span class="guilabel">I will install the operating system later</span>.</p>
+<figure class="dropshadow align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/vmw-player-02.png"><img alt="I will install the operating system later." src="../../_images/vmw-player-02.png" style="width: 428.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: I will install the operating system later.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p></li>
+<li><p>On the <span class="guilabel">Select a Guest Operating System</span> window, set the
+<span class="guilabel">Guest operating system</span> setting to <span class="guilabel">Linux</span>. See
+Figure 3.</p>
+<figure class="dropshadow align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/vmw-player-03.png"><img alt="VMware Workstation Player - Select guest operating system type" src="../../_images/vmw-player-03.png" style="width: 428.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: VMware Workstation Player - Select guest operating system
+type</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Set the <span class="guilabel">Version</span> setting to
+<span class="guilabel">Other Linux 5.x or later kernel 64-bit</span>.</p></li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p></li>
+<li><p>On the <span class="guilabel">Name the Virtual Machine</span> screen, name the new VM. See
+Figure 4.</p>
+<figure class="dropshadow align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/vmw-player-04.png"><img alt="VMware Workstation Player - Name virtual machine" src="../../_images/vmw-player-04.png" style="width: 428.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: VMware Workstation Player - Name virtual machine</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p></li>
+<li><p>On the <span class="guilabel">Specify Disk Capacity</span> screen, set the VM’s maximum disk
+size. If you’re planning to use a pre-built image, just use the default
+size for now. See Figure 5.</p>
+<figure class="dropshadow align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/vmw-player-05.png"><img alt="VMware Workstation Player - Set disk capacity" src="../../_images/vmw-player-05.png" style="width: 428.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: VMware Workstation Player - Set disk capacity</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For optimal performance with the Clear Linux OS Desktop image, we recommend 32GB
+of drive space. See <a class="reference internal" href="../../reference/system-requirements.html#system-requirements"><span class="std std-ref">Recommended minimum system requirements</span></a> for more details.</p>
+</div>
+</li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p></li>
+<li><p>On the <span class="guilabel">Ready to Create Virtual Machine</span> screen, click the
+<span class="guilabel">Customize Hardware…</span> button. See Figure 6.</p>
+<figure class="dropshadow align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/vmw-player-06.png"><img alt="VMware Workstation Player - Customize hardware" src="../../_images/vmw-player-06.png" style="width: 428.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: VMware Workstation Player - Customize hardware</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <span class="guilabel">Memory</span> and set a desired value. See Figure 7.</p>
+<figure class="dropshadow align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/vmw-player-07.png"><img alt="VMware Workstation Player - Set memory size" src="../../_images/vmw-player-07.png" style="width: 706.0px; height: 671.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: VMware Workstation Player - Set memory size</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Clear Linux OS live installer ISO needs a minimum of 1GB of RAM.
+After completing installation, Clear Linux OS can run on as little as
+128MB of RAM. Thus, you can reduce the memory size if needed.
+See <a class="reference internal" href="../../reference/system-requirements.html#system-requirements"><span class="std std-ref">Recommended minimum system requirements</span></a> for more details.</p>
+</div>
+</li>
+<li><p>Under the <span class="guilabel">Device</span> list, select <span class="guilabel">Processors</span>. See
+Figure 8.</p>
+<figure class="dropshadow align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/vmw-player-08.png"><img alt="VMware Workstation Player - Set virtualization engine option" src="../../_images/vmw-player-08.png" style="width: 706.0px; height: 671.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: VMware Workstation Player - Set virtualization engine
+option</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Under <span class="guilabel">Processors</span> and <span class="guilabel">Number of processor cores</span>,
+enter the desired number of cores.</p></li>
+<li><p>Under the <span class="guilabel">Virtualization engine</span> section,
+check the <span class="guilabel">Virtualize Intel VT-x/EPT or AMD-V/RVI</span> box.</p></li>
+<li><p>Click the <span class="guilabel">Close</span> button.</p></li>
+<li><p>Click the <span class="guilabel">Finish</span> button.</p></li>
+</ol>
+</section>
+<section id="enable-uefi-boot-support">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink">Enable UEFI boot support</a><a class="headerlink" href="#enable-uefi-boot-support" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS needs UEFI support to boot and work properly. To enable it:</p>
+<ol class="arabic">
+<li><p>Close the <code class="docutils literal notranslate"><span class="pre">VMware</span> <span class="pre">Workstation</span> <span class="pre">Player</span></code> app.</p></li>
+<li><p>Add the following line to the end of your VM’s <code class="file docutils literal notranslate"><span class="pre">.vmx</span></code> file.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">firmware = &quot;efi&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the OS, you can typically find the VMware VM files under:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>On Linux distros: <code class="file docutils literal notranslate"><span class="pre">/home/username/vmware</span></code></p></li>
+<li><p>On Windows: <code class="file docutils literal notranslate"><span class="pre">C:\Users\username\Documents\Virtual</span> <span class="pre">Machines</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
+</li>
+</ol>
+</section>
+<section id="instantiate-cl">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Instantiate Clear Linux OS</a><a class="headerlink" href="#instantiate-cl" title="Link to this heading">¶</a></h2>
+<p>If you want to install Clear Linux OS from scratch, following the instructions
+in the <strong>Install |CL| using ISO</strong> tab.  Otherwise, follow the
+<strong>Use |CL| pre-built VMware image</strong> tab to use our pre-built image.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Install Clear Linux OS using ISO</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Use Clear Linux OS pre-built VMWare image</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><ol class="arabic">
+<li><p>Navigate to the Clear Linux OS <a class="reference external" href="https://clearlinux.org/downloads">Downloads</a> page and download either the <code class="docutils literal notranslate"><span class="pre">Server</span></code>
+or <code class="docutils literal notranslate"><span class="pre">Desktop</span></code> ISO image.  After the download is complete, you will
+attach this image.</p></li>
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">VMware</span> <span class="pre">Workstation</span> <span class="pre">Player</span></code> app.</p></li>
+<li><p>Select the VM that was created in section <a class="reference internal" href="#create-a-blank-vm">Create a blank VM</a>.
+See Figure 9.</p></li>
+<li><p>Click <span class="guilabel">Edit virtual machine settings</span>.</p>
+<figure class="dropshadow align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/vmw-player-09.png"><img alt="VMware Workstation Player - Edit virtual machine settings" src="../../_images/vmw-player-09.png" style="width: 700.0px; height: 561.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 09: VMware Workstation Player - Edit virtual machine settings</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the <span class="guilabel">Virtual Machine settings</span> window,
+under <span class="guilabel">Hardware</span>, select guilabel:<cite>CD/DVD (IDE)</cite>.
+See Figure 10.</p></li>
+<li><p>Under <span class="guilabel">Connection</span> at the right, select
+<span class="guilabel">Use ISO image file</span>.</p></li>
+<li><p>Click <span class="guilabel">Browse</span> and select the
+Clear Linux OS installer ISO.</p>
+<figure class="dropshadow align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/vmw-player-10.png"><img alt="VMware Workstation Player - Select |CL| installer ISO" src="../../_images/vmw-player-10.png" style="width: 706.0px; height: 689.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 10: VMware Workstation Player - Select Clear Linux OS installer ISO</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">OK</span> to close the <span class="guilabel">Virtual Machine settings</span>
+window.</p></li>
+<li><p>Start the VM by clicking <span class="guilabel">Play virtual machine</span>.</p></li>
+<li><p>Follow one of these guides to complete the installation of Clear Linux OS.</p>
+<ul class="simple">
+<li><p><em>Desktop</em> version: <a class="reference internal" href="../bare-metal-install-desktop.html#install-clr-desktop-start"><span class="std std-ref">Launch the Clear Linux OS installer</span></a></p></li>
+<li><p><em>Server</em> version: <a class="reference internal" href="../bare-metal-install-server.html#install-clr-server-start"><span class="std std-ref">Launch the Clear Linux OS Installer</span></a></p></li>
+</ul>
+</li>
+<li><p>Reboot the VM after the installation completes.</p></li>
+<li><p>Install the <code class="docutils literal notranslate"><span class="pre">os-cloudguest-vmware</span></code> bundle, the open source
+VMware Tools for Linux* guest operating systems, which enables
+new features and improves general performance.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>os-cloudguest-vmware
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>open-vm-tools
+</pre></div>
+</div>
+<p>More information is available on the <a class="reference external" href="https://docs.vmware.com/en/VMware-Tools/10.1.0/com.vmware.vsphere.vmwaretools.doc/GUID-8B6EA5B7-453B-48AA-92E5-DB7F061341D1.html">VMWare Tools Product Documentation</a>
+site.</p>
+</li>
+</ol>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><ol class="arabic">
+<li><p>Navigate to the Clear Linux OS <a class="reference external" href="https://clearlinux.org/downloads">Downloads</a> page and download the <code class="docutils literal notranslate"><span class="pre">VMware</span></code>
+image.</p></li>
+<li><p>Decompress the downloaded file and move it to the
+directory where your newly-created VM files reside.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Depending on the OS, you can typically find the VMware VM
+files under:</p>
+<ul class="simple">
+<li><p>Linux distros <code class="file docutils literal notranslate"><span class="pre">/home/username/vmware</span></code></p></li>
+<li><p>Windows <code class="file docutils literal notranslate"><span class="pre">C:\Users\username\Documents\Virtual</span> <span class="pre">Machines</span></code></p></li>
+</ul>
+</div>
+</li>
+<li><p>Start the <code class="docutils literal notranslate"><span class="pre">VMware</span> <span class="pre">Workstation</span> <span class="pre">Player</span></code> app.</p></li>
+<li><p>Select the VM that was created in section <a class="reference internal" href="#create-a-blank-vm">Create a blank VM</a>.
+See Figure 9.</p></li>
+<li><p>Click <span class="guilabel">Edit virtual machine settings</span>.</p>
+<figure class="dropshadow align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/vmw-player-09.png"><img alt="VMware Workstation Player - Edit virtual machine settings" src="../../_images/vmw-player-09.png" style="width: 700.0px; height: 561.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: VMware Workstation Player - Edit virtual machine settings</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Under <span class="guilabel">Hardware</span> and <span class="guilabel">Device</span> list, select
+<span class="guilabel">Hard Disk (SCSI)</span>. See Figure 11.</p>
+<figure class="dropshadow align-default" id="id12">
+<a class="reference internal image-reference" href="../../_images/vmw-player-11.png"><img alt="VMware Workstation Player - Remove hard drive" src="../../_images/vmw-player-11.png" style="width: 706.0px; height: 689.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 11: VMware Workstation Player - Remove hard drive</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Remove</span> button.</p></li>
+<li><p>To add a new hard disk and attach the pre-built Clear Linux OS
+VMware image, click the <span class="guilabel">Add</span> button. See Figure 12.</p>
+<figure class="dropshadow align-default" id="id13">
+<a class="reference internal image-reference" href="../../_images/vmw-player-12.png"><img alt="VMware Workstation Player - Add new device" src="../../_images/vmw-player-12.png" style="width: 706.0px; height: 689.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 12: VMware Workstation Player - Add new device</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Under the <span class="guilabel">Hardware types</span> section, select
+<span class="guilabel">Hard Disk</span>. See Figure 13.</p>
+<figure class="dropshadow align-default" id="id14">
+<a class="reference internal image-reference" href="../../_images/vmw-player-13.png"><img alt="VMware Workstation Player - Add hard drive" src="../../_images/vmw-player-13.png" style="width: 444.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 13: VMware Workstation Player - Add hard drive</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Next</span> button.</p></li>
+<li><p>Select your preferred <span class="guilabel">Virtual disk type</span>.
+See Figure 14.</p>
+<figure class="dropshadow align-default">
+<a class="reference internal image-reference" href="../../_images/vmw-player-14.png"><img alt="VMware Workstation Player - Select virtual disk type" src="../../_images/vmw-player-14.png" style="width: 444.0px; height: 430.0px;" />
+</a>
+</figure>
+<p>Figure 14: VMware Workstation Player - Select virtual disk type</p>
+</li>
+<li><p>Select the <span class="guilabel">Use an existing virtual disk</span> option.
+See Figure 15.</p>
+<figure class="dropshadow align-default" id="id15">
+<a class="reference internal image-reference" href="../../_images/vmw-player-15.png"><img alt="VMware Workstation Player - Use existing virtual disk" src="../../_images/vmw-player-15.png" style="width: 444.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 15: VMware Workstation Player - Use existing virtual disk</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Browse</span> button and select the
+pre-built Clear Linux OS VMware image file. See Figure 16.</p>
+<figure class="dropshadow align-default" id="id16">
+<a class="reference internal image-reference" href="../../_images/vmw-player-16.png"><img alt="VMware Workstation Player - Select pre-built VMware |CL| image file" src="../../_images/vmw-player-16.png" style="width: 444.0px; height: 430.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 16: VMware Workstation Player - Select pre-built VMware Clear Linux OS
+image file</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the <span class="guilabel">Finish</span> button.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When asked to convert the existing virtual disk to a newer format,
+selecting either option works.</p>
+</div>
+</li>
+<li><p>Click the <span class="guilabel">OK</span> button.</p></li>
+<li><p>Start the VM by clicking <span class="guilabel">Play virtual machine</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you need to increase the disk size of the pre-built Clear Linux OS image, see
+<a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html#increase-virtual-disk-size"><span class="std std-ref">Increase Virtual Disk Size of an Image</span></a>.</p>
+</div>
+</li>
+</ol>
+</div></div>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<p>For other guides on using the VMWare Player and ESXi, see:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="vmware-esxi-install-cl.html#vmware-esxi-install-cl"><span class="std std-ref">Clear Linux* OS on VMware* ESXi</span></a></p></li>
+</ul>
+<p><em>Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.</em></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Clear Linux* OS on VMware* Workstation Player</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#install-the-vmware-workstation-player-hypervisor">Install the VMware Workstation Player hypervisor</a></li>
+<li><a class="reference internal" href="#create-a-blank-vm">Create a blank VM</a></li>
+<li><a class="reference internal" href="#enable-uefi-boot-support">Enable UEFI boot support</a></li>
+<li><a class="reference internal" href="#instantiate-cl">Instantiate Clear Linux OS</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="virtualbox-cl-installer.html"
+                          title="previous chapter">Clear Linux* OS on VirtualBox*</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="vmware-esxi-install-cl.html"
+                          title="next chapter">Clear Linux* OS on VMware* ESXi</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/virtual-machine-install/vmw-player.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="vmware-esxi-install-cl.html" title="Clear Linux* OS on VMware* ESXi"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="virtualbox-cl-installer.html" title="Clear Linux* OS on VirtualBox*"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on VMware* Workstation Player</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

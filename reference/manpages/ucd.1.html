@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ucd &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/ucd.1.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="cloud-config" href="cloud-config.5.html" />
+    <link rel="prev" title="clrtrust" href="clrtrust.1.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cloud-config.5.html" title="cloud-config"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="clrtrust.1.html" title="clrtrust"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ucd</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="ucd">
+<h1>ucd<a class="headerlink" href="#ucd" title="Link to this heading">¶</a></h1>
+<p>micro-config-drive(1) – Configure a cloud instance using config-drive
+data</p>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/bin/ucd</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">ucd</span></code> [OPTIONS…]</p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ucd</span></code> runs at boot time with the purpose of configuring a cloud
+instance for use of the end user.</p>
+<p>ucd can perform any of the following (optional) tasks:</p>
+<ul class="simple">
+<li><p>create a default account with sudo privileges</p></li>
+<li><p>lock root and default account, the only way to login is using ssh
+keys (security feature)</p></li>
+<li><p>maintain the cloud instance in a right state (resize/fix partitions
+and filesystem)</p></li>
+<li><p>get and process userdata and metadata from an attached config-drive
+block device</p></li>
+</ul>
+<p>Userdata formats supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cloud-config</span></code>: begins with <code class="docutils literal notranslate"><span class="pre">#cloud-config</span></code> and is used to
+execute certain tasks in a human friendly format</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shell-script</span></code>: begins with <code class="docutils literal notranslate"><span class="pre">#!</span></code> and is used to execute a shell
+script</p></li>
+</ul>
+<p>Metadata formats supported:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">openstack</span></code></p></li>
+</ul>
+</section>
+<section id="openstack-datasources">
+<h2>OPENSTACK DATASOURCES<a class="headerlink" href="#openstack-datasources" title="Link to this heading">¶</a></h2>
+<p>Datasources are used to retrive instance-specific data in order to
+configure a new cloud instance. Openstack attaches two datasources to
+the cloud instance when it boots.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">config-drive</span></code>: is a disk formatted with vfat or iso9660 and have a
+label of config-2</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata</span> <span class="pre">service</span></code>: instances can access to it at
+<a class="reference external" href="http://169.254.169.254">http://169.254.169.254</a> <code class="docutils literal notranslate"><span class="pre">[NOT</span> <span class="pre">SUPPORTED]</span></code></p></li>
+</ul>
+<p>more information about openstack datasources can be found in:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://docs.openstack.org/user-guide/cli_config_drive.html">http://docs.openstack.org/user-guide/cli_config_drive.html</a></p></li>
+<li><p><a class="reference external" href="http://docs.openstack.org/admin-guide/compute-networking-nova.html#metadata-service">http://docs.openstack.org/admin-guide/compute-networking-nova.html#metadata-service</a></p></li>
+</ul>
+</section>
+<section id="workflow">
+<h2>WORKFLOW<a class="headerlink" href="#workflow" title="Link to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>`|` Parse options
+`|` Init openstack datasource
+`|-&gt;` if config-drive is found then define it as datasource otherwise exit
+`|` Start openstack datasource
+`|-&gt;` Get userdata and metadata from datasource
+`|` Run async tasks
+`|-&gt;` resize disk
+`|-&gt;` resize filesystem
+`|` If a datasource was found
+`|-&gt;` if VM first boot was detected
+`|   |-&gt;` Run async tasks
+`|   |   |-&gt;` lock root account
+`|   |   |-&gt;` Create sudoers file for default user account
+`|   |-&gt;` Create default user account
+`|-&gt;` Process openstack metadata
+`|-&gt;` Process openstack userdata
+`|` Join async tasks
+`|` Finish openstack datasource (free resources)
+</pre></div>
+</div>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<p>The following options are understood:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h</span></code>, <code class="docutils literal notranslate"><span class="pre">--help</span></code>:</p>
+<p>Prints a help message.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-u</span></code> FILE, <code class="docutils literal notranslate"><span class="pre">--user-data-file</span></code> FILE:</p>
+<p>Path to a cloud-config user data file&amp;. If omitted, <code class="docutils literal notranslate"><span class="pre">ucd</span></code> will
+attempt to fetch user-data from the openstack link-local connected
+data service URL.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--openstack-metadata-file</span></code> FILE:</p>
+<p>Path to an openstack metadata file. more information:
+<a class="reference external" href="http://docs.openstack.org/user-guide/cli_config_drive.html#openstack-metadata-format">http://docs.openstack.org/user-guide/cli_config_drive.html#openstack-metadata-format</a></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--openstack-config-drive</span></code> PATH:</p>
+<p>Path to openstack config drive (iso9660 or vfat filesystem), it will
+be used to process metadata and userdata. more information:
+<a class="reference external" href="http://docs.openstack.org/user-guide/cli_config_drive.html#configuration-drive-contents">http://docs.openstack.org/user-guide/cli_config_drive.html#configuration-drive-contents</a></p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--user-data</span></code>:</p>
+<p>Get and process user data from data sources.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--user-data-once</span></code>:</p>
+<p>Only on first boot get and process user data from data sources. Note
+this option is ignored if <code class="docutils literal notranslate"><span class="pre">--user-data</span></code> is enabled.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--metadata</span></code>:</p>
+<p>Get and process metadata from data sources.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--fix-disk</span></code>:</p>
+<p>Fix disk and filesystem if it is needed.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v</span></code>, <code class="docutils literal notranslate"><span class="pre">--version</span></code>:</p>
+<p>Prints version information.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--first-boot-setup</span></code>:</p>
+<p>Setup the instance in its first boot. When first boot of the instance
+is detected, <code class="docutils literal notranslate"><span class="pre">ucd</span></code> will perform the following tasks: create a
+default user account, create sudoers file for default user account,
+lock the root account.</p>
+</li>
+</ul>
+</section>
+<section id="exit-status">
+<h2>EXIT STATUS<a class="headerlink" href="#exit-status" title="Link to this heading">¶</a></h2>
+<p>On success, 0 is returned, a non-zero failure code otherwise.</p>
+</section>
+<section id="copyright">
+<h2>COPYRIGHT<a class="headerlink" href="#copyright" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Copyright (C) 2017 Intel Corporation, License: CC-BY-SA-3.0</p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
+<p>This project is a limited-functionality implementation of the cloud-init
+specification. The full documentation of the generic implementation is
+available online and can be referenced here:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://cloudinit.readthedocs.org/en/latest/</span></code></p>
+<p>The cloud-config format that <a class="reference external" href="ucd.1.html">ucd(1)</a> supports is documented in
+<a class="reference external" href="cloud-config.5.html">cloud-config(5)</a>. This lists the options that are supported, their
+structure and function.</p>
+</section>
+<section id="notes">
+<h2>NOTES<a class="headerlink" href="#notes" title="Link to this heading">¶</a></h2>
+<p>Creative Commons Attribution-ShareAlike 3.0 Unported</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://creativecommons.org/licenses/by-sa/3.0/">http://creativecommons.org/licenses/by-sa/3.0/</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">ucd</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#openstack-datasources">OPENSTACK DATASOURCES</a></li>
+<li><a class="reference internal" href="#workflow">WORKFLOW</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#exit-status">EXIT STATUS</a></li>
+<li><a class="reference internal" href="#copyright">COPYRIGHT</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+<li><a class="reference internal" href="#notes">NOTES</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="clrtrust.1.html"
+                          title="previous chapter">clrtrust</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cloud-config.5.html"
+                          title="next chapter">cloud-config</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/ucd.1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cloud-config.5.html" title="cloud-config"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="clrtrust.1.html" title="clrtrust"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">ucd</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

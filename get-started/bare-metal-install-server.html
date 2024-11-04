@@ -1,0 +1,1218 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Install Clear Linux* OS from the live server &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/bare-metal-install-server.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install using clr-installer and a configuration file" href="install-configfile.html" />
+    <link rel="prev" title="Install Clear Linux* OS from the live desktop" href="bare-metal-install-desktop.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="install-configfile.html" title="Install using clr-installer and a configuration file"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bare-metal-install-desktop.html" title="Install Clear Linux* OS from the live desktop"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install Clear Linux* OS from the live server</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="install-cl-attr-from-the-live-server">
+<span id="bare-metal-install-server"></span><h1>Install Clear Linux* OS from the live server<a class="headerlink" href="#install-cl-attr-from-the-live-server" title="Link to this heading">¶</a></h1>
+<p>This page explains how to install Clear Linux* OS on bare metal from a bootable USB
+drive using a live server image. Alternatively, use a <a class="reference internal" href="install-configfile.html#install-configfile"><span class="std std-ref">YAML configuration file</span></a> to install Clear Linux OS.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#system-requirements" id="id36">System requirements</a></p></li>
+<li><p><a class="reference internal" href="#preliminary-steps" id="id37">Preliminary steps</a></p></li>
+<li><p><a class="reference internal" href="#install-cl-on-your-target-system" id="id38">Install Clear Linux OS on your target system</a></p></li>
+<li><p><a class="reference internal" href="#launch-the-cl-installer" id="id39">Launch the Clear Linux OS Installer</a></p></li>
+<li><p><a class="reference internal" href="#minimum-installation-requirements" id="id40">Minimum installation requirements</a></p></li>
+<li><p><a class="reference internal" href="#main-menu" id="id41">Main Menu</a></p></li>
+<li><p><a class="reference internal" href="#navigation" id="id42">Navigation</a></p></li>
+<li><p><a class="reference internal" href="#required-options" id="id43">Required options</a></p></li>
+<li><p><a class="reference internal" href="#recommended-options" id="id44">Recommended options</a></p></li>
+<li><p><a class="reference internal" href="#advanced-options" id="id45">Advanced options</a></p></li>
+<li><p><a class="reference internal" href="#finish-installation" id="id46">Finish installation</a></p></li>
+<li><p><a class="reference internal" href="#troubleshooting" id="id47">Troubleshooting</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id48">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="system-requirements">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">System requirements</a><a class="headerlink" href="#system-requirements" title="Link to this heading">¶</a></h2>
+<p>Before installing Clear Linux OS, verify that the host system supports the
+installation:</p>
+<ul class="simple">
+<li><p>Requires 4 GB or more disk space</p></li>
+<li><p><a class="reference internal" href="../reference/system-requirements.html#system-requirements"><span class="std std-ref">Recommended minimum system requirements</span></a></p></li>
+<li><p><a class="reference internal" href="compatibility-check.html#compatibility-check"><span class="std std-ref">Check Processor Compatibility</span></a></p></li>
+</ul>
+</section>
+<section id="preliminary-steps">
+<h2><a class="toc-backref" href="#id37" role="doc-backlink">Preliminary steps</a><a class="headerlink" href="#preliminary-steps" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Visit our <a class="reference external" href="https://clearlinux.org/downloads">Downloads</a> page.</p></li>
+<li><p>Download the file <code class="file docutils literal notranslate"><span class="pre">clear-&lt;release</span> <span class="pre">number&gt;-live-server.iso</span></code>,
+also called the Clear Linux OS Server.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>&lt;release-number&gt; is the latest Clear Linux OS auto-numbered release.</p>
+</div>
+</li>
+<li><p>Follow your OS instructions to
+<a class="reference internal" href="bootable-usb.html#bootable-usb"><span class="std std-ref">create a bootable usb drive</span></a>.</p></li>
+</ol>
+</section>
+<section id="install-cl-on-your-target-system">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">Install Clear Linux OS on your target system</a><a class="headerlink" href="#install-cl-on-your-target-system" title="Link to this heading">¶</a></h2>
+<p>Ensure that your system is configured to boot UEFI. The installation method
+described below requires a wired or wireless Internet connection with DHCP.</p>
+<p>Follow these steps to install Clear Linux OS on the target system:</p>
+<ol class="arabic">
+<li><p>Insert the USB drive into an available USB slot.</p></li>
+<li><p>Power on the system.</p></li>
+<li><p>Open the system BIOS setup menu by pressing the <kbd class="kbd docutils literal notranslate">F2</kbd> key.
+Your BIOS setup menu entry point may vary.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clear Linux OS supports UEFI boot. Some hardware may list UEFI and non-UEFI USB
+boot entries. In this case, you should select the <cite>UEFI</cite> boot
+option.</p>
+</div>
+</li>
+<li><p>In the setup menu, enable the UEFI boot and set the USB drive as the first
+option in the device boot order.</p></li>
+<li><p>Save these settings and exit.</p></li>
+<li><p>Reboot the target system.</p></li>
+</ol>
+<section id="choose-boot-menu-option">
+<h3>Choose boot menu option<a class="headerlink" href="#choose-boot-menu-option" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Choose one of the options shown in Figure 1.</p>
+<ol class="loweralpha simple">
+<li><p>Follow <a class="reference internal" href="#verify-integrity-of-installer-media-optional">Verify integrity of installer media (optional)</a>.</p></li>
+<li><p>Select <span class="guilabel">Clear Linux OS</span> in the boot menu.</p></li>
+</ol>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-01.png"><img alt="Clear Linux OS Installer boot menu" src="../_images/bare-metal-install-server-01.png" style="width: 660.0px; height: 380.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Clear Linux OS Installer boot menu</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If no action is taken, the live image starts by default.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="verify-integrity-of-installer-media-optional">
+<h3>Verify integrity of installer media (optional)<a class="headerlink" href="#verify-integrity-of-installer-media-optional" title="Link to this heading">¶</a></h3>
+<p>Use <span class="guilabel">Verify ISO Integrity</span> to verify the checksum of
+the image burned to the installer media. The checksum ensures that the ISO
+is uncorrupted (see Figure 1). For every ISO generated, the
+<span class="guilabel">clr-installer</span> implants checksums, which are verified during
+early boot stage as part of <strong class="command">initrd</strong>.</p>
+<ol class="arabic simple">
+<li><p>Select <span class="guilabel">Verify ISO Integrity</span>. The media will be validated.</p></li>
+<li><p>If the check passes, it will boot into the live image. Continue in
+the next section.</p></li>
+<li><p>If the check fails, a failure message appears.</p>
+<ul class="simple">
+<li><p>Restart the process at <a class="reference internal" href="#preliminary-steps">Preliminary Steps</a>.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="launch-the-cl-installer">
+<span id="install-clr-server-start"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink">Launch the Clear Linux OS Installer</a><a class="headerlink" href="#launch-the-cl-installer" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>At the <span class="guilabel">login</span> prompt, enter <strong class="command">root</strong>.</p></li>
+<li><p>Follow the onscreen instructions, shown in Figure 2, and
+enter a temporary password.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-02.png"><img alt="root login" src="../_images/bare-metal-install-server-02.png" style="width: 660.0px; height: 380.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: root login</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a wireless connection is needed, connect to the network using
+<strong class="command">nmtui</strong> before lauching the installer. See the documentation on
+<a class="reference internal" href="../guides/network/wifi.html#wifi-nm-tui"><span class="std std-ref">configuring Wifi with nmtui</span></a> for more details.</p>
+</div>
+</div></blockquote>
+<ol class="arabic">
+<li><p>At the <span class="guilabel">root</span> prompt, enter <strong class="command">clr-installer</strong> and
+press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-03.png"><img alt="clr-installer command" src="../_images/bare-metal-install-server-03.png" style="width: 660.0px; height: 380.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: clr-installer command</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="minimum-installation-requirements">
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Minimum installation requirements</a><a class="headerlink" href="#minimum-installation-requirements" title="Link to this heading">¶</a></h2>
+<p>To fulfill minimum installation requirements, complete the
+<a class="reference internal" href="#required-options">Required options</a>. While not required, we encourage you to apply the
+<a class="reference internal" href="#recommended-options">Recommended options</a>. <a class="reference internal" href="#advanced-options">Advanced options</a> are optional.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The <kbd class="kbd docutils literal notranslate">Install</kbd> button is <strong>only highlighted after</strong> you complete
+<a class="reference internal" href="#required-options">Required options</a>.</p></li>
+</ul>
+</div>
+</section>
+<section id="main-menu">
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">Main Menu</a><a class="headerlink" href="#main-menu" title="Link to this heading">¶</a></h2>
+<p>The Clear Linux OS Installer Main Menu appears as shown in Figure 4.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-04.png"><img alt="Clear Linux OS Installer" src="../_images/bare-metal-install-server-04.png" style="width: 640.0px; height: 380.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: Clear Linux OS Installer</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The Clear Linux OS Installer Main Menu has two tabs: <span class="guilabel">[R] Required options</span>
+and <span class="guilabel">[A] Advanced options</span>. Navigate between tabs using these shortcut keys:</p>
+<ul class="simple">
+<li><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">A</kbd></kbd> for <span class="guilabel">[A] Advanced options</span></p></li>
+<li><p><kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Shift</kbd>+<kbd class="kbd docutils literal notranslate">R</kbd></kbd> for <span class="guilabel">[R] Required options</span></p></li>
+</ul>
+<p>To meet the minimum requirements, enter your choices in the
+<span class="guilabel">Required options</span>. After confirmation, your selections appear
+beside the <span class="guilabel">&gt;&gt;</span> chevron, below the menu options.</p>
+</section>
+<section id="navigation">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Navigation</a><a class="headerlink" href="#navigation" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Select <kbd class="kbd docutils literal notranslate">Tab</kbd> or <kbd class="kbd docutils literal notranslate">Up/Down</kbd> arrows to highlight your choice.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd> or <kbd class="kbd docutils literal notranslate">Spacebar</kbd> to confirm your choice.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Cancel</kbd> or <kbd class="kbd docutils literal notranslate">Esc</kbd> to cancel your choice.</p></li>
+</ul>
+</section>
+<section id="required-options">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">Required options</a><a class="headerlink" href="#required-options" title="Link to this heading">¶</a></h2>
+<section id="choose-timezone">
+<h3>Choose Timezone<a class="headerlink" href="#choose-timezone" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>From the Main Menu, navigate to <span class="guilabel">Choose Timezone</span>.
+<cite>UTC</cite> is the default.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>In <span class="guilabel">Select System Timezone</span>, use <kbd class="kbd docutils literal notranslate">Up/Down</kbd> arrows
+navigate to the desired timezone.</p></li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Enter</kbd> to confirm.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-05.png"><img alt="Select System Timezone" src="../_images/bare-metal-install-server-05.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: Select System Timezone</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="choose-language">
+<h3>Choose Language<a class="headerlink" href="#choose-language" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>From the Main Menu, navigate to <span class="guilabel">Choose Language</span>.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>In <span class="guilabel">Select System Language</span>, navigate to your desired language.</p></li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Enter</kbd> to confirm.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-06.png"><img alt="Select System Language" src="../_images/bare-metal-install-server-06.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Select System Language</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="configure-the-keyboard">
+<h3>Configure the Keyboard<a class="headerlink" href="#configure-the-keyboard" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>From the Main Menu, select <span class="guilabel">Configure the Keyboard</span>.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>In <span class="guilabel">Select Keyboard</span>, navigate to the desired option.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd> to <kbd class="kbd docutils literal notranslate">Confirm</kbd>.</p></li>
+<li><p>Optional: In <span class="guilabel">Test keyboard</span>, type text to assure
+that the keys map to your keyboard.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-07.png"><img alt="Select Keyboard menu" src="../_images/bare-metal-install-server-07.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: Select Keyboard menu</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="configure-installation-media">
+<h3>Configure Installation Media<a class="headerlink" href="#configure-installation-media" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>From the Main Menu, select <span class="guilabel">Configure Installation Media</span>.</p></li>
+<li><p>Choose an installation method:
+* <a class="reference internal" href="#safe-installation">Safe Installation</a>
+* <a class="reference internal" href="#destructive-installation">Destructive Installation</a>
+* <a class="reference internal" href="#advanced-installation">Advanced Installation</a></p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-08.png"><img alt="Select Installation Media" src="../_images/bare-metal-install-server-08.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: Select Installation Media</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <span class="guilabel">Rescan Media</span> to show available installation targets.</p></li>
+</ol>
+<section id="safe-installation">
+<h4>Safe Installation<a class="headerlink" href="#safe-installation" title="Link to this heading">¶</a></h4>
+<p>Use this method to safely install Clear Linux OS on media with available space, or
+alongside existing partitions, and accept the <a class="reference internal" href="#default-partition-schema">Default partition schema</a>.
+If enough free space exists, safe installation is allowed. See also
+<a class="reference internal" href="#troubleshooting">Troubleshooting</a> below.</p>
+</section>
+<section id="destructive-installation">
+<h4>Destructive Installation<a class="headerlink" href="#destructive-installation" title="Link to this heading">¶</a></h4>
+<p>Use this method to destroy the contents of the target device, install Clear Linux OS
+on it, and accept the <a class="reference internal" href="#default-partition-schema">Default partition schema</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From the <span class="guilabel">Select Installation Media</span> menu, select
+<span class="guilabel">Enable Encryption</span> to encrypt the root filesystem for either
+option above. See also <a class="reference internal" href="#disk-encryption">Disk encryption</a> for more information.</p>
+</div>
+</section>
+<section id="advanced-installation">
+<h4>Advanced Installation<a class="headerlink" href="#advanced-installation" title="Link to this heading">¶</a></h4>
+<p>Use this method to manually configure partitions using <cite>cgdisk</cite>.
+This example uses the <a class="reference internal" href="#default-partition-schema">Default partition schema</a>. The space you allocate for
+your <code class="docutils literal notranslate"><span class="pre">root</span></code>, or additional partitions, may vary.</p>
+<ol class="arabic">
+<li><p>Navigate to <span class="guilabel">Advanced Installation</span> and press <kbd class="kbd docutils literal notranslate">Spacebar</kbd>.</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-09.png"><img alt="Advanced installation" src="../_images/bare-metal-install-server-09.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: Advanced installation</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>If no target media appears, select <kbd class="kbd compound docutils literal notranslate"><kbd class="kbd docutils literal notranslate">Rescan</kbd> <kbd class="kbd docutils literal notranslate">Media</kbd></kbd>.</p></li>
+<li><p>Navigate to <span class="guilabel">Partition</span> and and press <kbd class="kbd docutils literal notranslate">Spacebar</kbd>
+to launch <cite>cgdisk</cite>.</p></li>
+</ol>
+</section>
+<section id="partition-codes">
+<h4>Partition codes<a class="headerlink" href="#partition-codes" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>ef00 - EFI System</p></li>
+<li><p>8200 - Linux swap</p></li>
+<li><p>8300 - Linux filesystem</p></li>
+</ul>
+</section>
+<section id="boot-partition">
+<h4>boot partition<a class="headerlink" href="#boot-partition" title="Link to this heading">¶</a></h4>
+<ol class="arabic">
+<li><p>With the free space highlighted in the cgdisk utility, select
+<span class="guilabel">[New]</span>.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-10.png"><img alt="Select New" src="../_images/bare-metal-install-server-10.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 10: Select New</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <cite>/boot</cite> partition must be <cite>VFAT(FAT32)</cite>.</p>
+</div>
+</li>
+<li><p>Where <span class="guilabel">First sector</span> appears, press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>For <span class="guilabel">Size in sectors</span>, type 150M.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-11.png"><img alt="Size in sectors" src="../_images/bare-metal-install-server-11.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 11: Size in sectors</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Press <cite>Enter</cite>.</p></li>
+<li><p>Enter the hex code <cite>ef00</cite> and press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-12.png"><img alt="`ef00` partition code" src="../_images/bare-metal-install-server-12.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 12: <cite>ef00</cite> partition code</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>For the partition name, enter <cite>CLR_BOOT</cite>, the EFI boot partition.</p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-13.png"><img alt="CLR_BOOT" src="../_images/bare-metal-install-server-13.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 13: CLR_BOOT</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Encryption is not allowed on the CLR_BOOT partition.</p>
+</div>
+</li>
+</ol>
+<p>Now follow the same process to configure the remaining partitions.</p>
+</section>
+<section id="swap-partition-optional">
+<h4>swap partition (optional)<a class="headerlink" href="#swap-partition-optional" title="Link to this heading">¶</a></h4>
+<p>A swapfile is generated by default during installation. However, if you
+prefer to create a swap partition, follow the steps below.</p>
+<ol class="arabic simple">
+<li><p>Use the <kbd class="kbd docutils literal notranslate">Up/Down</kbd> arrow to select free space.</p></li>
+<li><p>Select <span class="guilabel">[New]</span> at bottom and press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>Under <span class="guilabel">First sector</span>, press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>For <span class="guilabel">Size in sectors</span>, type 256M, and press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>Enter the hex code <cite>8200</cite> and press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>In <span class="guilabel">Enter new partition name…</span>, type CLR_SWAP.</p></li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+</ol>
+</section>
+<section id="root-partition">
+<h4>root partition<a class="headerlink" href="#root-partition" title="Link to this heading">¶</a></h4>
+<ol class="arabic">
+<li><p>Use the <kbd class="kbd docutils literal notranslate">Up/Down</kbd> arrow to select free space.</p></li>
+<li><p>Select <span class="guilabel">[New]</span> at bottom and press Enter.</p></li>
+<li><p>Under <span class="guilabel">First sector</span>, press Enter.</p></li>
+<li><p>For <span class="guilabel">Size in sectors</span>, type in desired size.
+Optionally, press <kbd class="kbd docutils literal notranslate">Enter</kbd> to use the remaining space available.</p></li>
+<li><p>Press Enter.</p></li>
+<li><p>Enter the hex code <cite>8300</cite> and press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>In <span class="guilabel">Enter new partition name…</span>, type: CLR_ROOT.
+The <cite>/root</cite> partition must be <cite>ext[234]</cite>, <cite>XFS</cite>,  or <cite>f2fs</cite>.
+If no filesystem exists, the installer will default to <cite>VFAT(FAT32)</cite>
+for <cite>/boot</cite>, and <cite>ext4</cite> for all others.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may also append <cite>_F</cite> to the partition name to force the formatting.</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt><cite>CLR_ROOT_F</cite>: Force the formatting of the root partition prior to</dt><dd><p>use.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>CLR_F_SWAP</cite>: Force the formatting of the swap partition prior to</dt><dd><p>use; helpful when re-using a partition for swap which was previously formatted for a file system.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><cite>CLR_F_MNT_/data</cite>: Force the formatting of the extra data</dt><dd><p>partition prior to use</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>After all partitions are defined, verify that your partition
+configuration is similar to Figure 14.</p>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-14.png"><img alt="Final partition configuration" src="../_images/bare-metal-install-server-14.png" style="width: 660.0px; height: 404.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 14: Final partition configuration</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="additional-partitions-optional">
+<h4>Additional partitions (optional)<a class="headerlink" href="#additional-partitions-optional" title="Link to this heading">¶</a></h4>
+<ol class="arabic">
+<li><p>Use the <kbd class="kbd docutils literal notranslate">Up/Down</kbd> arrow to select free space.</p></li>
+<li><p>Now select <span class="guilabel">[New]</span> at bottom and press Enter.</p></li>
+<li><p>Under <span class="guilabel">First sector</span>, press Enter.</p></li>
+<li><p>For <span class="guilabel">Size in sectors</span>, type in desired size.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not specify a size, it will use the remaining space.</p>
+</div>
+</li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>Enter the hex code <cite>8300</cite>. Then press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>In <span class="guilabel">Enter new partition name…</span>, type: <cite>CLR_MNT_&lt;mount_point&gt;</cite>.
+For example, replace &lt;mount_point&gt; with <cite>/home</cite>, shown in Figure 15.</p>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-15.png"><img alt="CLR_MNT" src="../_images/bare-metal-install-server-15.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 15: CLR_MNT</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If formatting is desired, the <cite>_F</cite> <strong>must precede</strong> <cite>_MNT</cite>.</p>
+</div>
+</li>
+<li><p>Alternatively, you may create <cite>CLR_MNT_/srv</cite> or other partitions.</p></li>
+</ol>
+</section>
+<section id="write-configuration-to-disk">
+<h4>Write configuration to disk<a class="headerlink" href="#write-configuration-to-disk" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>When you’re satisfied with the partition configuration, press the
+Right Arrow until <span class="guilabel">[Write]</span> is highlighted.</p></li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>When the prompt appears asking if you want to write the partition table
+to disk, type “yes”.</p></li>
+<li><p>Finally, select <span class="guilabel">[Quit]</span>.</p></li>
+</ol>
+</section>
+</section>
+<section id="disk-encryption">
+<h3>Disk encryption<a class="headerlink" href="#disk-encryption" title="Link to this heading">¶</a></h3>
+<p>For greater security, disk encryption is supported using LUKS for the
+any partition except <cite>/boot</cite> on Clear Linux OS. To encrypt the root partition, see the
+example below. Encryption is optional.</p>
+<section id="encryption-passphrase">
+<h4>Encryption Passphrase<a class="headerlink" href="#encryption-passphrase" title="Link to this heading">¶</a></h4>
+<p>Clear Linux OS uses a single passphrase for encrypted partitions. Additional keys may
+be configured post-installation using the <code class="docutils literal notranslate"><span class="pre">cryptsetup</span></code> tool.</p>
+<ol class="arabic">
+<li><p>Optional: Select <span class="guilabel">[X] Enable encryption</span> to encrypt the root
+partition, as shown in Figure 16.</p>
+<figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-16.png"><img alt="Encrypt partition" src="../_images/bare-metal-install-server-16.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 16: Encrypt partition</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>The <span class="guilabel">Encryption Passphrase</span> dialog appears.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Minimum length is 8 characters. Maximum length is 94 characters.</p>
+</div>
+<figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-17.png"><img alt="Encryption Passphrase" src="../_images/bare-metal-install-server-17.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 17: Encryption Passphrase</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Enter the same passphrase in the first and second field.</p></li>
+<li><p>Navigate to <span class="guilabel">Confirm</span> and press <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><span class="guilabel">Confirm</span> is only highlighted if passphrases match.</p>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="manage-user">
+<h3>Manage User<a class="headerlink" href="#manage-user" title="Link to this heading">¶</a></h3>
+<section id="add-new-user">
+<h4>Add New User<a class="headerlink" href="#add-new-user" title="Link to this heading">¶</a></h4>
+<ol class="arabic">
+<li><p>In Required Options, select <span class="guilabel">Manage User</span>.</p></li>
+<li><p>Select <span class="guilabel">Add New User</span> as shown in Figure 18.</p>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-18.png"><img alt="Add New User, User Name" src="../_images/bare-metal-install-server-18.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 18: Add New User</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Optional: Enter a <span class="guilabel">User Name</span>.</p>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-19.png"><img alt="User Name" src="../_images/bare-metal-install-server-19.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 19: User Name</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Enter a <span class="guilabel">Login</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The User Login must be alphanumeric and can include hyphens and underscores. Maximum length is 31 characters.</p>
+</div>
+</li>
+<li><p>Enter a <span class="guilabel">Password</span>.</p>
+</li>
+<li><p>In <span class="guilabel">Confirm</span>, enter the same password.</p></li>
+<li><p>The <span class="guilabel">Administrator</span> checkbox is selected by default.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Selecting Administrator enables sudo privileges for the user. For the installation to proceed, at least one user must be assigned as an Administrator.</p>
+</div>
+</li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Confirm</kbd>. To reset the form, select <span class="guilabel">Reset</span>.</p></li>
+<li><p>In <span class="guilabel">Manage User</span>, navigate to <span class="guilabel">Confirm</span>.</p></li>
+<li><p>With <span class="guilabel">Confirm</span> highlighted, select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+</ol>
+</section>
+<section id="modify-delete-user">
+<h4>Modify / Delete User<a class="headerlink" href="#modify-delete-user" title="Link to this heading">¶</a></h4>
+<ol class="arabic">
+<li><p>In <span class="guilabel">Manage User</span>, navigate to the user you wish
+to modify until highlighted, as shown in Figure 20.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd> to modify the user.</p>
+<figure class="align-default" id="id20">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-20.png"><img alt="Modify User" src="../_images/bare-metal-install-server-20.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 20: Modify User</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Modify user details as desired.</p></li>
+<li><p>Navigate to <kbd class="kbd docutils literal notranslate">Confirm</kbd> until highlighted.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Optional: Select <span class="guilabel">Reset</span> to rest the form.</p>
+</div>
+</li>
+<li><p>Select <span class="guilabel">Confirm</span> to save the changes you made.</p></li>
+<li><p>Optional: In <span class="guilabel">Modify User</span>, to delete the user, navigate to
+the <span class="guilabel">Delete</span> button and select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<figure class="align-default" id="id21">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-21.png"><img alt="Delete User" src="../_images/bare-metal-install-server-21.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 21: Delete User</span><a class="headerlink" href="#id21" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>You are returned to <span class="guilabel">Manage User</span>.</p>
+<ol class="arabic simple">
+<li><p>Navigate to <kbd class="kbd docutils literal notranslate">Confirm</kbd> until highlighted.</p></li>
+<li><p>Select <span class="guilabel">Enter</span> to complete <span class="guilabel">Manage User</span> options.</p></li>
+</ol>
+</section>
+</section>
+<section id="telemetry">
+<h3>Telemetry<a class="headerlink" href="#telemetry" title="Link to this heading">¶</a></h3>
+<p><a class="reference internal" href="../guides/clear/telemetrics.html#telem-guide"><span class="std std-ref">Telemetrics</span></a> is a Clear Linux OS feature that reports failures and crashes to
+the Clear Linux OS development team for improvements.</p>
+<p>Select your desired option on whether to participate in telemetry.</p>
+<ol class="arabic">
+<li><p>In the Main Menu, navigate to <span class="guilabel">Telemetry</span> and select
+<kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Tab</kbd> to highlight your choice.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd> to confirm.</p>
+<figure class="align-default" id="id22">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-22.png"><img alt="Enable Telemetry" src="../_images/bare-metal-install-server-22.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 22: Enable Telemetry</span><a class="headerlink" href="#id22" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+</section>
+<section id="recommended-options">
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">Recommended options</a><a class="headerlink" href="#recommended-options" title="Link to this heading">¶</a></h2>
+<p>After you complete the <a class="reference internal" href="#required-options">Required options</a>, we highly recommend completing
+some <a class="reference internal" href="#advanced-options">Advanced options</a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#assign-hostname">Assign Hostname</a> Simplify your development environment</p></li>
+</ul>
+<section id="skip-to-finish-installation">
+<h3>Skip to finish installation<a class="headerlink" href="#skip-to-finish-installation" title="Link to this heading">¶</a></h3>
+<p>After selecting values for all <span class="guilabel">Required options</span>, you may skip
+to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+<p>Otherwise, continue below. In the Main Menu, select
+<span class="guilabel">Advanced options</span> for additional configuration.</p>
+</section>
+</section>
+<section id="advanced-options">
+<h2><a class="toc-backref" href="#id45" role="doc-backlink">Advanced options</a><a class="headerlink" href="#advanced-options" title="Link to this heading">¶</a></h2>
+<section id="configure-network-interfaces">
+<h3>Configure Network Interfaces<a class="headerlink" href="#configure-network-interfaces" title="Link to this heading">¶</a></h3>
+<p>By default, Clear Linux OS is configured to automatically detect the host network
+interface using DHCP. However, if you want to use a static IP address or if
+you do not have a DHCP server on your network, follow these instructions to
+manually configure the network interface. Otherwise, default network
+interface settings are automatically applied.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If DHCP is available, no user selection may be required.</p>
+</div>
+<ol class="arabic">
+<li><p>Navigate to <span class="guilabel">Configure Network Interfaces</span> and
+select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>Navigate to the network <span class="guilabel">interface</span> you wish to change.</p></li>
+<li><p>When the desired <span class="guilabel">interface</span> is highlighted, select
+<span class="guilabel">Enter</span> to edit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Multiple network interfaces may appear.</p>
+</div>
+<figure class="align-default" id="id23">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-23.png"><img alt="Configure Network Interfaces" src="../_images/bare-metal-install-server-23.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 23: Configure Network Interfaces</span><a class="headerlink" href="#id23" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Notice <span class="guilabel">Automatic / dhcp</span> is selected by default (at bottom).</p>
+<p>Optional: Navigate to the checkbox <span class="guilabel">Automatic / dhcp</span> and select
+<kbd class="kbd docutils literal notranslate">Spacebar</kbd> to deselect.</p>
+<figure class="align-default" id="id24">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-24.png"><img alt="Network interface configuration" src="../_images/bare-metal-install-server-24.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 24: Network interface configuration</span><a class="headerlink" href="#id24" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Navigate to the appropriate fields and assign the desired
+network configuration.</p></li>
+<li><p>To save settings, navigate to <span class="guilabel">Confirm</span> and select
+<kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To revert to previous settings, navigate to the <span class="guilabel">Cancel</span>
+and select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+</div>
+</li>
+<li><p>Upon confirming network configuration, the <span class="guilabel">Testing Networking</span>
+dialog appears. Assure the result shows success. If a failure occurs,
+your changes will not be saved.</p></li>
+<li><p>Upon confirmation, you are returned to <span class="guilabel">Network interface</span>
+settings.</p></li>
+<li><p>Navigate to and select <span class="guilabel">Main Menu</span>.</p></li>
+</ol>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="proxy">
+<h3>Proxy<a class="headerlink" href="#proxy" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS automatically attempts to detect proxy settings, as described in
+<a class="reference internal" href="../guides/clear/autoproxy.html#autoproxy"><span class="std std-ref">Autoproxy</span></a>. If you need to manually assign proxy settings, follow this
+instruction.</p>
+<ol class="arabic">
+<li><p>From the Advanced options menu, navigate to <span class="guilabel">Proxy</span>, and
+select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>Navigate to the field <span class="guilabel">HTTPS Proxy</span>.</p>
+<figure class="align-default" id="id25">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-25.png"><img alt="Configure the network proxy" src="../_images/bare-metal-install-server-25.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 25: Configure the network proxy</span><a class="headerlink" href="#id25" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Enter the desired proxy address and port using conventional syntax,
+such as: http://address:port.</p></li>
+<li><p>Navigate to <span class="guilabel">Confirm</span> and select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+<li><p>To revert to previous settings, navigate to <span class="guilabel">Cancel</span>
+and select <span class="guilabel">Cancel</span>.</p></li>
+</ol>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="test-network-settings">
+<h3>Test Network Settings<a class="headerlink" href="#test-network-settings" title="Link to this heading">¶</a></h3>
+<p>To manually assure network connectivity before installing Clear Linux OS,
+select <span class="guilabel">Test Network Settings</span> and select <span class="guilabel">Enter</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If using the <strong class="command">off-line installer</strong>, this option is not available.</p>
+</div>
+<p>A progress bar appears as shown in Figure 26.</p>
+<figure class="align-default" id="id26">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-26.png"><img alt="Testing Networking dialog" src="../_images/bare-metal-install-server-26.png" style="width: 640.0px; height: 380.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 26: Testing Networking dialog</span><a class="headerlink" href="#id26" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any changes made to network settings are automatically tested
+during configuration.</p>
+</div>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="select-additional-bundles">
+<h3>Select Additional Bundles<a class="headerlink" href="#select-additional-bundles" title="Link to this heading">¶</a></h3>
+<p>This option is only available with a valid network connection.
+Bundle selection is disabled if no network connection exists.</p>
+<ol class="arabic">
+<li><p>On the Advanced menu, select <span class="guilabel">Select Additional Bundles</span>.</p></li>
+<li><p>Navigate to the desired bundle using <kbd class="kbd docutils literal notranslate">Tab</kbd> or <kbd class="kbd docutils literal notranslate">Up/Down</kbd> arrows.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Spacebar</kbd> to select the checkbox for each desired bundle.</p>
+<figure class="align-default" id="id27">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-27.png"><img alt="Bundle Selection" src="../_images/bare-metal-install-server-27.png" style="width: 640.0px; height: 382.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 27: Bundle Selection</span><a class="headerlink" href="#id27" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Optional: To start developing with Clear Linux OS, we recommend
+adding <code class="file docutils literal notranslate"><span class="pre">os-clr-on-clr</span></code>.</p></li>
+<li><p>Navigate to and select <kbd class="kbd docutils literal notranslate">Confirm</kbd>.</p>
+<p>You are returned to the <span class="guilabel">Advanced options</span> menu.</p>
+</li>
+</ol>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="assign-hostname">
+<h3>Assign Hostname<a class="headerlink" href="#assign-hostname" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>In Advanced Options, select <span class="guilabel">Assign Hostname</span>.</p></li>
+<li><p>In <span class="guilabel">Hostname</span>, enter the hostname only (excluding the domain).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Hostname does not allow empty spaces. Hostname must start with an
+alphanumeric character but may also contain hyphens. Maximum length of
+63 characters.</p>
+</div>
+<figure class="align-default" id="id28">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-28.png"><img alt="Assign Hostname" src="../_images/bare-metal-install-server-28.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 28: Assign Hostname</span><a class="headerlink" href="#id28" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Navigate to <kbd class="kbd docutils literal notranslate">Confirm</kbd> until highlighted.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Confirm</kbd>.</p></li>
+</ol>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="kernel-command-line">
+<h3>Kernel Command Line<a class="headerlink" href="#kernel-command-line" title="Link to this heading">¶</a></h3>
+<p>For advanced users, Clear Linux OS provides the ability to add or remove kernel
+arguments. If you want to append a new argument, enter the argument here.
+This argument will be used every time you install or update a
+new kernel.</p>
+<ol class="arabic">
+<li><p>In Advanced Options, select <span class="guilabel">Tab</span> to highlight
+<span class="guilabel">Kernel Command Line</span>.</p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<figure class="align-default" id="id29">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-29.png"><img alt="Kernel Command Line" src="../_images/bare-metal-install-server-29.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 29: Kernel Command Line</span><a class="headerlink" href="#id29" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Choose from the following options.</p>
+<ul class="simple">
+<li><p>To add arguments, enter the argument in <span class="guilabel">Add Extra Arguments</span>.</p></li>
+<li><p>To remove an argument, enter the argument in
+<span class="guilabel">Remove Arguments</span>.</p></li>
+</ul>
+</li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Confirm</kbd>.</p></li>
+</ol>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="kernel-selection">
+<h3>Kernel Selection<a class="headerlink" href="#kernel-selection" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Select a kernel option. By default, the latest kernel release is
+selected. Native kernel is shown in Figure 30.</p></li>
+<li><p>To select a different kernel, navigate to it using <span class="guilabel">Tab</span>.</p>
+<figure class="align-default" id="id30">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-30.png"><img alt="Kernel selection" src="../_images/bare-metal-install-server-30.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 30 Kernel selection</span><a class="headerlink" href="#id30" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Spacebar</kbd> to select the desired option.</p></li>
+<li><p>Navigate to <kbd class="kbd docutils literal notranslate">Confirm</kbd> and select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p></li>
+</ol>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="swupd-mirror">
+<h3>Swupd Mirror<a class="headerlink" href="#swupd-mirror" title="Link to this heading">¶</a></h3>
+<p>If you have your own custom mirror of Clear Linux OS, you can add its URL.</p>
+<ol class="arabic">
+<li><p>In Advanced Options, select <span class="guilabel">Swupd Mirror</span>.</p></li>
+<li><p>To add a local swupd mirror, enter a valid URL in <span class="guilabel">Mirror URL:</span></p></li>
+<li><p>Select <kbd class="kbd docutils literal notranslate">Confirm</kbd>.</p>
+<figure class="align-default" id="id31">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-31.png"><img alt="Swupd Mirror" src="../_images/bare-metal-install-server-31.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 31: Swupd Mirror</span><a class="headerlink" href="#id31" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>Optional: Skip to <a class="reference internal" href="#finish-installation">Finish installation</a>.</p>
+</section>
+<section id="automatic-os-updates">
+<h3>Automatic OS Updates<a class="headerlink" href="#automatic-os-updates" title="Link to this heading">¶</a></h3>
+<p>Automatic OS updates are enabled by default. In the rare case that you
+need to disable automatic software updates, follow the onscreen instructions,
+shown in Figure 32.</p>
+<ol class="arabic">
+<li><p>In Advanced Options, select <span class="guilabel">Automatic OS Updates</span>.</p></li>
+<li><p>Select the desired option.</p>
+<figure class="align-default" id="id32">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-32.png"><img alt="Automatic OS Updates" src="../_images/bare-metal-install-server-32.png" style="width: 660.0px; height: 405.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 32: Automatic OS Updates</span><a class="headerlink" href="#id32" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>You are returned to the <span class="guilabel">Main Menu</span>.</p>
+</section>
+<section id="save-configuration-settings">
+<h3>Save Configuration Settings<a class="headerlink" href="#save-configuration-settings" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>In Advanced Options, select <span class="guilabel">Save Configuration Settings</span>.</p></li>
+<li><p>A dialog box shows the installation configuration was saved to
+<code class="file docutils literal notranslate"><span class="pre">clr-installer.yaml</span></code></p>
+<figure class="align-default" id="id33">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-33.png"><img alt="Save configuration to YAML file" src="../_images/bare-metal-install-server-33.png" style="width: 640.0px; height: 380.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 33: Save configuration to YAML file</span><a class="headerlink" href="#id33" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Use the <code class="file docutils literal notranslate"><span class="pre">clr-installer.yaml</span></code> file to install Clear Linux OS, with the same
+configuration, on multiple targets.</p></li>
+</ol>
+</section>
+</section>
+<section id="finish-installation">
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Finish installation</a><a class="headerlink" href="#finish-installation" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>When you are satisfied with your installation configuration, navigate to
+<span class="guilabel">Install</span> and select <kbd class="kbd docutils literal notranslate">Enter</kbd>.</p>
+<figure class="align-default" id="id34">
+<a class="reference internal image-reference" href="../_images/bare-metal-install-server-34.png"><img alt="Select Install" src="../_images/bare-metal-install-server-34.png" style="width: 640.0px; height: 381.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 34: Select Install</span><a class="headerlink" href="#id34" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <span class="guilabel">reboot</span>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not assign an administrative user, upon rebooting,
+enter <cite>root</cite> and set the root password immediately.</p>
+</div>
+</li>
+<li><p>When the system reboots, remove any installation media present.</p></li>
+</ol>
+<section id="default-partition-schema">
+<h3>Default partition schema<a class="headerlink" href="#default-partition-schema" title="Link to this heading">¶</a></h3>
+<p>Create partitions per requirements in Table 1.</p>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-text"><strong>Table 1. Default partition schema</strong></span><a class="headerlink" href="#id35" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>FileSystem</p></th>
+<th class="head"><p>Label</p></th>
+<th class="head"><p>Mount Point</p></th>
+<th class="head"><p>Default size</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">VFAT(FAT32)</span></code></p></td>
+<td><p>boot</p></td>
+<td><p>/boot</p></td>
+<td><p>150MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ext[234],</span> <span class="pre">`XFS`,</span> <span class="pre">or</span> <span class="pre">f2fs</span></code></p></td>
+<td><p>root</p></td>
+<td><p>/</p></td>
+<td><p><em>Size depends upon use case/desired bundles.</em></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A 64MiB swapfile is generated by default. The default size may be set
+manually with the <code class="docutils literal notranslate"><span class="pre">--swap-file-size</span></code> command-line option.</p>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h2><a class="toc-backref" href="#id47" role="doc-backlink">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
+<section id="for-configure-installation-media">
+<h3>For Configure Installation Media<a class="headerlink" href="#for-configure-installation-media" title="Link to this heading">¶</a></h3>
+<p>If a warning message appears that no media or space is available after
+entering <span class="guilabel">Configure Installation Media</span>:</p>
+<ul class="simple">
+<li><p>Verify that target media has enough free space.</p></li>
+<li><p>Confirm the USB is properly connected to and mounted on target media.</p></li>
+<li><p>Review the size of existing partitions on the target media:</p>
+<ul>
+<li><p>Linux* OS: <strong class="command">lsblk -a</strong></p></li>
+<li><p>Windows* OS:  <strong class="command">diskpart</strong>, then <strong class="command">list disk</strong></p></li>
+<li><p>macOS* platform: <strong class="command">diskutil list</strong></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="erase-lvm-partitions-before-installing-cl">
+<span id="erase-lvm-troubleshooting-tip"></span><h3>Erase LVM Partitions Before Installing Clear Linux OS<a class="headerlink" href="#erase-lvm-partitions-before-installing-cl" title="Link to this heading">¶</a></h3>
+<p>If you’re planning to install Clear Linux OS on a drive that has LVM partitions,
+you must erase them first before using the clr-installer.</p>
+<p>Here is an example of a drive (/dev/sda) with LVMs:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT</span>
+<span class="go">loop0          7:0    0 627.6M  1 loop</span>
+<span class="go">sda            8:0    0 335.4G  0 disk</span>
+<span class="go">├─sda1         8:1    0   200M  0 part</span>
+<span class="go">├─sda2         8:2    0     1G  0 part</span>
+<span class="hll"><span class="go">└─sda3         8:3    0 334.2G  0 part</span>
+</span><span class="hll"><span class="go">  ├─LVM-root 252:0    0    70G  0 lvm</span>
+</span><span class="hll"><span class="go">  ├─LVM-home 252:1    0 248.4G  0 lvm</span>
+</span><span class="hll"><span class="go">  └─LVM-swap 252:2    0  15.7G  0 lvm</span>
+</span></pre></div>
+</div>
+<p>If you do not erase the LVMs first, you will encounter a clr-installer
+error like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">root@clr-live~ # </span>clr-installer
+
+<span class="go">Please report this crash using GitHub Issues:</span>
+<span class="go">https://github.com/clearlinux/clr-installer/issues</span>
+
+<span class="go">Include the following as attachments to enable diagnosis:</span>
+<span class="go">/root/pre-install-clr-installer.yaml</span>
+<span class="go">/root/clr-installer.log</span>
+
+<span class="go">You may need to remove any personal data of concern from the attachments.</span>
+<span class="go">The Installer will now exit.</span>
+<span class="go">exit status 1</span>
+
+<span class="go">Error Trace:</span>
+<span class="go">errors.Wrap()</span>
+<span class="go">     errors/errors.go:91</span>
+<span class="go">storage.makeFs()</span>
+<span class="go">     storage/ops.go:79</span>
+</pre></div>
+</div>
+<p>The quickest and simplest method to erasing the LVMs is to execute these
+commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sgdisk<span class="w"> </span>-Z<span class="w"> </span>/dev/&lt;device&gt;
+sudo<span class="w"> </span>partprobe
+sudo<span class="w"> </span>dmsetup<span class="w"> </span>remove_all<span class="w"> </span>--force
+sudo<span class="w"> </span>partprobe
+</pre></div>
+</div>
+</section>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id48" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="install-configfile.html#install-configfile"><span class="std std-ref">Install using clr-installer and a configuration file</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Install Clear Linux* OS from the live server</a><ul>
+<li><a class="reference internal" href="#system-requirements">System requirements</a></li>
+<li><a class="reference internal" href="#preliminary-steps">Preliminary steps</a></li>
+<li><a class="reference internal" href="#install-cl-on-your-target-system">Install Clear Linux OS on your target system</a><ul>
+<li><a class="reference internal" href="#choose-boot-menu-option">Choose boot menu option</a></li>
+<li><a class="reference internal" href="#verify-integrity-of-installer-media-optional">Verify integrity of installer media (optional)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#launch-the-cl-installer">Launch the Clear Linux OS Installer</a></li>
+<li><a class="reference internal" href="#minimum-installation-requirements">Minimum installation requirements</a></li>
+<li><a class="reference internal" href="#main-menu">Main Menu</a></li>
+<li><a class="reference internal" href="#navigation">Navigation</a></li>
+<li><a class="reference internal" href="#required-options">Required options</a><ul>
+<li><a class="reference internal" href="#choose-timezone">Choose Timezone</a></li>
+<li><a class="reference internal" href="#choose-language">Choose Language</a></li>
+<li><a class="reference internal" href="#configure-the-keyboard">Configure the Keyboard</a></li>
+<li><a class="reference internal" href="#configure-installation-media">Configure Installation Media</a><ul>
+<li><a class="reference internal" href="#safe-installation">Safe Installation</a></li>
+<li><a class="reference internal" href="#destructive-installation">Destructive Installation</a></li>
+<li><a class="reference internal" href="#advanced-installation">Advanced Installation</a></li>
+<li><a class="reference internal" href="#partition-codes">Partition codes</a></li>
+<li><a class="reference internal" href="#boot-partition">boot partition</a></li>
+<li><a class="reference internal" href="#swap-partition-optional">swap partition (optional)</a></li>
+<li><a class="reference internal" href="#root-partition">root partition</a></li>
+<li><a class="reference internal" href="#additional-partitions-optional">Additional partitions (optional)</a></li>
+<li><a class="reference internal" href="#write-configuration-to-disk">Write configuration to disk</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#disk-encryption">Disk encryption</a><ul>
+<li><a class="reference internal" href="#encryption-passphrase">Encryption Passphrase</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#manage-user">Manage User</a><ul>
+<li><a class="reference internal" href="#add-new-user">Add New User</a></li>
+<li><a class="reference internal" href="#modify-delete-user">Modify / Delete User</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#telemetry">Telemetry</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#recommended-options">Recommended options</a><ul>
+<li><a class="reference internal" href="#skip-to-finish-installation">Skip to finish installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#advanced-options">Advanced options</a><ul>
+<li><a class="reference internal" href="#configure-network-interfaces">Configure Network Interfaces</a></li>
+<li><a class="reference internal" href="#proxy">Proxy</a></li>
+<li><a class="reference internal" href="#test-network-settings">Test Network Settings</a></li>
+<li><a class="reference internal" href="#select-additional-bundles">Select Additional Bundles</a></li>
+<li><a class="reference internal" href="#assign-hostname">Assign Hostname</a></li>
+<li><a class="reference internal" href="#kernel-command-line">Kernel Command Line</a></li>
+<li><a class="reference internal" href="#kernel-selection">Kernel Selection</a></li>
+<li><a class="reference internal" href="#swupd-mirror">Swupd Mirror</a></li>
+<li><a class="reference internal" href="#automatic-os-updates">Automatic OS Updates</a></li>
+<li><a class="reference internal" href="#save-configuration-settings">Save Configuration Settings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finish-installation">Finish installation</a><ul>
+<li><a class="reference internal" href="#default-partition-schema">Default partition schema</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#for-configure-installation-media">For Configure Installation Media</a></li>
+<li><a class="reference internal" href="#erase-lvm-partitions-before-installing-cl">Erase LVM Partitions Before Installing Clear Linux OS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bare-metal-install-desktop.html"
+                          title="previous chapter">Install Clear Linux* OS from the live desktop</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="install-configfile.html"
+                          title="next chapter">Install using clr-installer and a configuration file</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/get-started/bare-metal-install-server.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="install-configfile.html" title="Install using clr-installer and a configuration file"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bare-metal-install-desktop.html" title="Install Clear Linux* OS from the live desktop"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install Clear Linux* OS from the live server</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

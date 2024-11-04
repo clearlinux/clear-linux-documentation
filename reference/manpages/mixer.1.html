@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>mixer &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/mixer.1.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mixer.repo" href="mixer.repo.1.html" />
+    <link rel="prev" title="mixer.add-rpms" href="mixer.add-rpms.1.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mixer.repo.1.html" title="mixer.repo"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mixer.add-rpms.1.html" title="mixer.add-rpms"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mixer</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="mixer">
+<h1>mixer<a class="headerlink" href="#mixer" title="Link to this heading">¶</a></h1>
+<section id="os-software-update-mixer">
+<h2>OS software update mixer<a class="headerlink" href="#os-software-update-mixer" title="Link to this heading">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(C) 2018 Intel Corporation, CC-BY-SA-3.0</p>
+</dd>
+<dt class="field-even">Manual section<span class="colon">:</span></dt>
+<dd class="field-even"><p>1</p>
+</dd>
+</dl>
+<section id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">[subcommand]</span> <span class="pre">&lt;flags&gt;</span></code></p>
+</section>
+<section id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="mixer.1.html">mixer(1)</a> is a software update generator that uses input RPMs and bundle
+definition files to create update metadata consumable by <a class="reference external" href="swupd.1.html">swupd(1)</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mixer</span></code> operates in a mix workspace using configuration files existing in the
+workspace. The tool allows users to use RPMs from an upstream URL (default
+download.clearlinux.org), provide their own RPMs, and use RPMs from other remote
+repositories to build updates. Users can also define their own local bundle
+definitions as well as use the default bundle definitions from the upstream URL.</p>
+<p><code class="docutils literal notranslate"><span class="pre">mixer</span></code> provides commands to manage local RPMs and bundle definitions and
+configure remote RPM repositories.</p>
+<p>The output of <code class="docutils literal notranslate"><span class="pre">mixer</span></code> is a set of manifests readable by <code class="docutils literal notranslate"><span class="pre">swupd</span></code> as well as
+all the OS content <code class="docutils literal notranslate"><span class="pre">swupd</span></code> needs to perform its update operations. The OS
+content includes all the files in an update as well as zero- and delta-packs for
+improved update performance. The content that <code class="docutils literal notranslate"><span class="pre">mixer</span></code> produces is tied to a
+specific format so that <code class="docutils literal notranslate"><span class="pre">swupd</span></code> is guaranteed to understand it if the client
+is using the right version of <code class="docutils literal notranslate"><span class="pre">swupd</span></code>. See <a class="reference external" href="swupd.1.html">swupd(1)</a> and <a class="reference external" href="os-format.7.html">os-format(7)</a>
+for more details.</p>
+</section>
+<section id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
+<p>The following options are applicable to most subcommands, and can be
+used to modify the core behavior and resources that <code class="docutils literal notranslate"><span class="pre">mixer</span></code> uses.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display general help information. If put after a subcommand, it will
+display help specific to that subcommand.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--check</span></code></p>
+<p>Check all external dependencies needed by mixer.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-v,</span> <span class="pre">--version</span></code></p>
+<p>Displays the version information of the <code class="docutils literal notranslate"><span class="pre">mixer</span></code> program and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--offline</span></code></p>
+<p>Skip caching upstream bundles and work entirely with local bundles.
+Do not reach out over network to perform operations.</p>
+</li>
+</ul>
+</section>
+<section id="subcommands">
+<h3>SUBCOMMANDS<a class="headerlink" href="#subcommands" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">add-rpms</span></code></p>
+<blockquote>
+<div><p>Add RPMs from the configured LOCAL_RPM_DIR to the local dnf repository.
+See <a class="reference external" href="mixer.add-rpms.1.html">mixer.add-rpms(1)</a> for more details.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">build</span></code></p>
+<blockquote>
+<div><p>Build various pieces of OS content, including all metadata needed by
+<code class="docutils literal notranslate"><span class="pre">swupd</span></code> to perform updates. <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span></code> is a complicated tool in
+itself. See <a class="reference external" href="mixer.build.1.html">mixer.build(1)</a> for more details.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">bundle</span></code></p>
+<blockquote>
+<div><p>Perform various configuration actions on local and upstream bundles. The
+user can add or remove bundles from their mix, create new bundle definitions,
+or validate local bundle definition files. See <a class="reference external" href="mixer.bundle.1.html">mixer.bundle(1)</a> for more details.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">config</span></code></p>
+<blockquote>
+<div><p>Perform configuration related actions, including configuration file
+validation and conversion from deprecated formats. See <a class="reference external" href="mixer.config.1.html">mixer.config(1)</a>
+for more details.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">help</span></code></p>
+<blockquote>
+<div><p>Print help text for any <code class="docutils literal notranslate"><span class="pre">mixer</span></code> subcommand.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">init</span></code></p>
+<blockquote>
+<div><p>Initialize <code class="docutils literal notranslate"><span class="pre">mixer</span></code> configuration and workspace. See <a class="reference external" href="mixer.init.1.html">mixer.init(1)</a> for
+more details.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">repo</span></code></p>
+<blockquote>
+<div><p>Add, list, remove, or edit RPM repositories to be used by mixer. This
+subcommand allows users to configure which remote or local repositories
+mixer should use to look for RPMs. See <a class="reference external" href="mixer.repo.1.html">mixer.repo(1)</a> for more
+information.</p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">versions</span></code></p>
+<blockquote>
+<div><p>Manage mix and upstream versions. By itself the command will print the
+current version of mix and upstream, and also report the latest version of
+upstream available. Also allows the user to update mix and upstream
+versions. See <a class="reference external" href="mixer.versions.1.html">mixer.versions(1)</a> for more details.</p>
+</div></blockquote>
+</section>
+<section id="files">
+<h3>FILES<a class="headerlink" href="#files" title="Link to this heading">¶</a></h3>
+<p><cite>&lt;mixer/workspace&gt;/builder.conf</cite></p>
+<blockquote>
+<div><p>The mixer configuration file.</p>
+</div></blockquote>
+<p><cite>&lt;mixer/workspace&gt;/.yum-mix.conf</cite></p>
+<blockquote>
+<div><p>The default location for the DNF configuration file.</p>
+</div></blockquote>
+</section>
+<section id="exit-status">
+<h3>EXIT STATUS<a class="headerlink" href="#exit-status" title="Link to this heading">¶</a></h3>
+<p>On success, 0 is returned. A non-zero return code indicates a failure.</p>
+<section id="see-also">
+<h4>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="mixer.add-rpms.1.html">mixer.add-rpms(1)</a></p></li>
+<li><p><a class="reference external" href="mixer.build.1.html">mixer.build(1)</a></p></li>
+<li><p><a class="reference external" href="mixer.bundle.1.html">mixer.bundle(1)</a></p></li>
+<li><p><a class="reference external" href="mixer.config.1.html">mixer.config(1)</a></p></li>
+<li><p><a class="reference external" href="mixer.init.1.html">mixer.init(1)</a></p></li>
+<li><p><a class="reference external" href="mixer.repo.1.html">mixer.repo(1)</a></p></li>
+<li><p><a class="reference external" href="mixer.versions.1.html">mixer.versions(1)</a></p></li>
+<li><p><a class="reference external" href="swupd.1.html">swupd(1)</a></p></li>
+<li><p><a class="reference external" href="os-format.7.html">os-format(7)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clearlinux/mixer-tools">https://github.com/clearlinux/mixer-tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clearlinux/swupd-client">https://github.com/clearlinux/swupd-client</a></p></li>
+<li><p><a class="reference external" href="https://clearlinux.org/documentation/">https://clearlinux.org/documentation/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">mixer</a><ul>
+<li><a class="reference internal" href="#os-software-update-mixer">OS software update mixer</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#subcommands">SUBCOMMANDS</a></li>
+<li><a class="reference internal" href="#files">FILES</a></li>
+<li><a class="reference internal" href="#exit-status">EXIT STATUS</a><ul>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="mixer.add-rpms.1.html"
+                          title="previous chapter">mixer.add-rpms</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="mixer.repo.1.html"
+                          title="next chapter">mixer.repo</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/mixer.1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mixer.repo.1.html" title="mixer.repo"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mixer.add-rpms.1.html" title="mixer.add-rpms"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mixer</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

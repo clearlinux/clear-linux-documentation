@@ -1,0 +1,380 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>NVIDIA* CUDA Toolkit &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/tutorials/nvidia-cuda.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="OpenFaaS*" href="openfaas.html" />
+    <link rel="prev" title="NVIDIA* Drivers" href="nvidia.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="openfaas.html" title="OpenFaaS*"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="nvidia.html" title="NVIDIA* Drivers"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">NVIDIA* CUDA Toolkit</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="nvidia-cuda-toolkit">
+<span id="nvidia-cuda"></span><h1>NVIDIA* CUDA Toolkit<a class="headerlink" href="#nvidia-cuda-toolkit" title="Link to this heading">¶</a></h1>
+<p>NVIDIA is a manufacturer of graphics processing units (GPU), also known as
+graphics cards.</p>
+<p>CUDA is a parallel computing platform and application programming interface
+model created by NVIDIA. It allows software developers and software engineers
+to use a CUDA-enabled graphics processing unit</p>
+<p>These instructions show how to install the CUDA Toolkit on Clear Linux OS after the
+<a class="reference internal" href="nvidia.html#nvidia"><span class="std std-ref">proprietary NVIDIA drivers</span></a> have been installed.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Software installed outside of <a class="reference internal" href="../guides/clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a> is not updated with Clear Linux OS
+updates and must be updated and maintained manually.</p>
+</div>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id1">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#compatibility" id="id2">Compatibility</a></p>
+<ul>
+<li><p><a class="reference internal" href="#check-compatibility-of-nvidia-components" id="id3">Check compatibility of NVIDIA components</a></p></li>
+<li><p><a class="reference internal" href="#check-gcc-compatibility" id="id4">Check GCC compatibility</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#downloading-and-installation" id="id5">Downloading and Installation</a></p>
+<ul>
+<li><p><a class="reference internal" href="#download-the-nvidia-cuda-toolkit" id="id6">Download the NVIDIA CUDA Toolkit</a></p></li>
+<li><p><a class="reference internal" href="#install-the-nvidia-cuda-toolkit" id="id7">Install the NVIDIA CUDA Toolkit</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#using-the-nvidia-cuda-toolkit" id="id8">Using the NVIDIA CUDA Toolkit</a></p></li>
+<li><p><a class="reference internal" href="#uninstalling" id="id9">Uninstalling</a></p></li>
+<li><p><a class="reference internal" href="#debugging" id="id10">Debugging</a></p></li>
+<li><p><a class="reference internal" href="#additional-resources" id="id11">Additional resources</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>A Clear Linux OS system with a <a class="reference external" href="https://developer.nvidia.com/cuda-gpus">CUDA-Enabled NVIDIA device</a></p></li>
+<li><p>The <a class="reference internal" href="nvidia.html#nvidia"><span class="std std-ref">proprietary NVIDIA drivers</span></a> have been installed.</p></li>
+</ul>
+</section>
+<section id="compatibility">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Compatibility</a><a class="headerlink" href="#compatibility" title="Link to this heading">¶</a></h2>
+<section id="check-compatibility-of-nvidia-components">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">Check compatibility of NVIDIA components</a><a class="headerlink" href="#check-compatibility-of-nvidia-components" title="Link to this heading">¶</a></h3>
+<p>To install the appropriate NVIDIA CUDA Toolkit version, it is important to
+understand the compute capability and compatible driver versions of your
+NVIDIA hardware.</p>
+<p>Information about NVIDIA compute capability, driver, and toolkit compatibility
+can be found at: <a class="reference external" href="https://developer.nvidia.com/cuda-gpus">https://developer.nvidia.com/cuda-gpus</a>  and
+<a class="reference external" href="https://docs.nvidia.com/deploy/cuda-compatibility/">https://docs.nvidia.com/deploy/cuda-compatibility/</a></p>
+</section>
+<section id="check-gcc-compatibility">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Check GCC compatibility</a><a class="headerlink" href="#check-gcc-compatibility" title="Link to this heading">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is only required for the development or compilation of CUDA
+applications. It is not required to run pre-built applications that have a
+dependency on CUDA.</p>
+</div>
+<p>From the NVIDIA documentation:</p>
+<blockquote>
+<div><p>The CUDA development environment relies on tight integration with the host
+development environment, including the host compiler and C runtime
+libraries, and is therefore only supported on distribution versions that
+have been qualified for this CUDA Toolkit release.</p>
+</div></blockquote>
+<p>Refer to the <a class="reference external" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#system-requirements">NVIDIA documentation on CUDA system requirements</a>
+for the latest kernel and compiler compatibility.</p>
+<p>For example, CUDA 10.2 on a system with the latest Linux kernel requires GCC8,
+which is older than the default GCC version for Clear Linux OS.</p>
+<p>Install the compatible version of GCC, if required:</p>
+<ol class="arabic">
+<li><p>Install the <a class="reference internal" href="../reference/bundles/bundles.html#bundles"><span class="std std-ref">bundle</span></a> with the appropriate GCC version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>c-extras-gcc8
+</pre></div>
+</div>
+</li>
+<li><p>Create the directory <code class="file docutils literal notranslate"><span class="pre">/usr/local/cuda/bin</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/usr/local/cuda/bin
+</pre></div>
+</div>
+</li>
+<li><p>Add symlinks to the older GCC version in the
+<code class="file docutils literal notranslate"><span class="pre">/usr/local/cuda/bin</span></code> directory. This will cause the older version of
+GCC to be used when <code class="file docutils literal notranslate"><span class="pre">/usr/local/cuda/bin</span></code> is in the $PATH environment
+variable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/gcc-8<span class="w"> </span>/usr/local/cuda/bin/gcc
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/g++-8<span class="w"> </span>/usr/local/cuda/bin/g++
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="downloading-and-installation">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Downloading and Installation</a><a class="headerlink" href="#downloading-and-installation" title="Link to this heading">¶</a></h2>
+<section id="download-the-nvidia-cuda-toolkit">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Download the NVIDIA CUDA Toolkit</a><a class="headerlink" href="#download-the-nvidia-cuda-toolkit" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Go to the <a class="reference external" href="https://developer.nvidia.com/cuda-downloads">NVIDIA CUDA downloads website</a> to get the latest CUDA Toolkit.
+If an older version of the CUDA Toolkit is required, go to the <a class="reference external" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA
+Toolkit Archive</a>.</p>
+<p>Choose the following settings and click <em>Download</em>.</p>
+<ul class="simple">
+<li><p>Operating System: <em>Linux</em></p></li>
+<li><p>Architecture: <em>x86_64</em></p></li>
+<li><p>Distribution: <em>any</em></p></li>
+<li><p>Version: <em>any</em></p></li>
+<li><p>Installer Type: <em>runfile(local)</em></p></li>
+</ul>
+</li>
+<li><p>Open a terminal and navigate to where the
+<code class="file docutils literal notranslate"><span class="pre">cuda_&lt;VERSION&gt;_linux.run</span></code> file was saved. In this
+example, it was saved in the Downloads folder.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Downloads/
+</pre></div>
+</div>
+</li>
+<li><p>Make the <code class="file docutils literal notranslate"><span class="pre">cuda_&lt;VERSION&gt;_linux.run</span></code> file executable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod<span class="w"> </span>+x<span class="w"> </span>cuda_&lt;VERSION&gt;_linux.run
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="install-the-nvidia-cuda-toolkit">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Install the NVIDIA CUDA Toolkit</a><a class="headerlink" href="#install-the-nvidia-cuda-toolkit" title="Link to this heading">¶</a></h3>
+<p>The NVIDIA CUDA installer will be directed to install files under
+<code class="file docutils literal notranslate"><span class="pre">/opt/cuda</span></code> as much as possible to keep its contents isolated from the
+rest of the Clear Linux OS files under <code class="file docutils literal notranslate"><span class="pre">/usr</span></code>.</p>
+<p>The CUDA installer automatically creates a symbolic link that allows the CUDA
+Toolkit to be accessed from <code class="file docutils literal notranslate"><span class="pre">/usr/local/cuda</span></code> regardless of where it was
+installed.</p>
+<ol class="arabic">
+<li><p>Configure the dynamic linker to look for and cache shared libraries under
+<code class="file docutils literal notranslate"><span class="pre">/opt/cuda/lib64</span></code> where the NVIDIA installer will place libraries.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/ld.so.conf.d
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;include /etc/ld.so.conf.d/*.conf&quot;</span><span class="w"> </span><span class="p">|</span><span class="w">  </span>sudo<span class="w"> </span>tee<span class="w"> </span>--append<span class="w"> </span>/etc/ld.so.conf
+</pre></div>
+</div>
+<p>The CUDA installer will automatically create a file
+<code class="file docutils literal notranslate"><span class="pre">/etc/ld.so.conf.d/cuda-&lt;VERSION&gt;.conf</span></code></p>
+</li>
+<li><p>Navigate into the directory where the NVIDIA installer was downloaded:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/Downloads/
+</pre></div>
+</div>
+</li>
+<li><p>Run the installer with the advanced options below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./cuda_&lt;VERSION&gt;_linux.run<span class="w"> </span><span class="se">\</span>
+--toolkit<span class="w"> </span><span class="se">\</span>
+--installpath<span class="o">=</span>/opt/cuda<span class="w"> </span><span class="se">\</span>
+--no-man-page<span class="w"> </span><span class="se">\</span>
+--override<span class="w"> </span><span class="se">\</span>
+--silent
+</pre></div>
+</div>
+</li>
+<li><p>Validate the CUDA Toolkit was installed by checking the NVIDIA CUDA
+compiler version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/opt/cuda/bin/nvcc<span class="w"> </span>--version
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The CUDA Toolkit is now installed and can be used to compile and run CUDA
+applications.</p>
+</section>
+</section>
+<section id="using-the-nvidia-cuda-toolkit">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Using the NVIDIA CUDA Toolkit</a><a class="headerlink" href="#using-the-nvidia-cuda-toolkit" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Verify that the NVIDIA device characters files /dev/nvidia* exist and have
+the correct (0666) file permissions. The character devices should be
+automatically created on system with the NVIDIA driver loaded through X
+server, but will not be on systems that do not automatically load the
+NVIDIA driver.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ls</span> <span class="o">-</span><span class="n">l</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="n">nvidia</span><span class="o">*</span>
+</pre></div>
+</div>
+</li>
+<li><p>If your system does not have the NVIDIA character devices created
+automatically, run the <a class="reference external" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#runfile-verifications">script from NVIDIA documentation</a>
+with root privileges.</p>
+<p>Alternatively a setuid utility, <strong class="command">nvidia-modprobe</strong>, can be compiled
+and installed to automatically create the device character files on-demand.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">download</span><span class="o">.</span><span class="n">nvidia</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">XFree86</span><span class="o">/</span><span class="n">nvidia</span><span class="o">-</span><span class="n">modprobe</span><span class="o">/</span><span class="n">nvidia</span><span class="o">-</span><span class="n">modprobe</span><span class="o">-&lt;</span><span class="n">VERSION</span><span class="o">&gt;.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="n">tar</span> <span class="o">-</span><span class="n">xvf</span> <span class="n">nvidia</span><span class="o">-</span><span class="n">modprobe</span><span class="o">-&lt;</span><span class="n">VERSION</span><span class="o">&gt;.</span><span class="n">tar</span><span class="o">.</span><span class="n">bz2</span>
+<span class="n">cd</span> <span class="n">nvidia</span><span class="o">-</span><span class="n">modprobe</span><span class="o">-&lt;</span><span class="n">VERSION</span><span class="o">&gt;/</span>
+<span class="n">make</span>
+<span class="n">sudo</span> <span class="n">make</span> <span class="n">install</span> <span class="n">PREFIX</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">cuda</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+<li><p>When the CUDA toolkit is needed, export PATH variables pointing to the CUDA
+directories. This will temporarily add CUDA files to the PATH and use the
+specified linked version of GCC for the terminal session.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span>/usr/local/cuda/bin:<span class="nv">$PATH</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/usr/local/cuda/lib64:<span class="nv">$LD_LIBRARY_PATH</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Source code for CUDA sample located at
+<code class="file docutils literal notranslate"><span class="pre">/usr/local/cuda/NVIDIA_CUDA-&lt;VERSION&gt;_Samples</span></code>. See the <a class="reference external" href="https://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html#compiling-examples">CUDA
+documentation on compiling samples</a>
+to learn more.</p>
+</section>
+<section id="uninstalling">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Uninstalling</a><a class="headerlink" href="#uninstalling" title="Link to this heading">¶</a></h2>
+<p>The NVIDIA drivers and associated software can be uninstalled and nouveau
+driver restored by:</p>
+<ol class="arabic simple">
+<li><p>Run the <strong class="command">sudo /usr/local/cuda/bin/cuda-uninstaller</strong>.</p></li>
+<li><p>Follow the prompts on the screen and reboot the system.</p></li>
+</ol>
+</section>
+<section id="debugging">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Debugging</a><a class="headerlink" href="#debugging" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>The NVIDIA CUDA  installer places logs under
+<code class="file docutils literal notranslate"><span class="pre">/tmp/cuda-installer.log</span></code>.</p></li>
+</ul>
+</section>
+<section id="additional-resources">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Additional resources</a><a class="headerlink" href="#additional-resources" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.nvidia.com/cuda/">NVIDIA CUDA Toolkit Documentation</a></p></li>
+<li><p><a class="reference external" href="https://nvidia.custhelp.com/app/answers/detail/a_id/1849/kw/Linux">Why aren’t the NVIDIA Linux drivers open source?</a></p></li>
+<li><p><a class="reference external" href="https://nvidia.custhelp.com/app/answers/detail/a_id/44/kw/linux">Where can I get support for NVIDIA Linux drivers?</a></p></li>
+<li><p><a class="reference external" href="https://download.nvidia.com/XFree86/Linux-x86_64/">NVIDIA Accelerated Linux Graphics Driver Installation Guides</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">NVIDIA* CUDA Toolkit</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#compatibility">Compatibility</a><ul>
+<li><a class="reference internal" href="#check-compatibility-of-nvidia-components">Check compatibility of NVIDIA components</a></li>
+<li><a class="reference internal" href="#check-gcc-compatibility">Check GCC compatibility</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#downloading-and-installation">Downloading and Installation</a><ul>
+<li><a class="reference internal" href="#download-the-nvidia-cuda-toolkit">Download the NVIDIA CUDA Toolkit</a></li>
+<li><a class="reference internal" href="#install-the-nvidia-cuda-toolkit">Install the NVIDIA CUDA Toolkit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-nvidia-cuda-toolkit">Using the NVIDIA CUDA Toolkit</a></li>
+<li><a class="reference internal" href="#uninstalling">Uninstalling</a></li>
+<li><a class="reference internal" href="#debugging">Debugging</a></li>
+<li><a class="reference internal" href="#additional-resources">Additional resources</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="nvidia.html"
+                          title="previous chapter">NVIDIA* Drivers</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="openfaas.html"
+                          title="next chapter">OpenFaaS*</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/nvidia-cuda.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="openfaas.html" title="OpenFaaS*"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="nvidia.html" title="NVIDIA* Drivers"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">NVIDIA* CUDA Toolkit</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

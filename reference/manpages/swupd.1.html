@@ -1,0 +1,1047 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>swupd &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/swupd.1.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="swupd-update.timer" href="swupd-update.timer.4.html" />
+    <link rel="prev" title="update-triggers.target" href="update-triggers.target.4.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="swupd-update.timer.4.html" title="swupd-update.timer"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="update-triggers.target.4.html" title="update-triggers.target"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swupd</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="swupd">
+<h1>swupd<a class="headerlink" href="#swupd" title="Link to this heading">¶</a></h1>
+<section id="os-software-update-program">
+<h2>OS software update program<a class="headerlink" href="#os-software-update-program" title="Link to this heading">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(C) 2020 Intel Corporation, CC-BY-SA-3.0</p>
+</dd>
+<dt class="field-even">Manual section<span class="colon">:</span></dt>
+<dd class="field-even"><p>1</p>
+</dd>
+</dl>
+<section id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">[subcommand]</span> <span class="pre">&lt;flags&gt;</span></code></p>
+</section>
+<section id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="swupd.1.html">swupd(1)</a> is an OS-level software update program that applies updates
+to system software.</p>
+<p>The updates are fetched from a central software update server. If a
+valid update is found on the server, it can be downloaded and applied.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">swupd</span></code> tool can also install and remove bundles, check for
+updates without applying them, perform system-level diagnose of
+the system software, and install an OS.</p>
+<p>A <em>version url</em> server provides version information. This server
+notifies the program of available updates.</p>
+<p>A <em>content url</em> server (can be the same as <em>version url</em> server)
+provides the file and metadata content for all versions. The content url
+server provides metadata in the form of manifests. These Manifest files
+list and describe file contents, symlinks, directories. Additionally,
+the actual content is provided to clients in the form of archive files.</p>
+<p><code class="docutils literal notranslate"><span class="pre">swupd</span></code> consumes update artifacts generated by <code class="docutils literal notranslate"><span class="pre">mixer</span></code> in the specific
+format the installed version of <code class="docutils literal notranslate"><span class="pre">swupd</span></code> understands. For more information
+about how these artifacts are generated see <a class="reference external" href="mixer.1.html">mixer(1)</a> and <a class="reference external" href="os-format.7.html">os-format(7)</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">swupd</span></code> tool can also manage 3rd-party content, this allows users to
+install, remove, and update bundles from 3rd-party repositories.</p>
+</section>
+<section id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
+<p>The following options are applicable to most subcommands, and can be
+used to modify the core behavior and resources that swupd uses.</p>
+<dl class="option-list">
+<dt><kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></dt>
+<dd><p>Display general help information. If put after a subcommand, it
+will display help specific to that subcommand.</p>
+</dd>
+<dt><kbd><span class="option">-v</span>, <span class="option">--version</span></kbd></dt>
+<dd><p>Displays the version information of the swupd program, and exit.
+It also displays compile options and copyright information.</p>
+</dd>
+<dt><kbd><span class="option">-p <var>&lt;path&gt;</var></span>, <span class="option">--path=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Optionally set the top-level directory for the
+swupd-managed system. This can be used to point to a chroot installation
+of the OS or a custom mount. If not specified this will default to <code class="docutils literal notranslate"><span class="pre">/</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-u <var>&lt;url&gt;</var></span>, <span class="option">--url=<var>&lt;url&gt;</var></span></kbd></dt>
+<dd><p>Specify an RFC-3986 encoded url. The url will be used to
+download version information and file content downloads.</p>
+</dd>
+<dt><kbd><span class="option">-P <var>&lt;port&gt;</var></span>, <span class="option">--port=<var>&lt;port&gt;</var></span></kbd></dt>
+<dd><p>Specify the port number of the server to connect to.
+Applies to both version and file content url server connections.</p>
+</dd>
+<dt><kbd><span class="option">-c <var>&lt;url&gt;</var></span>, <span class="option">--contenturl=<var>&lt;url&gt;</var></span></kbd></dt>
+<dd><p>Specify an RFC-3986 encoded url. The url will be
+used for file content downloads only.</p>
+</dd>
+<dt><kbd><span class="option">-v <var>&lt;url&gt;</var></span>, <span class="option">--versionurl=<var>&lt;url&gt;</var></span></kbd></dt>
+<dd><p>Specify an RFC-3986 encoded url. The url will be
+used to download version information.</p>
+</dd>
+<dt><kbd><span class="option">-F <var>&lt;formatstring&gt;</var></span>, <span class="option">--format=<var>&lt;formatstring&gt;</var></span></kbd></dt>
+<dd><p>Specify the format suffix for
+version file downloads. Is usually one of <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>, etc. or
+<code class="docutils literal notranslate"><span class="pre">staging</span></code>. Software update formats may change regularly and normally
+you should consult the swupd server data for the appropriate latest
+version available. If that version is not supported by your version of
+<code class="docutils literal notranslate"><span class="pre">swupd</span></code>, you should subtract <code class="docutils literal notranslate"><span class="pre">1</span></code> from the number and try again until
+it succeeds.</p>
+</dd>
+<dt><kbd><span class="option">-S <var>&lt;path&gt;</var></span>, <span class="option">--statedir=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Specify an alternate path for swupd cache and data directory.
+Normally <code class="docutils literal notranslate"><span class="pre">swupd</span></code> uses <code class="docutils literal notranslate"><span class="pre">/var/lib/swupd</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-K <var>&lt;path&gt;</var></span>, <span class="option">--cachedir=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Specify an alternate swupd cache directory.
+Normally <code class="docutils literal notranslate"><span class="pre">swupd</span></code> uses <code class="docutils literal notranslate"><span class="pre">/var/lib/swupd</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-Z <var>&lt;path&gt;</var></span>, <span class="option">--datadir=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Specify an alternate swupd data directory.
+Normally <code class="docutils literal notranslate"><span class="pre">swupd</span></code> uses <code class="docutils literal notranslate"><span class="pre">/var/lib/swupd</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-C <var>&lt;path&gt;</var></span>, <span class="option">--certpath=<var>&lt;cert&gt;</var></span></kbd></dt>
+<dd><p>Specify alternate path to swupd certificate store (pem file).
+Default is /usr/share/clear/update-ca/Swupd_Root.pem</p>
+</dd>
+<dt><kbd><span class="option">-W <var>&lt;n&gt;</var></span>, <span class="option">--max-parallel-downloads=<var>&lt;n&gt;</var></span></kbd></dt>
+<dd><p>Set the maximum number of parallel downloads.</p>
+</dd>
+<dt><kbd><span class="option">-r <var>&lt;n&gt;</var></span>, <span class="option">--max-retries=<var>&lt;n&gt;</var></span></kbd></dt>
+<dd><p>Maximum number of retries for download failures.</p>
+</dd>
+<dt><kbd><span class="option">-d <var>&lt;n&gt;</var></span>, <span class="option">--retry-delay=<var>&lt;n&gt;</var></span></kbd></dt>
+<dd><p>Initial delay in seconds between download retries, this will
+be doubled for each retry until the download succeeds or the maximum
+number of retries has been reached.</p>
+</dd>
+<dt><kbd><span class="option">-n</span>, <span class="option">--nosigcheck</span></kbd></dt>
+<dd><p>Do not attempt to enforce certificate or signature checking.</p>
+</dd>
+<dt><kbd><span class="option">-n</span>, <span class="option">--nosigcheck-latest</span></kbd></dt>
+<dd><p>Do not attempt to enforce signature checking when
+retrieving the latest version number.</p>
+</dd>
+<dt><kbd><span class="option">-I</span>, <span class="option">--ignore-time</span></kbd></dt>
+<dd><p>Ignore system/certificate time when validating signature.</p>
+</dd>
+<dt><kbd><span class="option">-t</span>, <span class="option">--time</span></kbd></dt>
+<dd><p>Show verbose time output for swupd operations.</p>
+</dd>
+<dt><kbd><span class="option">-N</span>, <span class="option">--no-scripts</span></kbd></dt>
+<dd><p>Do not run the post-update scripts and boot update tool.</p>
+</dd>
+<dt><kbd><span class="option">-b</span>, <span class="option">--no-boot-update</span></kbd></dt>
+<dd><p>Do not update the boot files using clr-boot-manager.</p>
+</dd>
+<dt><kbd><span class="option">-j</span>, <span class="option">--json-output</span></kbd></dt>
+<dd><p>Prints the swupd output as a machine readable JSON stream.</p>
+</dd>
+<dt><kbd><span class="option">-y</span>, <span class="option">--yes</span></kbd></dt>
+<dd><p>Assume yes as answer to all prompts and run non-interactively.</p>
+</dd>
+<dt><kbd><span class="option">--allow-insecure-http</span></kbd></dt>
+<dd><p>For security reasons, swupd only allows system updates
+using secure https connections by default. This option forces swupd
+to allow updates over insecure http connections.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Warning</span></code>: although it is not recommended, if an http server is
+set up as the upstream server, the <cite>allow_insecure_http=true</cite> option will
+need to be setup in the swupd configuration file for the autoupdate
+command to continue to work.</p>
+</dd>
+<dt><kbd><span class="option">--quiet</span></kbd></dt>
+<dd><p>Sets <cite>swupd</cite> to print a minimal and more stable output that is easier
+to parse for its commands. Only the most relevant information and errors
+are printed out.
+Output displayed when using this option is rarely going to change, so
+this is a good option to use when writing scripts that use <cite>swupd</cite>.</p>
+</dd>
+<dt><kbd><span class="option">--verbose</span></kbd></dt>
+<dd><p>Enable verbosity for commands.</p>
+</dd>
+<dt><kbd><span class="option">--debug</span></kbd></dt>
+<dd><p>Print extra information to help debugging problems.</p>
+</dd>
+<dt><kbd><span class="option">--no-progress</span></kbd></dt>
+<dd><p>Don’t print progress report on commands that informs the
+percentage left in current operation.</p>
+</dd>
+<dt><kbd><span class="option">--wait-for-scripts</span></kbd></dt>
+<dd><p>Wait for the post-update scripts to complete.</p>
+</dd>
+<dt><kbd><span class="option">--assume=<var>&lt;yes|no&gt;</var></span></kbd></dt>
+<dd><p>Sets an automatic response to all prompts and run
+non-interactively.</p>
+</dd>
+</dl>
+</section>
+<section id="subcommands">
+<h3>SUBCOMMANDS<a class="headerlink" href="#subcommands" title="Link to this heading">¶</a></h3>
+<section id="info">
+<h4>info<a class="headerlink" href="#info" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Shows the current OS version and the URLs used for updates.</p>
+</div></blockquote>
+</section>
+<section id="autoupdate">
+<h4>autoupdate<a class="headerlink" href="#autoupdate" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Enables or disables automatic updates, or reports current
+status. Enabling updates does not cause an immediate update -
+use <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">update</span></code> to force one if desired.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">--enable</span></kbd></dt>
+<dd><p>Enable autoupdates</p>
+</dd>
+<dt><kbd><span class="option">--disable</span></kbd></dt>
+<dd><p>Disable autoupdates</p>
+</dd>
+</dl>
+</section>
+<section id="check-update">
+<h4>check-update<a class="headerlink" href="#check-update" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Checks whether an update is available and prints out the information
+if so. Does not download update content.</p>
+</div></blockquote>
+</section>
+<section id="update">
+<h4>update<a class="headerlink" href="#update" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Performs a system software update.</p>
+<p>The program will contact the version server at the version url, and
+check to see if a system software update is available. If an update
+is available, the update content will be downloaded from the content
+url and stored in the <cite>/var/lib/swupd</cite> state path. Once all content
+is downloaded and verified, the update is applied to the system.</p>
+<p>In case any problem arises during a software update, the program
+attempts to correct the issue, possibly by performing a <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">repair</span></code>
+operation, which corrects broken or missing files and other issues.</p>
+<p>After the update is applied, the system performs an array of
+post-update actions. These actions are triggered through <cite>systemd(1)</cite>
+and reside in the <a class="reference external" href="update-triggers.target.4.html">update-triggers.target(4)</a> system target.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-V <var>&lt;version&gt;</var></span>, <span class="option">--version=<var>&lt;version&gt;</var></span></kbd></dt>
+<dd><p>Update to a specific version, also accepts ‘latest’ (default).</p>
+</dd>
+<dt><kbd><span class="option">-s</span>, <span class="option">--status</span></kbd></dt>
+<dd><p>Do not perform an update, instead display whether an update is
+available on the version url server, and what version number is
+available. This is the same as running <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">check-update</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-k</span>, <span class="option">--keepcache</span></kbd></dt>
+<dd><p>Do not delete the swupd state directory content after
+updating the system.</p>
+</dd>
+<dt><kbd><span class="option">--download</span></kbd></dt>
+<dd><p>Do not perform an update, instead download all resources needed
+to perform the update, and exit.</p>
+</dd>
+<dt><kbd><span class="option">--update-search-file-index</span></kbd></dt>
+<dd><p>Update the index used by search-file to speed up
+searches. Don’t enable this if you have download or space restrictions.</p>
+</dd>
+<dt><kbd><span class="option">--3rd-party</span></kbd></dt>
+<dd><p>If update is successfull, also update content from 3rd-party
+repositories.</p>
+</dd>
+</dl>
+</section>
+<section id="bundle-add-bundles">
+<h4>bundle-add &lt;bundles&gt;<a class="headerlink" href="#bundle-add-bundles" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Installs new software bundles. Any bundle name listed after <code class="docutils literal notranslate"><span class="pre">bundle-add</span></code>
+will be installed in the system. A list of all existing bundles can be
+displayed with the <code class="docutils literal notranslate"><span class="pre">bundle-list</span> <span class="pre">--all</span></code> command.</p>
+<p>The names can also be aliases that are not actual bundles names but instead
+are names in an alias configuration file. See <code class="docutils literal notranslate"><span class="pre">swupd-alias</span></code>(7)</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">--skip-optional</span></kbd></dt>
+<dd><p>Do not install optional bundles (<cite>also-add</cite> flag in
+Manifests).
+A bundle may include other bundles that will also get installed
+when installing the bundle that includes them. This included bundles
+can be either optional, or mandatory. Optional bundles can be skipped
+at install time by using this option.</p>
+</dd>
+<dt><kbd><span class="option">--skip-diskspace-check</span></kbd></dt>
+<dd><p>Skip checking for available disk space before installing
+a bundle.
+By default, swupd attempts to determine if there is enough free
+disk space to add the passed in bundle before attempting to install.
+The current implementation will check free space in <code class="docutils literal notranslate"><span class="pre">/usr/</span></code> by default,
+or it will check the passed in –path option with <code class="docutils literal notranslate"><span class="pre">/usr/</span></code> appended.</p>
+</dd>
+</dl>
+</section>
+<section id="bundle-remove-bundles">
+<h4>bundle-remove &lt;bundles&gt;<a class="headerlink" href="#bundle-remove-bundles" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Removes software bundles. Any bundle name listed after <code class="docutils literal notranslate"><span class="pre">bundle-remove</span></code>
+will be removed from the system. If the bundle is required by another
+bundle(s) on the system, a tree will be displayed to indicate which bundles
+are blocking removal.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-x</span>, <span class="option">--force</span></kbd></dt>
+<dd><p>Removes a bundle along with all the bundles that depend on it.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Warning</span></code>: This operation is dangerous and must be used with care since
+it can remove many unexpected bundles.</p>
+</dd>
+</dl>
+<dl>
+<dt>-R, –recursive Removes a bundle and its dependencies recursively, except for</dt><dd><p>bundle os-core.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Warning</span></code>: This operation is dangerous and must be used with care since
+it can remove many unexpected bundles.</p>
+</dd>
+</dl>
+<dl class="option-list">
+<dt><kbd><span class="option">--orphans</span></kbd></dt>
+<dd><p>Removes all orphaned bundles. Orphan bundles are those that are no
+longer required by any of the tracked bundles.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Warning</span></code>: This operation is dangerous and must be used with care since
+it can remove many unexpected bundles.</p>
+</dd>
+</dl>
+</section>
+<section id="bundle-list">
+<h4>bundle-list<a class="headerlink" href="#bundle-list" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>List all installed software bundles in the local system. Available bundles
+can be listed with the <code class="docutils literal notranslate"><span class="pre">--all</span></code> option.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-a</span>, <span class="option">--all</span></kbd></dt>
+<dd><p>Lists all available software bundles, either installed or not, that
+are available.</p>
+</dd>
+<dt><kbd><span class="option">-D <var>&lt;bundle&gt;</var></span>, <span class="option">--has-dep=<var>&lt;bundle&gt;</var></span></kbd></dt>
+<dd><p>Displays a list of all bundles which include
+the passed BUNDLE as a dependency. Combine with <code class="docutils literal notranslate"><span class="pre">--all</span></code> to report all
+bundles including those not installed on the system. Combine with
+<code class="docutils literal notranslate"><span class="pre">--verbose</span></code> to show a tree of those bundles.</p>
+</dd>
+<dt><kbd><span class="option">--status</span></kbd></dt>
+<dd><p>Show the installation status of the listed bundles. Bundles
+installation status can be; “explicitly installed”, meaning that they
+were specifically requested to be installed by the user, or they can be
+“implicitly installed”, meaning they were installed as a dependency of
+another explicitly installed bundle.</p>
+</dd>
+<dt><kbd><span class="option">--deps=<var>&lt;bundle&gt;</var></span></kbd></dt>
+<dd><p>Lists all bundle dependencies of the passed BUNDLE,
+including recursively included bundles.</p>
+</dd>
+<dt><kbd><span class="option">--orphans</span></kbd></dt>
+<dd><p>List orphaned bundles. Orphan bundles are those that are installed
+but no longer required by any tracked bundle.</p>
+</dd>
+</dl>
+</section>
+<section id="bundle-info">
+<h4>bundle-info<a class="headerlink" href="#bundle-info" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Display detailed information about a bundle.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-V <var>&lt;version&gt;</var></span>, <span class="option">--version=<var>&lt;version&gt;</var></span></kbd></dt>
+<dd><p>Show the bundle info for the specified
+version, it also accepts ‘latest’.i It defaults to the current version
+if no version is specified.</p>
+</dd>
+<dt><kbd><span class="option">--dependencies</span></kbd></dt>
+<dd><p>Show the bundle’s direct and indirect dependencies as well as if
+they are optional or mandatory dependencies. Direct dependencies are
+those that are specifically included by the bundle in question, while
+indirect dependencies are those that are included by the bundles that
+are a direct dependency of the bundle in question.</p>
+</dd>
+<dt><kbd><span class="option">--files</span></kbd></dt>
+<dd><p>Show the files directly included in this bundle, in other words it
+shows the files included in the bundle’s manifest. If this option is used
+along with the <code class="docutils literal notranslate"><span class="pre">--dependencies</span></code> option, all files installed by the
+bundle are listed, including those files installed by the dependencies
+of the bundle.</p>
+</dd>
+</dl>
+</section>
+<section id="search">
+<h4>search<a class="headerlink" href="#search" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Swupd search functionality is provided by the swupd-search binary, available
+on os-core-search bundle.</p>
+<p>For more information run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">swupd</span> <span class="pre">search</span> <span class="pre">--help</span></code></p>
+</div></blockquote>
+</section>
+<section id="search-file-string">
+<h4>search-file &lt;string&gt;<a class="headerlink" href="#search-file-string" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Search for matching paths in manifest data. The specified <cite>{string}</cite>
+is matched in any part of the path listed in manifests, and all
+matches are printed, including the name of the bundle in which the
+match was found.</p>
+<p>If manifest data is not present in the state folder, it is
+downloaded from the <cite>content url</cite>.</p>
+<p>Because this search consults all manifests, it normally requires to
+download all manifests for bundles that are not installed, and may
+result in the download of several mega bytes of manifest data.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-V <var>&lt;version&gt;</var></span>, <span class="option">--version=<var>&lt;version&gt;</var></span></kbd></dt>
+<dd><p>Search for a match of the given file in the
+specified version version.</p>
+</dd>
+<dt><kbd><span class="option">-l</span>, <span class="option">--library</span></kbd></dt>
+<dd><p>Restrict search to designated dynamic shared library paths.</p>
+</dd>
+<dt><kbd><span class="option">-B</span>, <span class="option">--binary</span></kbd></dt>
+<dd><p>Restrict search to designated program binary paths.</p>
+</dd>
+<dt><kbd><span class="option">-T <var>&lt;num_results&gt;</var></span>, <span class="option">--top=<var>&lt;num_results&gt;</var></span></kbd></dt>
+<dd><p>Only display the top specified number of
+results for each bundle.</p>
+</dd>
+<dt><kbd><span class="option">-m</span>, <span class="option">--csv</span></kbd></dt>
+<dd><p>Output the search results in a machine readable CSV format.</p>
+</dd>
+<dt><kbd><span class="option">-i</span>, <span class="option">--init</span></kbd></dt>
+<dd><p>Just perform the collection and download of all required manifest
+resources needed to perform the search, then exit.</p>
+</dd>
+<dt><kbd><span class="option">-o <var>&lt;order&gt;</var></span>, <span class="option">--order=<var>&lt;order&gt;</var></span></kbd></dt>
+<dd><p>Sort the output in one of two ways:</p>
+<ul class="simple">
+<li><p>Use ‘alpha’ to order alphabetically (default)</p></li>
+<li><p>Use ‘size’ to order by bundle size (smaller to larger)</p></li>
+</ul>
+</dd>
+</dl>
+</section>
+<section id="diagnose">
+<h4>diagnose<a class="headerlink" href="#diagnose" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Perform system software installation verification. The program will
+obtain all the manifests needed from version url and content url to
+establish whether the system software is correctly installed and not
+overwritten, modified, missing or otherwise incorrect (permissions, etc.).</p>
+<p>After obtaining the proper resources, all files that are under
+control of the software update program are verified according to the
+manifest data</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-V <var>&lt;version&gt;</var></span>, <span class="option">--version=<var>&lt;version&gt;</var></span></kbd></dt>
+<dd><p>Diagnose against the specified manifest VERSION.</p>
+</dd>
+<dt><kbd><span class="option">-x</span>, <span class="option">--force</span></kbd></dt>
+<dd><p>Attempt to proceed even if non-critical errors found.</p>
+</dd>
+<dt><kbd><span class="option">-q</span>, <span class="option">--quick</span></kbd></dt>
+<dd><p>Omit checking hash values. Instead only looks for missing files
+and directories and/or symlinks.</p>
+</dd>
+<dt><kbd><span class="option">-B <var>&lt;bundles&gt;</var></span>, <span class="option">--bundles=<var>&lt;bundles&gt;</var></span></kbd></dt>
+<dd><p>Forces swupd to only diagnose the (comma separated) list of bundles provided.</p>
+<p>Examples:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--bundles</span> <span class="pre">xterm,vim</span></code></p>
+<blockquote>
+<div><p>Diagnoses only bundles <cite>xterm</cite> and <cite>vim</cite>.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><kbd><span class="option">-Y</span>, <span class="option">--picky</span></kbd></dt>
+<dd><p>Also list files which should not exist. Only files listed in the
+manifests should exist. By default swupd only looks for these
+files at <code class="docutils literal notranslate"><span class="pre">/usr</span></code>, this path can be changed using <code class="docutils literal notranslate"><span class="pre">--picky-tree</span></code>.
+Some paths at <code class="docutils literal notranslate"><span class="pre">/usr</span></code> are skipped by default:
+<code class="docutils literal notranslate"><span class="pre">/usr/lib/modules</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/lib/kernel</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>
+and <code class="docutils literal notranslate"><span class="pre">/usr/src</span></code>. These paths can be changed using
+<code class="docutils literal notranslate"><span class="pre">--picky-whitelist</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-X <var>&lt;path&gt;</var></span>, <span class="option">--picky-tree=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Changes the path where <code class="docutils literal notranslate"><span class="pre">--picky</span></code> and
+<code class="docutils literal notranslate"><span class="pre">--extra-files-only</span></code> looks for extra files. To be specified as
+absolute PATH.
+The default path is <code class="docutils literal notranslate"><span class="pre">/usr</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-w <var>&lt;regex&gt;</var></span>, <span class="option">--picky-whitelist=<var>&lt;regex&gt;</var></span></kbd></dt>
+<dd><p>Any path matching the POSIX extended regular expression regex is ignored by <code class="docutils literal notranslate"><span class="pre">--picky</span></code>. The given expression is always
+wrapped in <code class="docutils literal notranslate"><span class="pre">^(</span></code> and <code class="docutils literal notranslate"><span class="pre">)$</span></code> and thus has to match the entire path.
+Matched directories get skipped completely.</p>
+<p>The default is to ignore <code class="docutils literal notranslate"><span class="pre">/usr/lib/kernel</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/usr/lib/modules</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/src</span></code> and <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>.</p>
+<p>Examples:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var|/etc/machine-id</span></code></p>
+<blockquote>
+<div><p>Ignores <code class="docutils literal notranslate"><span class="pre">/var</span></code> or <code class="docutils literal notranslate"><span class="pre">/etc/machine-id</span></code>, regardless of
+whether they are directories or something else. In the
+usual case that <code class="docutils literal notranslate"><span class="pre">/var</span></code> is a directory, also everything
+inside it is ignored because the directory gets skipped
+while scanning the directory tree.</p>
+</div></blockquote>
+</li>
+<li><p>empty string or <code class="docutils literal notranslate"><span class="pre">^$</span></code></p>
+<blockquote>
+<div><p>Matches nothing, because <cite>paths</cite> are never empty.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><kbd><span class="option">--extra-files-only</span></kbd></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">--picky</span></code>, but it only looks for extra files.
+It omits checking hash values, and for missing files, directories and/or
+symlinks.</p>
+</dd>
+<dt><kbd><span class="option">--file</span></kbd></dt>
+<dd><p>Forces swupd to only diagnose the specified file or directory
+(recursively).</p>
+</dd>
+</dl>
+</section>
+<section id="repair">
+<h4>repair<a class="headerlink" href="#repair" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Correct any issues found. This will overwrite incorrect file content,
+add missing files and do additional corrections, permissions, etc.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-V <var>&lt;version&gt;</var></span>, <span class="option">--version=<var>&lt;version&gt;</var></span></kbd></dt>
+<dd><p>Repair against the specified manifest
+version.</p>
+</dd>
+<dt><kbd><span class="option">-x</span>, <span class="option">--force</span></kbd></dt>
+<dd><p>Attempt to proceed even if non-critical errors found.</p>
+</dd>
+<dt><kbd><span class="option">-q</span>, <span class="option">--quick</span></kbd></dt>
+<dd><p>Omit repairing corrupt files. Instead only add missing files
+and directories and/or symlinks.</p>
+</dd>
+<dt><kbd><span class="option">-B <var>&lt;bundles&gt;</var></span>, <span class="option">--bundles=<var>&lt;bundles&gt;</var></span></kbd></dt>
+<dd><p>Forces swupd to only repair the (comma separated) list
+of bundles provided.</p>
+<p>Examples:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--bundles</span> <span class="pre">xterm,vim</span></code></p>
+<blockquote>
+<div><p>Repairs only bundles <cite>xterm</cite> and <cite>vim</cite>.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><kbd><span class="option">-Y</span>, <span class="option">--picky</span></kbd></dt>
+<dd><p>Also removes files which should not exist. Only files listed
+in the manifests should exist. By default swupd only looks for these
+files at <code class="docutils literal notranslate"><span class="pre">/usr</span></code>, this path can be changed using <code class="docutils literal notranslate"><span class="pre">--picky-tree</span></code>.
+Some paths at <code class="docutils literal notranslate"><span class="pre">/usr</span></code> are skipped by default:
+<code class="docutils literal notranslate"><span class="pre">/usr/lib/modules</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/lib/kernel</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>
+and <code class="docutils literal notranslate"><span class="pre">/usr/src</span></code>. These paths can be changed using
+<code class="docutils literal notranslate"><span class="pre">--picky-whitelist</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-X <var>&lt;path&gt;</var></span>, <span class="option">--picky-tree=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Changes the path where <code class="docutils literal notranslate"><span class="pre">--picky</span></code> and
+<code class="docutils literal notranslate"><span class="pre">--extra-files-only</span></code> looks for extra files. To be specified as
+absolute PATH. The default path is <code class="docutils literal notranslate"><span class="pre">/usr</span></code>.</p>
+</dd>
+<dt><kbd><span class="option">-w <var>&lt;regex&gt;</var></span>, <span class="option">--picky-whitelist=<var>&lt;regex&gt;</var></span></kbd></dt>
+<dd><p>Any path matching the POSIX extended regular
+expression regex is ignored by <code class="docutils literal notranslate"><span class="pre">--picky</span></code>. The given expression is
+always wrapped in <code class="docutils literal notranslate"><span class="pre">^(</span></code> and <code class="docutils literal notranslate"><span class="pre">)$</span></code> and thus has to match the entire
+path. Matched directories get skipped completely.</p>
+<p>The default is to ignore <code class="docutils literal notranslate"><span class="pre">/usr/lib/kernel</span></code>,
+<code class="docutils literal notranslate"><span class="pre">/usr/lib/modules</span></code>, <code class="docutils literal notranslate"><span class="pre">/usr/src</span></code> and <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>.</p>
+<p>Examples:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">/var|/etc/machine-id</span></code></p>
+<blockquote>
+<div><p>Ignores <code class="docutils literal notranslate"><span class="pre">/var</span></code> or <code class="docutils literal notranslate"><span class="pre">/etc/machine-id</span></code>, regardless of
+whether they are directories or something else. In the
+usual case that <code class="docutils literal notranslate"><span class="pre">/var</span></code> is a directory, also everything
+inside it is ignored because the directory gets skipped
+while scanning the directory tree.</p>
+</div></blockquote>
+</li>
+<li><p>empty string or <code class="docutils literal notranslate"><span class="pre">^$</span></code></p>
+<blockquote>
+<div><p>Matches nothing, because paths are never empty.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><kbd><span class="option">--extra-files-only</span></kbd></dt>
+<dd><p>Like <code class="docutils literal notranslate"><span class="pre">--picky</span></code>, but it only removes extra files. It omits
+repairing corrupt files, and adding missing files, directories and/or
+symlinks.</p>
+</dd>
+<dt><kbd><span class="option">--file</span></kbd></dt>
+<dd><p>Forces swupd to only repair the specified file or directory
+(recursively).</p>
+</dd>
+</dl>
+</section>
+<section id="os-install">
+<h4>os-install<a class="headerlink" href="#os-install" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Perform system software installation in the specified location. Install
+all files into <cite>{path}</cite> as specified by the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">os-install</span> <span class="pre">{path}</span></code>
+option. Useful to generate a new system root. The only bundle that will
+be installed by default is <code class="docutils literal notranslate"><span class="pre">os-core</span></code> unless more bundles are specified
+with the <code class="docutils literal notranslate"><span class="pre">--bundles</span></code> option.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-V <var>&lt;version&gt;</var></span>, <span class="option">--version=<var>&lt;version&gt;</var></span></kbd></dt>
+<dd><p>Install the specified version of the OS.</p>
+</dd>
+<dt><kbd><span class="option">-x</span>, <span class="option">--force</span></kbd></dt>
+<dd><p>Attempt to proceed even if non-critical errors found.</p>
+</dd>
+<dt><kbd><span class="option">-B <var>&lt;bundles&gt;</var></span>, <span class="option">--bundles=<var>&lt;bundles&gt;</var></span></kbd></dt>
+<dd><p>Include the (comma separated) list of
+bundles with the base OS install.</p>
+<p>Examples:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--bundles</span> <span class="pre">xterm,vim</span></code></p>
+<blockquote>
+<div><p>Installs bundles <cite>xterm</cite> and <cite>vim</cite>, along with <cite>os-core</cite>
+(installed by default).</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><kbd><span class="option">-s <var>&lt;path&gt;</var></span>, <span class="option">--statedir-cache=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>After checking for content in the
+<cite>statedir</cite>, check the <cite>statedir-cache</cite> before downloading it over the
+network.</p>
+</dd>
+<dt><kbd><span class="option">--download</span></kbd></dt>
+<dd><p>Do not perform an install, instead download all resources
+needed to perform the install, and exit.</p>
+</dd>
+<dt><kbd><span class="option">--skip-optional</span></kbd></dt>
+<dd><p>Do not install optional bundles (<cite>also-add</cite> flag in
+Manifests).
+A bundle may include other bundles that will also get installed
+when installing the bundle that includes them. This included bundles
+can be either optional, or mandatory. Optional bundles can be skipped
+at install time by using this option.</p>
+</dd>
+</dl>
+</section>
+<section id="mirror">
+<h4>mirror<a class="headerlink" href="#mirror" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Configure a <cite>mirror URL</cite> for swupd to use instead of the defaults on the
+system or compiled into the swupd binary.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-s <var>&lt;url&gt;</var></span>, <span class="option">--set=<var>&lt;url&gt;</var></span></kbd></dt>
+<dd><p>Set the <cite>content</cite> and <cite>version URLs</cite> to URL by adding
+configuration files to <code class="docutils literal notranslate"><span class="pre">&lt;path&gt;/etc/swupd/mirror_contenturl</span></code> and
+<code class="docutils literal notranslate"><span class="pre">&lt;path&gt;/etc/swupd/mirror_versionurl</span></code></p>
+</dd>
+<dt><kbd><span class="option">-U</span>, <span class="option">--unset</span></kbd></dt>
+<dd><p>Remove the <cite>content</cite> and <cite>version URL</cite> configuration by removing
+<code class="docutils literal notranslate"><span class="pre">&lt;path&gt;/etc/swupd</span></code></p>
+</dd>
+</dl>
+</section>
+<section id="clean">
+<h4>clean<a class="headerlink" href="#clean" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Removes files cached by swupd.</p>
+<p>Note that removing these files may cause swupd to perform slower the next time
+it is used since it may need to download some files from the update server
+again.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">--all</span></kbd></dt>
+<dd><div class="line-block">
+<div class="line">Removes all the content including recent metadata.</div>
+</div>
+</dd>
+<dt><kbd><span class="option">--dry-run</span></kbd></dt>
+<dd><p>Just prints files that would be removed.</p>
+</dd>
+</dl>
+</section>
+<section id="hashdump">
+<h4>hashdump<a class="headerlink" href="#hashdump" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Calculates and print the Manifest hash for a specific file on disk.</p>
+</div></blockquote>
+<dl class="option-list">
+<dt><kbd><span class="option">-n</span>, <span class="option">--no-xattrs</span></kbd></dt>
+<dd><p>Ignore extended attributes when calculating hash.</p>
+</dd>
+<dt><kbd><span class="option">-p <var>&lt;path&gt;</var></span>, <span class="option">--path=<var>&lt;path&gt;</var></span></kbd></dt>
+<dd><p>Specify the PATH to use for operations. This can be
+used to point to a chroot installation of the OS or a custom mount.</p>
+</dd>
+</dl>
+</section>
+<section id="rd-party">
+<h4>3rd-party<a class="headerlink" href="#rd-party" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p>Manages 3rd-party repositories and content installed from them. A 3rd-party
+repository enables the distribution of user produced content.</p>
+<p>The following subcommands are available to manage <cite>3rd-party repositories</cite>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">add</span></code></p>
+<p>Adds a 3rd-party repository.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">force</span></code></p></li>
+</ul>
+<p>Attempt to proceed with the removal of the repo even if non-critical
+errors found.</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove</span></code></p>
+<p>Removes a 3rd-party repository along with all the content installed
+from it from the system.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">force</span></code></p></li>
+</ul>
+<p>Attempt to proceed with the removal of the repo even if non-critical
+errors found.</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code></p>
+<p>Lists the 3rd-party repositories available to the system. These
+repositories must have been previously added using <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">3rd-party</span> <span class="pre">add</span></code>.</p>
+</li>
+</ul>
+<p>Most of the swupd subcommands used for managing <cite>upstream</cite> content are
+supported to manage <cite>3rd-party</cite> content along with most of their options.
+To use these subcommands for 3rd-party content, it is necessary to use the
+<code class="docutils literal notranslate"><span class="pre">3rd-party</span></code> subcommand followed by the desired operation to be performed.</p>
+<p>This is the syntax for 3rd-party operations to manage content:</p>
+<p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">swupd</span> <span class="pre">3rd-party</span> <span class="pre">&lt;subcommand&gt;</span> <span class="pre">[option(s)]</span></code></p>
+<p>Example:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">3rd-party</span> <span class="pre">bundle-add</span> <span class="pre">my_bundle</span></code></p>
+<p>Looks for the 3rd-party bundle <cite>my_bundle</cite> among all the available
+3rd-party repositories, and installs it in the system as long as
+it is found in one, and only one, repository. If the bundle exists
+in more than one 3rd-party repository, users are required to specify
+the repository to install it from by using the <code class="docutils literal notranslate"><span class="pre">--repo</span></code> option.</p>
+<p>There is no need to specify the 3rd-party repository if the bundle
+name is unique among 3rd-party repositories, even if a bundle with
+the same name exists in the upstream update server. Bundles from
+3rd-party repositories are installed in a different location so they
+don’t clash with upstream bundles.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">3rd-party</span> <span class="pre">update</span> <span class="pre">--repo</span> <span class="pre">my_repo</span></code></p>
+<p>Performs a software update for content installed from the 3rd-party
+repository <cite>my_repo</cite>. If no repository is specified, content from
+all 3rd-party repositories is updated.</p>
+</li>
+</ul>
+</div></blockquote>
+<p>All 3rd-party content is installed in the following location:
+<code class="docutils literal notranslate"><span class="pre">/opt/3rd-party/&lt;bundle_name&gt;/</span></code></p>
+<p>The following subcommands are available to manage <cite>3rd-party content</cite>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">update</span></code></p>
+<p>Update to latest version of a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">update</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bundle-add</span></code></p>
+<p>Installs a bundle from a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">bundle-add</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bundle-remove</span></code></p>
+<p>Remove a bundle from a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">bundle-remove</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bundle-list</span></code></p>
+<p>List bundles from a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">bundle-list</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bundle-info</span></code></p>
+<p>Display information about a bundle in a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">bundle-info</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">diagnose</span></code></p>
+<p>Verify content from a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">diagnose</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repair</span></code></p>
+<p>Repair local issues relative to a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">repair</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">check-update</span></code></p>
+<p>Check if a new version of a 3rd-party repository is available.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">check-update</span></code> section.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">clean</span></code></p>
+<p>Clean cached files of a 3rd-party repository.
+For information about the options for this command please refer to
+the <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">clean</span></code> section.</p>
+</li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+<section id="files">
+<h3>FILES<a class="headerlink" href="#files" title="Link to this heading">¶</a></h3>
+<p>/usr/share/defaults/swupd</p>
+<blockquote>
+<div><p>Sometimes a set of flags is always used for one, or many swupd commands. The
+<code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">configuration</span> <span class="pre">file</span></code> provides a convenient way of persistently define
+these flags so they don’t need to be specified every time a command is run.</p>
+<p>The configuration file is an INI type of file that consists of sections, each led
+by a [section] header, followed by key/value entries separated by a ‘=’ character.
+Note that there should be no whitespace between key=value. The configuration
+file may include comments, prefixed by either the ‘#’ or the ‘;’ characters.</p>
+<p>There can be one section for each swupd command (e.g. [bundle-add], [update], etc.)
+and one for global options (e.g. [GLOBAL]). Global options can be specified in the
+either in the GLOBAL section, in a command section, or in both. Global options
+specified in the command section have higher precedence than those specified in the
+GLOBAL section, so it is possible to define a GLOBAL option that will apply to all
+swupd command except for that one overwritten in the command section.</p>
+<p>A sample swupd configuration file can be found at this location (this file should not
+be modified):
+<cite>/usr/share/defaults/swupd</cite></p>
+<p>To use it, copy it to <cite>/etc/swupd</cite> where swupd reads the configuration from.</p>
+</div></blockquote>
+</section>
+<section id="exit-status">
+<h3>EXIT STATUS<a class="headerlink" href="#exit-status" title="Link to this heading">¶</a></h3>
+<p>On success, <code class="docutils literal notranslate"><span class="pre">0</span></code> is returned. A <code class="docutils literal notranslate"><span class="pre">non-zero</span></code> return code signals a failure.</p>
+<p>If the subcommand <code class="docutils literal notranslate"><span class="pre">check-update</span></code> was specified, the program returns
+<code class="docutils literal notranslate"><span class="pre">0</span></code> if an update is available, <code class="docutils literal notranslate"><span class="pre">1</span></code> if no update available, and a
+return value higher than <code class="docutils literal notranslate"><span class="pre">1</span></code> signals a failure.</p>
+<p>If the subcommand was <code class="docutils literal notranslate"><span class="pre">autoupdate</span></code> without options, then the program
+returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if automatic updating is enabled.</p>
+<p>If the subcommand was <code class="docutils literal notranslate"><span class="pre">diagnose</span></code>, then the program returns <code class="docutils literal notranslate"><span class="pre">0</span></code> if the system
+is consistent at the end of the process or <code class="docutils literal notranslate"><span class="pre">1</span></code> if there are invalid/missing
+files in the system.</p>
+<p>The non-zero return codes for other operations are listed here:</p>
+<p><strong>2</strong>     A required bundle was removed or was attempted to be removed</p>
+<div class="line-block">
+<div class="line"><strong>3</strong>     The specified bundle is invalid</div>
+<div class="line"><strong>4</strong>     Unable to download or read MoM manifest</div>
+<div class="line"><strong>5</strong>     Unable to delete a file</div>
+<div class="line"><strong>6</strong>     Unable to rename a directory</div>
+<div class="line"><strong>7</strong>     Unable to create a file</div>
+<div class="line"><strong>8</strong>     Unable to recursively load included manifests</div>
+<div class="line"><strong>9</strong>     Unable to obtain lock on state directory</div>
+<div class="line"><strong>10</strong>    Unable to rename a file</div>
+<div class="line"><strong>11</strong>    Unable to initialize curl agent</div>
+<div class="line"><strong>12</strong>    Initialization error</div>
+<div class="line"><strong>13</strong>    Bundle not tracked on system</div>
+<div class="line"><strong>14</strong>    Unable to load manifest into memory</div>
+<div class="line"><strong>15</strong>    Invalid command-line option</div>
+<div class="line"><strong>16</strong>    Unable to connect to update server</div>
+<div class="line"><strong>17</strong>    File download issue</div>
+<div class="line"><strong>18</strong>    Unable to untar a file</div>
+<div class="line"><strong>19</strong>    Unable to create required directory</div>
+<div class="line"><strong>20</strong>    Unable to determine current version of the OS</div>
+<div class="line"><strong>21</strong>    Unable to initialize signature verification</div>
+<div class="line"><strong>22</strong>    System time is off by a large margin</div>
+<div class="line"><strong>23</strong>    Pack download issue</div>
+<div class="line"><strong>24</strong>    Unable to verify server SSL certificate</div>
+<div class="line"><strong>25</strong>    There is not enough disk space left (or it cannot be determined)</div>
+<div class="line"><strong>26</strong>    The required path was not found in any manifest</div>
+<div class="line"><strong>27</strong>    Unexpected condition found</div>
+<div class="line"><strong>28</strong>    Unable to execute another program in a subprocess</div>
+<div class="line"><strong>29</strong>    Unable to list the content of a directory</div>
+<div class="line"><strong>30</strong>    An error occurred computing the hash of a file</div>
+<div class="line"><strong>31</strong>    Unable to get current system time</div>
+<div class="line"><strong>32</strong>    Unable to write a file</div>
+<div class="line"><strong>34</strong>    swupd ran out of memory</div>
+<div class="line"><strong>35</strong>    Unable to fix/replace/delete one or more files</div>
+<div class="line"><strong>36</strong>    Unable to execute binary, is either missing or invalid</div>
+<div class="line"><strong>37</strong>    Invalid 3rd-party repository (not found)</div>
+<div class="line"><strong>38</strong>    File is missing or invalid</div>
+</div>
+</section>
+<section id="see-also">
+<h3>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h3>
+<div class="line-block">
+<div class="line"><a class="reference external" href="swupd-update.service.4.html">swupd-update.service(4)</a>,  <a class="reference external" href="swupd-update.timer.4.html">swupd-update.timer(4)</a>,  <a class="reference external" href="update-triggers.target.4.html">update-triggers.target(4)</a>,  <a class="reference external" href="mixer.1.html">mixer(1)</a>,  <a class="reference external" href="os-format.7.html">os-format(7)</a></div>
+</div>
+<div class="line-block">
+<div class="line">Official repository     <a class="reference external" href="https://github.com/clearlinux/swupd-client/">https://github.com/clearlinux/swupd-client/</a></div>
+<div class="line">Official documentation  <a class="reference external" href="https://clearlinux.org/documentation/">https://clearlinux.org/documentation/</a></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">swupd</a><ul>
+<li><a class="reference internal" href="#os-software-update-program">OS software update program</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#subcommands">SUBCOMMANDS</a><ul>
+<li><a class="reference internal" href="#info">info</a></li>
+<li><a class="reference internal" href="#autoupdate">autoupdate</a></li>
+<li><a class="reference internal" href="#check-update">check-update</a></li>
+<li><a class="reference internal" href="#update">update</a></li>
+<li><a class="reference internal" href="#bundle-add-bundles">bundle-add &lt;bundles&gt;</a></li>
+<li><a class="reference internal" href="#bundle-remove-bundles">bundle-remove &lt;bundles&gt;</a></li>
+<li><a class="reference internal" href="#bundle-list">bundle-list</a></li>
+<li><a class="reference internal" href="#bundle-info">bundle-info</a></li>
+<li><a class="reference internal" href="#search">search</a></li>
+<li><a class="reference internal" href="#search-file-string">search-file &lt;string&gt;</a></li>
+<li><a class="reference internal" href="#diagnose">diagnose</a></li>
+<li><a class="reference internal" href="#repair">repair</a></li>
+<li><a class="reference internal" href="#os-install">os-install</a></li>
+<li><a class="reference internal" href="#mirror">mirror</a></li>
+<li><a class="reference internal" href="#clean">clean</a></li>
+<li><a class="reference internal" href="#hashdump">hashdump</a></li>
+<li><a class="reference internal" href="#rd-party">3rd-party</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#files">FILES</a></li>
+<li><a class="reference internal" href="#exit-status">EXIT STATUS</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="update-triggers.target.4.html"
+                          title="previous chapter">update-triggers.target</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="swupd-update.timer.4.html"
+                          title="next chapter">swupd-update.timer</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/swupd.1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="swupd-update.timer.4.html" title="swupd-update.timer"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="update-triggers.target.4.html" title="update-triggers.target"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swupd</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

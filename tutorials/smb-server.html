@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Samba Server &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/tutorials/smb-server.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TensorFlow* machine learning" href="tensorflow-machine-learning.html" />
+    <link rel="prev" title="Samba* as a client" href="smb-desktop.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tensorflow-machine-learning.html" title="TensorFlow* machine learning"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="smb-desktop.html" title="Samba* as a client"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Samba Server</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="samba-server">
+<span id="smb-server"></span><h1>Samba Server<a class="headerlink" href="#samba-server" title="Link to this heading">¶</a></h1>
+<p>This tutorial describes how to enable simple file sharing on a system
+running Clear Linux* OS and how to access the share from clients on other operating
+systems.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id3">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#set-up-file-sharing" id="id4">Set up file sharing</a></p></li>
+<li><p><a class="reference internal" href="#access-the-shared-drive" id="id5">Access the shared drive</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Clear Linux OS is installed on your host system.</p>
+<p>For detailed instructions, follow one of these guides:</p>
+<ul class="simple">
+<li><p><em>Desktop</em> version: <a class="reference internal" href="../get-started/bare-metal-install-desktop.html#bare-metal-install-desktop"><span class="std std-ref">Install Clear Linux* OS from the live desktop</span></a></p></li>
+<li><p><em>Server</em> version: <a class="reference internal" href="../get-started/bare-metal-install-server.html#bare-metal-install-server"><span class="std std-ref">Install Clear Linux* OS from the live server</span></a></p></li>
+</ul>
+</li>
+<li><p>Update your Clear Linux OS system to the latest version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>update
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="set-up-file-sharing">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Set up file sharing</a><a class="headerlink" href="#set-up-file-sharing" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Add the <strong class="command">samba</strong> bundle, which includes the Samba binaries.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>samba
+</pre></div>
+</div>
+</li>
+<li><p>Create the <code class="file docutils literal notranslate"><span class="pre">/etc/samba</span></code> directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/etc/samba
+</pre></div>
+</div>
+</li>
+<li><p>Create a configuration file named <code class="file docutils literal notranslate"><span class="pre">/etc/samba/smb.conf</span></code>. In this
+simple example, <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">[SharedDrive]</span></code> enables a folder share located in
+<code class="file docutils literal notranslate"><span class="pre">/home/clear/mysharedrive</span></code> granting users <cite>samba-user-1</cite> and
+<cite>samba-user-2</cite> access.</p>
+<p>If <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">valid</span> <span class="pre">users</span></code> is not specified, then anyone with a user account
+on the machine and with their Samba password already set can access the
+folder. However, the account is only able to access files and folders for
+which they have appropriate permissions.</p>
+<p>For more advanced sharing, refer to the <a class="reference external" href="https://www.samba.org/samba/docs/using_samba/ch00.html">Samba guide</a>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[Global]</span>
+<span class="go">map to guest = Bad User</span>
+
+<span class="go">[SharedDrive]</span>
+<span class="go">path=/home/clear/myshareddrive</span>
+<span class="go">read only = no</span>
+<span class="go">guest ok = no</span>
+<span class="go">browsable = yes</span>
+<span class="go">valid users = samba-user-1 samba-user-2</span>
+</pre></div>
+</div>
+</li>
+<li><p>Start the Samba service and set it to start automatically on boot.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>smb
+</pre></div>
+</div>
+</li>
+<li><p>Verify the service started properly.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>smb
+</pre></div>
+</div>
+</li>
+<li><p>Use <strong class="command">smbpasswd</strong> to add the initial password for the user
+account to access the share. Be aware that Samba maintains its own list of
+passwords for user accounts. The Samba password list can be different from
+the password used to log in.</p>
+<p>For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>smbpasswd<span class="w"> </span>-a<span class="w"> </span>samba-user-1
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="access-the-shared-drive">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Access the shared drive</a><a class="headerlink" href="#access-the-shared-drive" title="Link to this heading">¶</a></h2>
+<p>Depending on your operating system, connect to the shared drive using one
+of the methods belows:</p>
+<ul>
+<li><p>On Clear Linux OS:</p>
+<ol class="loweralpha">
+<li><p>Add the <cite>samba</cite> bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>samba
+</pre></div>
+</div>
+</li>
+<li><p>List available shares.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>smbclient<span class="w"> </span>-L<span class="w"> </span>//&lt;ip-address-of-smb-server&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Connect to a shared drive.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>smbclient<span class="w"> </span>//&lt;ip-address-of-smb-server&gt;/&lt;shared-drive&gt;<span class="w"> </span>-U<span class="w"> </span>&lt;user&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</li>
+<li><p>On Windows:</p>
+<ol class="loweralpha">
+<li><p>Open <cite>File Explorer</cite>.</p></li>
+<li><p>Enter <strong class="command">\&lt;ip-address-of-samba-server&gt;&lt;shared-drive&gt;</strong> in the
+URL field. See Figure 1.</p>
+<figure class="dropshadow align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/smb-server-01.png"><img alt="Windows &gt; File Explorer &gt; Connect to Samba share" src="../_images/smb-server-01.png" style="width: 708.0px; height: 396.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><cite>Figure 1: Windows &gt; File Explorer &gt; Connect to Samba share</cite></span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>On macOS:</p>
+<ol class="loweralpha">
+<li><p>Open the <cite>Finder</cite>.</p></li>
+<li><p>Press <kbd class="kbd docutils literal notranslate">Command</kbd> + <kbd class="kbd docutils literal notranslate">K</kbd> to open the dialog box for
+connecting to a server.</p></li>
+<li><p>Enter <strong class="command">smb://&lt;ip-address-of-samba-server&gt;/&lt;shared-drive&gt;</strong>.
+in the URL field. See Figure 2.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/smb-server-02.png"><img alt="macOS &gt; Finder &gt; Connect to Samba share" src="../_images/smb-server-02.png" style="width: 1196.0px; height: 686.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><cite>Figure 2: macOS &gt; Finder &gt; Connect to Samba share</cite></span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Samba Server</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#set-up-file-sharing">Set up file sharing</a></li>
+<li><a class="reference internal" href="#access-the-shared-drive">Access the shared drive</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="smb-desktop.html"
+                          title="previous chapter">Samba* as a client</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="tensorflow-machine-learning.html"
+                          title="next chapter">TensorFlow* machine learning</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/smb-server.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tensorflow-machine-learning.html" title="TensorFlow* machine learning"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="smb-desktop.html" title="Samba* as a client"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Samba Server</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

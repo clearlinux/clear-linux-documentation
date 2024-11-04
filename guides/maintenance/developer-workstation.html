@@ -1,0 +1,379 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Developer Workstation &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/tabs.css?v=a5c4661c" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/maintenance/developer-workstation.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Download, verify, and decompress a Clear Linux* OS image" href="download-verify-decompress.html" />
+    <link rel="prev" title="Deploy at Scale" href="deploy-at-scale.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="download-verify-decompress.html" title="Download, verify, and decompress a Clear Linux* OS image"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="deploy-at-scale.html" title="Deploy at Scale"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Developer Workstation</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="developer-workstation">
+<span id="id1"></span><h1>Developer Workstation<a class="headerlink" href="#developer-workstation" title="Link to this heading">¶</a></h1>
+<p>This guide helps you find the minimum set of bundles needed to start your
+Clear Linux* OS development project.</p>
+<p>Before continuing, review the <a class="reference internal" href="../clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a> guide to learn more
+about the swupd tool and how Clear Linux OS simplifies software versioning compared to
+other Linux* distributions.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#workstation-setup" id="id4">Workstation Setup</a></p></li>
+<li><p><a class="reference internal" href="#swupd-search" id="id5">swupd search</a></p></li>
+<li><p><a class="reference internal" href="#core-concepts" id="id6">Core Concepts</a></p></li>
+</ul>
+</nav>
+<section id="workstation-setup">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Workstation Setup</a><a class="headerlink" href="#workstation-setup" title="Link to this heading">¶</a></h2>
+<p>After installing the minimum set of bundles required to get started, you can
+add more bundles relevant to your specific use case.</p>
+<p>To run any process required for Clear Linux OS development, you can add the large
+bundle <a class="reference internal" href="enable-user-space.html#enable-user-space"><span class="std std-ref">*os-clr-on-clr*</span></a>. However, you may want to deploy a leaner OS with only bundles relevant to your project.</p>
+<p>Use the <strong>Developer Profiles</strong> tabs to start installing <em>suggested bundles</em>
+based on your role or project. Installing any <code class="docutils literal notranslate"><span class="pre">dkms</span></code> bundle gives all the
+tools you need to start. Consider these profiles as a starting point.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Click on a bundle to learn how to install it using <strong class="command">swupd</strong>.</p>
+</div>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">AI/ML Engineer</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Computer Vision Engineer</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">Cloud Orchestration Engineer</button><button aria-controls="panel-0-0-3" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-3" name="0-3" role="tab" tabindex="-1">Kernel Developer</button><button aria-controls="panel-0-0-4" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-4" name="0-4" role="tab" tabindex="-1">Maker Developer</button><button aria-controls="panel-0-0-5" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-5" name="0-5" role="tab" tabindex="-1">System Administrator</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Bundle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Build machine learning applications with a full suite of libraries.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/machine-learning-basic/">machine-learning-basic</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Build machine learning applications with PyTorch, an optimized tensor library for deep learning.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/machine-learning-pytorch/">machine-learning-pytorch</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Build machine learning applications using Tensorflow, a library for numerical computation using deep neural networks.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/machine-learning-tensorflow/">machine-learning-tensorflow</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Web-based, interactive tools for machine learning.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/machine-learning-web-ui/">machine-learning-web-ui</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Machine learning Docker container.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/docker/machine-learning-ui/">machine-learning</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Pre-built Python libraries for Data Science.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/python-extras">python-extras</a></p></td>
+</tr>
+<tr class="row-even"><td><p>API helper for cloud access.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/cloud-api/">cloud-api</a></p></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Bundle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Build computer vision applications.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/computer-vision-basic/">computer-vision-basic</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Work with deep learning and edge-optimized models.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/computer-vision-models/">computer-vision-models</a></p></td>
+</tr>
+<tr class="row-even"><td><p>API helper for cloud access.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/cloud-api/">cloud-api</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Run container applications from Dockerhub in lightweight virtual machines.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/containers-virt">containers-virt</a></p></td>
+</tr>
+<tr class="row-even"><td><p>All content for pkgconfig file opencv.pc.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/devpkg-opencv/">devpkg-opencv</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><em>Refer also to Cloud Orchestration Engineer</em></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Bundle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Contains Clear Linux* OS native software for cloud.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/ethtool/">ethtool</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Utilities for controlling TCP/IP networking and traffic control.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/iproute2/">iproute2</a></p></td>
+</tr>
+<tr class="row-even"><td><p>API helper for cloud access.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/cloud-api/">cloud-api</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>C++ runtime support.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/libstdcpp/">libstdcpp</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Load and enumerate PKCS#11 modules.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/p11-kit/">p11-kit</a></p></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Bundle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Installs kernel, initrd, kernel config, system map; creates a bootloader entry.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/kernel-install/">kernel-install</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Support module for building/loading via Dynamic Kernel Module System (DKMS) in LTS kernel.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/kernel-lts-dkms/">kernel-lts-dkms</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Support module for building/loading via Dynamic Kernel Module System (DKMS) in native kernel.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/kernel-native-dkms/">kernel-native-dkms</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Support module for building/loading via Dynamic Kernel Module System (DKMS) in AWS kernel.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/kernel-aws-dkms/">kernel-aws-dkms</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Run the Kernel-based Virtual Machine (KVM) with Clear Linux OS as a guest under KVM.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/kernel-kvm/">kernel-kvm</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Linux Test Project.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/ltp/">ltp</a></p></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-labelledby="tab-0-0-4" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-4" name="0-4" role="tabpanel" tabindex="0"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Bundle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Basic tools for makers and experimenters.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/maker-basic/">maker-basic</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GIS/Mapping tools for makers.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/maker-gis/">maker-gis</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Electronic Design Tool.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/flathub/fritzing">Fritzing</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Open-source electronics prototyping platform.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/flathub/arduino-ide/">arduino-ide</a></p></td>
+</tr>
+</tbody>
+</table>
+</div><div aria-labelledby="tab-0-0-5" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-5" name="0-5" role="tabpanel" tabindex="0"><table class="docutils align-default">
+<colgroup>
+<col style="width: 50.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Bundle</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Run popular terminal text editors.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/editors/">editors</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Run network utilities and modify network settings.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/network-basic/">network-basic</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Run a secure shell (SSH) server for access from remote machines.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/openssh-server/">openssh-server</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Run an HTTP server.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/nginx">nginx</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Run an application server via HTTP.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/application-server/">application-server</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Run a SQLite database.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/sqlite">sqlite</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Bundle to automatically launch the GUI upon boot.</p></td>
+<td><p><a class="reference external" href="https://clearlinux.org/software/bundle/desktop-autostart/">desktop-autostart</a></p></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section id="swupd-search">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">swupd search</a><a class="headerlink" href="#swupd-search" title="Link to this heading">¶</a></h2>
+<p>We recommend learning about <a class="reference internal" href="../clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a>, to learn the
+commands to search for and add bundles relevant to your project.</p>
+<p>The guide provides an <a class="reference internal" href="../clear/swupd.html#swupd-guide-example-install-bundle"><span class="std std-ref">example</span></a>
+that shows you how to:</p>
+<ul class="simple">
+<li><p>Use swupd to search for bundles</p></li>
+<li><p>Use swupd to add bundles</p></li>
+</ul>
+</section>
+<section id="core-concepts">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Core Concepts</a><a class="headerlink" href="#core-concepts" title="Link to this heading">¶</a></h2>
+<p>We recommend that you understand these core concepts in Clear Linux OS <em>before</em>
+developing your project.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../clear/swupd.html#swupd-guide"><span class="std std-ref">Software update</span></a></p></li>
+<li><p><a class="reference internal" href="../clear/mixer.html#mixer"><span class="std std-ref">Mixer</span></a></p></li>
+<li><p><a class="reference internal" href="../clear/autospec.html#autospec"><span class="std std-ref">Autospec</span></a></p></li>
+</ul>
+<section id="related-topics">
+<h3>Related topics<a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/clearlinux/common">Developer Tooling Framework</a> for Clear Linux OS</p></li>
+<li><p><a class="reference external" href="https://github.com/clearlinux/clr-bundles">Bundle Definition Files</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Developer Workstation</a><ul>
+<li><a class="reference internal" href="#workstation-setup">Workstation Setup</a></li>
+<li><a class="reference internal" href="#swupd-search">swupd search</a></li>
+<li><a class="reference internal" href="#core-concepts">Core Concepts</a><ul>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="deploy-at-scale.html"
+                          title="previous chapter">Deploy at Scale</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="download-verify-decompress.html"
+                          title="next chapter">Download, verify, and decompress a Clear Linux* OS image</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/maintenance/developer-workstation.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="download-verify-decompress.html" title="Download, verify, and decompress a Clear Linux* OS image"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="deploy-at-scale.html" title="Deploy at Scale"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Developer Workstation</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

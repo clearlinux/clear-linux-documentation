@@ -1,0 +1,422 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>mixer.build &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/mixer.build.1.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mixer.add-rpms" href="mixer.add-rpms.1.html" />
+    <link rel="prev" title="mixer.bundle" href="mixer.bundle.1.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mixer.add-rpms.1.html" title="mixer.add-rpms"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mixer.bundle.1.html" title="mixer.bundle"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mixer.build</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="mixer-build">
+<h1>mixer.build<a class="headerlink" href="#mixer-build" title="Link to this heading">¶</a></h1>
+<section id="build-varioius-pieces-of-os-content">
+<h2>Build varioius pieces of OS content<a class="headerlink" href="#build-varioius-pieces-of-os-content" title="Link to this heading">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(C) 2018 Intel Corporation, CC-BY-SA-3.0</p>
+</dd>
+<dt class="field-even">Manual section<span class="colon">:</span></dt>
+<dd class="field-even"><p>1</p>
+</dd>
+</dl>
+<section id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span> <span class="pre">[command]</span> <span class="pre">[flags]</span></code></p>
+</section>
+<section id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
+<p>Builds various pieces of OS content and output update metadata to
+<cite>&lt;mixer/workspace&gt;/update/www/&lt;version&gt;/</cite>. This metadata can be published
+directly to a web-server and consumed by client update systems via the
+<a class="reference external" href="swupd.1.html">swupd(1)</a> update tool. All steps can be run at once using <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">all</span></code> or
+the steps can be run individually using the subcommands.</p>
+</section>
+<section id="options">
+<h3>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h3>
+<p>In addition to the globally recognized <code class="docutils literal notranslate"><span class="pre">mixer</span></code> flags (see <a class="reference external" href="mixer.1.html">mixer(1)</a> for
+more details), the following options are recognized across all <code class="docutils literal notranslate"><span class="pre">build</span></code>
+subcommands.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--bundle-workers</span></code></p>
+<p>Number of parallel workers when building bundles, passing 0 or omitting this
+flag defaults the number of workers to the number of CPUs on the system.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--delta-workers</span></code></p>
+<p>Number of parallel workers when creating deltas, passing 0 or omitting this
+flag defaults the number of workers to the number of CPUs on the system.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--fullfile-workers</span></code></p>
+<p>Number of parallel workers when creating fullfiles, passing 0 or omitting this
+flag defaults the number of workers to the number of CPUs on the system.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--skip-format-check</span></code></p>
+<p>Skip check for compatible upstream format when building on top of a new
+upstream.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span></code> help information and exit.</p>
+</li>
+</ul>
+</section>
+<section id="subcommands">
+<h3>SUBCOMMANDS<a class="headerlink" href="#subcommands" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">all</span></code></p>
+<blockquote>
+<div><blockquote>
+<div><p>Build all content for the mix. Implicitly runs <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">bundles</span></code> followed by
+<code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">update</span></code>. In addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span> <span class="pre">all</span></code>
+takes the following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">{number}</span></code></p>
+<p>Supply the format number to use for the build.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">all</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--increment</span></code></p>
+<p>Automatically increment the mix version post build.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--min-version</span> <span class="pre">{version}</span></code></p>
+<p>Supply minimum version for <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use old content from. This option
+tells <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to regenerate all mix content starting from a certain
+version. <code class="docutils literal notranslate"><span class="pre">mixer</span></code> will not use any OS content from a version older than
+the min-version passed here.</p>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-signing</span></code></p>
+<p>Do not generate a certificate and do not sign the Manifest.MoM</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--prefix</span> <span class="pre">{path}</span></code></p>
+<p>Supply the <cite>path</cite> to the file system where the <code class="docutils literal notranslate"><span class="pre">swupd</span></code> binaries live.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">bundles</span></code></p>
+<blockquote>
+<div><blockquote>
+<div><p>Build the bundles for your mix. This is done by extracting dependency
+information and file lists for each package in each bundle definition for the
+mix. In addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span> <span class="pre">bundles</span></code> takes the
+following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">bundles</span></code> help information and exit.</p>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-signing</span></code></p>
+<p>Do not generate a certificate and do not sign the Manifest.MoM</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">delta-packs</span></code></p>
+<blockquote>
+<div><p>Build packs to optimize <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">update</span></code>s between versions. When a
+<code class="docutils literal notranslate"><span class="pre">swupd</span></code> client updates a bundle it looks for a pack file from its current
+version to the new version. If available <code class="docutils literal notranslate"><span class="pre">swupd</span></code> will download and apply
+the pack content to the file system. Delta packs contain binary diff files
+that describe changes between updates whenever possible and full files only
+when necessary. Because of this delta packs are a significant performance
+optimization for client updates. Because the client can fall back to full
+files if a pack is not available, delta packs are not necessary for a
+functional update. In addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span>
+<span class="pre">delta-packs</span></code> takes the following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--from</span> <span class="pre">{version}</span></code></p>
+<p>Generate packs from the specified <cite>version</cite>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">delta-packs</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--previous-versions</span> <span class="pre">{number}</span></code></p>
+<p>Generate packs for <cite>number</cite> of previous versions.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--report</span></code></p>
+<p>Report reason each file in the <cite>to</cite> manifest was packed in the delta pack
+or not.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--to</span> <span class="pre">{version}</span></code></p>
+<p>Generate packs targeting a specific <cite>to</cite> <cite>version</cite>.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">delta-manifests</span></code></p>
+<blockquote>
+<div><p>Build manifest deltas to optimize <code class="docutils literal notranslate"><span class="pre">swupd</span> <span class="pre">update</span></code>s between versions. When a
+<code class="docutils literal notranslate"><span class="pre">swupd</span></code> client update runs, it will first try to get a delta manifest file
+if it exists and apply that on the bundle manifest file for the version
+installed on their system (if it exists). This can save a large amount of
+content being downloaded in the case of few files changing in a manifest.
+Because the client can fall back to the full manifest file if a delta is not
+available, delta manifests are not necessary for a functional update. In
+addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span> <span class="pre">delta-manifests</span></code> takes the
+following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--from</span> <span class="pre">{version}</span></code></p>
+<p>Generate packs from the specified <cite>version</cite>.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">delta-manifests</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--previous-versions</span> <span class="pre">{number}</span></code></p>
+<p>Generate packs for <cite>number</cite> of previous versions.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--to</span> <span class="pre">{version}</span></code></p>
+<p>Generate packs targeting a specific <cite>to</cite> <cite>version</cite>.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">image</span></code></p>
+<blockquote>
+<div><p>Build an image from the mix content. In addition to the global options
+<code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span> <span class="pre">image</span></code> takes the following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">{number}</span></code></p>
+<p>Supply the format <cite>number</cite> used for the mix.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">image</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--template</span> <span class="pre">{path}</span></code></p>
+<p>Provide the <cite>path</cite> to the image template file to use.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code></p>
+<blockquote>
+<div><blockquote>
+<div><p>Build the update content for the mix. This command builds the actual update
+metadata (manifests) and content (full files and zero packs) necessary for
+<code class="docutils literal notranslate"><span class="pre">swupd</span></code> to perform updates on client systems. <code class="docutils literal notranslate"><span class="pre">update</span></code> relies on the
+output of <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">bundles</span></code> as the input for this step and expects the
+output of <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">bundles</span></code> to exist in the
+<cite>&lt;mixer/workspace&gt;/update/image/&lt;version&gt;</cite> directory. In addition to the
+global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">build</span> <span class="pre">update</span></code> takes the following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--format</span> <span class="pre">{number}</span></code></p>
+<p>Supply the format <cite>number</cite> used for the mix.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">update</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--increment</span></code></p>
+<p>Automatically increment the mix version post build.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--min-version</span> <span class="pre">{version}</span></code></p>
+<p>Supply minimum version for <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use old content from. This option
+tells <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to regenerate all mix content starting from a certain
+version. <code class="docutils literal notranslate"><span class="pre">mixer</span></code> will not use any OS content from a version older than
+the min-version passed here.</p>
+</li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--no-signing</span></code></p>
+<p>Do not generate a certificate and do not sign the Manifest.MoM</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--prefix</span> <span class="pre">{path}</span></code></p>
+<p>Supply the <cite>path</cite> to the file system where the <code class="docutils literal notranslate"><span class="pre">swupd</span></code> binaries live.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">validate</span></code></p>
+<blockquote>
+<div><p>Compare two versions to validate that manifest file changes align with corresponding
+package changes. Inconsistencies between manifest entries and package contents are
+reported as errors. When no errors occur, package update statistics are displayed.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--from</span> <span class="pre">{version}</span></code></p>
+<p>Compare manifests <code class="docutils literal notranslate"><span class="pre">from</span></code> a specific version</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--to</span> <span class="pre">{version}</span></code></p>
+<p>Compare manifests <code class="docutils literal notranslate"><span class="pre">to</span></code> a specific version</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--from-repo-url</span> <span class="pre">{repo}={URL}</span></code></p>
+<p>Overrides the baseurl value for the provided repo in the DNF config file for the <code class="docutils literal notranslate"><span class="pre">from</span></code> version</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--to-repo-url</span> <span class="pre">{repo}={URL}</span></code></p>
+<p>Overrides the baseurl value for the provided repo in the DNF config file for the <code class="docutils literal notranslate"><span class="pre">to</span></code> version</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--table-width</span> <span class="pre">{width}</span></code></p>
+<p>Max width of package statistics table, defaults to terminal width and disabled by negative numbers</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">build</span> <span class="pre">validate</span></code> help information and exit.</p>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="exit-status">
+<h3>EXIT STATUS<a class="headerlink" href="#exit-status" title="Link to this heading">¶</a></h3>
+<p>On success, 0 is returned. A non-zero return code indicates a failure.</p>
+<section id="see-also">
+<h4>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="mixer.1.html">mixer(1)</a></p></li>
+<li><p><a class="reference external" href="swupd.1.html">swupd(1)</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">mixer.build</a><ul>
+<li><a class="reference internal" href="#build-varioius-pieces-of-os-content">Build varioius pieces of OS content</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#subcommands">SUBCOMMANDS</a></li>
+<li><a class="reference internal" href="#exit-status">EXIT STATUS</a><ul>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="mixer.bundle.1.html"
+                          title="previous chapter">mixer.bundle</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="mixer.add-rpms.1.html"
+                          title="next chapter">mixer.add-rpms</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/mixer.build.1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mixer.add-rpms.1.html" title="mixer.add-rpms"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mixer.bundle.1.html" title="mixer.bundle"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mixer.build</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

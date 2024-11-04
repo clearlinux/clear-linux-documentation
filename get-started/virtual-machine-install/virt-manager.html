@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS using virt-manager &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/virtual-machine-install/virt-manager.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clear Linux* OS on VirtualBox*" href="virtualbox-cl-installer.html" />
+    <link rel="prev" title="Clear Linux* OS on Proxmox* Virtual Environment" href="proxmox.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="virtualbox-cl-installer.html" title="Clear Linux* OS on VirtualBox*"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="proxmox.html" title="Clear Linux* OS on Proxmox* Virtual Environment"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS using virt-manager</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-using-virt-manager">
+<span id="virt-manager"></span><h1>Clear Linux* OS using virt-manager<a class="headerlink" href="#cl-attr-using-virt-manager" title="Link to this heading">¶</a></h1>
+<p>This page explains how to create a Clear Linux* OS virtual machine using the
+<a class="reference external" href="https://www.virt-manager.org">virt-mgr</a> desktop application with Clear Linux OS as the guest operating system.
+These instructions support the Clear Linux OS live-server installer to create the Clear Linux OS
+<abbr title="Virtual Machine">VM</abbr>.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id12">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#download-the-cl-installer-iso" id="id13">Download the Clear Linux OS installer ISO</a></p></li>
+<li><p><a class="reference internal" href="#launch-and-set-up-virt-manager" id="id14">Launch and set up virt-manager</a></p></li>
+<li><p><a class="reference internal" href="#create-a-new-virt-manager-virtual-machine" id="id15">Create a new virt-manager virtual machine</a></p></li>
+<li><p><a class="reference internal" href="#install-cl-in-the-virt-manager-vm" id="id16">Install Clear Linux OS in the virt-manager VM</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Enable virtualization, such as <a class="reference external" href="https://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html">Intel® Virtualization Technology</a>
+(Intel® VT), on the host system from the UEFI firmware setup.</p></li>
+<li><p>Install the software bundles kvm-host and virt-manager-gui using
+<strong class="command">swupd</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>kvm-host<span class="w"> </span>virt-manager-gui
+</pre></div>
+</div>
+</li>
+<li><p>Add your userid to the <cite>kvm</cite> and <cite>libvirt</cite> groups.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>usermod<span class="w"> </span>-G<span class="w"> </span>kvm<span class="w"> </span>-a<span class="w"> </span><span class="nv">$USER</span>
+sudo<span class="w"> </span>usermod<span class="w"> </span>-G<span class="w"> </span>libvirt<span class="w"> </span>-a<span class="w"> </span><span class="nv">$USER</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enable the <cite>libvirtd</cite> daemon and reboot the system to complete the
+process.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>libvirtd
+sudo<span class="w"> </span>reboot
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="download-the-cl-installer-iso">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Download the Clear Linux OS installer ISO</a><a class="headerlink" href="#download-the-cl-installer-iso" title="Link to this heading">¶</a></h2>
+<p>There are several options available to set up and use a Clear Linux OS VM with
+<strong class="command">virt-manager</strong>. You can either download the <cite>KVM</cite> image and run it
+as-is or download the installer ISO and run it to create a new installation of
+Clear Linux OS.</p>
+<p>This example uses the live-server-installer ISO to create a new installation.</p>
+<ol class="arabic simple">
+<li><p>Download the <cite>Clear Linux* OS Server</cite> from the <a class="reference external" href="https://clearlinux.org/downloads">Downloads</a> page.</p></li>
+<li><p>(Optional) Validate the integrity of the downloaded image by checking the
+file hash and signatures. Refer to <a class="reference internal" href="../../guides/maintenance/validate-signatures.html#validate-signatures"><span class="std std-ref">Validate signatures</span></a> for detailed
+steps.</p></li>
+</ol>
+</section>
+<section id="launch-and-set-up-virt-manager">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Launch and set up virt-manager</a><a class="headerlink" href="#launch-and-set-up-virt-manager" title="Link to this heading">¶</a></h2>
+<p>Virt-manager is a GUI-based virtual machine manager that runs in your desktop
+environment. This example uses the Gnome* desktop.</p>
+<ol class="arabic">
+<li><p>Launch the Virtual Machine Manager from the applications window. The
+application window opens as shown in Figure 1.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/virt-manager-01.png"><img alt="Virtual Machine Manager" src="../../_images/virt-manager-01.png" style="width: 550.0px; height: 582.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Virtual Machine Manager</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the <cite>Name</cite> field, select and highlight the <cite>QEMU/KVM</cite> item, then select
+<span class="menuselection">Edit &gt; Connection Details</span>. A dialog box with
+<cite>QEMU/KVM Connection Details</cite> opens as shown in Figure 2.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/virt-manager-02.png"><img alt="QEMU/KVM Connection Details" src="../../_images/virt-manager-02.png" style="width: 800.0px; height: 632.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: QEMU/KVM Connection Details</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the <cite>Overview</cite> tab, check the <cite>Autoconnect</cite> field. Select the <cite>Virtual
+Networks</cite> tab and in the lower left of the dialog window, select the
+<span class="guilabel">+</span> key to add a new network connection. The <cite>Create a new virtual
+network</cite> dialog window opens as shown in Figure 3. To accept the default
+values, select the <span class="guilabel">Finish</span> button.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/virt-manager-03.png"><img alt="Create a new virtual network" src="../../_images/virt-manager-03.png" style="width: 478.0px; height: 432.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: Create a new virtual network</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Close the <cite>QEMU/KVM Connection details</cite> dialog box and return to the Virtual
+Machine Manager main console. You are ready to create your VM.</p></li>
+</ol>
+</section>
+<section id="create-a-new-virt-manager-virtual-machine">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Create a new virt-manager virtual machine</a><a class="headerlink" href="#create-a-new-virt-manager-virtual-machine" title="Link to this heading">¶</a></h2>
+<p>In the Virtual Machine Manager main console, either select
+<span class="menuselection">File &gt; New Virtual Machine</span> or click the <cite>Create a
+new virtual machine</cite> icon. This launches the <cite>New VM</cite> wizard, shown in Figure 4.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/virt-manager-04.png"><img alt="New VM" src="../../_images/virt-manager-04.png" style="width: 500.0px; height: 532.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: New VM dialog box, step 1</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic">
+<li><p>Select <cite>Local install media (ISO image or CDROM)</cite> and select the
+<span class="guilabel">Forward</span> button.</p></li>
+<li><p>In step 2 of the <cite>New VM</cite> wizard, you can choose ISO or CDROM install
+media.</p>
+<ol class="loweralpha">
+<li><p>Uncheck <cite>Automatically detect from the installation media / source</cite>
+field and select the <span class="guilabel">Browse…</span> button as shown in Figure 5.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/virt-manager-05.png"><img alt="New VM" src="../../_images/virt-manager-05.png" style="width: 500.0px; height: 532.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: New VM dialog box, step 2: Choose media</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the <cite>Choose Storage Volume</cite> dialog, select the
+<span class="guilabel">Browse Local</span> button as shown in Figure 6. Browse to
+the ISO image that you downloaded earlier and open it.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/virt-manager-06.png"><img alt="Choose storage volume" src="../../_images/virt-manager-06.png" style="width: 750.0px; height: 532.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Choose storage volume dialog box</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the <cite>Choose the operating system you are installing</cite> search field,
+type <cite>generic</cite> and select the <cite>Generic default</cite> value when it is displayed.
+Select the <span class="guilabel">Forward</span> button as shown in Figure 7.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/virt-manager-07.png"><img alt="New VM" src="../../_images/virt-manager-07.png" style="width: 500.0px; height: 532.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: New VM dialog box, step 2: Choose operating system</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A message may be displayed that says the emulator does not have
+search permissions for the ISO image path. Select <span class="guilabel">Yes</span> to
+proceed to the next step.</p>
+</div>
+</li>
+</ol>
+</li>
+<li><p>Step 3 of the <cite>New VM</cite> wizard allocates the memory and CPUs for
+the new VM. Choose settings that are valid for the resources on your host
+system. This example sets <cite>Memory</cite> to 2048GB and <cite>CPUs</cite> to 1. Once complete,
+select the <span class="guilabel">Forward</span> button as shown in Figure 8.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/virt-manager-08.png"><img alt="New VM Choose Memory and CPU settings dialog box" src="../../_images/virt-manager-08.png" style="width: 500.0px; height: 532.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: New VM dialog box, step 3: Choose Memory and CPU settings</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Step 4 of the <cite>New VM</cite> wizard sets up the storage media for your VM. You
+can create a new disk image or use an existing image. This example selects
+<cite>Enable storage for this virtual machine</cite> and creates a 20GB image for it.
+Once complete, select the <span class="guilabel">Forward</span> button as shown in Figure 9.</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/virt-manager-09.png"><img alt="New VM Enable storage dialog box" src="../../_images/virt-manager-09.png" style="width: 500.0px; height: 532.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: New VM dialog box, step 4: Enable storage</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Step 5 of the <cite>New VM</cite> wizard displays the selections you made and allows
+you to customize the configuration before running the installation. Select the
+<cite>Customize configuration before install</cite> checkbox and select the
+<span class="guilabel">Finish</span> button as shown in Figure 10.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/virt-manager-10.png"><img alt="New VM Ready to begin the installation dialog box" src="../../_images/virt-manager-10.png" style="width: 500.0px; height: 532.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 10: New VM dialog box, step 5: Ready to begin the installation</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Customize the installation process by changing the firmware from <cite>BIOS</cite> to
+<cite>UEFI x86_64</cite>. Clear Linux OS requires UEFI firmware. In the <cite>Firmware</cite> field, select
+the <code class="file docutils literal notranslate"><span class="pre">UEFI</span> <span class="pre">x86_64:/usr/share/qemu/OVMF.fd</span></code> entry as shown in Figure 11
+and select the <span class="guilabel">Apply</span> button.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/virt-manager-11.png"><img alt="vm1 on QEMU/KVM dialog box" src="../../_images/virt-manager-11.png" style="width: 800.0px; height: 672.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 11: vm1 on QEMU/KVM dialog box</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Begin the installation by selecting the <span class="guilabel">Begin Installation</span> in
+the upper left corner of the <cite>vm1 on QEMU/KVM</cite> dialog box.</p></li>
+</ol>
+</section>
+<section id="install-cl-in-the-virt-manager-vm">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Install Clear Linux OS in the virt-manager VM</a><a class="headerlink" href="#install-cl-in-the-virt-manager-vm" title="Link to this heading">¶</a></h2>
+<p>To install Clear Linux OS in your VM, follow the instructions in the getting started
+guide <a class="reference internal" href="../bare-metal-install-server.html#bare-metal-install-server"><span class="std std-ref">Install Clear Linux* OS from the live server</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You do not need to set up the network as described in the installation
+guide, because you already downloaded the ISO image and connected to your
+VM. Your network will show up as a wired connection.</p>
+</div>
+<p>Congratulations! You have successfully installed Clear Linux OS in your new VM and can
+begin using it immediately. The <cite>virt-manager</cite> tool is maintained on GitHub*
+at <a class="reference external" href="https://github.com/virt-manager/virt-manager">virt-manager-github</a>.</p>
+<p><em>Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.</em></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Clear Linux* OS using virt-manager</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#download-the-cl-installer-iso">Download the Clear Linux OS installer ISO</a></li>
+<li><a class="reference internal" href="#launch-and-set-up-virt-manager">Launch and set up virt-manager</a></li>
+<li><a class="reference internal" href="#create-a-new-virt-manager-virtual-machine">Create a new virt-manager virtual machine</a></li>
+<li><a class="reference internal" href="#install-cl-in-the-virt-manager-vm">Install Clear Linux OS in the virt-manager VM</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="proxmox.html"
+                          title="previous chapter">Clear Linux* OS on Proxmox* Virtual Environment</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="virtualbox-cl-installer.html"
+                          title="next chapter">Clear Linux* OS on VirtualBox*</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/virtual-machine-install/virt-manager.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="virtualbox-cl-installer.html" title="Clear Linux* OS on VirtualBox*"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="proxmox.html" title="Clear Linux* OS on Proxmox* Virtual Environment"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS using virt-manager</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>
