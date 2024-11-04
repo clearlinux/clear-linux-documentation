@@ -133,24 +133,14 @@ rst_epilog = """
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'sphinx_rtd_theme'
-html_theme = 'otc_tcs_sphinx_theme'
+html_theme = 'bizstyle'
 
 version = current_version = "latest"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-html_theme_options = {
-#   'canonical_url': 'docs.01.org/clearlinux/', # remove old url - mv
-  'canonical_url': 'clearlinux.github.io/clear-linux-documentation/',
-  'style_nav_header_background': '#007ab2',
-  'navigation_depth': 4,
-  'display_version': False,
-  'collapse_navigation': False,
-  'prev_next_buttons_location': 'None',
-  'sticky_navigation': True
-}
+html_theme_options = {}
 
 html_context = {
     "display_github": True, # Integrate GitHub
