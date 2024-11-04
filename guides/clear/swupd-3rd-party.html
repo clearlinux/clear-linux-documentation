@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>swupd 3rd-party &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/clear/swupd-3rd-party.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Telemetrics" href="telemetrics.html" />
+    <link rel="prev" title="swupd" href="swupd.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="telemetrics.html" title="Telemetrics"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="swupd.html" title="swupd"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swupd 3rd-party</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="swupd-3rd-party">
+<span id="id1"></span><h1>swupd 3rd-party<a class="headerlink" href="#swupd-3rd-party" title="Link to this heading">¶</a></h1>
+<p>Upstream Clear Linux OS offers a plethora of <a class="reference external" href="https://clearlinux.org/software">bundles</a> to choose from.</p>
+<p>For users who want access to additional software outside of the distro,
+Clear Linux OS provides support for 3rd-party bundles.</p>
+<p>There are two components to 3rd-party bundles:</p>
+<ul class="simple">
+<li><p>Use <strong class="command">mixer</strong> to create 3rd-party bundles</p></li>
+<li><p>Use the <strong class="command">swupd</strong> subcommand <strong class="command">3rd-party</strong> to manage repos,
+consume and manage bundles</p></li>
+</ul>
+<p>Follow this guide to set up a web server to host 3rd-party bundles,
+build an example 3rd-party bundle, install and manage the bundle on a
+client system.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisite" id="id2">Prerequisite</a></p></li>
+<li><p><a class="reference internal" href="#create-directory-to-hold-3rd-party-app" id="id3">Create directory to hold 3rd-party app</a></p></li>
+<li><p><a class="reference internal" href="#create-bundle-of-3rd-party-app-with-mixer" id="id4">Create bundle of 3rd-party app with mixer</a></p></li>
+<li><p><a class="reference internal" href="#install-and-manage-3rd-party-bundle-on-client-system" id="id5">Install and manage 3rd-party bundle on client system</a></p></li>
+<li><p><a class="reference internal" href="#create-more-bundles-and-add-to-client" id="id6">Create more bundles and add to client</a></p></li>
+<li><p><a class="reference internal" href="#some-limitations-of-3rd-party-bundles" id="id7">Some limitations of 3rd-party bundles</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id8">Related topics</a></p></li>
+</ul>
+</nav>
+<p>Also, see our <a class="reference external" href="https://community.clearlinux.org/t/about-the-3rd-party-sw-category/4072">general guidelines</a> on sharing 3rd-party bundles.</p>
+<section id="prerequisite">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Prerequisite</a><a class="headerlink" href="#prerequisite" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Familiarity with <strong class="command">mixer</strong></p></li>
+<li><p>Familiarity with <strong class="command">swupd</strong></p></li>
+<li><p>You must be running Clear Linux OS version 32570 or higher</p></li>
+</ul>
+<section id="set-up-a-nginx-web-server-for-mixer">
+<h3>Set up a nginx web server for mixer<a class="headerlink" href="#set-up-a-nginx-web-server-for-mixer" title="Link to this heading">¶</a></h3>
+<p>A web server is needed to host your update content. In this example,
+the nginx web server is used.</p>
+<ol class="arabic">
+<li><p>Install the <strong class="command">nginx</strong> bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>nginx
+</pre></div>
+</div>
+</li>
+<li><p>Create a symbolic link to the mixer update content directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/www
+
+sudo<span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="nv">$HOME</span>/mixer/update/www<span class="w"> </span>/var/www/mixer
+</pre></div>
+</div>
+</li>
+<li><p>Set up nginx configuration files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w">  </span>/etc/nginx/conf.d
+
+sudo<span class="w"> </span>cp<span class="w"> </span>-f<span class="w"> </span>/usr/share/nginx/conf/nginx.conf.example<span class="w"> </span>/etc/nginx/nginx.conf
+</pre></div>
+</div>
+</li>
+<li><p>Grant <code class="docutils literal notranslate"><span class="pre">$USER</span></code> permission to run the web server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/nginx/nginx.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">user $USER;</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configure the mixer update server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/nginx/conf.d/mixer-server.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">server {</span>
+<span class="s">  server_name localhost;</span>
+<span class="s">  location / {</span>
+<span class="s">    root /var/www/mixer;</span>
+<span class="s">    autoindex on;</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Restart the daemon, enable nginx on boot, and start the service.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx<span class="w"> </span>--now
+</pre></div>
+</div>
+</li>
+<li><p>Verify the web server is running at http://&lt;IP-address-of-web-server&gt;.
+If there’s no mix content yet, the expected response from nginx will be
+a <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code>.</p></li>
+</ol>
+</section>
+</section>
+<section id="create-directory-to-hold-3rd-party-app">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Create directory to hold 3rd-party app</a><a class="headerlink" href="#create-directory-to-hold-3rd-party-app" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Create a top-level directory to hold all apps.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/my-3rd-party-apps<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$_</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a directory for each app and put the content of your software in it.</p>
+<p>In this example, the <cite>helloclear.sh</cite> app simply prints
+“Hello Clear!” when invoked.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># make helloclear directory</span>
+mkdir<span class="w"> </span>-p<span class="w"> </span>helloclear/usr/bin<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">pushd</span><span class="w"> </span><span class="nv">$_</span>
+
+<span class="c1"># create helloclear.sh script</span>
+cat<span class="w"> </span>&gt;<span class="w"> </span>helloclear.sh<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">#!/bin/bash</span>
+<span class="s">echo &quot;Hello Clear!&quot;</span>
+<span class="s">EOF</span>
+
+<span class="c1"># make script executable</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>helloclear.sh
+
+<span class="nb">popd</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>You can put whatever you want in your app’s directory. All of the content
+within each directory will get copied onto the client system under
+<code class="file docutils literal notranslate"><span class="pre">/opt/3rd-party/bundles/&lt;repo-name&gt;/</span></code>.</p></li>
+<li><p>To use a 3rd-party RPM, it is recommended to extract the content of the RPM
+into a directory.  Use <strong class="command">rpm2cpio &lt;RPM&gt;| sudo cpio -idv</strong>.</p></li>
+</ul>
+</div>
+</li>
+</ol>
+</section>
+<section id="create-bundle-of-3rd-party-app-with-mixer">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Create bundle of 3rd-party app with mixer</a><a class="headerlink" href="#create-bundle-of-3rd-party-app-with-mixer" title="Link to this heading">¶</a></h2>
+<p>Next, use <strong class="command">mixer</strong> to create a bundle for each of the apps from the previous
+section.</p>
+<ol class="arabic">
+<li><p>Install the mixer tool.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>mixer
+</pre></div>
+</div>
+</li>
+<li><p>Create a mixer workspace.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>~/mixer<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span><span class="nv">$_</span>
+</pre></div>
+</div>
+</li>
+<li><p>Initialize a mix without any default bundles.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mixer<span class="w"> </span>init<span class="w"> </span>--no-default-bundles
+</pre></div>
+</div>
+</li>
+<li><p>Configure <code class="file docutils literal notranslate"><span class="pre">builder.conf</span></code> to set the default bundle, CONTENTURL, and VERSIONURL.
+For the “URL”s in this example, it will be IP address of the web server that was
+set up earlier.
+Substitute &lt;IP-address-of-web-server&gt; with the IP address of your host.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mixer<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>Swupd.BUNDLE<span class="w"> </span><span class="s2">&quot;os-core&quot;</span>
+mixer<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>Swupd.CONTENTURL<span class="w"> </span><span class="s2">&quot;http://&lt;IP-address-of-web-server&gt;&quot;</span>
+mixer<span class="w"> </span>config<span class="w"> </span><span class="nb">set</span><span class="w"> </span>Swupd.VERSIONURL<span class="w"> </span><span class="s2">&quot;http://&lt;IP-address-of-web-server&gt;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create an empty local <cite>os-core</cite> bundle.  <strong class="command">swupd</strong> client expects the
+<cite>os-core</cite> bundle to exist in a mix even if it’s empty.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mixer<span class="w"> </span>bundle<span class="w"> </span>create<span class="w"> </span>os-core<span class="w"> </span>--local
+</pre></div>
+</div>
+</li>
+<li><p>Using the <cite>helloclear</cite> app as an example, create the <cite>helloclear</cite> bundle
+and use the <cite>content()</cite> directive with the path to the <cite>helloclear</cite> directory in
+the bundle definition.</p>
+<p>Refer to <a class="reference external" href="https://docs.01.org/clearlinux/latest/guides/clear/mixer.html#id16">bundle definition</a> for addition information on how to define a bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mixer<span class="w"> </span>bundle<span class="w"> </span>create<span class="w"> </span>helloclear<span class="w"> </span>--local
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;content(</span><span class="nv">$HOME</span><span class="s2">/my-3rd-party-apps/helloclear/)&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>local-bundles/helloclear
+</pre></div>
+</div>
+</li>
+<li><p>Add both bundles to the mix.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mixer<span class="w"> </span>bundle<span class="w"> </span>add<span class="w"> </span>os-core
+mixer<span class="w"> </span>bundle<span class="w"> </span>add<span class="w"> </span>helloclear
+</pre></div>
+</div>
+</li>
+<li><p>Build the bundles and generate the update content.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mixer<span class="w"> </span>build<span class="w"> </span>bundles
+sudo<span class="w"> </span>mixer<span class="w"> </span>build<span class="w"> </span>update
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="install-and-manage-3rd-party-bundle-on-client-system">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Install and manage 3rd-party bundle on client system</a><a class="headerlink" href="#install-and-manage-3rd-party-bundle-on-client-system" title="Link to this heading">¶</a></h2>
+<p>Finally, use the <strong class="command">swupd</strong> client tool to install and
+manage the bundle created with <strong class="command">mixer</strong> earlier.
+All installed 3rd-party bundles reside in <code class="file docutils literal notranslate"><span class="pre">/opt/3rd-party/bundles/&lt;repo-name&gt;/</span></code>.</p>
+<ol class="arabic">
+<li><p>First, add a repo link to the web server.
+The <cite>os-core</cite> bundle will be added automatically when adding a repo.
+It contains items that mixer injected into the mix such as version information,
+format, CONTENTURL, VERSIONURL, and certificate.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>3rd-party<span class="w"> </span>add<span class="w"> </span>my-3rd-party-repo<span class="w"> </span><span class="se">\</span>
+http://&lt;IP-address-of-web-server&gt;<span class="w"> </span>--allow-insecure-http
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By default, the <strong class="command">swupd</strong> client is designed to communicate
+with an HTTPS server. For development purposes, the swupd client
+can talk to an HTTP server if you add the flag <code class="docutils literal notranslate"><span class="pre">--allow-insecure-http</span></code>.</p>
+<p>To avoid adding this flag each time when invoking <strong class="command">swupd</strong>, enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/swupd
+
+sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/swupd/config<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">[GLOBAL]</span>
+<span class="s">allow-insecure-http=true</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>Query the list of bundles from the repo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>3rd-party<span class="w"> </span>bundle-list<span class="w"> </span>-a
+</pre></div>
+</div>
+</li>
+<li><p>Add the <cite>helloclear</cite> bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>3rd-party<span class="w"> </span>bundle-add<span class="w"> </span>helloclear
+</pre></div>
+</div>
+</li>
+<li><p>List installed 3rd-party bundles.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>3rd-party<span class="w"> </span>bundle-list
+</pre></div>
+</div>
+</li>
+<li><p>Look in <code class="file docutils literal notranslate"><span class="pre">/opt/3rd-party</span></code> to confirm they were installed there.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tree<span class="w"> </span>/opt/3rd-party
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/opt/3rd-party/</span>
+<span class="go">├── bin</span>
+<span class="go">│   └── helloclear.sh</span>
+<span class="go">├── bundles</span>
+<span class="go">│   └── my-3rd-party-repo</span>
+<span class="go">│       └── usr</span>
+<span class="go">│           ├── bin</span>
+<span class="go">│           │   └── helloclear.sh</span>
+<span class="go">│           ├── lib</span>
+<span class="go">│           │   └── os-release</span>
+<span class="go">│           └── share</span>
+<span class="go">│               ├── clear</span>
+<span class="go">│               │   ├── bundles</span>
+<span class="go">│               │   │   ├── helloclear</span>
+<span class="go">│               │   │   └── os-core</span>
+<span class="go">│               │   ├── update-ca</span>
+<span class="go">│               │   │   └── Swupd_Root.pem</span>
+<span class="go">│               │   ├── version</span>
+<span class="go">│               │   └── versionstamp</span>
+<span class="go">│               └── defaults</span>
+<span class="go">│                   └── swupd</span>
+<span class="go">│                       ├── contenturl</span>
+<span class="go">│                       ├── format</span>
+<span class="go">│                       └── versionurl</span>
+<span class="go">└── repo.ini</span>
+
+<span class="go">12 directories, 12 files</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="create-more-bundles-and-add-to-client">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Create more bundles and add to client</a><a class="headerlink" href="#create-more-bundles-and-add-to-client" title="Link to this heading">¶</a></h2>
+<p>From here on, to add new bundles to your mix, follow these steps:</p>
+<ol class="arabic simple">
+<li><p>Follow the steps above to add a new directory for each app and put content into it.</p></li>
+<li><p>In the mixer workspace, run <strong class="command">mixer versions update</strong>.</p></li>
+<li><p>Follow the remaining mixer process to add and build bundles.</p></li>
+</ol>
+<p>On the client side:</p>
+<ol class="arabic">
+<li><p>Run <strong class="command">sudo swupd 3rd-party update</strong> to update to the latest version of your mix.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <cite>swupd autoupdate</cite> is enabled, 3rd-party repositories will update
+automatically as well during regular swupd update.</p>
+</div>
+</li>
+<li><p>Now, you can see and add the new bundles.</p></li>
+</ol>
+</section>
+<section id="some-limitations-of-3rd-party-bundles">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Some limitations of 3rd-party bundles</a><a class="headerlink" href="#some-limitations-of-3rd-party-bundles" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>You cannot upload your bundles to a shared community repo because bundles
+are tied to your particular mix with its own certificate.
+You have to host your own and share your repo.</p></li>
+<li><p>As with upstream bundles, 3rd-party bundles installation is simply the unpacking
+of files onto your system.  It cannot perform pre or post-installation actions such as
+adding a favorite shortcut to the Gnome desktop dock, for example.</p></li>
+</ol>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="autospec.html#autospec"><span class="std std-ref">autospec</span></a></p></li>
+<li><p><a class="reference internal" href="mixer.html#mixer"><span class="std std-ref">mixer</span></a></p></li>
+<li><p><a class="reference internal" href="../../reference/bundles/bundles.html#bundles"><span class="std std-ref">Available bundles</span></a></p></li>
+<li><p><a class="reference internal" href="swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">swupd 3rd-party</a><ul>
+<li><a class="reference internal" href="#prerequisite">Prerequisite</a><ul>
+<li><a class="reference internal" href="#set-up-a-nginx-web-server-for-mixer">Set up a nginx web server for mixer</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#create-directory-to-hold-3rd-party-app">Create directory to hold 3rd-party app</a></li>
+<li><a class="reference internal" href="#create-bundle-of-3rd-party-app-with-mixer">Create bundle of 3rd-party app with mixer</a></li>
+<li><a class="reference internal" href="#install-and-manage-3rd-party-bundle-on-client-system">Install and manage 3rd-party bundle on client system</a></li>
+<li><a class="reference internal" href="#create-more-bundles-and-add-to-client">Create more bundles and add to client</a></li>
+<li><a class="reference internal" href="#some-limitations-of-3rd-party-bundles">Some limitations of 3rd-party bundles</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="swupd.html"
+                          title="previous chapter">swupd</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="telemetrics.html"
+                          title="next chapter">Telemetrics</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/clear/swupd-3rd-party.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="telemetrics.html" title="Telemetrics"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="swupd.html" title="swupd"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swupd 3rd-party</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

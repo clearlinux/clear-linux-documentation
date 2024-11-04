@@ -1,0 +1,95 @@
+.. _man-pages:
+
+Man pages
+#########
+
+These pages are generated from `Clear Linux\* tool
+repositories <https://github.com/clearlinux>`__. Updated |today|.
+
+
+`clr-man-pages <https://github.com/clearlinux/clr-man-pages>`__
+===============================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/stateless.7.rst
+   manpages/os-core.7.rst
+   manpages/os-format.7.rst
+
+`clr-power-tweaks <https://github.com/clearlinux/clr-power-tweaks>`__
+=====================================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/clr-power-tweaks.conf.5.rst
+   manpages/clr_power.1.rst
+
+`clrtrust <https://github.com/clearlinux/clrtrust>`__
+=====================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/clrtrust.1.rst
+
+`micro-config-drive <https://github.com/clearlinux/micro-config-drive>`__
+=========================================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/ucd.1.rst
+   manpages/cloud-config.5.rst
+   manpages/ucd-data-fetch.1.rst
+
+`mixer-tools <https://github.com/clearlinux/mixer-tools>`__
+===========================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/mixer.bundle.1.rst
+   manpages/mixer.build.1.rst
+   manpages/mixer.add-rpms.1.rst
+   manpages/mixer.1.rst
+   manpages/mixer.repo.1.rst
+   manpages/mixer.versions.1.rst
+   manpages/mixer.init.1.rst
+   manpages/mixer.config.1.rst
+
+`swupd-client <https://github.com/clearlinux/swupd-client>`__
+=============================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/swupd-update.service.4.rst
+   manpages/update-triggers.target.4.rst
+   manpages/swupd.1.rst
+   manpages/swupd-update.timer.4.rst
+
+`tallow <https://github.com/clearlinux/tallow>`__
+=================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/tallow.1.rst
+   manpages/tallow.conf.5.rst
+   manpages/tallow.patterns.5.rst
+
+`telemetrics-client <https://github.com/clearlinux/telemetrics-client>`__
+=========================================================================
+
+.. toctree::
+   :maxdepth: 1
+
+   manpages/telemetrics.conf.5.rst
+   manpages/telem-record-gen.1.rst
+   manpages/telempostd.1.rst
+   manpages/telemprobd.1.rst
+   manpages/telemctl.1.rst
+   manpages/telemetry.3.rst
+

@@ -1,0 +1,619 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS on Microsoft* Azure* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/cloud-install/azure.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clear Linux* OS on DigitalOcean*" href="digitalocean.html" />
+    <link rel="prev" title="Clear Linux* OS on Amazon Web Services*" href="aws-web.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="digitalocean.html" title="Clear Linux* OS on DigitalOcean*"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="aws-web.html" title="Clear Linux* OS on Amazon Web Services*"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on Microsoft* Azure*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-on-microsoft-azure">
+<span id="azure"></span><h1>Clear Linux* OS on Microsoft* Azure*<a class="headerlink" href="#cl-attr-on-microsoft-azure" title="Link to this heading">¶</a></h1>
+<p>This tutorial shows how to install and use the Azure <abbr title="Command Line Interface">CLI</abbr> on Clear Linux OS. The Azure CLI offers the ability to create and
+manage resources in MS Azure from the command line.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id4">Description</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id5">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#install-ms-azure-cli-2-0-on-cl" id="id6">Install MS Azure CLI 2.0 on Clear Linux OS</a></p></li>
+<li><p><a class="reference internal" href="#log-into-your-microsoft-azure-account" id="id7">Log into your Microsoft Azure account</a></p></li>
+<li><p><a class="reference internal" href="#create-a-ms-azure-resource-group" id="id8">Create a MS Azure resource group</a></p></li>
+<li><p><a class="reference internal" href="#create-and-log-into-the-cl-virtual-machine" id="id9">Create and log into the Clear Linux OS virtual machine</a></p></li>
+<li><p><a class="reference internal" href="#stop-and-deallocate-the-cl-vm-and-resources" id="id10">Stop and deallocate the Clear Linux OS VM and resources</a></p></li>
+<li><p><a class="reference internal" href="#next-steps" id="id11">Next steps</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id12">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS is available for you to use in the Microsoft Azure marketplace and
+is offered with three different images, also known as a
+<abbr title="Stock Keeping Unit">SKU</abbr>.</p>
+<ul class="simple">
+<li><p>Clear Linux OS Basic - This SKU consists of a bare-bones system which can be used as a
+starting point for those wanting to explore and build out a system with
+additional software bundles of their choosing.</p></li>
+<li><p>Clear Linux OS Containers - This SKU comes with the containers-basic software bundle
+already installed.</p></li>
+<li><p>Clear Linux OS Machine-learning - This SKU comes pre-loaded with popular open source
+tools for developing machine learning applications.</p></li>
+</ul>
+<p>Sign in at the <a class="reference external" href="https://portal.azure.com">Azure portal</a> to access these images from the Azure dashboard,
+or use the MS Azure CLI 2.0. If you do not already have an account set up with
+MS Azure, you can sign up for a <a class="reference external" href="https://azure.microsoft.com/en-us/free/">MS Azure free account</a> to access the
+Clear Linux OS <abbr title="Virtual Machine">VM</abbr> images.</p>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>To use the MS Azure CLI 2.0 on your Clear Linux OS system, your system must have the
+following packages installed:</p>
+<ul class="simple">
+<li><p>Python 2.7 or later</p></li>
+<li><p>libffi</p></li>
+<li><p>OpenSSL 1.0.2</p></li>
+</ul>
+<p>You can check to see which versions you have installed on your system by
+running the individual commands as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>--version
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python 2.7.12</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>openssl<span class="w"> </span>version
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">OpenSSL 1.0.2n 7 Dec 2017</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-l<span class="w"> </span>/usr/lib64/libffi*
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">lrwxrwxrwx 1 root root    15 Jan 12  2017 /usr/lib64/libffi.so.6 -&gt; libffi.so.6.0.4</span>
+<span class="go">-rwxr-xr-x 1 root root 38792 Jan 12  2017 /usr/lib64/libffi.so.6.0.4</span>
+</pre></div>
+</div>
+<p>If you do not have these packages installed on your Clear Linux OS system, install the
+sysadmin-basic software bundle using the <strong class="command">swupd</strong> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>sysadmin-basic
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>These instructions are for installing the MS Azure CLI 2.0 tools on a Clear Linux OS
+system. If you are installing the CLI on another platform, follow the
+instructions in the <a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest">MS Azure Install Azure CLI tutorial</a> for your
+specific operating system.</p>
+</div>
+</section>
+<section id="install-ms-azure-cli-2-0-on-cl">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Install MS Azure CLI 2.0 on Clear Linux OS</a><a class="headerlink" href="#install-ms-azure-cli-2-0-on-cl" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>To install the MS Azure CLI 2.0 on Clear Linux OS, use the <strong class="command">curl</strong> command as
+follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-L<span class="w"> </span>https://aka.ms/InstallAzureCli<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</pre></div>
+</div>
+<p>If you get an error message from <strong class="command">curl</strong> related to the -L
+parameter or an error message is generated that includes the text “Object
+Moved”, use the full URL instead of the aka.ms redirect address:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>https://azurecliprod.blob.core.windows.net/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>bash
+</pre></div>
+</div>
+</li>
+<li><p>The installation script begins and prompts you several times during
+execution for information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The console output from the script displays your username instead of the
+<strong>[user]</strong> variable shown on this tutorial.</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">===&gt; In what directory would you like to place the install? (leave blank to use &#39;/home/[user]/lib/azure-cli&#39;):</span>
+</pre></div>
+</div>
+<p>Press the <kbd class="kbd docutils literal notranslate">Enter</kbd> key to accept the default or chose another
+directory in which to install the MS Azure CLI 2.0 tools.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">===&gt; In what directory would you like to place the &#39;az&#39; executable? (leave blank to use &#39;/home/[user]/bin&#39;):</span>
+</pre></div>
+</div>
+<p>Press the <kbd class="kbd docutils literal notranslate">Enter</kbd> key to accept the default or chose another
+directory in which to install the <strong class="command">az</strong> executable.</p>
+</li>
+<li><p>The installation downloads and builds all the required tools. When it is
+complete, it prompts you:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">===&gt; Modify profile to update your $PATH and enable shell/tab completion now? (Y/n): Y</span>
+</pre></div>
+</div>
+<p>Type <kbd class="kbd docutils literal notranslate">Y</kbd> and press the <kbd class="kbd docutils literal notranslate">Enter</kbd> key to allow this modification.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">===&gt; Enter a path to an rc file to update (leave blank to use &#39;/home/[user]/.bashrc&#39;):</span>
+</pre></div>
+</div>
+<p>Press the <kbd class="kbd docutils literal notranslate">Enter</kbd> key to accept the default or enter the pathname to
+your <code class="file docutils literal notranslate"><span class="pre">.bashrc</span></code> file. The installation completes with the final output
+shown below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">-- Backed up &#39;/home/[user].bashrc&#39; to &#39;/home/[user]/.bashrc.backup&#39;</span>
+<span class="go">-- Tab completion set up complete.</span>
+<span class="go">-- If tab completion is not activated, verify that &#39;/home/[user]/.bashrc&#39; is sourced by your shell.</span>
+<span class="go">--</span>
+<span class="go">-- ** Run `exec -l $SHELL` to restart your shell. **</span>
+<span class="go">--</span>
+<span class="go">-- Installation successful.</span>
+<span class="go">-- Run the CLI with /home/[user]/bin/az --help</span>
+</pre></div>
+</div>
+</li>
+<li><p>When the installation program finishes, you must restart your shell for
+the changes to take effect. When the installation is successful, run the
+following command to restart your shell.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exec</span><span class="w"> </span>-l<span class="w"> </span><span class="nv">$SHELL</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>With the MS Azure CLI 2.0 executable successfully built and installed, run
+the <strong class="command">az</strong> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az
+</pre></div>
+</div>
+<p>The output from the <strong class="command">az</strong> command is shown below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">     /\</span>
+<span class="go">    /  \    _____   _ _ __ ___</span>
+<span class="go">   / /\ \  |_  / | | | \&#39;__/ _ \</span>
+<span class="go">  / ____ \  / /| |_| | | |  __/</span>
+<span class="go"> /_/    \_\/___|\__,_|_|  \___|</span>
+
+
+<span class="go">Welcome to the cool new Azure CLI!</span>
+
+<span class="go">Here are the base commands:</span>
+
+<span class="go">    account          : Manage Azure subscription information.</span>
+<span class="go">    acr              : Manage Azure Container Registries.</span>
+<span class="go">    acs              : Manage Azure Container Services.</span>
+<span class="go">    ad               : Synchronize on-premises directories and manage Azure Active Directory</span>
+<span class="go">                       resources.</span>
+<span class="go">    advisor          : (PREVIEW) Manage Azure Advisor.</span>
+<span class="go">    aks              : Manage Kubernetes clusters.</span>
+<span class="go">    appservice       : Manage App Service plans.</span>
+<span class="go">    backup           : Commands to manage Azure Backups.</span>
+<span class="go">    batch            : Manage Azure Batch.</span>
+<span class="go">    batchai          : Batch AI.</span>
+<span class="go">    billing          : Manage Azure Billing.</span>
+<span class="go">    cdn              : Manage Azure Content Delivery Networks (CDNs).</span>
+<span class="go">    cloud            : Manage registered Azure clouds.</span>
+<span class="go">    cognitiveservices: Manage Azure Cognitive Services accounts.</span>
+<span class="go">    configure        : Display and manage the Azure CLI 2.0 configuration. This command is</span>
+<span class="go">                       interactive.</span>
+<span class="go">    consumption      : Manage consumption of Azure resources.</span>
+<span class="go">    container        : (PREVIEW) Manage Azure Container Instances.</span>
+<span class="go">    cosmosdb         : Manage Azure Cosmos DB database accounts.</span>
+<span class="go">    disk             : Manage Azure Managed Disks.</span>
+<span class="go">    dla              : (PREVIEW) Manage Data Lake Analytics accounts, jobs, and catalogs.</span>
+<span class="go">    dls              : (PREVIEW) Manage Data Lake Store accounts and filesystems.</span>
+<span class="go">    eventgrid        : Manage Azure Event Grid topics and subscriptions.</span>
+<span class="go">    extension        : Manage and update CLI extensions.</span>
+<span class="go">    feature          : Manage resource provider features.</span>
+<span class="go">    feedback         : Loving or hating the CLI?  Let us know!</span>
+<span class="go">    find             : Find Azure CLI commands.</span>
+<span class="go">    functionapp      : Manage function apps.</span>
+<span class="go">    group            : Manage resource groups and template deployments.</span>
+<span class="go">    image            : Manage custom virtual machine images.</span>
+<span class="go">    interactive      : Start interactive mode.</span>
+<span class="go">    iot              : (PREVIEW) Manage Internet of Things (IoT) assets.</span>
+<span class="go">    keyvault         : Safeguard and maintain control of keys, secrets, and certificates.</span>
+<span class="go">    lab              : Manage Azure DevTest Labs.</span>
+<span class="go">    lock             : Manage Azure locks.</span>
+<span class="go">    login            : Log in to Azure.</span>
+<span class="go">    logout           : Log out to remove access to Azure subscriptions.</span>
+<span class="go">    managedapp       : Manage template solutions provided and maintained by Independent Software</span>
+<span class="go">                       Vendors (ISVs).</span>
+<span class="go">    monitor          : Manage the Azure Monitor Service.</span>
+<span class="go">    mysql            : Manage Azure Database for MySQL servers.</span>
+<span class="go">    network          : Manage Azure Network resources.</span>
+<span class="go">    policy           : Manage resource policies.</span>
+<span class="go">    postgres         : Manage Azure Database for PostgreSQL servers.</span>
+<span class="go">    provider         : Manage resource providers.</span>
+<span class="go">    redis            : Access to a secure, dedicated Redis cache for your Azure applications.</span>
+<span class="go">    reservations     : Manage Azure Reservations.</span>
+<span class="go">    resource         : Manage Azure resources.</span>
+<span class="go">    role             : Manage user roles for access control with Azure Active Directory and service</span>
+<span class="go">                       principals.</span>
+<span class="go">    sf               : Manage and administer Azure Service Fabric clusters.</span>
+<span class="go">    snapshot         : Manage point-in-time copies of managed disks, native blobs, or other</span>
+<span class="go">                       snapshots.</span>
+<span class="go">    sql              : Manage Azure SQL Databases and Data Warehouses.</span>
+<span class="go">    storage          : Manage Azure Cloud Storage resources.</span>
+<span class="go">    tag              : Manage resource tags.</span>
+<span class="go">    vm               : Provision Linux or Windows virtual machines.</span>
+<span class="go">    vmss             : Manage groupings of virtual machines in an Azure Virtual Machine Scale Set</span>
+<span class="go">                       (VMSS).</span>
+<span class="go">    webapp           : Manage web apps.</span>
+</pre></div>
+</div>
+</section>
+<section id="log-into-your-microsoft-azure-account">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Log into your Microsoft Azure account</a><a class="headerlink" href="#log-into-your-microsoft-azure-account" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>With the <strong class="command">az</strong> command properly installed and functional, login to
+your MS Azure account using the <strong class="command">az login</strong> command shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az<span class="w"> </span>login
+</pre></div>
+</div>
+<p>The output from this command is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">To sign in, use a web browser to open the page https://aka.ms/devicelogin and enter the code BQ9MG442B to authenticate.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Open your browser and enter the page <cite>https://aka.ms/devicelogin</cite> as shown
+in figure 1:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/azure-1.png"><img alt="Microsoft Device Login" src="../../_images/azure-1.png" style="width: 627.0px; height: 464.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: <span class="guilabel">Microsoft Device Login</span></span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Enter the code <cite>BQ9MG442B</cite> to authenticate your device as shown in figure
+2. The code <cite>BQ9MG442B</cite> is a random authentication code generated for each
+session login and will be different each time you log into MS Azure using
+the <strong class="command">az login</strong> command.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/azure-2.png"><img alt="Microsoft Device Login - Azure CLI" src="../../_images/azure-2.png" style="width: 627.0px; height: 464.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: <span class="guilabel">Microsoft Device Login - Azure CLI</span></span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Once you enter the authentication code, the website displays a screen to
+enter your existing Microsoft Azure credentials.</p></li>
+<li><p>Log in with your existing MS Azure account credentials. The
+browser screen shows you have signed into the Microsoft Cross-platform
+Command Line Interface application on your device, as shown in figure 3.
+You can close the page.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/azure-3.png"><img alt="Microsoft Azure Cross-platform CLI" src="../../_images/azure-3.png" style="width: 627.0px; height: 464.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: <span class="guilabel">Microsoft Azure Cross-platform CLI</span></span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>The MS Azure CLI 2.0 interface is now active using your existing MS Azure
+account credentials.</p>
+</section>
+<section id="create-a-ms-azure-resource-group">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Create a MS Azure resource group</a><a class="headerlink" href="#create-a-ms-azure-resource-group" title="Link to this heading">¶</a></h2>
+<p>To learn more about MS Azure resource groups, visit the
+<a class="reference external" href="https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview">Azure Resource Manager overview</a> for an overview and detailed description
+of resources within MS Azure.</p>
+<ol class="arabic">
+<li><p>To create a new resource group, run the <strong class="command">az group create ...</strong>
+command shown below to create a resource group named <cite>ClearResourceGroup</cite>
+using the <cite>-n</cite> parameter and locate it in the <cite>westus</cite> region using the
+<cite>-l</cite> parameter.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az<span class="w"> </span>group<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>ClearResourceGroup<span class="w"> </span>-l<span class="w"> </span>westus
+</pre></div>
+</div>
+</li>
+<li><p>When the command has completed, the output from this command is similar to
+the following:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;id&quot;: &quot;/subscriptions/{unique-id}/resourceGroups/ClearResourceGroup&quot;,</span>
+<span class="go">  &quot;location&quot;: &quot;westus&quot;,</span>
+<span class="go">  &quot;managedBy&quot;: null,</span>
+<span class="go">  &quot;name&quot;: &quot;ClearResourceGroup&quot;,</span>
+<span class="go">  &quot;properties&quot;: {</span>
+<span class="go">    &quot;provisioningState&quot;: &quot;Succeeded&quot;</span>
+<span class="go">  },</span>
+<span class="go">  &quot;tags&quot;: null</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="create-and-log-into-the-cl-virtual-machine">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Create and log into the Clear Linux OS virtual machine</a><a class="headerlink" href="#create-and-log-into-the-cl-virtual-machine" title="Link to this heading">¶</a></h2>
+<p>For this tutorial, we are using the Clear Linux OS Basic SKU for our VM.</p>
+<ol class="arabic">
+<li><p>To locate the available Clear Linux OS Basic VM SKU images in the MS Azure
+marketplace, run the <strong class="command">az vm image ...</strong> command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az<span class="w"> </span>vm<span class="w"> </span>image<span class="w"> </span>list<span class="w"> </span>--offer<span class="w"> </span>clear-linux<span class="w"> </span>--sku<span class="w"> </span>basic<span class="w"> </span>--all<span class="w"> </span>--output<span class="w"> </span>table
+</pre></div>
+</div>
+<p>This command may take some time to finish. The output lists all available
+Clear Linux OS Basic images available in the Microsoft Azure marketplace as shown
+below:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Offer           Publisher            Sku               Urn                                                            Version</span>
+<span class="go">--------------  -------------------  ----------------  -------------------------------------------------------------  ---------</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:15780.0.0             15780.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:15960.0.0             15960.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:16050.0.0             16050.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:16150.0.0             16150.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:16500.0.0             16500.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:16810.0.0             16810.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:18080.0.0             18080.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:18620.0.0             18620.0.0</span>
+<span class="go">clear-linux-os  clear-linux-project  basic             clear-linux-project:clear-linux-os:basic:18860.0.0             18860.0.0</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The output list shows current offerings. New versions are added to the
+MS Azure marketplace all the time. To reference the latest version of an
+image, you can use the version label <cite>latest</cite> when specifying an image.</p>
+</div>
+</li>
+<li><p>The information shown in the <cite>Urn</cite> column lists the
+<cite>Publisher:Offer:Sku:Version</cite> for each image available. This is the
+information we want to create the Clear Linux OS Basic VM. Since we are creating a
+Clear Linux OS Basic VM, highlight the <cite>clear-linux-project:clear-linux-os:basic:</cite>
+string and copy it to your clipboard. Use the label
+<cite>latest</cite> instead of referencing a specific version.</p></li>
+<li><p>Create the new Clear Linux OS Basic VM. Run the <strong class="command">az vm create ...</strong>
+command using the URN <cite>:clear-linux-project:clear-linux-os:basic:latest</cite>
+that we copied to the clipboard on the previous step.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az<span class="w"> </span>vm<span class="w"> </span>create<span class="w"> </span>--resource-group<span class="w"> </span>ClearResourceGroup<span class="w"> </span>--name<span class="w"> </span>ClearVM<span class="w"> </span>--image<span class="w"> </span>clear-linux-project:clear-linux-os:basic:latest<span class="w"> </span>--generate-ssh-keys
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have already defined your public/private SSH key pair and they
+are stored in your <code class="file docutils literal notranslate"><span class="pre">$HOME/.ssh</span></code> directory, you do not need to
+include the <em>–generate-ssh-keys</em> option.</p>
+</div>
+<p>The output from this command will look similar to this output, where
+[user] is your user name:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">SSH key files &#39;/home/[user]/.ssh/id_rsa&#39; and &#39;/home/[user]/.ssh/id_rsa.pub&#39; have been generated under ~/.ssh to allow SSH access to the VM. If using machines without permanent storage, back up your keys to a safe location.</span>
+
+<span class="go">running...</span>
+
+<span class="go">{</span>
+<span class="go">  &quot;fqdns&quot;: &quot;&quot;,</span>
+<span class="go">  &quot;id&quot;: &quot;/subscriptions/{unique-id}/resourceGroups/ClearResourceGroup/providers/Microsoft.Compute/virtualMachines/ClearVM&quot;,</span>
+<span class="go">  &quot;location&quot;: &quot;westus&quot;,</span>
+<span class="go">  &quot;macAddress&quot;: &quot;00-0D-3A-37-C7-59&quot;,</span>
+<span class="go">  &quot;powerState&quot;: &quot;VM running&quot;,</span>
+<span class="go">  &quot;privateIpAddress&quot;: &quot;10.0.0.4&quot;,</span>
+<span class="go">  &quot;publicIpAddress&quot;: &quot;13.91.4.245&quot;,</span>
+<span class="go">  &quot;resourceGroup&quot;: &quot;ClearResourceGroup&quot;,</span>
+<span class="go">  &quot;zones&quot;: &quot;&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Take note of the public IP address from the output.</p>
+</li>
+<li><p>Login into the new Clear Linux OS Basic VM, run the <strong class="command">ssh</strong> command with the
+public IP address obtained from the previous step as shown:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span><span class="o">[</span>user<span class="o">]</span>@13.91.4.245
+</pre></div>
+</div>
+<p>You may see the following message about the authenticity of the host. If
+this appears, type <cite>yes</cite> to proceed connecting to your new Clear Linux OS VM.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">The authenticity of host &#39;13.91.4.245 (13.91.4.245)&#39; can&#39;t be established.</span>
+<span class="go">RSA key fingerprint is SHA256:{unique-number}.</span>
+<span class="go">Are you sure you want to continue connecting (yes/no)? yes</span>
+<span class="go">Warning: Permanently added &#39;13.91.4.245&#39; (RSA) to the list of known hosts.</span>
+
+<span class="go">[user]@ClearVM ~ $</span>
+</pre></div>
+</div>
+<p>You are now logged into your new Clear Linux OS VM as [user], where [user] is your
+user name. To check which software bundles are included with
+this VM image, run the <strong class="command">sudo swupd bundle-list</strong> command inside the
+VM:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-list
+</pre></div>
+</div>
+<p>The output shown should be similar to:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">swupd-client bundle list 3.14.1</span>
+<span class="go">   Copyright (C) 2012-2017 Intel Corporation</span>
+
+<span class="go">bootloader</span>
+<span class="go">editors</span>
+<span class="go">kernel-hyperv</span>
+<span class="go">network-basic</span>
+<span class="go">openssh-server</span>
+<span class="go">os-cloudguest-azure</span>
+<span class="go">os-core</span>
+<span class="go">os-core-update</span>
+<span class="go">perl-basic</span>
+<span class="go">python-basic</span>
+<span class="go">python3-basic</span>
+<span class="go">storage-utils</span>
+<span class="go">sysadmin-basic</span>
+<span class="go">Current OS version: 19600</span>
+</pre></div>
+</div>
+<p>When you are finished using your new Clear Linux OS VM, type <strong class="command">exit</strong> to close
+the <strong class="command">SSH</strong> terminal and logout.</p>
+</li>
+</ol>
+</section>
+<section id="stop-and-deallocate-the-cl-vm-and-resources">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Stop and deallocate the Clear Linux OS VM and resources</a><a class="headerlink" href="#stop-and-deallocate-the-cl-vm-and-resources" title="Link to this heading">¶</a></h2>
+<p>When you finish using your new Clear Linux OS instance, you must stop the VM and
+deallocate the resources in your resource group. If you only stop a VM, the OS
+image shuts down but the resources associated with it in your resource group
+remain allocated and incurring charges. For instance, if you stop and then
+later start the VM using the <strong class="command">az vm start...</strong> without deallocating
+the resources, the IP address is retained and you can access the VM using that
+same IP address. To release the resources associated with the VM and stop
+incurring charges for them, you must deallocate the resources as well.</p>
+<ol class="arabic">
+<li><p>At the command prompt, enter the <strong class="command">az vm stop...</strong> command as
+follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>az<span class="w"> </span>vm<span class="w"> </span>stop<span class="w"> </span>--resource-group<span class="w"> </span>ClearResourceGroup<span class="w"> </span>--name<span class="w"> </span>ClearVM
+</pre></div>
+</div>
+<p>This will stop the VM and then output text similar to:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;endTime&quot;: &quot;2017-12-13T23:04:02.346676+00:00&quot;,</span>
+<span class="go">  &quot;error&quot;: null,</span>
+<span class="go">  &quot;name&quot;: &quot;{unique-name}&quot;,</span>
+<span class="go">  &quot;startTime&quot;: &quot;2017-12-13T23:03:59.018536+00:00&quot;,</span>
+<span class="go">  &quot;status&quot;: &quot;Succeeded&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Once the VM stops, deallocate the VM resources to stop incurring
+charges for the Clear Linux OS instance. Enter the following command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">az vm deallocate --resource-group ClearResourceGroup --name ClearVM</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>Congratulations!</strong> You are up and running with Clear Linux OS on MS Azure using the
+Azure CLI 2.0 command line tools.</p>
+</section>
+<section id="next-steps">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Next steps</a><a class="headerlink" href="#next-steps" title="Link to this heading">¶</a></h2>
+<p>To see use cases you can fulfill with your Clear Linux OS instance, visit our
+<a class="reference internal" href="../../tutorials/index.html#tutorials"><span class="std std-ref">tutorials</span></a> section.</p>
+<p>For additional information visit the Clear Linux OS
+<a class="reference external" href="http://download.microsoft.com/download/D/9/E/D9E22342-96D9-4455-BB15-99A1AF514DDD/Microsoft%20Azure%20Partner%20Mini%20Case%20Study%20-%20Intel%20Clear%20Linux.pdf">Azure Partner Mini Case Study</a> and the <a class="reference external" href="http://download.microsoft.com/download/D/9/E/D9E22342-96D9-4455-BB15-99A1AF514DDD/Microsoft%20Azure%20Partner%20Datasheet%20-%20Intel%20Clear%20Linux.pdf">Azure Partner Datasheet</a>.</p>
+<p>To learn more about the MS Azure CLI 2.0 tool and options that are available,
+visit the <a class="reference external" href="https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest">MS Azure documentation and tutorials</a> website.</p>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="gce.html#gce"><span class="std std-ref">Clear Linux* OS on Google Cloud Platform*</span></a></p></li>
+<li><p><a class="reference internal" href="aws-web.html#aws-web"><span class="std std-ref">Clear Linux* OS on Amazon Web Services*</span></a></p></li>
+<li><p><a class="reference internal" href="digitalocean.html#clr-digitalocean"><span class="std std-ref">Clear Linux* OS on DigitalOcean*</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Clear Linux* OS on Microsoft* Azure*</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#install-ms-azure-cli-2-0-on-cl">Install MS Azure CLI 2.0 on Clear Linux OS</a></li>
+<li><a class="reference internal" href="#log-into-your-microsoft-azure-account">Log into your Microsoft Azure account</a></li>
+<li><a class="reference internal" href="#create-a-ms-azure-resource-group">Create a MS Azure resource group</a></li>
+<li><a class="reference internal" href="#create-and-log-into-the-cl-virtual-machine">Create and log into the Clear Linux OS virtual machine</a></li>
+<li><a class="reference internal" href="#stop-and-deallocate-the-cl-vm-and-resources">Stop and deallocate the Clear Linux OS VM and resources</a></li>
+<li><a class="reference internal" href="#next-steps">Next steps</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="aws-web.html"
+                          title="previous chapter">Clear Linux* OS on Amazon Web Services*</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="digitalocean.html"
+                          title="next chapter">Clear Linux* OS on DigitalOcean*</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/cloud-install/azure.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="digitalocean.html" title="Clear Linux* OS on DigitalOcean*"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="aws-web.html" title="Clear Linux* OS on Amazon Web Services*"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on Microsoft* Azure*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

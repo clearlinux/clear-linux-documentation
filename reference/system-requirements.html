@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Recommended minimum system requirements &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/system-requirements.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Clear Linux* OS image types" href="image-types.html" />
+    <link rel="prev" title="Available bundles" href="bundles/bundles.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="image-types.html" title="Clear Linux* OS image types"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="bundles/bundles.html" title="Available bundles"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Recommended minimum system requirements</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="recommended-minimum-system-requirements">
+<span id="system-requirements"></span><h1>Recommended minimum system requirements<a class="headerlink" href="#recommended-minimum-system-requirements" title="Link to this heading">¶</a></h1>
+<p>Clear Linux* OS can run on most modern hardware and is capable of running with
+modest hardware resources. Out of the box, Clear Linux OS can run on a single CPU core,
+1 GB RAM, and minimum of disk space of:</p>
+<ul class="simple">
+<li><p>4 GB for the <em>live server</em></p></li>
+<li><p>20 GB for the <em>live desktop</em></p></li>
+</ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Advanced users who wish to install on a disk using less than the recommended
+space requirements may use the flag <code class="docutils literal notranslate"><span class="pre">--skip-validation-size</span></code>. Use of this
+flag may cause the installation to fail due to inadequate disk space.</p>
+</div>
+<p>For use cases requiring minimal resources, Clear Linux OS <a class="reference internal" href="../about.html#about"><span class="std std-ref">about</span></a> can
+be used to create a highly customized installation that can even run on a
+system with a 128MB of memory and 600MB of disk space, for example.</p>
+<section id="installer-requirements">
+<h2>Installer requirements<a class="headerlink" href="#installer-requirements" title="Link to this heading">¶</a></h2>
+<p>The <em>live desktop</em> installer requires at least 1 GB of RAM because more
+resources are required to run in live mode than after Clear Linux OS is installed onto
+persistent storage.</p>
+<p>For hardware with less resources, use the <em>live server</em> installer because it
+has a smaller memory footprint.</p>
+<p>See <a class="reference external" href="https://clearlinux.org/downloads">https://clearlinux.org/downloads</a> for more download options.</p>
+</section>
+<section id="id1">
+<h2>System requirements<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS requires an x86 64-bit processor which supports Intel® Streaming SIMD
+Extensions 4.2 (Intel® SSE 4.2).</p>
+<p>For information on the boot loader, see the <a class="reference external" href="https://github.com/clearlinux/clr-boot-manager">clr-boot-manager readme</a> .</p>
+<p>The Clear Linux OS installer performs a system compatibility check upon booting. To
+manually verify system compatibility with Clear Linux OS, run the <a class="reference internal" href="../get-started/compatibility-check.html#compatibility-check"><span class="std std-ref">compatibility
+check tool</span></a> or go to <a class="reference external" href="http://ark.intel.com">http://ark.intel.com</a> and check for
+these features:</p>
+<ul class="simple">
+<li><p>Instruction Set:</p>
+<ul>
+<li><p>64-bit</p></li>
+</ul>
+</li>
+<li><p>Instruction Set Extensions:</p>
+<ul>
+<li><p>Supplemental Streaming SIMD Extension 3 (SSSE3)</p></li>
+<li><p>Intel® Streaming SIMD Extensions 4.1 (Intel® SSE 4.1)</p></li>
+<li><p>Intel® Streaming SIMD Extensions 4.2 (Intel® SSE 4.2)</p></li>
+<li><p>Carry-less Multiplication (PCLMUL)</p></li>
+</ul>
+</li>
+</ul>
+<p>The following processor families have been verified to run Clear Linux OS:</p>
+<ul class="simple">
+<li><p>Intel® Core™ processor family (2nd generation or greater)</p></li>
+<li><p>Intel® Xeon® E3-xxxx processor</p></li>
+<li><p>Intel® Xeon® E5-xxxx processor</p></li>
+<li><p>Intel® Xeon® E7-xxxx processor</p></li>
+<li><p>Intel Atom® processor C Series</p></li>
+<li><p>Intel Atom® processor E Series</p></li>
+</ul>
+</section>
+<section id="recommended-configurations">
+<h2>Recommended configurations<a class="headerlink" href="#recommended-configurations" title="Link to this heading">¶</a></h2>
+<p>For general Clear Linux OS desktop use the recommended minimum requirements include:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>Component</p></td>
+<td><p>Configuration</p></td>
+</tr>
+<tr class="row-even"><td><p>Processor</p></td>
+<td><p>Compatible x86 64-bit processor</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory</p></td>
+<td><p>4GB RAM</p></td>
+</tr>
+<tr class="row-even"><td><p>Disk</p></td>
+<td><p>20 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Graphics</p></td>
+<td><p>Device with openGL support (e.g. Intel HD/UHD Graphics)</p></td>
+</tr>
+<tr class="row-even"><td><p>Network</p></td>
+<td><p>Active Internet connection</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Intel, Intel Core, Xeon, Intel Atom, and the Intel logo are trademarks of
+Intel Corporation or its subsidiaries.</em></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Recommended minimum system requirements</a><ul>
+<li><a class="reference internal" href="#installer-requirements">Installer requirements</a></li>
+<li><a class="reference internal" href="#id1">System requirements</a></li>
+<li><a class="reference internal" href="#recommended-configurations">Recommended configurations</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="bundles/bundles.html"
+                          title="previous chapter">Available bundles</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="image-types.html"
+                          title="next chapter">Clear Linux* OS image types</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/system-requirements.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="image-types.html" title="Clear Linux* OS image types"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="bundles/bundles.html" title="Available bundles"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Recommended minimum system requirements</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

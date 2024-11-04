@@ -1,0 +1,451 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Use DPDK to send packets between platforms &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/network/dpdk.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Firewall" href="firewall.html" />
+    <link rel="prev" title="Assign a static IP address" href="assign-static-ip.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="firewall.html" title="Firewall"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="assign-static-ip.html" title="Assign a static IP address"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Use DPDK to send packets between platforms</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="use-dpdk-to-send-packets-between-platforms">
+<span id="dpdk"></span><h1>Use DPDK to send packets between platforms<a class="headerlink" href="#use-dpdk-to-send-packets-between-platforms" title="Link to this heading">¶</a></h1>
+<p>This guide describes how to send packets between two platforms.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id5">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#install-dpdk-and-build-l3fwd-example-platform-b" id="id6">Install dpdk and build l3fwd example (Platform B)</a></p></li>
+<li><p><a class="reference internal" href="#build-pktgen-platform-a" id="id7">Build pktgen (Platform A)</a></p></li>
+<li><p><a class="reference internal" href="#bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b" id="id8">Bind NICs to DPDK kernel drivers (Platforms A and B)</a></p></li>
+<li><p><a class="reference internal" href="#set-hugepages-platforms-a-and-b" id="id9">Set hugepages (Platforms A and B)</a></p></li>
+<li><p><a class="reference internal" href="#set-up-the-physical-environment-platforms-a-and-b" id="id10">Set up the physical environment (Platforms A and B)</a></p></li>
+<li><p><a class="reference internal" href="#run-l3fwd-application-platform-b" id="id11">Run l3fwd application (Platform B)</a></p></li>
+<li><p><a class="reference internal" href="#run-pktgen-application-platform-a" id="id12">Run pktgen application (Platform A)</a></p></li>
+<li><p><a class="reference internal" href="#appendix-a-use-pass-through-for-virtual-machines" id="id13">Appendix A: Use pass-through for virtual machines</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Figure 1 shows how to send packets between two platforms in a simple
+configuration. The example uses the <abbr title="DPDK">Data Plane Development Kit</abbr>,
+which is a set of libraries, drivers, sample applications, and tools for fast
+packet processing.</p>
+<figure class="align-center" id="id2">
+<img alt="Platform A and B" src="../../_images/pktgen_lw3fd.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: Environment for l3fwd DPDK application</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This example uses the following DPDK components:</p>
+<ul class="simple">
+<li><p>pktgen: Traffic generator. See <a class="reference external" href="http://pktgen-dpdk.readthedocs.io/en/latest/index.html">pktgen</a> documentation for details.</p></li>
+<li><p>l3fwd: Layer 3 forwarding example application. See
+<a class="reference external" href="http://dpdk.org/doc/guides/sample_app_ug/l3_forward.html">l3fwd</a> documentation for details.</p></li>
+</ul>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Two platforms using Clear Linux* OS release <a class="reference external" href="https://cdn.download.clearlinux.org/releases/31130/clear/">31130</a> or higher.</p></li>
+<li><p>Both images must include the <strong class="command">kernel-native</strong> bundle.</p></li>
+<li><p>Install the following packages:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>network-basic-dev<span class="w"> </span>dpdk<span class="w"> </span>devpkg-dpdk
+</pre></div>
+</div>
+</li>
+<li><p>Each platform must have at least one <abbr title="Network Interface Card">NIC</abbr>.
+Check the <a class="reference external" href="http://dpdk.org">DPDK project</a> for the list of supported <a class="reference external" href="http://dpdk.org/doc/nics">dpdk.org NICs</a>.</p></li>
+<li><p>Two network cables.</p></li>
+</ul>
+</section>
+<section id="install-dpdk-and-build-l3fwd-example-platform-b">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Install dpdk and build l3fwd example (Platform B)</a><a class="headerlink" href="#install-dpdk-and-build-l3fwd-example-platform-b" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Change to the <code class="file docutils literal notranslate"><span class="pre">l3fwd</span></code> example directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/usr/share/dpdk/examples/l3fwd
+</pre></div>
+</div>
+</li>
+<li><p>Assign <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RTE_SDK</span></code> variable to the makefiles path.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">RTE_SDK</span><span class="o">=</span>/usr/share/dpdk/
+</pre></div>
+</div>
+</li>
+<li><p>Assign <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RTE_TARGET</span></code> variable to the location of the gcc* config
+file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">RTE_TARGET</span><span class="o">=</span>x86_64-native-linux-gcc
+</pre></div>
+</div>
+</li>
+<li><p>Build the <cite>l3fwd</cite> application and add the configuration header to
+the <strong class="makevar">CFLAGS</strong> variable.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>make
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="build-pktgen-platform-a">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Build pktgen (Platform A)</a><a class="headerlink" href="#build-pktgen-platform-a" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Download the <a class="reference external" href="http://dpdk.org/browse/apps/pktgen-dpdk/refs">pktgen tar package</a> v3.1.2 or newer.</p></li>
+<li><p>Decompress packages and move to uncompressed source directory.</p></li>
+<li><p>Assign <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RTE_SDK</span></code> variable to the path where makefiles are located.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">RTE_SDK</span><span class="o">=</span>/usr/share/dpdk/
+</pre></div>
+</div>
+</li>
+<li><p>Assign <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">RTE_TARGET</span></code> to the location of the gcc config file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">RTE_TARGET</span><span class="o">=</span>x86_64-native-linux-gcc
+</pre></div>
+</div>
+</li>
+<li><p>Build the <cite>pktgen</cite> project and set the <strong class="makevar">CONFIG_RTE_BUILD_SHARED_LIB</strong> variable
+to “n”.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>make<span class="w"> </span><span class="nv">CONFIG_RTE_BUILD_SHARED_LIB</span><span class="o">=</span>n
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Bind NICs to DPDK kernel drivers (Platforms A and B)</a><a class="headerlink" href="#bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b" title="Link to this heading">¶</a></h2>
+<p>The <cite>l3fwd</cite> application uses two NICs. The DPDK includes tools for binding
+NICs to DPDK modules to run DPDK applications.</p>
+<ol class="arabic">
+<li><p>Load the DPDK I/O kernel module.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>modprobe<span class="w"> </span>vfio-pci
+</pre></div>
+</div>
+</li>
+<li><p>Check the NIC status to determine which network cards are not
+busy. When another application is using them, the status shows “Active”,
+and those NICs cannot be bound.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dpdk-devbind<span class="w"> </span>--status
+</pre></div>
+</div>
+</li>
+<li><p>Bind two available NICs. The general syntax for binding is:
+<strong class="command">dpdk-devbind --bind=vfio-pci &lt;device-entry&gt;</strong>.
+A working example is shown below:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dpdk-devbind<span class="w"> </span>--bind<span class="o">=</span>vfio-pci<span class="w"> </span><span class="m">01</span>:00.0
+</pre></div>
+</div>
+</li>
+<li><p>Check the NIC status to verify that the NICs are bound correctly. If
+successful, <cite>drv</cite> displays the value <cite>igb_uio</cite>, which confirms
+that the NICs are using the DPDK modules.</p></li>
+</ol>
+</section>
+<section id="set-hugepages-platforms-a-and-b">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Set hugepages (Platforms A and B)</a><a class="headerlink" href="#set-hugepages-platforms-a-and-b" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS supports <cite>hugepages</cite> for the large memory pool allocation used for
+packet buffers.</p>
+<ol class="arabic">
+<li><p>Set the number of hugepages.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages
+</pre></div>
+</div>
+</li>
+<li><p>Allocate pages on NUMA machines.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+<span class="nb">echo</span><span class="w"> </span><span class="m">1024</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/devices/system/node/node1/hugepages/hugepages-2048kB/nr_hugepages
+</pre></div>
+</div>
+</li>
+<li><p>Make memory available for DPDK.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/mnt/huge<span class="w"> </span>$<span class="w"> </span>mount<span class="w"> </span>-t<span class="w"> </span>hugetlbfs<span class="w"> </span>nodev<span class="w"> </span>/mnt/huge
+</pre></div>
+</div>
+<p>For more information, refer to the <a class="reference external" href="http://dpdk.org/doc/guides/linux_gsg/sys_reqs.html">DPDK guide</a> System Requirements
+section.</p>
+</li>
+</ol>
+</section>
+<section id="set-up-the-physical-environment-platforms-a-and-b">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink">Set up the physical environment (Platforms A and B)</a><a class="headerlink" href="#set-up-the-physical-environment-platforms-a-and-b" title="Link to this heading">¶</a></h2>
+<p>Connect the NICs on Platform A to the NICs on Platform B using the network
+cables as shown in figure 2.</p>
+<figure class="align-default" id="id3">
+<img alt="../../_images/pyshical_net.png" src="../../_images/pyshical_net.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: Physical network environment</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="run-l3fwd-application-platform-b">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Run l3fwd application (Platform B)</a><a class="headerlink" href="#run-l3fwd-application-platform-b" title="Link to this heading">¶</a></h2>
+<p>The <cite>l3fwd</cite> application is one of the DPDK examples available when you
+install the <code class="file docutils literal notranslate"><span class="pre">dpdk-dev</span></code> bundle. <cite>l3fwd</cite> forwards packets from one
+NIC to another. For details, refer to the <a class="reference external" href="http://dpdk.org/doc/guides/sample_app_ug/l3_forward.html">l3fwd</a> documentation.</p>
+<ol class="arabic">
+<li><p>Open the l3fwd example directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span><span class="nb">cd</span><span class="w">  </span>/usr/share/dpdk/examples/l3fwd
+</pre></div>
+</div>
+</li>
+<li><p><strong>This step is very important.</strong></p>
+<ol class="arabic simple">
+<li><p>DPDK needs poll mode drivers to operate.</p></li>
+<li><p>Poll mode drivers are shared objects in <code class="file docutils literal notranslate"><span class="pre">/usr/lib64</span></code>.</p></li>
+<li><p>See the full list of supported NICs at <a class="reference external" href="http://dpdk.org/doc/nics">dpdk.org NICs</a>.</p></li>
+<li><p>You must know which kernel module each NIC is using and choose a poll
+mode driver that corresponds to your NICs.</p></li>
+</ol>
+</li>
+<li><p>NIC binding and <cite>pktgen</cite> configuration depends upon network use cases and
+available system resources. Use the <strong class="command">-d</strong> flag to set the poll mode
+driver.</p>
+<p>The following example assumes that the NICs use the <cite>e1000</cite> network driver
+and the <cite>e1000</cite> poll mode driver. The <code class="file docutils literal notranslate"><span class="pre">librte_pmd_e1000.so</span></code> is
+located in <code class="file docutils literal notranslate"><span class="pre">/usr/lib64</span></code> in Clear Linux OS.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./build/l3fwd<span class="w"> </span>-c<span class="w"> </span>0x3<span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>-d<span class="w"> </span>librte_pmd_e1000.so<span class="w"> </span>--<span class="w"> </span>-p<span class="w"> </span>0x3<span class="w"> </span>--config<span class="o">=</span><span class="s2">&quot;(0,0,0),(1,0,1)&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <cite>l3fwd</cite> application shows port initialization details at startup.
+After port 0 initialization completes, <cite>l3fwd</cite> shows a MAC address and
+information for port 1.</p>
+<p>Save the MAC address for configuring the <cite>pktgen</cite> project.</p>
+</li>
+</ol>
+</section>
+<section id="run-pktgen-application-platform-a">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Run pktgen application (Platform A)</a><a class="headerlink" href="#run-pktgen-application-platform-a" title="Link to this heading">¶</a></h2>
+<p><cite>pktgen</cite> is a network traffic generator included in the DPDK.</p>
+<ol class="arabic">
+<li><p><cite>pktgen</cite> configuration depends upon the network setup and the
+available system resources. The following example shows a basic
+configuration.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>./app/app/x86_64-native-linux-gcc/pktgen<span class="w"> </span>-c<span class="w"> </span>0xf<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>--<span class="w"> </span>-p<span class="w"> </span>0xf<span class="w"> </span>-P<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;1.0, 2.1&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enable active colorful output (optional).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Pktgen&gt;<span class="w"> </span>theme<span class="w"> </span><span class="nb">enable</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use the MAC addresses shown by the <cite>l3fwd</cite> application during initialization.
+The command to set the MAC addresses in <cite>pktgen</cite> has the format:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="w"> </span>mac<span class="w"> </span>&lt;port<span class="w"> </span>number&gt;<span class="w"> </span>&lt;mac<span class="w"> </span>address&gt;
+</pre></div>
+</div>
+<p>Here is a working example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Pktgen&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>mac<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">00</span>:1E:67:CB:E8:C9
+Pktgen&gt;<span class="w"> </span><span class="nb">set</span><span class="w"> </span>mac<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">00</span>:1E:67:CB:E8:C9
+</pre></div>
+</div>
+</li>
+<li><p>Send packets.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Pktgen&gt;<span class="w"> </span>start<span class="w"> </span><span class="m">0</span>-1
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For more details, see the <a class="reference external" href="http://pktgen-dpdk.readthedocs.io/en/latest/index.html">pktgen</a> documentation.</p>
+</section>
+<section id="appendix-a-use-pass-through-for-virtual-machines">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Appendix A: Use pass-through for virtual machines</a><a class="headerlink" href="#appendix-a-use-pass-through-for-virtual-machines" title="Link to this heading">¶</a></h2>
+<p>This section explains how to set up a virtual environment where virtual
+machines control the NICs on the host.</p>
+<ol class="arabic">
+<li><p>Create a new directory and move to it.</p></li>
+<li><p>Download or create a <code class="file docutils literal notranslate"><span class="pre">start_qemu.sh</span></code> script for running a kvm virtual
+machine:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>curl<span class="w"> </span>-O<span class="w"> </span>https://cdn.download.clearlinux.org/image/start_qemu.sh
+</pre></div>
+</div>
+</li>
+<li><p>Download a bare-metal image of Clear Linux OS and rename it as <code class="file docutils literal notranslate"><span class="pre">clear.img</span></code>.</p></li>
+<li><p>Look for an Ethernet* device entry that contains vendor and device ID:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>lspci<span class="w"> </span>-nn<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Ethernet
+</pre></div>
+</div>
+<p>An example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">03:00.0 Ethernet controller [0200]: Intel Corporation I350 Gigabit Network Connection [8086:1521]</span>
+</pre></div>
+</div>
+<p>where <cite>03:00.0</cite> is the device entry and <cite>8086:1521</cite> is the <cite>vendor:device
+ID</cite>. Record this information, because you need it to unbind the NICs from a
+host.</p>
+</li>
+<li><p>Unbind the NICs from the host to do pass-through with virtual machines. Clear Linux OS
+supports this action. The commands take the format:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;vendor device_ID&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/pci/drivers/pci-stub/new_id
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;entry for device&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/pci/drivers/igb/unbind
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;entry for device&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/pci/drivers/pci-stub/bind
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;vendor device_ID&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/sys/bus/pci/drivers/pci-stub/remove_id
+</pre></div>
+</div>
+<p>Here is a working example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;8086 1521&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/bus/pci/drivers/pci-stub/new_id
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;0000:03:00.0&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/bus/pci/drivers/igb/unbind
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;0000:03:00.0&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/bus/pci/drivers/pci-stub/bind
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;8086 1521&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/sys/bus/pci/drivers/pci-stub/remove_id
+</pre></div>
+</div>
+</li>
+<li><p>Assign the unbound NICs to the KVM virtual machine (guest).
+Modify the <code class="file docutils literal notranslate"><span class="pre">start_qemu.sh</span></code> script in <cite>qemu-system-x86_64</cite> arguments, and
+add the lines with the host’s NICs information in the format:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-device<span class="w"> </span>pci-assign,host<span class="o">=</span><span class="s2">&quot;&lt;entry for device&gt;&quot;</span>,id<span class="o">=</span>passnic0,addr<span class="o">=</span><span class="m">03</span>.0
+-device<span class="w"> </span>pci-assign,host<span class="o">=</span><span class="s2">&quot;&lt;entry for device&gt;&quot;</span>,id<span class="o">=</span>passnic1,addr<span class="o">=</span><span class="m">04</span>.0
+</pre></div>
+</div>
+<p>Here is a working example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-device<span class="w"> </span>pci-assign,host<span class="o">=</span><span class="m">03</span>:00.0,id<span class="o">=</span>passnic0,addr<span class="o">=</span><span class="m">03</span>.0<span class="w"> </span><span class="se">\</span>
+-device<span class="w"> </span>pci-assign,host<span class="o">=</span><span class="m">03</span>:00.3,id<span class="o">=</span>passnic1,addr<span class="o">=</span><span class="m">04</span>.0<span class="w"> </span><span class="se">\</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add more NUMA machines to the virtual machine by adding lines to the
+Makefile boot target in the format:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-numa<span class="w"> </span>node,mem<span class="o">=</span>&lt;memory&gt;,cpus<span class="o">=</span>&lt;number<span class="w"> </span>of<span class="w"> </span>cpus&gt;
+</pre></div>
+</div>
+<p>Here is a working example for a virtual machine with 4096 memory and four
+CPUs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-numa<span class="w"> </span>node,mem<span class="o">=</span><span class="m">2048</span>,cpus<span class="o">=</span><span class="m">0</span>-1<span class="w"> </span><span class="se">\</span>
+-numa<span class="w"> </span>node,mem<span class="o">=</span><span class="m">2048</span>,cpus<span class="o">=</span><span class="m">2</span>-3<span class="w"> </span><span class="se">\</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each NUMA machine must use the same quantity of memory.</p>
+</div>
+</li>
+<li><p>Run the <code class="file docutils literal notranslate"><span class="pre">start_qemu.sh</span></code> script.</p></li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Use DPDK to send packets between platforms</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#install-dpdk-and-build-l3fwd-example-platform-b">Install dpdk and build l3fwd example (Platform B)</a></li>
+<li><a class="reference internal" href="#build-pktgen-platform-a">Build pktgen (Platform A)</a></li>
+<li><a class="reference internal" href="#bind-nics-to-dpdk-kernel-drivers-platforms-a-and-b">Bind NICs to DPDK kernel drivers (Platforms A and B)</a></li>
+<li><a class="reference internal" href="#set-hugepages-platforms-a-and-b">Set hugepages (Platforms A and B)</a></li>
+<li><a class="reference internal" href="#set-up-the-physical-environment-platforms-a-and-b">Set up the physical environment (Platforms A and B)</a></li>
+<li><a class="reference internal" href="#run-l3fwd-application-platform-b">Run l3fwd application (Platform B)</a></li>
+<li><a class="reference internal" href="#run-pktgen-application-platform-a">Run pktgen application (Platform A)</a></li>
+<li><a class="reference internal" href="#appendix-a-use-pass-through-for-virtual-machines">Appendix A: Use pass-through for virtual machines</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="assign-static-ip.html"
+                          title="previous chapter">Assign a static IP address</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="firewall.html"
+                          title="next chapter">Firewall</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/network/dpdk.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="firewall.html" title="Firewall"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="assign-static-ip.html" title="Assign a static IP address"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Use DPDK to send packets between platforms</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

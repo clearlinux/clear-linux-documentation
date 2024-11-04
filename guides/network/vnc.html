@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Remote-desktop to a host using VNC &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/network/vnc.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configure Wi-Fi" href="wifi.html" />
+    <link rel="prev" title="Set system time" href="time.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="wifi.html" title="Configure Wi-Fi"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="time.html" title="Set system time"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Remote-desktop to a host using VNC</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="remote-desktop-to-a-host-using-vnc">
+<span id="vnc"></span><h1>Remote-desktop to a host using VNC<a class="headerlink" href="#remote-desktop-to-a-host-using-vnc" title="Link to this heading">¶</a></h1>
+<p>This guide describes how to use <abbr title="Virtual Network Computing">VNC</abbr> to
+connect to a remote Clear Linux* OS host.</p>
+<p>VNC is a client-server GUI-based tool that allows you to connect via
+remote-desktop to your Clear Linux OS host.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#install-the-vnc-server-and-misc-components-on-your-host" id="id11">Install the VNC server and misc. components on your host</a></p></li>
+<li><p><a class="reference internal" href="#configure-a-vnc-server-start-method-on-your-host" id="id12">Configure a VNC-server-start method on your host</a></p></li>
+<li><p><a class="reference internal" href="#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system" id="id13">Install a VNC viewer app and an SSH client on your client system</a></p></li>
+<li><p><a class="reference internal" href="#establish-a-vnc-connection-to-your-host" id="id14">Establish a VNC connection to your host</a></p></li>
+<li><p><a class="reference internal" href="#terminate-a-vnc-connection-to-your-host" id="id15">Terminate a VNC connection to your host</a></p></li>
+<li><p><a class="reference internal" href="#encrypt-vnc-traffic-through-an-ssh-tunnel" id="id16">Encrypt VNC traffic through an SSH tunnel</a></p></li>
+</ul>
+</nav>
+<section id="install-the-vnc-server-and-misc-components-on-your-host">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink">Install the VNC server and misc. components on your host</a><a class="headerlink" href="#install-the-vnc-server-and-misc-components-on-your-host" title="Link to this heading">¶</a></h2>
+<p>To configure VNC to work on your Clear Linux OS host, install these bundles:</p>
+<ul class="simple">
+<li><p><strong class="command">desktop-autostart</strong>: Installs <abbr title="Gnome Desktop Manager">GDM</abbr>, sets
+it to start automatically on boot, and installs TigerVNC Viewer.</p></li>
+<li><p><strong class="command">vnc-server</strong>: Installs the TigerVNC server.</p></li>
+</ul>
+<p>Follow these steps:</p>
+<ol class="arabic">
+<li><p>Open a terminal window.</p></li>
+<li><p>Install the Clear Linux OS bundles.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>desktop-autostart<span class="w"> </span>vnc-server
+</pre></div>
+</div>
+</li>
+<li><p>Reboot your Clear Linux OS host.</p></li>
+</ol>
+</section>
+<section id="configure-a-vnc-server-start-method-on-your-host">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Configure a VNC-server-start method on your host</a><a class="headerlink" href="#configure-a-vnc-server-start-method-on-your-host" title="Link to this heading">¶</a></h2>
+<p>There are three methods you can use to configure and start the VNC server on
+your Clear Linux OS host:</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 1: VNC-server-start Configuration Methods</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 14.3%" />
+<col style="width: 28.6%" />
+<col style="width: 28.6%" />
+<col style="width: 28.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Method 1: Manually start a VNC session</p></th>
+<th class="head"><p>Method 2: Automatically start a VNC session via a systemd service script</p></th>
+<th class="head"><p>Method 3: Create multi-user logins with authentication through GDM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Description</p></td>
+<td><p>This is the traditional method where you SSH into the Clear Linux OS host, manually
+start a VNC session to get a display ID, and connect to it by
+supplying the display ID.</p></td>
+<td><p>The system administrator sets up a systemd service script for you with
+a pre-assigned display ID.  You make a VNC connection and supply
+your pre-assigned display ID.</p></td>
+<td><p>The system administrator configures GDM to accept connection requests.
+When you make a VNC connection to the Clear Linux OS host, you see
+the GDM login screen and authenticate as if you are local.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Who configures VNC settings?</p></td>
+<td><p>You</p></td>
+<td><p>System administrator</p></td>
+<td><p>System administrator</p></td>
+</tr>
+<tr class="row-even"><td><p>Who starts VNC session?</p></td>
+<td><p>You</p></td>
+<td><p>Set to start automatically on boot by system administrator</p></td>
+<td><p>Set to start automatically on boot by system administrator</p></td>
+</tr>
+<tr class="row-odd"><td><p>Who ends VNC session?</p></td>
+<td><p>You</p></td>
+<td><p>You</p></td>
+<td><p>System administrator can disable VNC service altogether</p></td>
+</tr>
+<tr class="row-even"><td><p>Requires VNC password to authenticate?</p></td>
+<td><p>Yes</p></td>
+<td><p>Yes</p></td>
+<td><p>No.  Use Clear Linux OS account username and password through GDM</p></td>
+</tr>
+</tbody>
+</table>
+<p>Although all three methods can coexist on the same Clear Linux OS host, we recommend
+you pick a method that suits your needs.</p>
+<p>For simplicity, the rest of this guide refers to these methods as
+Method 1, Method 2, and Method 3.</p>
+<section id="method-1-manually-start-a-vnc-session">
+<h3>Method 1: Manually start a VNC session<a class="headerlink" href="#method-1-manually-start-a-vnc-session" title="Link to this heading">¶</a></h3>
+<p>You (and each user) must perform these steps to initialize your VNC settings.</p>
+<ol class="arabic">
+<li><p>Log in.</p></li>
+<li><p>Open a terminal window.</p></li>
+<li><p>Start VNC with the <strong class="command">vncserver</strong> command.  Since this is your
+first time starting VNC, it adds default configuration files and asks you
+to set a VNC password.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">You will require a password to access your desktops.</span>
+
+<span class="go">Password:</span>
+<span class="go">Verify:</span>
+<span class="go">Would you like to enter a view-only password (y/n)? n</span>
+<span class="go">xauth:  file /home/vnc-user-a/.Xauthority does not exist</span>
+
+<span class="go">New &#39;clr-linux:2 (vnc-user-a)&#39; desktop is clr-linux:2</span>
+
+<span class="go">Creating default startup script /home/vnc-user-a/.vnc/xstartup</span>
+<span class="go">Creating default config /home/vnc-user-a/.vnc/config</span>
+<span class="go">Starting applications specified in /home/vnc-user-a/.vnc/xstartup</span>
+<span class="go">Log file is /home/vnc-user-a/.vnc/clr-linux:2.log</span>
+</pre></div>
+</div>
+<p>Upon completion, you can find the default configuration files and the
+password file hidden in the <code class="file docutils literal notranslate"><span class="pre">.vnc</span></code> directory in your home directory.</p>
+<p>A VNC session starts and shows a unique display ID, which is the
+number following the hostname and the colon “:”.  In the above example, the
+display ID is 2.  In a later step, you will supply the display ID to
+your VNC viewer app for connection.</p>
+</li>
+<li><p>Kill the active VNC session for the time being with the
+<strong class="command">vncserver -kill :[display ID]</strong> command.  Substitute [display ID]
+with your active VNC session display ID.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver<span class="w"> </span>-kill<span class="w"> </span>:2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you do not recall the active session display ID, use the
+<strong class="command">vncserver -list</strong> command to find it.</p>
+</div>
+</li>
+<li><p>Optional configurations:</p>
+<ul class="simple">
+<li><p>To customize settings such as screen size, security type, etc.,
+modify the <code class="file docutils literal notranslate"><span class="pre">$HOME/.vnc/config</span></code> file.</p></li>
+<li><p>To customize the applications to run at startup, modify the
+<code class="file docutils literal notranslate"><span class="pre">$HOME/.vnc/xstartup</span></code> file.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="method-2-automatically-start-a-vnc-session-via-a-systemd-service-script">
+<h3>Method 2: Automatically start a VNC session via a systemd service script<a class="headerlink" href="#method-2-automatically-start-a-vnc-session-via-a-systemd-service-script" title="Link to this heading">¶</a></h3>
+<p>To configure VNC for this method, you must have root privileges.  You will
+set up a systemd service file for all intended VNC users with their own
+preassigned unique display ID.</p>
+<ol class="arabic">
+<li><p>Log in.</p></li>
+<li><p>Make sure the user accounts already exist.  Use the following command to
+list all users.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>cut<span class="w"> </span>-d:<span class="w"> </span>-f1<span class="w"> </span>/etc/passwd
+</pre></div>
+</div>
+</li>
+<li><p>Create the path <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/system
+</pre></div>
+</div>
+</li>
+<li><p>Create a systemd service script file <code class="file docutils literal notranslate"><span class="pre">vncserver&#64;:[X].service</span></code>,
+where [X] is the display ID, for each user in <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>
+Each user must be assigned a unique display ID.  Be sure the correct
+username is entered in the <span class="guilabel">User</span> field. The example below shows user
+vnc-user-b who is assigned the display ID 5.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/systemd/system/vncserver@:5.service<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+
+<span class="s">[Unit]</span>
+<span class="s">Description=VNC Remote Desktop Service for &quot;vnc-user-b&quot; with display ID &quot;5&quot;</span>
+<span class="s">After=syslog.target network.target</span>
+
+<span class="s">[Service]</span>
+<span class="s">Type=simple</span>
+<span class="s">User=vnc-user-b</span>
+<span class="s">PAMName=login</span>
+<span class="s">PIDFile=/home/%u/.vnc/%H%i.pid</span>
+<span class="s">ExecStartPre=/bin/sh -c &#39;/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :&#39;</span>
+<span class="s">ExecStart=/usr/bin/vncserver %i -geometry 2000x1200 -alwaysshared -fg</span>
+<span class="s">ExecStop=/usr/bin/vncserver -kill %i</span>
+
+<span class="s">[Install]</span>
+<span class="s">WantedBy=multi-user.target</span>
+
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Have each user log into their account and set a VNC password with
+the <strong class="command">vncpasswd</strong> command before proceeding to the next step.</p></li>
+<li><p>Start the VNC service script and set it to start automatically on
+boot for each user.  Replace the [X] with the display ID.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>vncserver@:<span class="o">[</span>X<span class="o">]</span>.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>vncserver@:<span class="o">[</span>X<span class="o">]</span>.service
+</pre></div>
+</div>
+</li>
+<li><p>After starting the services, verify they are running.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vnc
+</pre></div>
+</div>
+<p>The example below shows 2 VNC sessions that were successfully started for
+users vnc-user-b with display ID 5 and vnc-user-c with display ID 6.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">systemctl | grep vnc</span>
+
+<span class="go">vncserver@:5.services   loaded active running  VNC Remote Desktop Service for &quot;vnc-user-b&quot; with display ID &quot;5&quot;</span>
+<span class="go">vncserver@:6.services   loaded active running  VNC Remote Desktop Service for &quot;vnc-user-c&quot; with display ID &quot;6&quot;</span>
+<span class="go">system-vncserver.slice  loaded active active system-vncserver.slice</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="method-3-multi-user-logins-with-authentication-through-gdm">
+<h3>Method 3: Multi-user logins with authentication through GDM<a class="headerlink" href="#method-3-multi-user-logins-with-authentication-through-gdm" title="Link to this heading">¶</a></h3>
+<p>For this method, VNC is configured as a systemd service that listens on port
+5900 and GDM is configured to accept access requests from VNC. When you
+make a VNC connection to your Clear Linux OS host, you are presented with the GDM login
+screen and you authenticate as if you are local.  You must have root privileges
+to perform this configuration.</p>
+<ol class="arabic">
+<li><p>Log in.</p></li>
+<li><p>Create the path <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/system
+</pre></div>
+</div>
+</li>
+<li><p>Create a systemd socket file <code class="file docutils literal notranslate"><span class="pre">xvnc.socket</span></code> with the following content:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/systemd/system/xvnc.socket<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+
+<span class="s">[Unit]</span>
+<span class="s">Description=XVNC Server on port 5900</span>
+
+<span class="s">[Socket]</span>
+<span class="s">ListenStream=5900</span>
+<span class="s">Accept=yes</span>
+
+<span class="s">[Install]</span>
+<span class="s">WantedBy=sockets.target</span>
+
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create a systemd service file <code class="file docutils literal notranslate"><span class="pre">xvnc&#64;.service</span></code> with the following content:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w">  </span>/etc/systemd/system/xvnc@.service<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+
+<span class="s">[Unit]</span>
+<span class="s">Description=Daemon for each XVNC connection</span>
+
+<span class="s">[Service]</span>
+<span class="s">ExecStart=-/usr/bin/Xvnc -inetd -query localhost -geometry 2000x1200 -once -SecurityTypes=None</span>
+<span class="s">User=nobody</span>
+<span class="s">StandardInput=socket</span>
+<span class="s">StandardError=syslog</span>
+
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create the path <code class="file docutils literal notranslate"><span class="pre">/etc/gdm</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/gdm
+</pre></div>
+</div>
+</li>
+<li><p>Create a GDM <code class="file docutils literal notranslate"><span class="pre">custom.conf</span></code> file with the following content:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/gdm/custom.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+
+<span class="s">[xdmcp]</span>
+<span class="s">Enable=true</span>
+<span class="s">Port=177</span>
+
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Start the VNC socket script and set it to start automatically on boot.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>xvnc.socket
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>xvnc.socket
+</pre></div>
+</div>
+</li>
+<li><p>After starting the socket, verify it is running.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>systemctl<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>vnc
+</pre></div>
+</div>
+<p>The example below shows the xvnc.socket is running.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">systemctl | grep vnc</span>
+
+<span class="go">xvnc.socket               loaded active listening XVNC Server on port 5900</span>
+<span class="go">system-xvnc.slice         loaded active active    system-xvnc.slice</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>See the vncserver Man page for additional information.</p>
+</section>
+</section>
+<section id="install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink">Install a VNC viewer app and an SSH client on your client system</a><a class="headerlink" href="#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system" title="Link to this heading">¶</a></h2>
+<p>You need a VNC viewer app on your client system to connect to your Clear Linux OS host.
+An SSH client is only needed if you chose to use Method 1 or you plan to
+encrypt your VNC traffic, which is discussed later in this guide.</p>
+<p>Perform the steps below to add these apps to your client system.</p>
+<section id="install-a-vnc-viewer-app">
+<h3>Install a VNC viewer app<a class="headerlink" href="#install-a-vnc-viewer-app" title="Link to this heading">¶</a></h3>
+<p>On Clear Linux OS:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>desktop-autostart
+</pre></div>
+</div>
+<p>On Ubuntu*, Mint*:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>xtightvncviewer
+</pre></div>
+</div>
+<p>On Fedora*:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>tigervnc
+</pre></div>
+</div>
+<p>On Windows*:</p>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/windows/">RealVNC for Windows</a></p></li>
+</ul>
+<p>On macOS*:</p>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://www.realvnc.com/en/connect/download/viewer/macos/">RealVNC for macOS</a></p></li>
+</ul>
+</section>
+<section id="install-an-ssh-client">
+<h3>Install an SSH client<a class="headerlink" href="#install-an-ssh-client" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>On most Linux distros (Clear Linux OS, Ubuntu, Mint, Fedora, etc.) and macOS,
+SSH is built-in so you don’t need to install it.</p></li>
+<li><p>On Windows, you can install <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">Putty</a>.</p></li>
+</ul>
+</section>
+</section>
+<section id="establish-a-vnc-connection-to-your-host">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink">Establish a VNC connection to your host</a><a class="headerlink" href="#establish-a-vnc-connection-to-your-host" title="Link to this heading">¶</a></h2>
+<p>Depending on the VNC-server-configuration method chosen, use the appropriate VNC
+connection:</p>
+<ul class="simple">
+<li><p>If you chose Method 1, you must take a few extra steps by using SSH to connect
+to your Clear Linux OS host and then manually launching VNC.</p></li>
+<li><p>If you chose Method 2, get your preassigned VNC display ID from your system
+administrator first and then proceed to the <a class="reference internal" href="#connect-to-vnc-session"><span class="std std-ref">Connect to your VNC session</span></a>
+section below.</p></li>
+<li><p>If you chose Method 3, proceed to the <a class="reference internal" href="#connect-to-vnc-session"><span class="std std-ref">Connect to your VNC session</span></a> below.</p></li>
+</ul>
+<section id="ssh-into-your-host-and-launch-vnc">
+<h3>SSH into your host and launch VNC<a class="headerlink" href="#ssh-into-your-host-and-launch-vnc" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>SSH into your Clear Linux OS host</p>
+<ol class="loweralpha">
+<li><p>On Linux distros and macOS:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span><span class="o">[</span>username<span class="o">]</span>@<span class="o">[</span>clear-linux-host-ip-address<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>On Windows:</p>
+<ol class="lowerroman">
+<li><p>Launch Putty.</p></li>
+<li><p>Under the <span class="guilabel">Category</span> section, select <span class="guilabel">Session</span>.
+See Figure 1.</p></li>
+<li><p>Enter the IP address of your Clear Linux OS host in the
+<span class="guilabel">Host Name (or IP address)</span> field.</p></li>
+<li><p>Set the <span class="guilabel">Connection type</span> option to <span class="guilabel">SSH</span>.</p></li>
+<li><p>Click the <span class="guilabel">Open</span> button.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/vnc-1.png"><img alt="Putty - configure SSH session settings" src="../../_images/vnc-1.png" style="width: 813.6px; height: 763.2px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Putty - configure SSH session settings</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Log in with your Clear Linux OS username and password. Do not use your VNC password.</p></li>
+<li><p>Start a VNC session.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">New &#39;clr-linux:3 (vnc-user-c)&#39; desktop is clr-linux:3</span>
+
+<span class="go">Starting applications specified in /home/vnc-user-c/.vnc/xstartup</span>
+<span class="go">Log file is /home/vnc-user-c/.vnc/clr-linux:3.log</span>
+</pre></div>
+</div>
+</li>
+<li><p>Take note of the generated display ID because you will input it into
+the VNC viewer app to establish the connection.  The above example shows
+the display ID is 3.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VNC automatically picks a unique display ID unless you specify one.
+To specify a display ID, enter a unique number that is not already
+in use after the colon.  For example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver<span class="w"> </span>:8
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>You can now end the SSH connection by logging out.  This does
+not terminate your active VNC session.</p></li>
+</ol>
+</section>
+<section id="connect-to-your-vnc-session">
+<span id="connect-to-vnc-session"></span><h3>Connect to your VNC session<a class="headerlink" href="#connect-to-your-vnc-session" title="Link to this heading">¶</a></h3>
+<p>For Method 1 and Method 2, you must connect to a specific active session
+or display ID using one of two options:</p>
+<ul class="simple">
+<li><p>Use a fully-qualified VNC port number, which consists of the default VNC
+server port (5900) plus the display ID</p></li>
+<li><p>Use the display ID</p></li>
+</ul>
+<p>For example, if the display ID is 3, it can be specified as 5903 or just
+as 3. For Method 3, VNC does not expect a display ID.  Use 5900. For simplicity,
+the instructions below use the fully-qualified VNC port number.</p>
+<p><strong>On Linux distros:</strong></p>
+<ol class="arabic">
+<li><p>Open a terminal window and enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncviewer<span class="w"> </span><span class="o">[</span>clear-linux-host-ip-address<span class="o">]</span>:<span class="o">[</span>fully-qualified<span class="w"> </span>VNC<span class="w"> </span>port<span class="w">  </span>number<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enter your credentials.</p>
+<ul>
+<li><p>For Method 1 and Method 2, enter your VNC password.  No username is
+required.</p></li>
+<li><p>For Method 3, enter your Clear Linux OS account username and password through
+GDM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With Method 3, you cannot remotely log into your Clear Linux OS host through
+VNC if you are logged in locally and vice versa.</p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>On Windows and macOS using RealVNC app:</strong></p>
+<ol class="arabic">
+<li><p>Start the RealVNC viewer app. See Figure 2.</p></li>
+<li><p>Enter the IP address of the Clear Linux OS host and the fully-qualified
+VNC port number.</p>
+<p>The following screenshot shows connecting to Clear Linux OS host
+192.168.25.54 with a fully-qualified VNC port number 5902.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/vnc-2.png"><img alt="RealVNC Viewer" src="../../_images/vnc-2.png" style="width: 717.3000000000001px; height: 437.40000000000003px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: RealVNC Viewer</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Press the <kbd class="kbd docutils literal notranslate">Enter</kbd> key.</p></li>
+<li><p>Enter your credentials.</p>
+<ul>
+<li><p>For Method 1 and Method 2, enter your VNC password.  No username is
+required.</p></li>
+<li><p>For Method 3, enter your Clear Linux OS account username and password through
+GDM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With Method 3, you cannot remotely log into your Clear Linux OS host through
+VNC if you are logged in locally and vice versa.</p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<section id="optional-configure-realvnc-image-quality">
+<h4>Optional: Configure RealVNC Image Quality<a class="headerlink" href="#optional-configure-realvnc-image-quality" title="Link to this heading">¶</a></h4>
+<p>To increase the RealVNC viewer image quality, manually change the <span class="guilabel">ColorLevel</span>
+value. Follow these steps:</p>
+<ol class="arabic">
+<li><p>Right-click a connection node and select <span class="guilabel">Properties…</span>.
+See Figure 3.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/vnc-3.png"><img alt="RealVNC Viewer - change connection node properties" src="../../_images/vnc-3.png" style="width: 522.0px; height: 425.7px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: RealVNC Viewer - change connection node properties</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select the <span class="guilabel">Expert</span> tab. See Figure 4.</p></li>
+<li><p>Select the <span class="guilabel">ColorLevel</span> setting and change it to your
+preferred setting.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/vnc-4.png"><img alt="RealVNC Viewer - change ColorLevel" src="../../_images/vnc-4.png" style="width: 630.0px; height: 855.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: RealVNC Viewer - change <span class="guilabel">ColorLevel</span></span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="terminate-a-vnc-connection-to-your-host">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink">Terminate a VNC connection to your host</a><a class="headerlink" href="#terminate-a-vnc-connection-to-your-host" title="Link to this heading">¶</a></h2>
+<p>For Method 1 and Method 2, once started, a VNC session remains active
+on your Clear Linux OS host even if you close your VNC viewer app. If you want to
+truly terminate an active VNC session, follow these steps:</p>
+<ol class="arabic">
+<li><p>SSH into your Clear Linux OS host.</p></li>
+<li><p>Open a terminal window.</p></li>
+<li><p>Find the active VNC session display ID with the command
+<strong class="command">vncserver -list</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver<span class="w"> </span>-list
+</pre></div>
+</div>
+</li>
+<li><p>Terminate it with the <strong class="command">vncserver -kill</strong> command followed by a
+colon and the display ID.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncserver<span class="w"> </span>-kill<span class="w"> </span>:<span class="o">[</span>display<span class="w"> </span>ID<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>For Method 3, only the system administrator can stop and disable the
+VNC service by using these commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>xvnc.socket
+sudo<span class="w"> </span>systemctl<span class="w"> </span>disable<span class="w"> </span>xnvc.socket
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="encrypt-vnc-traffic-through-an-ssh-tunnel">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink">Encrypt VNC traffic through an SSH tunnel</a><a class="headerlink" href="#encrypt-vnc-traffic-through-an-ssh-tunnel" title="Link to this heading">¶</a></h2>
+<p>By default, VNC traffic is not encrypted.  Figure 5 shows an example warning
+from RealVNC Viewer.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/vnc-6.png"><img alt="RealVNC Viewer - Connection not encrypted warning" src="../../_images/vnc-6.png" style="width: 563.4px; height: 375.3px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: RealVNC Viewer - Connection not encrypted warning</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>To add security, VNC traffic can be routed through an SSH tunnel. This is
+accomplished by following these steps:</p>
+<ol class="arabic simple">
+<li><p>Configure the VNC server to only accept connection from localhost by
+adding the <strong class="command">-localhost</strong> option.</p></li>
+<li><p>Set up an SSH tunnel between your client system and your Clear Linux OS host.
+Your client system will forward traffic from the localhost (the client)
+destined for a specified fully-qualified VNC port number (on the client)
+to your Clear Linux OS host with the same port number.</p></li>
+<li><p>The VNC viewer app on your client system will now connect to localhost,
+instead of the IP address of your Clear Linux OS host.</p></li>
+</ol>
+<section id="configure-vnc-to-only-accept-connection-from-localhost">
+<h3>Configure VNC to only accept connection from localhost<a class="headerlink" href="#configure-vnc-to-only-accept-connection-from-localhost" title="Link to this heading">¶</a></h3>
+<p>For Method 1:</p>
+<ol class="arabic">
+<li><p>Edit the <code class="file docutils literal notranslate"><span class="pre">config</span></code> file located in <code class="file docutils literal notranslate"><span class="pre">$HOME/.vnc</span></code> and uncomment
+the <cite># localhost</cite> line.  It should look like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="c1"># Supported server options to pass to vncserver upon invocation can be listed</span>
+<span class="gp">#</span><span class="c1"># in this file. See the following manpages for more: vncserver(1)</span>
+<span class="go">Xvnc(1).</span>
+<span class="gp">#</span><span class="c1"># Several common ones are shown below. Uncomment and modify to your liking.</span>
+<span class="gp">#</span><span class="c1">#</span>
+<span class="gp"># </span><span class="nv">securitytypes</span><span class="o">=</span>vncauth,tlsvnc
+<span class="gp"># </span><span class="nv">desktop</span><span class="o">=</span>sandbox
+<span class="gp"># </span><span class="nv">geometry</span><span class="o">=</span>2000x1200
+<span class="go">localhost</span>
+<span class="gp"># </span>alwaysshared
+</pre></div>
+</div>
+</li>
+<li><p>If an active session exists, kill it, and then restart it.</p></li>
+</ol>
+<p>For Method 2:</p>
+<ol class="arabic">
+<li><p>Edit the systemd service script <code class="file docutils literal notranslate"><span class="pre">vncserver&#64;:[X].service</span></code> located in
+<code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code> and add <strong class="command">-localhost</strong> to the <cite>ExecStart</cite>
+line. The example below uses vncserver&#64;:5.service:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[Unit]</span>
+<span class="go">Description=VNC Remote Desktop Service for &quot;vnc-user-b&quot; with display ID &quot;5&quot;</span>
+<span class="go">After=syslog.target network.target</span>
+
+<span class="go">[Service]</span>
+<span class="go">Type=simple</span>
+<span class="go">User=vnc-user-b</span>
+<span class="go">PAMName=login</span>
+<span class="go">PIDFile=/home/%u/.vnc/%H%i.pid</span>
+<span class="go">ExecStartPre=/bin/sh -c &#39;/usr/bin/vncserver -kill %i &gt; /dev/null 2&gt;&amp;1 || :&#39;</span>
+<span class="go">ExecStart=/usr/bin/vncserver %i -geometry 2000x1200 -localhost -alwaysshared -fg</span>
+<span class="go">ExecStop=/usr/bin/vncserver -kill %i</span>
+
+<span class="go">[Install]</span>
+<span class="go">WantedBy=multi-user.target</span>
+</pre></div>
+</div>
+</li>
+<li><p>Restart the service script:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>vncserver@:5.service
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For Method 3:</p>
+<ol class="arabic">
+<li><p>No change is needed to the <code class="file docutils literal notranslate"><span class="pre">xvnc&#64;service</span></code> script.</p>
+<p>After you have restarted your VNC session, you can verify that it only
+accepts connections from localhost by using the <strong class="command">netstat</strong>
+command like this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>netstat<span class="w"> </span>-plant
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Add the Clear Linux OS <strong class="command">network-basic</strong> bundle to get the <strong class="command">netstat</strong>
+command.</p>
+</div>
+</li>
+</ol>
+<p>Figure 6 shows two VNC sessions (5901 and 5905) accepting connections from
+any host as specified by the <cite>0.0.0.0</cite>’s.  This is before the
+<strong class="command">-localhost</strong> option was used.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/vnc-7.png"><img alt="VNC session accepting connection from any host" src="../../_images/vnc-7.png" style="width: 878.0px; height: 170.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: VNC sessions (5901 and 5905) accepting connections from any host</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Figure 7 shows two VNC sessions (5901 and 5905) only accepting connections from
+localhost as specified by <cite>127.0.0.1</cite>’s. This is after the
+<strong class="command">-localhost</strong> option was used.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/vnc-8.png"><img alt="VNC session only accepting connection from localhost" src="../../_images/vnc-8.png" style="width: 877.0px; height: 170.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: VNC sessions (5901 and 5905) only accepting connections from localhost</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="set-up-an-ssh-tunnel-from-your-client-system-to-your-cl-host">
+<h3>Set up an SSH tunnel from your client system to your Clear Linux OS host<a class="headerlink" href="#set-up-an-ssh-tunnel-from-your-client-system-to-your-cl-host" title="Link to this heading">¶</a></h3>
+<p><strong>On Linux distros and macOS:</strong></p>
+<ol class="arabic">
+<li><p>Open terminal window and enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-L<span class="w"> </span><span class="o">[</span>client<span class="w"> </span>port<span class="w"> </span>number<span class="o">]</span>:localhost:<span class="o">[</span>fully-qualified<span class="w"> </span>VNC<span class="w"> </span>port<span class="w"> </span>number<span class="o">]</span><span class="w"> </span><span class="se">\</span>
+-N<span class="w"> </span>-f<span class="w"> </span>-l<span class="w"> </span><span class="o">[</span>username<span class="o">]</span><span class="w"> </span><span class="o">[</span>clear-linux-host-ip-address<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Enter your Clear Linux OS account password (not your VNC password).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p><cite>-L</cite> specifies that [client port number] on the localhost (on the
+client side) is forwarded to [fully-qualified VNC port number]
+(on the server side).</p></li>
+<li><p>Replace <cite>[client port number]</cite> with an available client port number
+(for example: 1234). For simplicity, you can make the
+<cite>[client port number]</cite> the same as the <cite>[fully-qualified VNC port number]</cite>.</p></li>
+<li><p>Replace <cite>[fully-qualified VNC port number]</cite> with 5900 (default VNC
+port) plus the display ID.  For example, if the display ID is 2,
+the fully-qualified VNC port number is is 5902.</p></li>
+<li><p><cite>-N</cite> tells SSH to only forward ports and not execute a remote
+command.</p></li>
+<li><p><cite>-f</cite> tells SSH to go into the background before command execution.</p></li>
+<li><p><cite>-l</cite> specifies the username to log in as.</p></li>
+</ul>
+</div>
+</li>
+</ol>
+<p><strong>On Windows:</strong></p>
+<ol class="arabic">
+<li><p>Launch Putty.</p></li>
+<li><p>Specify the Clear Linux OS VNC host to connect to.</p>
+<ol class="loweralpha simple">
+<li><p>Under the <span class="guilabel">Category</span> section, select <span class="guilabel">Session</span>.
+See Figure 1.</p></li>
+<li><p>Enter the IP address of your Clear Linux OS host in the
+<span class="guilabel">Host Name (or IP address)</span> field.</p></li>
+<li><p>Set the <span class="guilabel">Connection type</span> option to <span class="guilabel">SSH</span>.</p></li>
+</ol>
+</li>
+<li><p>Configure the SSH tunnel.  See Figure 8 for an example.</p>
+<ol class="loweralpha">
+<li><p>Under the <span class="guilabel">Category</span> section, go to
+<span class="guilabel">Connection</span> &gt; <span class="guilabel">SSH</span> &gt; <span class="guilabel">Tunnels</span>.</p></li>
+<li><p>In the <span class="guilabel">Source port</span> field, enter an available client
+port number (for example: 1234). For simplicity, you can make the
+<cite>Source port</cite> the same as the fully-qualified VNC port number.</p></li>
+<li><p>In the <span class="guilabel">Destination</span> field, enter
+<cite>localhost:</cite> plus the fully-qualified VNC port number.</p></li>
+<li><p>Click the <span class="guilabel">Add</span> button.</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/vnc-9.png"><img alt="Putty - configure SSH tunnel" src="../../_images/vnc-9.png" style="width: 677.0px; height: 676.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: Putty - configure SSH tunnel</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</li>
+<li><p>Click the <span class="guilabel">Open</span> button.</p></li>
+<li><p>Enter your Clear Linux OS account password (not your VNC password).</p></li>
+</ol>
+</section>
+<section id="connect-to-a-vnc-session-through-an-ssh-tunnel">
+<h3>Connect to a VNC session through an SSH tunnel<a class="headerlink" href="#connect-to-a-vnc-session-through-an-ssh-tunnel" title="Link to this heading">¶</a></h3>
+<p>After you have set up an SSH tunnel, follow these instructions to connect to
+your VNC session.</p>
+<p><strong>On Linux distros:</strong></p>
+<ol class="arabic">
+<li><p>Open terminal window and enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vncviewer<span class="w"> </span>localhost:<span class="o">[</span>client<span class="w"> </span>port<span class="w"> </span>number<span class="o">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p><strong>On Windows and macOS using `RealVNC`:</strong></p>
+<ol class="arabic">
+<li><p>Start the RealVNC viewer app.</p></li>
+<li><p>Enter <cite>localhost</cite> and the fully-qualified VNC port number.  See Figure 9
+for an example.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/vnc-10.png"><img alt="RealVNC viewer app connecting to localhost:1234" src="../../_images/vnc-10.png" style="width: 797.0px; height: 486.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: RealVNC viewer app connecting to <cite>localhost:1234</cite></span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+<div class="legend">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>RealVNC will still warn that the connection is not encrypted even
+though its traffic is going through the SSH tunnel.  You can ignore
+this warning.</p>
+</div>
+</div>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Remote-desktop to a host using VNC</a><ul>
+<li><a class="reference internal" href="#install-the-vnc-server-and-misc-components-on-your-host">Install the VNC server and misc. components on your host</a></li>
+<li><a class="reference internal" href="#configure-a-vnc-server-start-method-on-your-host">Configure a VNC-server-start method on your host</a><ul>
+<li><a class="reference internal" href="#method-1-manually-start-a-vnc-session">Method 1: Manually start a VNC session</a></li>
+<li><a class="reference internal" href="#method-2-automatically-start-a-vnc-session-via-a-systemd-service-script">Method 2: Automatically start a VNC session via a systemd service script</a></li>
+<li><a class="reference internal" href="#method-3-multi-user-logins-with-authentication-through-gdm">Method 3: Multi-user logins with authentication through GDM</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-a-vnc-viewer-app-and-an-ssh-client-on-your-client-system">Install a VNC viewer app and an SSH client on your client system</a><ul>
+<li><a class="reference internal" href="#install-a-vnc-viewer-app">Install a VNC viewer app</a></li>
+<li><a class="reference internal" href="#install-an-ssh-client">Install an SSH client</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#establish-a-vnc-connection-to-your-host">Establish a VNC connection to your host</a><ul>
+<li><a class="reference internal" href="#ssh-into-your-host-and-launch-vnc">SSH into your host and launch VNC</a></li>
+<li><a class="reference internal" href="#connect-to-your-vnc-session">Connect to your VNC session</a><ul>
+<li><a class="reference internal" href="#optional-configure-realvnc-image-quality">Optional: Configure RealVNC Image Quality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#terminate-a-vnc-connection-to-your-host">Terminate a VNC connection to your host</a></li>
+<li><a class="reference internal" href="#encrypt-vnc-traffic-through-an-ssh-tunnel">Encrypt VNC traffic through an SSH tunnel</a><ul>
+<li><a class="reference internal" href="#configure-vnc-to-only-accept-connection-from-localhost">Configure VNC to only accept connection from localhost</a></li>
+<li><a class="reference internal" href="#set-up-an-ssh-tunnel-from-your-client-system-to-your-cl-host">Set up an SSH tunnel from your client system to your Clear Linux OS host</a></li>
+<li><a class="reference internal" href="#connect-to-a-vnc-session-through-an-ssh-tunnel">Connect to a VNC session through an SSH tunnel</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="time.html"
+                          title="previous chapter">Set system time</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="wifi.html"
+                          title="next chapter">Configure Wi-Fi</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/network/vnc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="wifi.html" title="Configure Wi-Fi"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="time.html" title="Set system time"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Remote-desktop to a host using VNC</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

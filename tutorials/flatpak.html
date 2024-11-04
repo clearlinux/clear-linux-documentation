@@ -1,0 +1,261 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Flatpak* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/tutorials/flatpak.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Function Multi-Versioning" href="fmv.html" />
+    <link rel="prev" title="Docker*" href="docker.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="fmv.html" title="Function Multi-Versioning"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="docker.html" title="Docker*"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Flatpak*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="flatpak">
+<span id="flatpak-tutorial"></span><h1>Flatpak*<a class="headerlink" href="#flatpak" title="Link to this heading">¶</a></h1>
+<p>This tutorial shows how to install a <a class="reference external" href="https://flatpak.org">Flatpak</a> app on Clear Linux OS using GNOME* Software
+and the command line.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id6">Description</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id7">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#install-a-flatpak-app-with-gnome-software" id="id8">Install a Flatpak app with GNOME Software</a></p></li>
+<li><p><a class="reference internal" href="#install-a-flatpak-with-the-command-line" id="id9">Install a Flatpak with the command line</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://flatpak.org">Flatpak</a> is a framework for building and distributing desktop apps on
+Linux*. Flatpak allows you to build a single app and install it on different
+distributions of Linux. Flatpak apps are available through <a class="reference external" href="https://flathub.org">Flathub</a> or the
+<a class="reference external" href="https://clearlinux.org/software">Clear Linux Store</a>.</p>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Clear Linux OS installed on host system</p>
+<p>Refer to <a class="reference internal" href="../get-started/index.html#get-started"><span class="std std-ref">Get started</span></a> for installation instructions.</p>
+</li>
+<li><p><cite>desktop-autostart</cite> bundle installed</p>
+<p>Flatpak is included via <cite>desktop</cite>, which is included in the
+<cite>desktop-autostart</cite> bundle. The Flathub repository is pre-configured when
+the <cite>desktop-autostart</cite> bundle is installed.</p>
+<p>Install the <cite>desktop-autostart</cite> bundle with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>desktop-autostart
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="install-a-flatpak-app-with-gnome-software">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Install a Flatpak app with GNOME Software</a><a class="headerlink" href="#install-a-flatpak-app-with-gnome-software" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS desktop comes with GNOME Software installed. Flatpak apps can be
+installed from within GNOME Software.</p>
+<ol class="arabic">
+<li><p>Launch GNOME Software from your desktop.</p></li>
+<li><p>Search for the Flatpak app that you want to install, as shown in Figure 1.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/flatpak-01.png"><img alt="Searching for Filezilla app in GNOME Software" src="../_images/flatpak-01.png" style="width: 840.0px; height: 525.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Searching for Filezilla* app in GNOME Software</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>When you find the app you want to install, click it to view application
+details.</p></li>
+<li><p>On the app detail page, click the <span class="guilabel">Install</span> button, as shown in
+Figure 2.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/flatpak-02.png"><img alt="Filezilla Flatpak detail page in GNOME Software" src="../_images/flatpak-02.png" style="width: 840.0px; height: 525.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: Filezilla Flatpak detail page in GNOME Software</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>After installation is complete, the new application will be in your
+GNOME applications list, as shown in Figure 3.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/flatpak-03.png"><img alt="Newly installed Filezilla application" src="../_images/flatpak-03.png" style="width: 840.0px; height: 525.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: Newly installed Filezilla application</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click the application icon to launch the application.</p></li>
+</ol>
+</section>
+<section id="install-a-flatpak-with-the-command-line">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Install a Flatpak with the command line</a><a class="headerlink" href="#install-a-flatpak-with-the-command-line" title="Link to this heading">¶</a></h2>
+<p>Both Flathub and the Clear Linux Store provide the command line instructions
+for installing a Flatpak. Figure 4 shows the command line instructions to
+install Filezilla* from the Clear Linux Store:</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/flatpak-04.png"><img alt="Command line instructions to install Filezilla from the Clear Linux Store" src="../_images/flatpak-04.png" style="width: 840.0px; height: 525.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: Command line instructions to install Filezilla from the Clear Linux Store</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In this example, we install Filezilla.</p>
+<ol class="arabic">
+<li><p>Open a terminal and enter the install command for the desired app:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flatpak<span class="w"> </span>install<span class="w"> </span>flathub<span class="w"> </span>org.filezillaproject.Filezilla
+</pre></div>
+</div>
+<p>You may be prompted to select which repository to use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Looking<span class="w"> </span><span class="k">for</span><span class="w"> </span>matches…
+Remote<span class="w"> </span>‘flathub’<span class="w"> </span>found<span class="w"> </span><span class="k">in</span><span class="w"> </span>multiple<span class="w"> </span>installations:
+
+<span class="w">   </span><span class="m">1</span><span class="o">)</span><span class="w"> </span>system
+<span class="w">   </span><span class="m">2</span><span class="o">)</span><span class="w"> </span>user
+
+Which<span class="w"> </span><span class="k">do</span><span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span><span class="o">(</span><span class="m">0</span><span class="w"> </span>to<span class="w"> </span>abort<span class="o">)</span>?<span class="w"> </span><span class="o">[</span><span class="m">0</span>-2<span class="o">]</span>:<span class="w"> </span><span class="m">2</span>
+
+org.filezillaproject.Filezilla<span class="w"> </span>permissions:
+<span class="w">    </span>ipc<span class="w">      </span>network<span class="w">              </span>ssh-auth<span class="w">             </span>wayland<span class="w">      </span>x11
+<span class="w">    </span>dri<span class="w">      </span>file<span class="w"> </span>access<span class="w"> </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w">      </span>dbus<span class="w"> </span>access<span class="w"> </span><span class="o">[</span><span class="m">2</span><span class="o">]</span>
+
+<span class="w">    </span><span class="o">[</span><span class="m">1</span><span class="o">]</span><span class="w"> </span>host,<span class="w"> </span>xdg-run/dconf,<span class="w"> </span>~/.config/dconf:ro
+<span class="w">    </span><span class="o">[</span><span class="m">2</span><span class="o">]</span><span class="w"> </span>ca.desrt.dconf,<span class="w"> </span>org.freedesktop.Notifications,<span class="w"> </span>org.freedesktop.PowerManagement,
+<span class="w">        </span>org.gnome.SessionManager
+
+
+<span class="w">        </span>ID<span class="w">                                       </span>Arch<span class="w">      </span>Branch<span class="w">    </span>Remote<span class="w">    </span>Download
+<span class="w"> </span><span class="m">1</span>.<span class="w"> </span><span class="o">[</span>✓<span class="o">]</span><span class="w"> </span>org.filezillaproject.Filezilla<span class="w">           </span>x86_64<span class="w">    </span>stable<span class="w">    </span>flathub<span class="w">   </span><span class="m">11</span>.5<span class="w"> </span>MB<span class="w"> </span>/<span class="w"> </span><span class="m">11</span>.5<span class="w"> </span>MB
+<span class="w"> </span><span class="m">2</span>.<span class="w"> </span><span class="o">[</span>✓<span class="o">]</span><span class="w"> </span>org.filezillaproject.Filezilla.Locale<span class="w">    </span>x86_64<span class="w">    </span>stable<span class="w">    </span>flathub<span class="w">    </span><span class="m">4</span>.6<span class="w"> </span>kB<span class="w"> </span>/<span class="w"> </span><span class="m">3</span>.8<span class="w"> </span>MB
+
+Installation<span class="w"> </span>complete.
+</pre></div>
+</div>
+</li>
+<li><p>After installation, run the application with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>flatpak<span class="w"> </span>run<span class="w"> </span>org.filezillaproject.Filezilla
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Flatpak*</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#install-a-flatpak-app-with-gnome-software">Install a Flatpak app with GNOME Software</a></li>
+<li><a class="reference internal" href="#install-a-flatpak-with-the-command-line">Install a Flatpak with the command line</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="docker.html"
+                          title="previous chapter">Docker*</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="fmv.html"
+                          title="next chapter">Function Multi-Versioning</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/flatpak.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="fmv.html" title="Function Multi-Versioning"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="docker.html" title="Docker*"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Flatpak*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

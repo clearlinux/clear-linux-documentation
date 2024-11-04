@@ -1,0 +1,415 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS on Google Cloud Platform* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/cloud-install/gce.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Import Clear Linux Image and Launch Instance on AWS" href="import-clr-aws.html" />
+    <link rel="prev" title="Clear Linux* OS on DigitalOcean*" href="digitalocean.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="import-clr-aws.html" title="Import Clear Linux Image and Launch Instance on AWS"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="digitalocean.html" title="Clear Linux* OS on DigitalOcean*"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on Google Cloud Platform*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-on-google-cloud-platform">
+<span id="gce"></span><h1>Clear Linux* OS on Google Cloud Platform*<a class="headerlink" href="#cl-attr-on-google-cloud-platform" title="Link to this heading">¶</a></h1>
+<p>This page explains the steps to create a virtual machine instance of
+Clear Linux* OS on <a class="reference external" href="https://cloud.google.com/">Google Cloud Platform</a> (<abbr title="Google Cloud Platform">GCP</abbr>).</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id21">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#setup-cl-vm-on-gcp" id="id22">Setup Clear Linux OS VM on GCP</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id23">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Set up a Google account and a GCP billing account.</p></li>
+<li><p>Generate and install a user SSH key in the Linux PCs that will connect to
+the VMs in GCP.</p></li>
+</ul>
+</section>
+<section id="setup-cl-vm-on-gcp">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Setup Clear Linux OS VM on GCP</a><a class="headerlink" href="#setup-cl-vm-on-gcp" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Sign in to your Google* account on the
+<a class="reference external" href="https://console.cloud.google.com/">Google Cloud Console</a>:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/00-sign-in.png"><img alt="Sign in to Google services" src="../../_images/00-sign-in.png" style="width: 229.0px; height: 281.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Google sign in screen</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Google Cloud Platform uses <strong>Projects</strong> to manage resources.
+Select or create a new project for hosting the Clear Linux OS VM.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Refer to the
+<a class="reference external" href="https://cloud.google.com/compute/docs/quickstart-linux">Quickstart Using a Linux VM</a>
+guide to learn about the process of creating VM instances on GCP.</p>
+</div>
+</li>
+<li><p>Navigate to the latest Clear Linux OS
+<a class="reference external" href="https://download.clearlinux.org/releases/current/clear/">release folder</a>
+to view the currently released <abbr title="Google Compute Engine*">GCE</abbr>
+image, and download the <code class="file docutils literal notranslate"><span class="pre">clear-&lt;release</span> <span class="pre">number&gt;-gce.tar.gz</span></code>
+image archive.</p>
+<p>You don’t need to uncompress the image archive, the intact file will
+be uploaded to the Google Cloud Storage later.</p>
+</li>
+<li><p>Create a <em>Storage Bucket</em> for hosting the Clear Linux OS image source archive
+downloaded in the previous step:</p>
+<ul class="simple">
+<li><p>Click the <span class="guilabel">Navigation menu</span> icon on the upper left screen menu.</p></li>
+<li><p>Select the <span class="menuselection">Storage</span> item from the sidebar on the left.
+You will be sent to the Storage Browser tool or the Cloud Storage
+overview page.</p></li>
+</ul>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/01-cloud-storage.png"><img alt="Browse Google Cloud Storage" src="../../_images/01-cloud-storage.png" style="width: 641.5px; height: 372.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: Browse Google Cloud Storage</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may need to create a billing account and link to this project
+before you create a bucket.</p>
+</div>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/02-storage-browser.png"><img alt="Cloud Storage Browser tool" src="../../_images/02-storage-browser.png" style="width: 604.5px; height: 370.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: Cloud Storage Browser tool</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>Click the <span class="guilabel">CREATE BUCKET</span> button to enter the bucket creation tool.
+The bucket name must be unique because buckets in the Cloud Storage share
+a single global namespace.</p>
+<p>Leave the remaining options set to the defaults, and click the
+<span class="guilabel">Create</span> button at the bottom to create a <em>Bucket</em>.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/03-create-bucket.png"><img alt="Set a unique bucket name" src="../../_images/03-create-bucket.png" style="width: 605.5px; height: 371.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: Set bucket name</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</li>
+<li><p>Once the bucket is created, click the <span class="guilabel">Upload files</span> button
+on the Bucket details page to upload the Clear Linux OS GCE image archive
+to the named bucket:</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/04-bucket-created.png"><img alt="Cloud Storage bucket is available for storing objects" src="../../_images/04-bucket-created.png" style="width: 641.5px; height: 372.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: Cloud Storage bucket</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/10-image-upload.png"><img alt="Uploading the image source archive file" src="../../_images/10-image-upload.png" style="width: 641.5px; height: 371.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Uploading the image source archive file</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/11-bucket-uploaded.png"><img alt="Image archive imported complete" src="../../_images/11-bucket-uploaded.png" style="width: 640.0px; height: 370.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: Importing complete</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Browse the Compute Engine Image library page:</p>
+<ul>
+<li><p>Click the <span class="guilabel">Navigation menu</span> icon on the upper left screen menu.</p></li>
+<li><p>Select the <span class="menuselection">Compute Engine ‣ Images</span> from the side bar
+on the left.</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/20-gce-image.png"><img alt="Go to Google Compute Engine Image library" src="../../_images/20-gce-image.png" style="width: 641.5px; height: 372.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 8: Image library</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
+</li>
+<li><p>On the Compute Engine Image library page, click the
+<span class="guilabel">[+] CREATE IMAGE</span> menu item to create a custom image:</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/20-image-library.png"><img alt="Create a Google Compute Engine image" src="../../_images/20-image-library.png" style="width: 641.5px; height: 372.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 9: Create image</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the VM image creation page, change the image source type to
+<em>Cloud Storage file</em>.</p></li>
+<li><p>Under <span class="guilabel">Source</span>, select <span class="guilabel">Browse</span>.</p></li>
+<li><p>Locate the <code class="file docutils literal notranslate"><span class="pre">clear-&lt;release</span> <span class="pre">number&gt;-gce.tar.gz</span></code> file,
+and click <span class="guilabel">Select</span>.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/21-create-image.png"><img alt="Create the image using the imported image archive object" src="../../_images/21-create-image.png" style="width: 641.0px; height: 371.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 10: Create image using imported object</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Accept all default options, and click the <span class="guilabel">Create</span> button
+at the bottom to import the Clear Linux GCE image to the image library.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/22-image-list.png"><img alt="Clear Linux Compute Engine image is created" src="../../_images/22-image-list.png" style="width: 641.5px; height: 371.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 11: Image is created</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>After the Clear Linux OS image is imported, you can launch a VM instance running
+Clear Linux OS:</p>
+<ul class="simple">
+<li><p>Click the <span class="guilabel">Navigation menu</span> icon on the upper left screen menu.</p></li>
+<li><p>Select <span class="menuselection">Compute Engine ‣ VM Instances</span> from the side bar
+on the left.</p></li>
+</ul>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="../../_images/30-vm-instances.png"><img alt="Go to VM instances catalog" src="../../_images/30-vm-instances.png" style="width: 641.5px; height: 372.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 12: VM instances catalog</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>If no VM instance was created in this project, you will be prompted to
+create one.</p></li>
+<li><p>Alternatively, click the <span class="guilabel">CREATE INSTANCE</span> button on the VM
+instances page to create a VM instance.</p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../../_images/30-vm-none.png"><img alt="Prompt for VM creation" src="../../_images/30-vm-none.png" style="width: 605.5px; height: 371.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 13: VM creation</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../../_images/30-vm-catalog.png"><img alt="List of VM instances" src="../../_images/30-vm-catalog.png" style="width: 641.0px; height: 371.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 14: VM instances list</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>Under <span class="guilabel">Region</span>, choose a region based on the
+<a class="reference external" href="https://cloud.google.com/solutions/best-practices-compute-engine-region-selection">Best practices for Compute Engine regions selection</a>.</p></li>
+<li><p>Under <span class="guilabel">Boot disk</span>, click the <span class="guilabel">Change</span> button.</p>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../../_images/30-create-vm.png"><img alt="Use custom image while creating Clear Linux VM instance" src="../../_images/30-create-vm.png" style="width: 605.5px; height: 371.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 15: Use custom image</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select the <span class="menuselection">Custom images</span> tab for using Clear Linux OS GCE image.</p>
+<figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="../../_images/31-select-boot-disk.png"><img alt="Select Clear Linux boot disk to create a VM instance" src="../../_images/31-select-boot-disk.png" style="width: 640.5px; height: 370.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 16: Select Clear Linux boot disk to create a VM instance</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Scroll down to the bottom of the VM instance creation page,
+expand the <span class="guilabel">Management, security, disks, networking, sole tenancy</span>
+group.</p>
+<figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="../../_images/40-clear-vm-security.png"><img alt="Clear Linux requires setting up SSH keys" src="../../_images/40-clear-vm-security.png" style="width: 641.5px; height: 372.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 17: Set up SSH keys</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Clear Linux OS does not allow SSH login with a root account by default.
+As a result, you must configure the VM instance with your
+SSH public key, so that you are able to access it remotely.</p>
+<p>Refer to <a class="reference internal" href="../../guides/clear/security.html#security"><span class="std std-ref">OS Security</span></a> for more details.</p>
+</div>
+</li>
+<li><p>Click the <span class="menuselection">Security</span> tab, copy and paste your SSH public key:</p>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="../../_images/40-ssh-key.png"><img alt="Set SSH key for remote login" src="../../_images/40-ssh-key.png" style="width: 641.0px; height: 370.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 18: Set SSH key for remote login</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The username is assigned from characters preceding <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> in the email
+address, included in the SSH key.</p>
+</div>
+</li>
+<li><p>Click the <span class="guilabel">Create</span> button to create the Clear Linux OS VM.</p></li>
+</ul>
+</li>
+<li><p>The Clear Linux VM instance is created and assigned a public IP address:</p>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../../_images/41-vm-created.png"><img alt="Clear Linux VM instance is created and started" src="../../_images/41-vm-created.png" style="width: 641.0px; height: 371.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 19: Clear Linux VM instance is created and started</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>You can now SSH login to the VM using the IP address obtained in the
+previous step, and the username associated with the SSH public key:</p>
+<figure class="align-default" id="id20">
+<a class="reference internal image-reference" href="../../_images/42-ssh-vm.png"><img alt="SSH login to the Clear Linux VM" src="../../_images/42-ssh-vm.png" style="width: 334.5px; height: 208.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 20: SSH login to Clear Linux VM</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="azure.html#azure"><span class="std std-ref">Clear Linux* OS on Microsoft* Azure*</span></a></p></li>
+<li><p><a class="reference internal" href="aws-web.html#aws-web"><span class="std std-ref">Clear Linux* OS on Amazon Web Services*</span></a></p></li>
+<li><p><a class="reference internal" href="digitalocean.html#clr-digitalocean"><span class="std std-ref">Clear Linux* OS on DigitalOcean*</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Clear Linux* OS on Google Cloud Platform*</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#setup-cl-vm-on-gcp">Setup Clear Linux OS VM on GCP</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="digitalocean.html"
+                          title="previous chapter">Clear Linux* OS on DigitalOcean*</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="import-clr-aws.html"
+                          title="next chapter">Import Clear Linux Image and Launch Instance on AWS</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/cloud-install/gce.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="import-clr-aws.html" title="Import Clear Linux Image and Launch Instance on AWS"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="digitalocean.html" title="Clear Linux* OS on DigitalOcean*"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on Google Cloud Platform*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Modify a Clear Linux OS-based container image &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/maintenance/container-image-modify.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Build a new Clear Linux OS-based container image" href="container-image-new.html" />
+    <link rel="prev" title="Configure Huge Pages" href="configure-hugepages.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="container-image-new.html" title="Build a new Clear Linux OS-based container image"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="configure-hugepages.html" title="Configure Huge Pages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modify a Clear Linux OS-based container image</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="modify-a-cl-based-container-image">
+<span id="container-image-modify"></span><h1>Modify a Clear Linux OS-based container image<a class="headerlink" href="#modify-a-cl-based-container-image" title="Link to this heading">¶</a></h1>
+<p>This guide describes how to customize Clear Linux* OS-based container
+<a class="reference external" href="https://hub.docker.com/u/clearlinux">images on Docker Hub</a>, which include popular applications and runtimes.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id2">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#example-1-add-a-bundle" id="id3">Example 1: Add a bundle</a></p></li>
+<li><p><a class="reference internal" href="#example-2-change-cl-version-single-stage-build" id="id4">Example 2: Change Clear Linux OS version (single-stage build)</a></p></li>
+<li><p><a class="reference internal" href="#example-3-change-cl-version-multi-stage-build" id="id5">Example 3: Change Clear Linux OS version (multi-stage build)</a></p></li>
+<li><p><a class="reference internal" href="#example-4-customize-an-application-image-at-runtime" id="id6">Example 4: Customize an application image at runtime</a></p></li>
+<li><p><a class="reference internal" href="#background" id="id7">Background</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id8">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Most of these images utilize a Docker build feature called a <a class="reference external" href="https://clearlinux.org/blogs-news/minimizing-clear-linux-os-container-sizes">multi-stage
+build to reduce image size</a> while some use single-stage build Dockerfiles. An
+official base <a class="reference external" href="https://hub.docker.com/_/clearlinux">clearlinux image on Docker Hub</a> is also available. To create a
+generic Clear Linux OS container image, see <a class="reference internal" href="container-image-new.html#container-image-new"><span class="std std-ref">our guide</span></a>.</p>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul>
+<li><p>Set up a functional Docker environment as described in <a class="reference internal" href="../../tutorials/docker.html#docker"><span class="std std-ref">Docker*</span></a>.</p></li>
+<li><p>Download the Clear Linux OS microservice Dockerfile repo with the following
+command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/clearlinux/dockerfiles.git
+</pre></div>
+</div>
+</li>
+<li><p>Navigate to and operate from the cloned <code class="file docutils literal notranslate"><span class="pre">dockerfiles</span></code> directory.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>dockerfiles/
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="example-1-add-a-bundle">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Example 1: Add a bundle</a><a class="headerlink" href="#example-1-add-a-bundle" title="Link to this heading">¶</a></h2>
+<p>In this example, we add <strong class="command">wget</strong> to the <strong>clearlinux/redis</strong>
+Dockerfile.</p>
+<ol class="arabic">
+<li><p>Enter <strong class="command">swupd search wget</strong> to discover which Clear Linux OS bundle includes
+the software. The output should tell you that <strong class="command">wget</strong> is available
+in the <em>wget</em> bundle.</p></li>
+<li><p>Open a an editor to modify the Dockerfile.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$EDITOR</span><span class="w"> </span>redis/Dockerfile
+</pre></div>
+</div>
+</li>
+<li><p>Append the <strong class="command">wget</strong> bundle to the <strong class="command">--bundles=</strong> parameter
+of the <strong class="command">swupd os-install</strong> command.</p></li>
+<li><p>Run <strong class="command">git diff</strong>.</p>
+<p>The output shows the edits made after adding <strong class="command">wget</strong> in the
+clearlinux/redis Dockerfile.</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gh">diff --git a/redis/Dockerfile b/redis/Dockerfile</span>
+<span class="gh">index af977cb..b1effab 100644</span>
+<span class="gd">--- a/redis/Dockerfile</span>
+<span class="gi">+++ b/redis/Dockerfile</span>
+<span class="gu">@@ -15,7 +15,7 @@ RUN source /os-release &amp;&amp; \</span>
+<span class="w"> </span>   mkdir /install_root \
+<span class="w"> </span>   &amp;&amp; swupd os-install -V ${VERSION_ID} \
+<span class="w"> </span>   --path /install_root --statedir /swupd-state \
+<span class="w"> </span>-    --bundles=redis-native,findutils,su-exec --no-boot-update
+<span class="w"> </span>+    --bundles=redis-native,findutils,su-exec,wget --no-boot-update
+</pre></div>
+</div>
+</li>
+<li><p>Build the Dockerfile and apply a unique tag name. In this this example,
+we use <strong class="command">wget_added</strong> and add proxies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+--no-cache<span class="w"> </span><span class="se">\</span>
+--build-arg<span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span><span class="w"> </span><span class="se">\</span>
+--build-arg<span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$https_proxy</span><span class="w"> </span><span class="se">\</span>
+--tag<span class="w"> </span>clearlinux/redis:wget_added<span class="w"> </span><span class="se">\</span>
+redis/
+</pre></div>
+</div>
+</li>
+<li><p>Run the Dockerfile with the <cite>wget –version</cite> command to verify that
+<strong class="command">wget</strong> has been added to the image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>clearlinux/redis:wget_added<span class="w"> </span>wget<span class="w"> </span>--version
+</pre></div>
+</div>
+</li>
+<li><p>The output shows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">GNU Wget 1.20.3 built on linux-gnu.</span>
+
+<span class="go">-cares +digest -gpgme +https +ipv6 -iri +large-file -metalink +nls</span>
+<span class="go">-ntlm +opie -psl +ssl/openssl</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="example-2-change-cl-version-single-stage-build">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Example 2: Change Clear Linux OS version (single-stage build)</a><a class="headerlink" href="#example-2-change-cl-version-single-stage-build" title="Link to this heading">¶</a></h2>
+<p>This example shows how to rebuild single-stage containers against a specific
+OS version, <code class="file docutils literal notranslate"><span class="pre">&lt;CL_VERSION&gt;</span></code>, by adding a new argument to the Docker build
+command line.</p>
+<ol class="arabic">
+<li><p>Rebuild the <code class="file docutils literal notranslate"><span class="pre">clearlinux/machine-learning-ui</span></code>. Add an extra build
+argument <strong class="command">swupd_args=&quot;-m &lt;CL_VERSION&gt;&quot;</strong>; in this case, the build
+version is 31110.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>docker<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+<span class="linenos">2</span>--no-cache<span class="w"> </span><span class="se">\</span>
+<span class="linenos">3</span>--build-arg<span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span><span class="w"> </span><span class="se">\</span>
+<span class="linenos">4</span>--build-arg<span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$https_proxy</span><span class="w"> </span><span class="se">\</span>
+<span class="hll"><span class="linenos">5</span>--build-arg<span class="w"> </span><span class="nv">swupd_args</span><span class="o">=</span><span class="s2">&quot;-m 31110&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span class="linenos">6</span>--tag<span class="w"> </span>clearlinux/machine-learning-ui:31110<span class="w"> </span><span class="se">\</span>
+<span class="linenos">7</span>machine-learning-ui/
+</pre></div>
+</div>
+</li>
+<li><p>Run the docker container image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>clearlinux/machine-learning-ui:31110<span class="w"> </span>swupd<span class="w"> </span>info
+</pre></div>
+</div>
+</li>
+<li><p>Sample output shows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Distribution:      Clear Linux OS</span>
+<span class="go">Installed version: 31110</span>
+<span class="go">Version URL:       https://cdn.download.clearlinux.org/update</span>
+<span class="go">Content URL:       https://cdn.download.clearlinux.org/update</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="example-3-change-cl-version-multi-stage-build">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Example 3: Change Clear Linux OS version (multi-stage build)</a><a class="headerlink" href="#example-3-change-cl-version-multi-stage-build" title="Link to this heading">¶</a></h2>
+<p>This example shows how to rebuild the cgit Dockerfile to use a specific Clear Linux OS
+version. The clearlinux/cgit Dockerfile has a multi-stage build with multiple
+layers: <em>os-core</em>, <em>httpd</em>, and <em>cgit</em>. This can be used as reference for
+building other multi-stage images with any number of layers.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>All upper layers of multi-stage Dockerfiles inherit the Clear Linux OS version from
+the base layer. Rebuild the all underlying base layers against the desired
+OS version. In this example, four base layers must be rebuilt.</p>
+</div>
+<section id="first-layer-os-core">
+<h3>First layer: os-core<a class="headerlink" href="#first-layer-os-core" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Rebuild the first layer, <em>os-core</em>. Add an extra build argument
+<strong class="command">swupd_args=&quot;-m &lt;CL_VERSION&gt;&quot;</strong>; in this case, the build
+version is 31110.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>docker<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+<span class="linenos">2</span>--no-cache<span class="w"> </span><span class="se">\</span>
+<span class="linenos">3</span>--build-arg<span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span><span class="w"> </span><span class="se">\</span>
+<span class="linenos">4</span>--build-arg<span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$https_proxy</span><span class="w"> </span><span class="se">\</span>
+<span class="hll"><span class="linenos">5</span>--build-arg<span class="w"> </span><span class="nv">swupd_args</span><span class="o">=</span><span class="s2">&quot;-m 31110&quot;</span><span class="w"> </span><span class="se">\</span>
+</span><span class="linenos">6</span>--tag<span class="w"> </span>clearlinux/os-core:31110<span class="w"> </span><span class="se">\</span>
+<span class="linenos">7</span>os-core/
+</pre></div>
+</div>
+</li>
+<li><p>Verify the version-specific image is available:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>images<span class="w"> </span>clearlinux/os-core:31110
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="second-layer-httpd">
+<h3>Second layer: httpd<a class="headerlink" href="#second-layer-httpd" title="Link to this heading">¶</a></h3>
+<p>The next layer is <code class="file docutils literal notranslate"><span class="pre">clearlinux/httpd</span></code>.</p>
+<ol class="arabic">
+<li><p>Change the <code class="file docutils literal notranslate"><span class="pre">httpd/Dockerfile</span></code> to use the version-specific
+<em>os-core:31110</em> image that was previously built.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$EDITOR</span><span class="w"> </span>httpd/Dockerfile
+</pre></div>
+</div>
+</li>
+<li><p>Run <strong class="command">git diff</strong>.</p>
+<p>The output shows a diff of a modified <code class="file docutils literal notranslate"><span class="pre">clearlinux/httpd</span></code> Dockerfile
+that uses the previously built clearlinux/os-core:31110.</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gh">diff --git a/httpd/Dockerfile b/httpd/Dockerfile</span>
+<span class="gh">index 6b2a6bf..9df89e4 100644</span>
+<span class="gd">--- a/httpd/Dockerfile</span>
+<span class="gi">+++ b/httpd/Dockerfile</span>
+<span class="gu">@@ -7,7 +7,7 @@ RUN swupd update --no-boot-update $swupd_args</span>
+
+# Grab os-release info from the minimal base image so
+# that the new content matches the exact OS version
+<span class="gd">-COPY --from=clearlinux/os-core:latest /usr/lib/os-release /</span>
+<span class="gi">+COPY --from=clearlinux/os-core:31110 /usr/lib/os-release /</span>
+
+# Install additional content in a target directory
+# using the os version from the minimal base
+<span class="gu">@@ -26,7 +26,7 @@ COPY --from=clearlinux/os-core:latest / /</span>
+os_core_install/
+RUN cd / &amp;&amp; \
+<span class="w"> </span>   find os_core_install | sed -e &#39;s/os_core_install/install_root/&#39; | xargs rm -d &amp;&gt; /dev/null || true
+
+<span class="gd">-FROM clearlinux/os-core:latest</span>
+<span class="gi">+FROM clearlinux/os-core:31110</span>
+</pre></div>
+</div>
+</li>
+<li><p>Build Dockerfile.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+--no-cache<span class="w"> </span><span class="se">\</span>
+--build-arg<span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span><span class="w"> </span><span class="se">\</span>
+--build-arg<span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$https_proxy</span><span class="w"> </span><span class="se">\</span>
+--tag<span class="w"> </span>clearlinux/httpd:31110<span class="w"> </span><span class="se">\</span>
+httpd/
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="third-layer-cgit">
+<h3>Third layer: cgit<a class="headerlink" href="#third-layer-cgit" title="Link to this heading">¶</a></h3>
+<p>The next layer is <code class="file docutils literal notranslate"><span class="pre">clearlinux/cgit</span></code>.</p>
+<ol class="arabic">
+<li><p>Change the <code class="file docutils literal notranslate"><span class="pre">cgit/Dockerfile</span></code> to use the desired OS
+version; in this case, the build version is 31110.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">$EDITOR</span><span class="w"> </span>cgit/Dockerfile
+</pre></div>
+</div>
+</li>
+<li><p>Run <strong class="command">git diff</strong>.</p>
+<p>The output shows:</p>
+<div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gh">diff --git a/cgit/Dockerfile b/cgit/Dockerfile</span>
+<span class="gh">index 9a3796d..59260fe 100644</span>
+<span class="gd">--- a/cgit/Dockerfile</span>
+<span class="gi">+++ b/cgit/Dockerfile</span>
+<span class="gu">@@ -7,7 +7,7 @@ RUN swupd update --no-boot-update $swupd_args</span>
+
+# Grab os-release info from the minimal base image so
+# that the new content matches the exact OS version
+<span class="gd">-COPY --from=clearlinux/httpd:latest /usr/lib/os-release /</span>
+<span class="gi">+COPY --from=clearlinux/httpd:31110 /usr/lib/os-release /</span>
+
+# Install additional content in a target directory
+# using the os version from the minimal base
+<span class="gu">@@ -22,11 +22,11 @@ RUN source /os-release &amp;&amp; \</span>
+# file exists on different layers. To minimize docker
+# image size, remove the overlapped files before copy.
+RUN mkdir /os_core_install
+<span class="gd">-COPY --from=clearlinux/httpd:latest / /os_core_install/</span>
+<span class="gi">+COPY --from=clearlinux/httpd:31110 / /os_core_install/</span>
+RUN cd / &amp;&amp; \
+<span class="w"> </span>   find os_core_install | sed -e &#39;s/os_core_install/install_root/&#39; | xargs rm -d &amp;&gt; /dev/null || true
+
+<span class="gd">-FROM clearlinux/httpd:latest</span>
+<span class="gi">+FROM clearlinux/httpd:31110</span>
+</pre></div>
+</div>
+</li>
+<li><p>Build Dockerfile.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span><span class="se">\</span>
+--no-cache<span class="w"> </span><span class="se">\</span>
+--build-arg<span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="nv">$http_proxy</span><span class="w"> </span><span class="se">\</span>
+--build-arg<span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="nv">$https_proxy</span><span class="w"> </span><span class="se">\</span>
+--tag<span class="w"> </span>clearlinux/cgit:31110<span class="w"> </span><span class="se">\</span>
+cgit/
+</pre></div>
+</div>
+</li>
+<li><p>Verify the installed OS version by noting the <strong class="command">VERSION_ID</strong> value
+in the <code class="file docutils literal notranslate"><span class="pre">/usr/lib/os-release</span></code> file in the container filesystem.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>docker<span class="w"> </span>run<span class="w"> </span>clearlinux/cgit:31110<span class="w"> </span>cat<span class="w"> </span>/usr/lib/os-release
+<span class="linenos"> 2</span><span class="nv">NAME</span><span class="o">=</span><span class="s2">&quot;Clear Linux OS&quot;</span>
+<span class="linenos"> 3</span><span class="nv">VERSION</span><span class="o">=</span><span class="m">1</span>
+<span class="linenos"> 4</span><span class="nv">ID</span><span class="o">=</span>clear-linux-os
+<span class="linenos"> 5</span><span class="nv">ID_LIKE</span><span class="o">=</span>clear-linux-os
+<span class="hll"><span class="linenos"> 6</span><span class="nv">VERSION_ID</span><span class="o">=</span><span class="m">31110</span>
+</span><span class="linenos"> 7</span><span class="nv">PRETTY_NAME</span><span class="o">=</span><span class="s2">&quot;Clear Linux OS&quot;</span>
+<span class="linenos"> 8</span><span class="nv">ANSI_COLOR</span><span class="o">=</span><span class="s2">&quot;1;35&quot;</span>
+<span class="linenos"> 9</span><span class="nv">HOME_URL</span><span class="o">=</span><span class="s2">&quot;https://clearlinux.org&quot;</span>
+<span class="linenos">10</span><span class="nv">SUPPORT_URL</span><span class="o">=</span><span class="s2">&quot;https://clearlinux.org&quot;</span>
+<span class="linenos">11</span><span class="nv">BUG_REPORT_URL</span><span class="o">=</span><span class="s2">&quot;mailto:dev@lists.clearlinux.org&quot;</span>
+<span class="linenos">12</span><span class="nv">PRIVACY_POLICY_URL</span><span class="o">=</span>http://www.intel.com/privacy
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="example-4-customize-an-application-image-at-runtime">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Example 4: Customize an application image at runtime</a><a class="headerlink" href="#example-4-customize-an-application-image-at-runtime" title="Link to this heading">¶</a></h2>
+<p>This section describes how to modify a published Clear Linux OS container at runtime.
+In this example, we add Tensorflow* into a <strong class="command">clearlinux/python</strong>
+container. This approach can help accelerate the feature development process.</p>
+<p>In this example, three separate console windows are used to easily interact
+inside and outside of the container.</p>
+<section id="first-console-start-the-container">
+<h3>First console: Start the container<a class="headerlink" href="#first-console-start-the-container" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Launch the clearlinux/python container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span>clearlinux/python
+Python<span class="w"> </span><span class="m">3</span>.7.3<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>Jun<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">2019</span>,<span class="w"> </span><span class="m">00</span>:47:04<span class="o">)</span>
+<span class="o">[</span>GCC<span class="w"> </span><span class="m">9</span>.1.1<span class="w"> </span><span class="m">20190616</span><span class="w"> </span>gcc-9-branch@272336<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+</pre></div>
+</div>
+</li>
+<li><p>Try to import Tensorflow inside the container using the command:
+<strong class="command">import tensorflow as tf</strong>. The example below shows the expected
+error message because the Docker image does not yet include the Tensorflow
+module.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>tensorflow<span class="w"> </span>as<span class="w"> </span>tf
+Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+File<span class="w"> </span><span class="s2">&quot;&lt;stdin&gt;&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">1</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+ModuleNotFoundError:<span class="w"> </span>No<span class="w"> </span>module<span class="w"> </span>named<span class="w"> </span><span class="s1">&#39;tensorflow&#39;</span>
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="second-console-add-a-bundle">
+<h3>Second console: Add a bundle<a class="headerlink" href="#second-console-add-a-bundle" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>In another console, find the <strong class="command">&lt;Container_ID&gt;</strong> of
+clearlinux/python launched. This example Container ID is d4ce9d526fa6.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>ps
+</pre></div>
+</div>
+</li>
+<li><p>The output shows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CONTAINER ID   IMAGE               COMMAND   CREATED             STATUS              PORTS          NAMES</span>
+<span class="go">d4ce9d526fa6   clearlinux/python   python3   About a minute ago  Up About a minute                  amazing_villani</span>
+</pre></div>
+</div>
+</li>
+<li><p>Connect to the running clearlinux/python container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>d4ce9d526fa6<span class="w"> </span>/usr/bin/bash
+root@d4ce9d526fa6/<span class="w"> </span><span class="c1">#</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use <strong class="command">swupd</strong> to install the machine-learning-tensorflow bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>root@d4ce9d526fa6/<span class="w"> </span><span class="c1"># swupd bundle-add machine-learning-tensorflow</span>
+Loading<span class="w"> </span>required<span class="w"> </span>manifests...
+Downloading<span class="w"> </span>packs<span class="w"> </span><span class="o">(</span><span class="m">692</span>.32<span class="w"> </span>Mb<span class="o">)</span><span class="w"> </span><span class="k">for</span>:
+-<span class="w"> </span>machine-learning-tensorflow
+…<span class="w"> </span>…
+...100%
+Finishing<span class="w"> </span>packs<span class="w"> </span>extraction...
+No<span class="w"> </span>extra<span class="w"> </span>files<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>downloaded
+Installing<span class="w"> </span>bundle<span class="o">(</span>s<span class="o">)</span><span class="w"> </span>files...
+...100%
+Calling<span class="w"> </span>post-update<span class="w"> </span>helper<span class="w"> </span>scripts.
+Successfully<span class="w"> </span>installed<span class="w"> </span><span class="m">1</span><span class="w"> </span>bundle
+</pre></div>
+</div>
+</li>
+<li><p>After the machine-learning-tensorflow bundle is installed in the
+container, in the first console, import Tensorflow, which will be
+successful now. You could also save the updated container using the
+command <strong class="command">docker commit &lt;Container_ID&gt;</strong>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>tensorflow<span class="w"> </span>as<span class="w"> </span>tf
+&gt;&gt;&gt;<span class="w"> </span>tf.__version__
+<span class="s1">&#39;1.13.1&#39;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="third-console-save-the-modified-container">
+<h3>Third console: Save the modified container<a class="headerlink" href="#third-console-save-the-modified-container" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>In a third console, save the container with a new tag. Our example uses
+the tag <cite>tensorflow_added</cite> to identify our modified container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>commit<span class="w"> </span>d4ce9d526fa6<span class="w"> </span>clearlinux/python:tensorflow_added
+</pre></div>
+</div>
+</li>
+<li><p>Launch the modified container, and then import Tensorflow with success.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>clearlinux/python:tensorflow_added
+Python<span class="w"> </span><span class="m">3</span>.7.3<span class="w"> </span><span class="o">(</span>default,<span class="w"> </span>Jun<span class="w"> </span><span class="m">17</span><span class="w"> </span><span class="m">2019</span>,<span class="w"> </span><span class="m">00</span>:47:04<span class="o">)</span>
+<span class="o">[</span>GCC<span class="w"> </span><span class="m">9</span>.1.1<span class="w"> </span><span class="m">20190616</span><span class="w"> </span>gcc-9-branch@272336<span class="o">]</span><span class="w"> </span>on<span class="w"> </span>linux
+Type<span class="w"> </span><span class="s2">&quot;help&quot;</span>,<span class="w"> </span><span class="s2">&quot;copyright&quot;</span>,<span class="w"> </span><span class="s2">&quot;credits&quot;</span><span class="w"> </span>or<span class="w"> </span><span class="s2">&quot;license&quot;</span><span class="w"> </span><span class="k">for</span><span class="w"> </span>more<span class="w"> </span>information.
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt;<span class="w"> </span>import<span class="w"> </span>tensorflow<span class="w"> </span>as<span class="w"> </span>tf
+&gt;&gt;&gt;<span class="w"> </span>tf.__version__
+<span class="s1">&#39;1.13.1&#39;</span>
+&gt;&gt;&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="background">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Background</a><a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>Multi-stage Dockerfiles contain more than one <strong class="command">FROM</strong> directive. All
+of the multi-stage Clear Linux OS Dockerfiles share a common base layer
+called <strong class="command">clearlinux/os-core:latest</strong>. All of the higher level layers
+inherit the Clear Linux OS version from this base layer.</p>
+<p>For details on how we leveraged multi-stage Docker builds, see the article
+<a class="reference external" href="https://clearlinux.org/blogs-news/minimizing-clear-linux-os-container-sizes">Minimizing Clear Linux OS container sizes</a>.</p>
+<ol class="arabic simple">
+<li><p><strong class="command">clearlinux/os-core</strong> is built once per day. It is a container
+containing a minimal Linux userspace.</p></li>
+<li><p>The target container image uses either <strong class="command">clearlinux/os-core</strong> as a
+base layer or another container image <strong class="command">clearlinux/</strong> as a base
+layer.</p></li>
+<li><p>Bundle(s) containing the application are downloaded during the first stage
+of the build process using <strong class="command">swupd</strong>.</p></li>
+<li><p>The final container image is a composition of its base layer and the
+specific feature layer, via <strong class="command">FROM clearlinux/&lt;base layer&gt;:latest
+, such as: os-core, httpd, and via :command:`COPY --from=builder /
+install_root /</strong>. Using this method, the target container images are kept
+up to date without file duplication. For application-centric containers,
+<cite>os-core-update</cite> is excluded to improve size optimization.</p></li>
+</ol>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../tutorials/docker.html#docker"><span class="std std-ref">Docker*</span></a></p></li>
+<li><p><a class="reference internal" href="container-image-new.html#container-image-new"><span class="std std-ref">Build a new Clear Linux OS-based container image</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Modify a Clear Linux OS-based container image</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#example-1-add-a-bundle">Example 1: Add a bundle</a></li>
+<li><a class="reference internal" href="#example-2-change-cl-version-single-stage-build">Example 2: Change Clear Linux OS version (single-stage build)</a></li>
+<li><a class="reference internal" href="#example-3-change-cl-version-multi-stage-build">Example 3: Change Clear Linux OS version (multi-stage build)</a><ul>
+<li><a class="reference internal" href="#first-layer-os-core">First layer: os-core</a></li>
+<li><a class="reference internal" href="#second-layer-httpd">Second layer: httpd</a></li>
+<li><a class="reference internal" href="#third-layer-cgit">Third layer: cgit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example-4-customize-an-application-image-at-runtime">Example 4: Customize an application image at runtime</a><ul>
+<li><a class="reference internal" href="#first-console-start-the-container">First console: Start the container</a></li>
+<li><a class="reference internal" href="#second-console-add-a-bundle">Second console: Add a bundle</a></li>
+<li><a class="reference internal" href="#third-console-save-the-modified-container">Third console: Save the modified container</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="configure-hugepages.html"
+                          title="previous chapter">Configure Huge Pages</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="container-image-new.html"
+                          title="next chapter">Build a new Clear Linux OS-based container image</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/maintenance/container-image-modify.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="container-image-new.html" title="Build a new Clear Linux OS-based container image"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="configure-hugepages.html" title="Configure Huge Pages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Modify a Clear Linux OS-based container image</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

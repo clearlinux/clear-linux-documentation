@@ -1,0 +1,327 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>mixer.bundle &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/mixer.bundle.1.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="mixer.build" href="mixer.build.1.html" />
+    <link rel="prev" title="ucd-data-fetch" href="ucd-data-fetch.1.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mixer.build.1.html" title="mixer.build"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ucd-data-fetch.1.html" title="ucd-data-fetch"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mixer.bundle</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="mixer-bundle">
+<h1>mixer.bundle<a class="headerlink" href="#mixer-bundle" title="Link to this heading">¶</a></h1>
+<section id="perform-various-configuration-actions-on-bundles">
+<h2>Perform various configuration actions on bundles<a class="headerlink" href="#perform-various-configuration-actions-on-bundles" title="Link to this heading">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(C) 2018 Intel Corporation, CC-BY-SA-3.0</p>
+</dd>
+<dt class="field-even">Manual section<span class="colon">:</span></dt>
+<dd class="field-even"><p>1</p>
+</dd>
+</dl>
+<section id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">bundle</span> <span class="pre">[command]</span> <span class="pre">[flags]</span></code></p>
+</section>
+<section id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
+<p>Performs various configuration actions on upstream and local bundle definition
+files. List and validate mix bundles. Validate local bundle definition files.</p>
+</section>
+<section id="subcommands">
+<h3>SUBCOMMANDS<a class="headerlink" href="#subcommands" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">add</span> <span class="pre">{bundle}</span> <span class="pre">[{bundle}...]</span> <span class="pre">[flags]</span></code></p>
+<blockquote>
+<div><p>Add local or upstream bundles to your mix by modifying the mix bundles list
+at <cite>&lt;mixer/workspace&gt;/mixbundles</cite>. In addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span>
+<span class="pre">bundle</span> <span class="pre">add</span></code> takes the following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all-local</span></code></p>
+<p>Add all local bundles defined in <cite>&lt;mixer/workspace&gt;/local-bundles</cite> to the
+mix. This command takes precedence over bundle list.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all-upstream</span></code></p>
+<p>Add all upstream bundles (cached in <cite>&lt;mixer/workspace&gt;/upstream-bundles</cite>
+to the mix. This command takes precedence over bundle list.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--git</span></code></p>
+<p>Automatically apply a new git commit after modifying the mix bundles list
+or bundle definitions. This is useful if your local bundles are kept under
+version control.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">add</span></code> help information and exit.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">create</span></code></p>
+<blockquote>
+<div><p>Create new bundles or copy existing bundles.
+This command will locate the bundle by first looking in local-bundles,
+and then in upstream-bundles. If the bundle is only found upstream,
+the bundle file will be copied to your local-bundles directory. If the bundle is
+not found anywhere, a blank template will be created with the correct name.</p>
+<p>Passing ‘–add’ will also add the bundle(s) to your mix. Please note that
+bundles are added after all bundles are created, and thus will not be added
+if any errors are encountered earlier on.</p>
+<p>In addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">bundle</span> <span class="pre">create</span></code> takes the following
+options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--add</span></code></p>
+<p>Add the bundle(s) to your mix after editing.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--local</span></code></p>
+<p>Skip upstream check and create empty local bundle(s).</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--git</span></code></p>
+<p>Automatically apply a new git commit after modifying the mix bundles list
+or bundle definitions. This is useful if your local bundles are kept under
+version control.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">create</span></code> help information and exit.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">[mix|local|upstream]</span> <span class="pre">[flags]</span></code></p>
+<blockquote>
+<div><p>List the bundles in the mix, the available local bundles, or the available
+upstream bundles. In addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">bundle</span> <span class="pre">list</span></code>
+takes the following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">mix</span></code></p>
+<p>List the bundles in the mix.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">local</span></code></p>
+<p>List available locally-defined bundles.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upstream</span></code></p>
+<p>List available upstream bundles.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">list</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--tree</span></code></p>
+<p>Pretty-print the bundle list as a tree showing include information.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">remove</span></code></p>
+<blockquote>
+<div><p>Removes bundles from your mix by modifying the mix bundle list (stored in
+the <cite>&lt;mixer/workspace&gt;/mixbundles</cite> file). The mix bundle list is parsed, the
+bundles are removed, and the resultant list is written back out in sorted
+order. If bundles do not exist in the mix, they are skipped. In addition to
+the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">bundle</span> <span class="pre">remove</span></code> takes the following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--git</span></code></p>
+<p>Automatically apply a new git commit after modifying the mix bundles list
+or bundle definitions. This is useful if your local bundles are kept under
+version control.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">remove</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--local</span></code></p>
+<p>Also remove the bundle file from local-bundles. This action is
+irrevocable.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--mix={bool}</span></code></p>
+<p>Remove bundle from the mix bundle list. This defaults to true.</p>
+</li>
+</ul>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">validate</span></code></p>
+<blockquote>
+<div><p>Checks bundle definition files for validity. Only local bundle files are
+checked; upstream bundles are trusted as valid. Valid bundles yield no
+output. Any invalid bundles will yield a non-zero return code.</p>
+<p>Basic validation includes checking syntax and structure, and that the bundle
+has a valid name. Commands like <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">bundle</span> <span class="pre">add</span></code> run basic validation
+automatically.</p>
+<p>In addition to the global options <code class="docutils literal notranslate"><span class="pre">mixer</span> <span class="pre">bundle</span> <span class="pre">remove</span></code> takes the
+following options.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">--all-local</span></code></p>
+<p>Run validation against all local bundles.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-c,</span> <span class="pre">--config</span> <span class="pre">{path}</span></code></p>
+<p>Optionally tell <code class="docutils literal notranslate"><span class="pre">mixer</span></code> to use the configuration file at <cite>path</cite>. Uses
+the default <cite>builder.conf</cite> in the mixer workspace if this option is not
+provided.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h,</span> <span class="pre">--help</span></code></p>
+<p>Display <code class="docutils literal notranslate"><span class="pre">bundle</span> <span class="pre">validate</span></code> help information and exit.</p>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--strict</span></code></p>
+<p>Perform strict validation to additionally check that the bundle header
+fields are parse-able and non-empty, and that the header ‘Title’ is itself
+valid and matches the bundle filename.</p>
+</li>
+</ul>
+</div></blockquote>
+</section>
+<section id="exit-status">
+<h3>EXIT STATUS<a class="headerlink" href="#exit-status" title="Link to this heading">¶</a></h3>
+<p>On success, 0 is returned. A non-zero return code indicates a failure.</p>
+<section id="see-also">
+<h4>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="mixer.1.html">mixer(1)</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">mixer.bundle</a><ul>
+<li><a class="reference internal" href="#perform-various-configuration-actions-on-bundles">Perform various configuration actions on bundles</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#subcommands">SUBCOMMANDS</a></li>
+<li><a class="reference internal" href="#exit-status">EXIT STATUS</a><ul>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="ucd-data-fetch.1.html"
+                          title="previous chapter">ucd-data-fetch</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="mixer.build.1.html"
+                          title="next chapter">mixer.build</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/mixer.bundle.1.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mixer.build.1.html" title="mixer.build"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ucd-data-fetch.1.html" title="ucd-data-fetch"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">mixer.bundle</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

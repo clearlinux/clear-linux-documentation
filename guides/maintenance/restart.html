@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Restart system services after an OS update &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/maintenance/restart.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Validate signatures" href="validate-signatures.html" />
+    <link rel="prev" title="Resource limits" href="resource-limits.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="validate-signatures.html" title="Validate signatures"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="resource-limits.html" title="Resource limits"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Restart system services after an OS update</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="restart-system-services-after-an-os-update">
+<span id="restart"></span><h1>Restart system services after an OS update<a class="headerlink" href="#restart-system-services-after-an-os-update" title="Link to this heading">¶</a></h1>
+<p>This guide describes how to use the <strong class="command">clr-service-restart</strong> tool.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
+<li><p><a class="reference internal" href="#how-it-works" id="id2">How it works</a></p></li>
+<li><p><a class="reference internal" href="#basic-options" id="id3">Basic options</a></p></li>
+<li><p><a class="reference internal" href="#monitor-options" id="id4">Monitor options</a></p></li>
+<li><p><a class="reference internal" href="#example" id="id5">Example</a></p></li>
+<li><p><a class="reference internal" href="#telemetry" id="id6">Telemetry</a></p></li>
+<li><p><a class="reference internal" href="#conclusion" id="id7">Conclusion</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Clear Linux* OS includes a <strong class="command">clr-service-restart</strong> tool that shows which
+system daemons require a restart.</p>
+<p><strong class="command">clr-service-restart</strong> reads various files in the <code class="file docutils literal notranslate"><span class="pre">procfs</span></code>
+filesystem provided by the kernel and relies on <strong class="command">systemd</strong> to
+determine which services to restart.</p>
+</section>
+<section id="how-it-works">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">How it works</a><a class="headerlink" href="#how-it-works" title="Link to this heading">¶</a></h2>
+<p><strong class="command">clr-service-restart</strong> implements a whitelist to identify which
+daemons can be restarted. As a system administrator, you can customize the
+default Clear Linux OS OS whitelist using <strong class="command">allow</strong> or <strong class="command">disallow</strong> options
+for restarting system services. When a software update occurs,
+<strong class="command">clr-service-restart</strong> consults the whitelist to see if a service daemon
+is allowed to be restarted or not.</p>
+</section>
+<section id="basic-options">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Basic options</a><a class="headerlink" href="#basic-options" title="Link to this heading">¶</a></h2>
+<p><strong class="command">clr-service-restart</strong> has three basic options: <strong class="command">allow</strong>,
+<strong class="command">disallow</strong>, and <strong class="command">default</strong>.</p>
+<section id="allow">
+<h3>allow<a class="headerlink" href="#allow" title="Link to this heading">¶</a></h3>
+<p>The <strong class="command">allow</strong> option identifies a daemon to restart after an OS software
+update. The <strong class="command">clr-service-restart</strong> daemon creates a symlink in
+<code class="file docutils literal notranslate"><span class="pre">/etc/clr-service-restart</span></code> as a record. The example below tells
+<strong class="command">clr-service-restart</strong> to restart the <em>tallow</em> daemon after an
+OS software update.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-service-restart<span class="w"> </span>allow<span class="w"> </span>tallow.service
+</pre></div>
+</div>
+</section>
+<section id="disallow">
+<h3>disallow<a class="headerlink" href="#disallow" title="Link to this heading">¶</a></h3>
+<p>The <strong class="command">disallow</strong> option tells <strong class="command">clr-service-restart</strong> not to
+restart the specified daemon even if the OS defaults permit the daemon to be
+restarted. The <strong class="command">clr-service-restart</strong> daemon creates a symlink in
+<code class="file docutils literal notranslate"><span class="pre">/etc/clr-service-restart</span></code> that points to <code class="file docutils literal notranslate"><span class="pre">/dev/null</span></code> as a
+record. The example below tells <strong class="command">clr-service-restart</strong> not to
+restart the <em>rngd</em> daemon after an OS software update.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-service-restart<span class="w"> </span>disallow<span class="w"> </span>rngd
+</pre></div>
+</div>
+</section>
+<section id="default">
+<h3>default<a class="headerlink" href="#default" title="Link to this heading">¶</a></h3>
+<p>The <strong class="command">default</strong> option makes <strong class="command">clr-service-restart</strong> revert back
+to the OS defaults and delete any symlink  in <code class="file docutils literal notranslate"><span class="pre">/etc/clr-service-restart</span></code>.
+The example below  tells <strong class="command">clr-service-restart</strong> to restart <em>rngd</em>
+automatically again, because <em>rngd</em> is whitelisted for automatic service
+restarts by default in Clear Linux OS.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-service-restart<span class="w"> </span>default<span class="w"> </span>rngd
+</pre></div>
+</div>
+</section>
+</section>
+<section id="monitor-options">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Monitor options</a><a class="headerlink" href="#monitor-options" title="Link to this heading">¶</a></h2>
+<p><strong class="command">clr-service-restart</strong> works in the background and is invoked with
+<strong class="command">swupd</strong> automatically. Review the journal output to verify that
+services are restarted after an OS software update.</p>
+<p>If you pass both options (<strong class="command">-a</strong> and <strong class="command">-n</strong>) described below,
+<strong class="command">clr-service-restart</strong> displays a complete list of system services
+that require a restart. Use both options to verify that all desired daemons
+are restarted.</p>
+<section id="n-option">
+<h3>-n option<a class="headerlink" href="#n-option" title="Link to this heading">¶</a></h3>
+<p>The <strong class="command">-n</strong> option makes <strong class="command">clr-service-restart</strong> perform no restarts.
+Instead it displays the services that could potentially be restarted. When used,
+<strong class="command">clr-service-restart</strong> outputs a list of messages showing:</p>
+<ul class="simple">
+<li><p>Which service needs a restart.</p></li>
+<li><p>What unit it is.</p></li>
+<li><p>Why it needs a restart.</p></li>
+<li><p>Which command is required to restart the unit.</p></li>
+</ul>
+</section>
+<section id="a-option">
+<h3>-a option<a class="headerlink" href="#a-option" title="Link to this heading">¶</a></h3>
+<p>The <strong class="command">-a</strong> option makes <strong class="command">clr-service-restart</strong> consider all system
+services, not only the ones that are whitelisted. Because the default whitelist
+in Clear Linux OS is relatively short, you can use this option to restart all impacted
+services when you log in on the system.</p>
+</section>
+</section>
+<section id="example">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Example</a><a class="headerlink" href="#example" title="Link to this heading">¶</a></h2>
+<p>In the example below, <strong class="command">clr-service-restart</strong> is invoked with both the
+<strong class="command">-a</strong> and <strong class="command">-n</strong> options, which displays a complete list of system
+services that require a restart.</p>
+<p>Command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-service-restart<span class="w"> </span>-a<span class="w"> </span>-n
+</pre></div>
+</div>
+<p>Sample output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">upower.service: needs a restart (a library dependency was updated)</span>
+<span class="go">/usr/bin/systemctl --no-ask-password try-restart upower.service</span>
+<span class="go">NetworkManager.service: needs a restart (a library dependency was</span>
+<span class="go">updated)</span>
+<span class="go">/usr/bin/systemctl --no-ask-password try-restart NetworkManager.service</span>
+<span class="go">....</span>
+</pre></div>
+</div>
+</section>
+<section id="telemetry">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Telemetry</a><a class="headerlink" href="#telemetry" title="Link to this heading">¶</a></h2>
+<p><strong class="command">clr-service-restart</strong> may cause problems such as a short service
+outage when a daemon is being restarted, or if a daemon fails to properly
+restart. To minimize issues, <strong class="command">clr-service-restart</strong> creates a
+telemetry record and sends it to the optional Clear Linux OS telemetry service if both
+conditions below are met:</p>
+<ul class="simple">
+<li><p>If a unit fails to automatically restart after an OS update.</p></li>
+<li><p>If that unit resides in the system location <code class="file docutils literal notranslate"><span class="pre">/usr/lib/systemd/system</span></code>.</p></li>
+</ul>
+<p>If you do not install the Clear Linux OS telemetrics bundle, the data is discarded. If
+you install the telemetrics bundle and you opt to send telemetry, then the
+system unit name is sent to the Clear Linux OS telemetry service. We evaluate the
+report and update the whitelist to remove services that are not safe to
+restart.</p>
+</section>
+<section id="conclusion">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Conclusion</a><a class="headerlink" href="#conclusion" title="Link to this heading">¶</a></h2>
+<p>The Clear Linux OS team enjoys coming up with simple and efficient solutions to make
+your work easier. We made a GitHub* project of <strong class="command">clr-service-restart</strong>
+and we invite you to look at the code, share your thoughts, and work with us
+on improving the project. You can find the project at:</p>
+<p><a class="reference external" href="https://github.com/clearlinux/clr-service-restart">https://github.com/clearlinux/clr-service-restart</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Restart system services after an OS update</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#how-it-works">How it works</a></li>
+<li><a class="reference internal" href="#basic-options">Basic options</a><ul>
+<li><a class="reference internal" href="#allow">allow</a></li>
+<li><a class="reference internal" href="#disallow">disallow</a></li>
+<li><a class="reference internal" href="#default">default</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#monitor-options">Monitor options</a><ul>
+<li><a class="reference internal" href="#n-option">-n option</a></li>
+<li><a class="reference internal" href="#a-option">-a option</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#example">Example</a></li>
+<li><a class="reference internal" href="#telemetry">Telemetry</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="resource-limits.html"
+                          title="previous chapter">Resource limits</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="validate-signatures.html"
+                          title="next chapter">Validate signatures</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/maintenance/restart.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="validate-signatures.html" title="Validate signatures"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="resource-limits.html" title="Resource limits"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Restart system services after an OS update</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

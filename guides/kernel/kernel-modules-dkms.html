@@ -1,0 +1,481 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Add kernel modules with DKMS &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/kernel/kernel-modules-dkms.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tutorials" href="../../tutorials/index.html" />
+    <link rel="prev" title="Add kernel modules manually" href="kernel-modules.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../tutorials/index.html" title="Tutorials"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="kernel-modules.html" title="Add kernel modules manually"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Add kernel modules with DKMS</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="add-kernel-modules-with-dkms">
+<span id="kernel-modules-dkms"></span><h1>Add kernel modules with DKMS<a class="headerlink" href="#add-kernel-modules-with-dkms" title="Link to this heading">¶</a></h1>
+<p>This guide describes how to add kernel modules with
+<abbr title="Dynamic Kernel Module System">DKMS</abbr>.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id1">Overview</a></p></li>
+<li><p><a class="reference internal" href="#description" id="id2">Description</a></p></li>
+<li><p><a class="reference internal" href="#kernel-module-availability" id="id3">Kernel module availability</a></p></li>
+<li><p><a class="reference internal" href="#install-dkms" id="id4">Install DKMS</a></p></li>
+<li><p><a class="reference internal" href="#build-install-and-load-an-out-of-tree-module" id="id5">Build, install, and load an out-of-tree module</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id6">Examples</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id7">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#contents" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Certain kernel modules are enabled by default in Clear Linux* OS. To use additional
+kernel modules that are not part of the Linux source tree, you may need to
+build out-of-tree kernel modules. Use this guide to add kernel modules with
+DKMS or refer to <a class="reference internal" href="kernel-modules.html#kernel-modules"><span class="std std-ref">Add kernel modules manually</span></a>.</p>
+</section>
+<section id="description">
+<h2><a class="toc-backref" href="#contents" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Kernel modules are additional pieces of software capable of being inserted
+into the Linux kernel to add functionality, such as a hardware driver.
+Kernel modules may already be part of the Linux source tree (in-tree) or may
+come from an external source, such as directly from a vendor (out-of-tree).</p>
+<p>DKMS is a framework that facilitates the building and installation of kernel
+modules. DKMS allows Clear Linux OS to provide hooks that automatically rebuild modules
+against new kernel versions.</p>
+</section>
+<section id="kernel-module-availability">
+<h2><a class="toc-backref" href="#contents" role="doc-backlink">Kernel module availability</a><a class="headerlink" href="#kernel-module-availability" title="Link to this heading">¶</a></h2>
+<p>Clear Linux OS comes with many upstream kernel modules available for use. Using an
+existing module is significantly easier to maintain and retains signature
+verification of the Clear Linux OS kernel. For more information on Clear Linux OS security
+practices, see the <a class="reference internal" href="../clear/security.html#security"><span class="std std-ref">OS Security</span></a> page.</p>
+<p>Before continuing, check if the kernel module you’re looking for is already
+available in Clear Linux OS or submit a request to add the module.</p>
+<section id="check-if-the-module-is-already-available">
+<h3>Check if the module is already available<a class="headerlink" href="#check-if-the-module-is-already-available" title="Link to this heading">¶</a></h3>
+<p>You can search for kernel module file names, which end with the <code class="file docutils literal notranslate"><span class="pre">.ko</span></code>
+file extension, using the <strong class="command">swupd search</strong> command, as shown in the
+following example. See <a class="reference internal" href="../clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a> for more information.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>search<span class="w"> </span><span class="si">${</span><span class="nv">module_name</span><span class="si">}</span>.ko
+</pre></div>
+</div>
+</section>
+<section id="submit-a-request-to-add-the-module">
+<h3>Submit a request to add the module<a class="headerlink" href="#submit-a-request-to-add-the-module" title="Link to this heading">¶</a></h3>
+<p>If the kernel module you need is already open source (for example, in the
+Linux kernel upstream) and likely to be useful to others, consider submitting
+a request to add or enable it in the Clear Linux OS kernel.</p>
+<p>Make enhancement requests to the Clear Linux OS <a class="reference external" href="https://github.com/clearlinux/distribution">Distribution Project on GitHub</a>.</p>
+</section>
+</section>
+<section id="install-dkms">
+<h2><a class="toc-backref" href="#contents" role="doc-backlink">Install DKMS</a><a class="headerlink" href="#install-dkms" title="Link to this heading">¶</a></h2>
+<p id="kernel-modules-dkms-install-begin">The <strong class="command">kernel-native-dkms</strong> bundle provides the DKMS program and Linux
+kernel headers, which are placed under <code class="file docutils literal notranslate"><span class="pre">/usr/lib/modules/$(uname</span>
+<span class="pre">-r)/build/include/</span></code> and are required to compile kernel modules.</p>
+<p>The <strong class="command">kernel-native-dkms</strong> bundle also:</p>
+<ul class="simple">
+<li><p>Adds a <cite>systemd</cite> update trigger
+(<code class="file docutils literal notranslate"><span class="pre">/usr/lib/systemd/system/dkms-new-kernel.service</span></code>) to automatically
+run DKMS to rebuild modules after a kernel upgrade occurs with <a class="reference internal" href="../clear/swupd.html#swupd-guide"><span class="std std-ref">swupd
+update</span></a>.</p></li>
+<li><p>Disables kernel module signature verification by appending a kernel
+command-line parameter (<strong class="command">module.sig_unenforce</strong>) from the
+<code class="file docutils literal notranslate"><span class="pre">/usr/share/kernel/cmdline.d/clr-ignore-mod-sig.conf</span></code> file.</p></li>
+<li><p>Adds a notification to the Message of the Day (MOTD) indicating kernel
+module signature verification is disabled.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We recommend that you always review the <strong class="command">swupd update</strong> output
+to make sure kernel modules were successfully rebuilt against the new
+kernel. This is especially important for systems where a successful boot
+relies on a kernel module.</p>
+</div>
+<p id="kernel-modules-dkms-install-begin-alt">Install the <strong class="command">kernel-native-dkms</strong> or <strong class="command">kernel-lts-dkms</strong>
+bundle.</p>
+<ol class="arabic">
+<li><p>Determine which kernel variant is running on Clear Linux OS. Only the <em>native</em>
+and <em>lts</em> kernels are enabled to build and load out-of-tree kernel modules
+with DKMS.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uname<span class="w"> </span>-r
+<span class="go">5.XX.YY-ZZZZ.native</span>
+</pre></div>
+</div>
+<p>Ensure <em>.native</em> or <em>.lts</em> is in the kernel name.</p>
+</li>
+<li><p>Install the DKMS bundle corresponding to the installed kernel. Use
+<strong class="command">kernel-native-dkms</strong> for the native kernel or
+<strong class="command">kernel-lts-dkms</strong> for the lts kernel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>kernel-native-dkms
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>kernel-lts-dkms
+</pre></div>
+</div>
+</li>
+<li><p>Update the Clear Linux OS bootloader and reboot, and
+ensure that you can start the new kernel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-boot-manager<span class="w"> </span>update
+reboot
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="build-install-and-load-an-out-of-tree-module">
+<span id="kernel-modules-dkms-install-end"></span><h2><a class="toc-backref" href="#contents" role="doc-backlink">Build, install, and load an out-of-tree module</a><a class="headerlink" href="#build-install-and-load-an-out-of-tree-module" title="Link to this heading">¶</a></h2>
+<p>Follow the steps in this section if you are an individual user or testing,
+and you need an out-of-tree kernel module that is not available through
+Clear Linux OS. For a more scalable and customizable approach, we recommend using
+<a class="reference internal" href="../clear/mixer.html#mixer"><span class="std std-ref">mixer</span></a> to provide a custom kernel and updates.</p>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h3>
+<p>Before you begin, you must:</p>
+<ul class="simple">
+<li><p>Disable Secure Boot in UEFI/BIOS. The loading of new out-of-tree modules
+modifies the signatures that Secure Boot relies on for trust.</p></li>
+<li><p>Obtain a kernel module package in the form of source code or
+pre-compiled binaries.</p></li>
+</ul>
+</section>
+<section id="obtain-kernel-module-source">
+<h3>Obtain kernel module source<a class="headerlink" href="#obtain-kernel-module-source" title="Link to this heading">¶</a></h3>
+<p>A required <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file inside of the kernel module’s source code
+directory informs DKMS how the kernel module should be compiled.</p>
+<p>Kernel modules may come packaged as:</p>
+<ul class="simple">
+<li><p>Source code without a <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file</p></li>
+<li><p>Source code with a premade <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file</p></li>
+<li><p>Source code with a premade <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file and precompiled module
+binaries</p></li>
+<li><p>Precompiled module binaries only (without source code)</p></li>
+</ul>
+<p>Of the package types listed above, only precompiled kernel module binaries
+will not work, because Clear Linux OS requires kernel modules to be built against the
+same kernel source tree before they can be loaded. If you are only able to
+obtain source code without a <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file, you must manually create
+a <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file, described later in this document.</p>
+<ol class="arabic">
+<li><p>Download the kernel module’s source code.</p>
+<ul class="simple">
+<li><p>Review the available download options. Some kernel modules provide
+separate archives that are specifically enabled for DKMS support.</p></li>
+<li><p>Review the README documentation, because it often provides required
+information to build the module with DKMS support.</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-O<span class="w"> </span>http://&lt;URL-TO-KERNEL-MODULE-SOURCE&gt;.tar.gz
+tar<span class="w"> </span>-xvf<span class="w"> </span>&lt;KERNEL-MODULE-SOURCE&gt;.tar.gz
+<span class="nb">cd</span><span class="w"> </span>&lt;KERNEL-MODULE-SOURCE&gt;/
+cat<span class="w"> </span>README
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="build-kernel-module-with-an-existing-dkms-conf">
+<h3>Build kernel module with an existing dkms.conf<a class="headerlink" href="#build-kernel-module-with-an-existing-dkms-conf" title="Link to this heading">¶</a></h3>
+<p>If the kernel module maintainer packaged the source archive with the
+<strong class="command">dkms mktarball</strong> command, the entire archive can be passed to the
+<strong class="command">dkms ldtarball</strong> which completes many steps for you.</p>
+<p>The archive contains the required <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file, and may contain
+a <code class="file docutils literal notranslate"><span class="pre">dkms_source_tree</span></code> directory and a <code class="file docutils literal notranslate"><span class="pre">dkms_binaries_only</span></code>
+directory.</p>
+<ol class="arabic">
+<li><p>Run the <strong class="command">dkms ldtarball</strong> command against the kernel
+module archive.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dkms<span class="w"> </span>ldtarball<span class="w"> </span>&lt;KERNEL-MODULE-SOURCE_WITH_DKMS&gt;.tar.gz
+</pre></div>
+</div>
+<p><strong class="command">dkms ldtarball</strong> places the kernel module source under
+<code class="file docutils literal notranslate"><span class="pre">/usr/src/&lt;MODULE-NAME&gt;-&lt;MODULE-VERSION&gt;/</span></code>, builds it if necessary,
+and adds the module into the DKMS tree.</p>
+</li>
+<li><p>Verify the kernel module is detected by checking the output of the
+<strong class="command">dkms status</strong> command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dkms<span class="w"> </span>status
+</pre></div>
+</div>
+</li>
+<li><p>Install the kernel module.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dkms<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span>&lt;MODULE-NAME&gt;<span class="w"> </span>-v<span class="w"> </span>&lt;MODULE-VERSION&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="build-kernel-module-without-an-existing-dkms-conf">
+<h3>Build kernel module without an existing dkms.conf<a class="headerlink" href="#build-kernel-module-without-an-existing-dkms-conf" title="Link to this heading">¶</a></h3>
+<p>If the kernel module source does not contain a <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file or the
+<strong class="command">dkms ldtarball</strong> command encounters errors, you must manually
+create the file.</p>
+<p>Review the kernel module README documentation for guidance on what needs to be
+in the <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file, including special variables that may be
+required to build successfully.</p>
+<p>Here are some additional resources that can be used for reference:</p>
+<ul class="simple">
+<li><p>DKMS manual page (<strong class="command">man dkms</strong>) shows detailed syntax in the
+DKMS.CONF section.</p></li>
+<li><p>Ubuntu community wiki entry for the <a class="reference external" href="https://help.ubuntu.com/community/Kernel/DkmsDriverPackage#Configure_DKMS">Kernel DKMS Package</a> shows an example
+where a single package contains multiple modules.</p></li>
+<li><p>Sample <a class="reference external" href="https://github.com/dell/dkms/blob/master/sample.conf">dkms.conf</a> file in the GitHub* repository for the DKMS project.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong class="command">AUTOINSTALL=yes</strong> must be set in the dkms.conf for the module to
+be automatically recompiled with Clear Linux OS updates.</p>
+</div>
+<p>The instructions below show a generic example:</p>
+<ol class="arabic">
+<li><p>Create or modify the <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file inside of the extracted source
+code directory.</p>
+<div class="highlight-ShellSession notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>EDITOR<span class="w"> </span>dkms.conf
+
+<span class="go">MAKE=&quot;make -C src/ KERNELDIR=/lib/modules/${kernelver}/build&quot;</span>
+<span class="go">CLEAN=&quot;make -C src/ clean&quot;</span>
+<span class="go">BUILT_MODULE_NAME=custom_module</span>
+<span class="go">BUILT_MODULE_LOCATION=src/</span>
+<span class="go">PACKAGE_NAME=custom_module</span>
+<span class="go">PACKAGE_VERSION=1.0</span>
+<span class="go">DEST_MODULE_LOCATION=/kernel/drivers/other</span>
+<span class="go">AUTOINSTALL=yes</span>
+</pre></div>
+</div>
+<p>This example identifies a kernel module named <em>custom_module</em> with version
+<em>1.0</em>.</p>
+</li>
+<li><p>Copy the kernel module source code into the <code class="file docutils literal notranslate"><span class="pre">/usr/src/</span></code> directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/usr/src/&lt;PACKAGE_NAME&gt;-&lt;PACKAGE_VERSION&gt;
+sudo<span class="w"> </span>cp<span class="w"> </span>-Rv<span class="w"> </span>.<span class="w"> </span>/usr/src/&lt;PACKAGE_NAME&gt;-&lt;PACKAGE_VERSION&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>&lt;PACKAGE_NAME&gt;</em> and <em>&lt;PACKAGE_VERSION&gt;</em> must match the entries in the
+<code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file.</p>
+</div>
+</li>
+<li><p>Add the kernel module to the DKMS tree so that it is tracked by DKMS.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dkms<span class="w"> </span>add<span class="w"> </span>-m<span class="w"> </span>&lt;MODULE-NAME&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Build the kernel module using DKMS. If the build encounters errors,
+you may need to edit the <code class="file docutils literal notranslate"><span class="pre">dkms.conf</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dkms<span class="w"> </span>build<span class="w"> </span>-m<span class="w"> </span>&lt;MODULE-NAME&gt;<span class="w"> </span>-v<span class="w"> </span>&lt;MODULE-VERSION&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Install the kernel module using DKMS.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dkms<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span>&lt;MODULE-NAME&gt;<span class="w"> </span>-v<span class="w"> </span>&lt;MODULE-VERSION&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="load-kernel-module">
+<h3>Load kernel module<a class="headerlink" href="#load-kernel-module" title="Link to this heading">¶</a></h3>
+<p>By default, DKMS installs modules “in-tree” under <code class="file docutils literal notranslate"><span class="pre">/lib/modules</span></code> so the
+<strong class="command">modprobe</strong> command can be used to load them.</p>
+<ol class="arabic">
+<li><p>Load the installed module with the <strong class="command">modprobe</strong> command.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>modprobe<span class="w"> </span>&lt;MODULE-NAME&gt;
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Validate the kernel module is loaded.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>&lt;MODULE-NAME&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#contents" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<section id="optional-specify-module-options-and-aliases">
+<h3>Optional: Specify module options and aliases<a class="headerlink" href="#optional-specify-module-options-and-aliases" title="Link to this heading">¶</a></h3>
+<p>Use the <strong class="command">modprobe</strong> command to load a module and set options.</p>
+<p><strong class="command">modprobe</strong> may add or remove more than one module due to module
+interdependencies. You can specify which options to use with individual
+modules, by using configuration files under the <code class="file docutils literal notranslate"><span class="pre">/etc/modprobe.d</span></code>
+directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/etc/modprobe.d
+</pre></div>
+</div>
+<p>All files underneath the <code class="file docutils literal notranslate"><span class="pre">/etc/modprobe.d</span></code> directory that end with the
+<code class="file docutils literal notranslate"><span class="pre">.conf</span></code> extension specify module options to use when loading. You can
+use <code class="file docutils literal notranslate"><span class="pre">.conf</span></code> files to create convenient aliases for modules or to
+override the normal loading behavior altogether for those with special
+requirements.</p>
+<p>Learn more about <strong class="command">modprobe</strong> on the modprobe.d manual page:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>man<span class="w"> </span>modprobe.d
+</pre></div>
+</div>
+</section>
+<section id="optional-configure-kernel-modules-to-load-at-boot">
+<h3>Optional: Configure kernel modules to load at boot<a class="headerlink" href="#optional-configure-kernel-modules-to-load-at-boot" title="Link to this heading">¶</a></h3>
+<p>Use the <code class="file docutils literal notranslate"><span class="pre">/etc/modules-load.d</span></code> configuration directory to specify kernel
+modules to load automatically at boot.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>/etc/modules-load.d
+</pre></div>
+</div>
+<p>All files underneath the <code class="file docutils literal notranslate"><span class="pre">/etc/modules-load.d</span></code> directory that end with
+the <code class="file docutils literal notranslate"><span class="pre">.conf</span></code> extension contain a list of module names of aliases (one per
+line) to load at boot.</p>
+<p>Learn more about module loading in the modules-load.d manual page:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>man<span class="w"> </span>modules-load.d
+</pre></div>
+</div>
+</section>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#contents" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/dell/dkms">Dynamic Kernel Module System (DKMS)</a></p></li>
+<li><p><a class="reference external" href="https://www.kernel.org/doc/ols/2004/ols2004v1-pages-187-202.pdf">Dell Linux Engineering Dynamic Kernel Module Support: From Theory to Practice</a></p></li>
+<li><p><a class="reference external" href="https://www.linuxjournal.com/article/6896">Linux Journal: Exploring Dynamic Kernel Module Support</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Add kernel modules with DKMS</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#kernel-module-availability">Kernel module availability</a><ul>
+<li><a class="reference internal" href="#check-if-the-module-is-already-available">Check if the module is already available</a></li>
+<li><a class="reference internal" href="#submit-a-request-to-add-the-module">Submit a request to add the module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install-dkms">Install DKMS</a></li>
+<li><a class="reference internal" href="#build-install-and-load-an-out-of-tree-module">Build, install, and load an out-of-tree module</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#obtain-kernel-module-source">Obtain kernel module source</a></li>
+<li><a class="reference internal" href="#build-kernel-module-with-an-existing-dkms-conf">Build kernel module with an existing dkms.conf</a></li>
+<li><a class="reference internal" href="#build-kernel-module-without-an-existing-dkms-conf">Build kernel module without an existing dkms.conf</a></li>
+<li><a class="reference internal" href="#load-kernel-module">Load kernel module</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#optional-specify-module-options-and-aliases">Optional: Specify module options and aliases</a></li>
+<li><a class="reference internal" href="#optional-configure-kernel-modules-to-load-at-boot">Optional: Configure kernel modules to load at boot</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="kernel-modules.html"
+                          title="previous chapter">Add kernel modules manually</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../../tutorials/index.html"
+                          title="next chapter">Tutorials</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/kernel/kernel-modules-dkms.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../tutorials/index.html" title="Tutorials"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="kernel-modules.html" title="Add kernel modules manually"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Add kernel modules with DKMS</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

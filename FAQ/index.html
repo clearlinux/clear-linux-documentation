@@ -1,0 +1,405 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>FAQ &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/FAQ/index.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contribute" href="../collaboration/collaboration.html" />
+    <link rel="prev" title="Tutorial difficulty ratings" href="../reference/tutorial-ratings.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../collaboration/collaboration.html" title="Contribute"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../reference/tutorial-ratings.html" title="Tutorial difficulty ratings"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FAQ</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="faq">
+<span id="id1"></span><h1>FAQ<a class="headerlink" href="#faq" title="Link to this heading">¶</a></h1>
+<p>Below is a list of commonly asked questions with answers sourced from the
+Clear Linux* OS team and <a class="reference external" href="https://community.clearlinux.org">Clear Linux community forums</a>.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#general" id="id2">General</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-is-cl" id="id3">What is Clear Linux OS?</a></p></li>
+<li><p><a class="reference internal" href="#why-another-linux-distribution" id="id4">Why another Linux distribution?</a></p></li>
+<li><p><a class="reference internal" href="#is-it-a-derivative-of-another-linux-distribution" id="id5">Is it a derivative of another Linux distribution?</a></p></li>
+<li><p><a class="reference internal" href="#can-others-copy-improvements-from-cl" id="id6">Can others copy improvements from Clear Linux OS?</a></p></li>
+<li><p><a class="reference internal" href="#how-often-does-it-update" id="id7">How often does it update?</a></p></li>
+<li><p><a class="reference internal" href="#is-telemetry-required" id="id8">Is telemetry required?</a></p></li>
+<li><p><a class="reference internal" href="#what-is-the-default-firewall" id="id9">What is the default firewall?</a></p></li>
+<li><p><a class="reference internal" href="#where-are-the-files-that-i-usually-see-under-etc-like-fstab" id="id10">Where are the files that I usually see under /etc like fstab?</a></p></li>
+<li><p><a class="reference internal" href="#does-it-use-the-intel-compiler-icc" id="id11">Does it use the Intel Compiler (icc)?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#software" id="id12">Software</a></p>
+<ul>
+<li><p><a class="reference internal" href="#how-is-software-installed-and-updated" id="id13">How is software installed and updated?</a></p></li>
+<li><p><a class="reference internal" href="#does-it-use-rpms-or-debs-packages-like-other-distros" id="id14">Does it use RPMs or DEBs packages like other distros?</a></p></li>
+<li><p><a class="reference internal" href="#why-does-it-have-a-different-approach-to-software-management" id="id15">Why does it have a different approach to software management?</a></p></li>
+<li><p><a class="reference internal" href="#can-i-install-a-software-package-from-another-os-on-cl" id="id16">Can I install a software package from another OS on Clear Linux OS?</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#software-availability" id="id17">Software availability</a></p>
+<ul>
+<li><p><a class="reference internal" href="#what-software-is-available-on-cl" id="id18">What software is available on Clear Linux OS?</a></p></li>
+<li><p><a class="reference internal" href="#is-google-chrome-available" id="id19">Is Google* Chrome* available?</a></p></li>
+<li><p><a class="reference internal" href="#is-microsoft-visual-studio-code-available" id="id20">Is Microsoft* Visual Studio Code* available?</a></p></li>
+<li><p><a class="reference internal" href="#is-ffmpeg-available" id="id21">Is FFmpeg available?</a></p></li>
+<li><p><a class="reference internal" href="#is-zfs-available" id="id22">Is ZFS* available?</a></p></li>
+<li><p><a class="reference internal" href="#can-you-add-a-driver-that-i-need" id="id23">Can you add a driver that I need?</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="general">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">General</a><a class="headerlink" href="#general" title="Link to this heading">¶</a></h2>
+<section id="what-is-cl">
+<h3><a class="toc-backref" href="#id3" role="doc-backlink">What is Clear Linux OS?</a><a class="headerlink" href="#what-is-cl" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS is an open source, rolling release Linux distribution optimized for
+performance and security. See <a class="reference external" href="https://clearlinux.org/about">the about page</a>
+for more information.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="why-another-linux-distribution">
+<h3><a class="toc-backref" href="#id4" role="doc-backlink">Why another Linux distribution?</a><a class="headerlink" href="#why-another-linux-distribution" title="Link to this heading">¶</a></h3>
+<p>The Clear Linux OS team felt that performance was left on the table with Linux software.
+Clear Linux OS takes a holistic approach to improve performance across the stack. We
+also wanted to take more modern approaches with OS updates and tooling.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="is-it-a-derivative-of-another-linux-distribution">
+<h3><a class="toc-backref" href="#id5" role="doc-backlink">Is it a derivative of another Linux distribution?</a><a class="headerlink" href="#is-it-a-derivative-of-another-linux-distribution" title="Link to this heading">¶</a></h3>
+<p>No. Clear Linux OS is a new Linux distribution. It is not a fork and does not have a
+parent Linux distribution.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="can-others-copy-improvements-from-cl">
+<h3><a class="toc-backref" href="#id6" role="doc-backlink">Can others copy improvements from Clear Linux OS?</a><a class="headerlink" href="#can-others-copy-improvements-from-cl" title="Link to this heading">¶</a></h3>
+<p>Yes, we absolutely love open source reuse and upstreaming improvements.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="how-often-does-it-update">
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">How often does it update?</a><a class="headerlink" href="#how-often-does-it-update" title="Link to this heading">¶</a></h3>
+<p>The Clear Linux OS team puts out multiple releases a week, often releasing two or more
+times a day. This rolling release approach allows Clear Linux OS to remain agile to
+upstream changes and security patches.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="is-telemetry-required">
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Is telemetry required?</a><a class="headerlink" href="#is-telemetry-required" title="Link to this heading">¶</a></h3>
+<p>The telemetry solution provided by Clear Linux OS is entirely optional and customizable.
+It is disabled by default. If you do choose to enable telemetry, the data
+helps the Clear Linux OS team proactively identify and resolve bugs. See the
+<a class="reference internal" href="../guides/clear/telemetrics.html#telem-guide"><span class="std std-ref">telemetry</span></a> guide for more information.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="what-is-the-default-firewall">
+<h3><a class="toc-backref" href="#id9" role="doc-backlink">What is the default firewall?</a><a class="headerlink" href="#what-is-the-default-firewall" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS packages <strong class="command">iptables</strong> and <strong class="command">firewalld</strong> as optional
+bundles, however, there are no default firewall rules. All network traffic is
+allowed by default.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="where-are-the-files-that-i-usually-see-under-etc-like-fstab">
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">Where are the files that I usually see under /etc like fstab?</a><a class="headerlink" href="#where-are-the-files-that-i-usually-see-under-etc-like-fstab" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS has a stateless design that maintains a separation between system files
+and user files. Default values are stored under <code class="file docutils literal notranslate"><span class="pre">/usr/share/defaults/</span></code>.
+Clear Linux OS starts with a mostly empty <code class="file docutils literal notranslate"><span class="pre">/etc</span></code> directory to store user-defined
+configurations. See the <a class="reference internal" href="../guides/clear/stateless.html#stateless"><span class="std std-ref">stateless</span></a> page for more information.</p>
+<p>See <a class="reference external" href="https://clearlinux.org/news-blogs/where-etcfstab-clear-linux">this blog post</a> for an
+example explaining how this is accomplished with <code class="file docutils literal notranslate"><span class="pre">/etc/fstab/</span></code>
+specifically.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="does-it-use-the-intel-compiler-icc">
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Does it use the Intel Compiler (icc)?</a><a class="headerlink" href="#does-it-use-the-intel-compiler-icc" title="Link to this heading">¶</a></h3>
+<p>No. Clear Linux OS uses open source compilers: <strong class="command">gcc</strong> and <strong class="command">clang</strong>. Clear Linux OS
+does not compile any packages with <strong class="command">icc</strong>.</p>
+<p>For a more detailed explanation, see <a class="reference external" href="https://community.clearlinux.org/t/does-clear-linux-os-use-the-intel-compiler-icc-tl-nope/">this discussion on the community forum</a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="software">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink">Software</a><a class="headerlink" href="#software" title="Link to this heading">¶</a></h2>
+<section id="how-is-software-installed-and-updated">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">How is software installed and updated?</a><a class="headerlink" href="#how-is-software-installed-and-updated" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS provides software in the form of <a class="reference internal" href="../guides/clear/bundles.html#bundles-guide"><span class="std std-ref">bundles</span></a> and
+updates software with <a class="reference internal" href="../guides/clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a>.</p>
+<p><a class="reference internal" href="../tutorials/flatpak.html#flatpak-tutorial"><span class="std std-ref">Flatpak*</span></a> is an application virtualization solution
+that allows more software to be available to Clear Linux OS users by augmenting the
+software Clear Linux OS packages natively with software available through Flatpak.</p>
+<p>Our goal is to have software packaged natively and made available through
+bundles whenever possible.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="does-it-use-rpms-or-debs-packages-like-other-distros">
+<h3><a class="toc-backref" href="#id14" role="doc-backlink">Does it use RPMs or DEBs packages like other distros?</a><a class="headerlink" href="#does-it-use-rpms-or-debs-packages-like-other-distros" title="Link to this heading">¶</a></h3>
+<p>No. Clear Linux OS provides software to systems in the form of <a class="reference internal" href="../guides/clear/bundles.html#bundles-guide"><span class="std std-ref">Bundles</span></a>.
+Under the hood, Clear Linux OS developers use the RPM format as an intermediary step for
+packaging and determining software dependencies at OS build time.</p>
+<p>Individual RPMs and DEBs can sometimes be manually extracted and installed on
+a Clear Linux OS system with the right tools, but that is not the intended use case.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="why-does-it-have-a-different-approach-to-software-management">
+<h3><a class="toc-backref" href="#id15" role="doc-backlink">Why does it have a different approach to software management?</a><a class="headerlink" href="#why-does-it-have-a-different-approach-to-software-management" title="Link to this heading">¶</a></h3>
+<p>The Clear Linux OS team wants software <em>installation</em> and <em>updates</em> to be as efficient
+and error free as possible. Clear Linux OS packages software differently and uses a
+novel updater to solve some of the classic problems with how the software
+packages are on Linux.</p>
+<p>For a more detailed explanation, see <a class="reference external" href="https://community.clearlinux.org/t/why-does-clearlinux-use-swupd-and-not-apt-deb-rpm/">this discussion on our community forum</a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="can-i-install-a-software-package-from-another-os-on-cl">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink">Can I install a software package from another OS on Clear Linux OS?</a><a class="headerlink" href="#can-i-install-a-software-package-from-another-os-on-cl" title="Link to this heading">¶</a></h3>
+<p>Software that is packaged in other formats for other Linux distributions is
+not guaranteed to work on Clear Linux OS and may be impacted by Clear Linux OS updates.</p>
+<p>If the software you’re seeking is open source, please submit a request to add
+it to Clear Linux OS. Submit requests on GitHub* here:
+<a class="reference external" href="https://github.com/clearlinux/distribution/issues">https://github.com/clearlinux/distribution/issues</a></p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="software-availability">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink">Software availability</a><a class="headerlink" href="#software-availability" title="Link to this heading">¶</a></h2>
+<section id="what-software-is-available-on-cl">
+<h3><a class="toc-backref" href="#id18" role="doc-backlink">What software is available on Clear Linux OS?</a><a class="headerlink" href="#what-software-is-available-on-cl" title="Link to this heading">¶</a></h3>
+<p>Available software can be found in the <a class="reference external" href="https://clearlinux.org/software">Software Store</a>, through the GNOME*
+Software application on the desktop, or by using <a class="reference internal" href="../guides/clear/swupd.html#swupd-quick-ref"><span class="std std-ref">swupd search</span></a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="is-google-chrome-available">
+<h3><a class="toc-backref" href="#id19" role="doc-backlink">Is Google* Chrome* available?</a><a class="headerlink" href="#is-google-chrome-available" title="Link to this heading">¶</a></h3>
+<p>The Google Chrome web browser is not distributed as a bundle in Clear Linux OS due to
+copyright and licensing complexities.</p>
+<p>A <a class="reference external" href="https://github.com/clearlinux/distribution/issues/422">discussion on manually installing and maintaining Google Chrome</a> can be found on
+GitHub.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="is-microsoft-visual-studio-code-available">
+<h3><a class="toc-backref" href="#id20" role="doc-backlink">Is Microsoft* Visual Studio Code* available?</a><a class="headerlink" href="#is-microsoft-visual-studio-code-available" title="Link to this heading">¶</a></h3>
+<p>Yes. Find the CLI command for installing <a class="reference external" href="https://clearlinux.org/software?search_api_fulltext=vscode">VS Code</a> and other Flatpak apps in
+the <a class="reference external" href="https://clearlinux.org/software">software store</a>. Installing Flatpak apps is also covered in our
+<a class="reference internal" href="../tutorials/flatpak.html#flatpak-tutorial"><span class="std std-ref">tutorial</span></a>.</p>
+<p>The Clear Linux OS team is working on a natively packaged version of Visual Studio Code
+for future release.</p>
+<p>Join a community <a class="reference external" href="https://community.clearlinux.org/t/need-native-support-for-vs-code-through-swupd/">forum discussion about manually installing and maintaining
+Visual Studio Code</a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="is-ffmpeg-available">
+<span id="licensing-restrict"></span><h3><a class="toc-backref" href="#id21" role="doc-backlink">Is FFmpeg available?</a><a class="headerlink" href="#is-ffmpeg-available" title="Link to this heading">¶</a></h3>
+<p><a class="reference external" href="https://ffmpeg.org/">FFmpeg</a> is a multimedia software suite, which is commonly used for
+various media encoding/decoding, streaming, and playback.</p>
+<p>Clear Linux OS does not distribute FFmpeg due to well-known licensing and legal
+complexities (See <a class="reference external" href="https://www.ffmpeg.org/legal.html">https://www.ffmpeg.org/legal.html</a> and
+<a class="reference external" href="http://blog.pkh.me/p/13-the-ffmpeg-libav-situation.html">http://blog.pkh.me/p/13-the-ffmpeg-libav-situation.html</a>).</p>
+<p>While Clear Linux OS cannot distribute FFmpeg, solutions for manually building and
+installing FFmpeg have been shared by users <a class="reference external" href="https://github.com/clearlinux/distribution/issues/429">on GitHub</a> and <a class="reference external" href="https://community.clearlinux.org/t/how-to-h264-etc-support-for-firefox-including-ffmpeg-install">the community
+forums</a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="is-zfs-available">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink">Is ZFS* available?</a><a class="headerlink" href="#is-zfs-available" title="Link to this heading">¶</a></h3>
+<p>ZFS is not available with Clear Linux OS because of copyright and licensing
+complexities. BTRFS is an alternative filesystem that is available in Clear Linux OS
+natively.</p>
+<p>A community contributed tutorial has been shared on how to <a class="reference internal" href="../tutorials/zfs.html#zfs"><span class="std std-ref">manually
+install ZFS</span></a>.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+<section id="can-you-add-a-driver-that-i-need">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink">Can you add a driver that I need?</a><a class="headerlink" href="#can-you-add-a-driver-that-i-need" title="Link to this heading">¶</a></h3>
+<p>If a kernel module is available as part of the Linux kernel source tree but
+not enabled in the Clear Linux OS kernels, in many cases the Clear Linux OS team will enable it
+upon request. Submit requests on GitHub here:
+<a class="reference external" href="https://github.com/clearlinux/distribution/issues">https://github.com/clearlinux/distribution/issues</a></p>
+<p>The Clear Linux OS team does not typically add out-of-tree kernel modules as a matter of
+practice because of the maintenance overhead. If the driver was unable to be
+merged upstream, there is a good chance we may be unable to merge it for
+similar reasons.</p>
+<p>Kernel modules can be individually built and installed on Clear Linux OS. See the
+<a class="reference internal" href="../guides/kernel/kernel-modules.html#kernel-modules"><span class="std std-ref">kernel modules</span></a> page for more information.</p>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">FAQ</a><ul>
+<li><a class="reference internal" href="#general">General</a><ul>
+<li><a class="reference internal" href="#what-is-cl">What is Clear Linux OS?</a></li>
+<li><a class="reference internal" href="#why-another-linux-distribution">Why another Linux distribution?</a></li>
+<li><a class="reference internal" href="#is-it-a-derivative-of-another-linux-distribution">Is it a derivative of another Linux distribution?</a></li>
+<li><a class="reference internal" href="#can-others-copy-improvements-from-cl">Can others copy improvements from Clear Linux OS?</a></li>
+<li><a class="reference internal" href="#how-often-does-it-update">How often does it update?</a></li>
+<li><a class="reference internal" href="#is-telemetry-required">Is telemetry required?</a></li>
+<li><a class="reference internal" href="#what-is-the-default-firewall">What is the default firewall?</a></li>
+<li><a class="reference internal" href="#where-are-the-files-that-i-usually-see-under-etc-like-fstab">Where are the files that I usually see under /etc like fstab?</a></li>
+<li><a class="reference internal" href="#does-it-use-the-intel-compiler-icc">Does it use the Intel Compiler (icc)?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#software">Software</a><ul>
+<li><a class="reference internal" href="#how-is-software-installed-and-updated">How is software installed and updated?</a></li>
+<li><a class="reference internal" href="#does-it-use-rpms-or-debs-packages-like-other-distros">Does it use RPMs or DEBs packages like other distros?</a></li>
+<li><a class="reference internal" href="#why-does-it-have-a-different-approach-to-software-management">Why does it have a different approach to software management?</a></li>
+<li><a class="reference internal" href="#can-i-install-a-software-package-from-another-os-on-cl">Can I install a software package from another OS on Clear Linux OS?</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#software-availability">Software availability</a><ul>
+<li><a class="reference internal" href="#what-software-is-available-on-cl">What software is available on Clear Linux OS?</a></li>
+<li><a class="reference internal" href="#is-google-chrome-available">Is Google* Chrome* available?</a></li>
+<li><a class="reference internal" href="#is-microsoft-visual-studio-code-available">Is Microsoft* Visual Studio Code* available?</a></li>
+<li><a class="reference internal" href="#is-ffmpeg-available">Is FFmpeg available?</a></li>
+<li><a class="reference internal" href="#is-zfs-available">Is ZFS* available?</a></li>
+<li><a class="reference internal" href="#can-you-add-a-driver-that-i-need">Can you add a driver that I need?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../reference/tutorial-ratings.html"
+                          title="previous chapter">Tutorial difficulty ratings</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../collaboration/collaboration.html"
+                          title="next chapter">Contribute</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/FAQ/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../collaboration/collaboration.html" title="Contribute"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../reference/tutorial-ratings.html" title="Tutorial difficulty ratings"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">FAQ</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

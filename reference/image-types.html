@@ -1,0 +1,200 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS image types &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/image-types.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Man pages" href="man-pages.html" />
+    <link rel="prev" title="Recommended minimum system requirements" href="system-requirements.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="man-pages.html" title="Man pages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="system-requirements.html" title="Recommended minimum system requirements"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS image types</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-image-types">
+<span id="image-types"></span><h1>Clear Linux* OS image types<a class="headerlink" href="#cl-attr-image-types" title="Link to this heading">¶</a></h1>
+<p id="image-types-content">Clear Linux* OS offers many types of <a class="reference external" href="https://clearlinux.org/downloads">images</a> for different platforms and environments.</p>
+<p id="incl-image-filename">The naming convention of a Clear Linux OS image filename is:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">clear-[version number]-[image type].[compression type]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>The <em>[version number]</em> field specifies the version number.</p></li>
+<li><p>The <em>[image type]</em> field specifies the type of image and its corresponding
+file format.</p></li>
+<li><p>The <em>[compression type]</em> field specifies the compression type. Two types of
+compression methods are used: GNU* zip (<em>.gz</em>) and XZ (<em>.xz</em>).</p></li>
+</ul>
+<p id="incl-image-filename-end">Table 1 lists the currently available images that are platform independent.
+Table 2 lists the currently available images that are platform specific.</p>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text">Table 1: Types of platform-independent Clear Linux OS images</span><a class="headerlink" href="#id1" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Image Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>live-desktop.img or live-desktop.iso</p></td>
+<td><p>Image for booting to GNOME* desktop to preview or install the OS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>live-server.img or live-server.iso</p></td>
+<td><p>Image for booting to server command prompt to preview or install the OS.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id2">
+<caption><span class="caption-text">Table 2: Types of platform-specific Clear Linux OS images</span><a class="headerlink" href="#id2" title="Link to this table">¶</a></caption>
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 85.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Image Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>aws.img</p></td>
+<td><p>Image suitable for use with Amazon* AWS*.</p></td>
+</tr>
+<tr class="row-odd"><td><p>cloudguest.img</p></td>
+<td><p>Image with generic cloud guest virtual machine (VM) requirements
+installed.</p></td>
+</tr>
+<tr class="row-even"><td><p>gce.tar</p></td>
+<td><p>Image with the Google Compute Engine (GCE) specific kernel.</p></td>
+</tr>
+<tr class="row-odd"><td><p>azure-hyperv.vhd</p></td>
+<td><p>Image for Microsoft* Azure and Hyper-V generation 1 VMs. Includes
+<a class="reference internal" href="../guides/clear/compatible-kernels.html#vm-kernels"><span class="std std-ref">optimized kernel</span></a> for Hyper-V.</p></td>
+</tr>
+<tr class="row-even"><td><p>kvm.img</p></td>
+<td><p>Image for booting in a simple VM with start_qemu.sh. Includes
+<a class="reference internal" href="../guides/clear/compatible-kernels.html#vm-kernels"><span class="std std-ref">optimized kernel</span></a> for KVM.</p></td>
+</tr>
+<tr class="row-odd"><td><p>kvm-legacy.img</p></td>
+<td><p>Image for booting in a simple VM using legacy BIOS, if using
+start_qemu.sh make sure to remove -bios parameter.</p></td>
+</tr>
+<tr class="row-even"><td><p>pxe.tar</p></td>
+<td><p>Image suitable for use with PXE server.</p></td>
+</tr>
+<tr class="row-odd"><td><p>vmware.vmdk</p></td>
+<td><p>Virtual Machine Disk for VMware* platforms including Player,
+Workstation, and ESXi.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="system-requirements.html"
+                          title="previous chapter">Recommended minimum system requirements</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="man-pages.html"
+                          title="next chapter">Man pages</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/image-types.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="man-pages.html" title="Man pages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="system-requirements.html" title="Recommended minimum system requirements"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Reference</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS image types</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

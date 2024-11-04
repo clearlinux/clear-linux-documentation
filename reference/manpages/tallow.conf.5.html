@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>tallow.conf &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/tallow.conf.5.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="tallow.patterns" href="tallow.patterns.5.html" />
+    <link rel="prev" title="tallow" href="tallow.1.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="tallow.patterns.5.html" title="tallow.patterns"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="tallow.1.html" title="tallow"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">tallow.conf</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="tallow-conf">
+<h1>tallow.conf<a class="headerlink" href="#tallow-conf" title="Link to this heading">¶</a></h1>
+<p>The tallow configuration file</p>
+<section id="name">
+<h2>NAME<a class="headerlink" href="#name" title="Link to this heading">¶</a></h2>
+<p>tallow.conf - Tallow daemon configuration file</p>
+</section>
+<section id="synopsis">
+<h2>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/tallow.conf</span></code></p>
+</section>
+<section id="description">
+<h2>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>This file is read on startup by the <a class="reference external" href="tallow.1.html">tallow(1)</a> daemon, and can be used to
+provide options to the tallow daemon. If not present, tallow will
+operate with built-in defaults.</p>
+</section>
+<section id="options">
+<h2>OPTIONS<a class="headerlink" href="#options" title="Link to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">fwcmd_path</span></code>=<code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Specifies the location of the ipset(1)
+firewall-cmd(1) programs. By default, tallow will look in “/usr/sbin”
+for them.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ipt_path</span></code>=<code class="docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code> Specifies the location of the ipset(1)
+program and iptables(1) or ip6tables(1) programs. By default, tallow
+will look in “/usr/sbin” for them.</p>
+<p><code class="docutils literal notranslate"><span class="pre">expires</span></code>=<code class="docutils literal notranslate"><span class="pre">&lt;int&gt;</span></code> The number of seconds that IP addresses are
+blocked for. Note that due to the implementation, IP addresses may be
+blocked for much longer than this period. If IP addresses are seen, but
+not blocked within this period, they are also removed from the watch
+list. Defaults to 3600s.</p>
+<p><code class="docutils literal notranslate"><span class="pre">whitelist</span></code>=<code class="docutils literal notranslate"><span class="pre">&lt;ip</span> <span class="pre">address|pattern&gt;</span></code> Specify an IP address or
+<code class="docutils literal notranslate"><span class="pre">pattern</span></code> that should never be blocked. Multiple IP addresses can be
+included by repeating the <code class="docutils literal notranslate"><span class="pre">whitelist</span></code> option several times. By
+default, 127.0.0.1, 192.168., and 10. are whitelisted. If you create a
+manual whitelist, you must include these entries if you want to continue
+them to be whitelisted as well, otherwise they will be omitted from the
+whitelist.</p>
+<p>If the last character of the listed ip adress is a <code class="docutils literal notranslate"><span class="pre">.</span></code> or a <code class="docutils literal notranslate"><span class="pre">:</span></code>,
+then the matching is only performed on the leftmost characters of an IP
+address against the whitelist entry. For instance, if you whitelist
+<code class="docutils literal notranslate"><span class="pre">10.</span></code> then all IP addresses in the <code class="docutils literal notranslate"><span class="pre">10/8</span></code> subnet mask will match
+this whitelist entry and never be blocked.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ipv6</span></code>=<code class="docutils literal notranslate"><span class="pre">&lt;0|1&gt;</span></code> Enable or disable ipv6 (ip6tables) support. Ipv6
+is disabled automatically on systems that do not appear to have ipv6
+support and enabled when ipv6 is present. Use this option to explicitly
+disable ipv6 support if your system does not have ipv6 or is missing
+ip6tables. Even with ipv6 disabled, tallow will track and log ipv6
+addresses.</p>
+<p><code class="docutils literal notranslate"><span class="pre">nocreate</span></code>=<code class="docutils literal notranslate"><span class="pre">&lt;0|1&gt;</span></code> Disable the creation of firewall rules and
+ipset sets. By default, tallow will create new firewall-cmd(1) or
+iptables(1) and ip6tables(1) rules when needed automatically. If set to
+<code class="docutils literal notranslate"><span class="pre">1</span></code>, <a class="reference external" href="tallow.1.html">tallow(1)</a> will not create any new firewall DROP rules or
+ipset sets that are needed work. You should create them manually before
+tallow starts up and remove them afterwards using the sets of commands
+below.</p>
+<p>Use the following commands if you’re using iptables(1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ipset</span> <span class="n">create</span> <span class="n">tallow</span> <span class="nb">hash</span><span class="p">:</span><span class="n">ip</span> <span class="n">family</span> <span class="n">inet</span> <span class="n">timeout</span> <span class="mi">3600</span>
+<span class="n">iptables</span> <span class="o">-</span><span class="n">t</span> <span class="nb">filter</span> <span class="o">-</span><span class="n">I</span> <span class="n">INPUT</span> <span class="mi">1</span> <span class="o">-</span><span class="n">m</span> <span class="nb">set</span> <span class="o">--</span><span class="n">match</span><span class="o">-</span><span class="nb">set</span> <span class="n">tallow</span> <span class="n">src</span> <span class="o">-</span><span class="n">j</span> <span class="n">DROP</span>
+
+<span class="n">ipset</span> <span class="n">create</span> <span class="n">tallow6</span> <span class="nb">hash</span><span class="p">:</span><span class="n">ip</span> <span class="n">family</span> <span class="n">inet6</span> <span class="n">timeout</span> <span class="mi">3600</span>
+<span class="n">ip6tables</span> <span class="o">-</span><span class="n">t</span> <span class="nb">filter</span> <span class="o">-</span><span class="n">I</span> <span class="n">INPUT</span> <span class="mi">1</span> <span class="o">-</span><span class="n">m</span> <span class="nb">set</span> <span class="o">--</span><span class="n">match</span><span class="o">-</span><span class="nb">set</span> <span class="n">tallow6</span> <span class="n">src</span> <span class="o">-</span><span class="n">j</span> <span class="n">DROP</span>
+</pre></div>
+</div>
+<p>Use the following commands if you’re using firewalld(1):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">new</span><span class="o">-</span><span class="n">ipset</span><span class="o">=</span><span class="n">tallow</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="nb">hash</span><span class="p">:</span><span class="n">ip</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="n">inet</span> <span class="o">--</span><span class="n">option</span><span class="o">=</span><span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">direct</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">rule</span> <span class="n">ipv4</span> <span class="nb">filter</span> <span class="n">INPUT</span> <span class="mi">1</span> <span class="o">-</span><span class="n">m</span> <span class="nb">set</span> <span class="o">--</span><span class="n">match</span><span class="o">-</span><span class="nb">set</span> <span class="n">tallow</span> <span class="n">src</span> <span class="o">-</span><span class="n">j</span> <span class="n">DROP</span>
+
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">new</span><span class="o">-</span><span class="n">ipset</span><span class="o">=</span><span class="n">tallow6</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="nb">hash</span><span class="p">:</span><span class="n">ip</span> <span class="o">--</span><span class="n">family</span><span class="o">=</span><span class="n">inet6</span> <span class="o">--</span><span class="n">option</span><span class="o">=</span><span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span>
+<span class="n">firewall</span><span class="o">-</span><span class="n">cmd</span> <span class="o">--</span><span class="n">permanent</span> <span class="o">--</span><span class="n">direct</span> <span class="o">--</span><span class="n">add</span><span class="o">-</span><span class="n">rule</span> <span class="n">ipv6</span> <span class="nb">filter</span> <span class="n">INPUT</span> <span class="mi">1</span> <span class="o">-</span><span class="n">m</span> <span class="nb">set</span> <span class="o">--</span><span class="n">match</span><span class="o">-</span><span class="nb">set</span> <span class="n">tallow6</span> <span class="n">src</span> <span class="o">-</span><span class="n">j</span> <span class="n">DROP</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="tallow.1.html">tallow(1)</a>, <a class="reference external" href="tallow.patterns.5.html">tallow.patterns(5)</a></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">tallow.conf</a><ul>
+<li><a class="reference internal" href="#name">NAME</a></li>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a></li>
+<li><a class="reference internal" href="#options">OPTIONS</a></li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="tallow.1.html"
+                          title="previous chapter">tallow</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="tallow.patterns.5.html"
+                          title="next chapter">tallow.patterns</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/tallow.conf.5.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="tallow.patterns.5.html" title="tallow.patterns"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="tallow.1.html" title="tallow"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">tallow.conf</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

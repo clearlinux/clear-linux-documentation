@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Install Clear Linux OS Over the Network with iPXE &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/ipxe-install.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Clear Linux* OS on Microsoft Hyper-V*" href="virtual-machine-install/hyper-v.html" />
+    <link rel="prev" title="Install using clr-installer and a configuration file" href="install-configfile.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="virtual-machine-install/hyper-v.html" title="Clear Linux* OS on Microsoft Hyper-V*"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="install-configfile.html" title="Install using clr-installer and a configuration file"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install Clear Linux OS Over the Network with iPXE</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="install-cl-over-the-network-with-ipxe">
+<span id="ipxe-install"></span><h1>Install Clear Linux OS Over the Network with iPXE<a class="headerlink" href="#install-cl-over-the-network-with-ipxe" title="Link to this heading">¶</a></h1>
+<p>PXE <abbr title="Pre-boot Execution Environment">PXE</abbr> is an industry standard
+that describes client-server interaction with network-boot software and
+uses the DHCP and TFTP protocols. iPXE, a fork of gPXE, is an open-source
+version of PXE. It enables computers without built-in PXE capability to
+network-boot using protocols such as HTTP, <abbr title="Internet Small Computer Systems Interface">iSCSI</abbr>, <abbr title="ATA over Ethernet*">AoE</abbr>, and
+<abbr title="Fiber Channel over Ethernet*">FCoE</abbr>.</p>
+<p>This guide demonstrates how to setup an iPXE server to install Clear Linux* OS
+over the network.</p>
+<p>Figure 1 depicts the flow of information between an iPXE server and a
+PXE client.</p>
+<figure class="align-default" id="id1">
+<img alt="PXE information flow" src="../_images/ipxe-install-1.png" />
+<figcaption>
+<p><span class="caption-text">Figure 1: PXE information flow</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>The Clear Linux OS PXE image that boots through the iPXE process automatically
+erases all data and partitions on the PXE client system and performs
+a fresh installation according to a clr-installer YAML configuration
+file.</p>
+</div>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>Your iPXE server must have:</p>
+<ul class="simple">
+<li><p>Ethernet/LAN boot option</p></li>
+<li><p>At least two network adapters</p></li>
+<li><p>Connection to a public (WAN) network</p></li>
+<li><p>Secure Boot option disabled in BIOS</p></li>
+</ul>
+<p>Your clients must have:</p>
+<ul class="simple">
+<li><p>Ethernet/LAN boot option</p></li>
+<li><p>One network adapter</p></li>
+<li><p>Secure Boot option disabled in BIOS</p></li>
+<li><p>The minimum requirements to run Clear Linux OS. Review the <a class="reference internal" href="compatibility-check.html#compatibility-check"><span class="std std-ref">Check Processor Compatibility</span></a>.</p></li>
+</ul>
+<p>Connect the iPXE server and clients to a network switch on a private
+(LAN) network, as shown in Figure 2.</p>
+<figure class="align-default" id="id2">
+<img alt="Network topology" src="../_images/ipxe-install-2.png" />
+<figcaption>
+<p><span class="caption-text">Figure 2: Network topology</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="install-cl-on-server">
+<h2>Install Clear Linux OS on server<a class="headerlink" href="#install-cl-on-server" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Install Clear Linux OS on the system that will serve as the iPXE server.
+We recommend using the <cite>server</cite> version.</p></li>
+<li><p>Open a terminal window.</p></li>
+<li><p>Add the <strong class="command">pxe-server</strong> bundle to your Clear Linux OS system.
+The bundle contains all the necessary apps (web server, iPXE firmwares,
+dnsmasq which provides TFTP, DNS, DHCP functionalities) to run an
+iPXE server.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>pxe-server
+</pre></div>
+</div>
+</li>
+<li><p>Define the following variables used for setting up the iPXE server.
+Be sure to substitute the value for the WAN_INTERFACE and
+LAN_INTERFACE variables with your LAN and WAN interfaces names.
+Use <strong class="command">ip a</strong> to list your network devices and get their
+names.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">IPXE_APP_NAME</span><span class="o">=</span>ipxe
+<span class="nv">IPXE_PORT</span><span class="o">=</span><span class="m">50000</span>
+<span class="nv">WEB_ROOT_DIR</span><span class="o">=</span>/var/www
+<span class="nv">IPXE_ROOT_DIR</span><span class="o">=</span><span class="si">${</span><span class="nv">WEB_ROOT_DIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">IPXE_APP_NAME</span><span class="si">}</span>
+<span class="nv">TFTP_ROOT_DIR</span><span class="o">=</span>/srv/tftp
+<span class="nv">CLR_INSTALLER_CONF_DIR</span><span class="o">=</span>clr-installer-configs
+<span class="nv">WAN_INTERFACE</span><span class="o">=</span>eno1
+<span class="nv">LAN_INTERFACE</span><span class="o">=</span>eno2
+<span class="nv">IPXE_SUBNET</span><span class="o">=</span><span class="m">192</span>.168.100
+<span class="nv">IPXE_LAN_IP</span><span class="o">=</span><span class="si">${</span><span class="nv">IPXE_SUBNET</span><span class="si">}</span>.1
+<span class="nv">IPXE_SUBNET_MASK_IP</span><span class="o">=</span><span class="m">255</span>.255.255.0
+<span class="nv">IPXE_SUBNET_BITMASK</span><span class="o">=</span><span class="m">16</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="setup-nginx-web-server-to-host-ipxe">
+<h2>Setup nginx web server to host iPXE<a class="headerlink" href="#setup-nginx-web-server-to-host-ipxe" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Set up an nginx web server to serve the Clear Linux OS PXE image to clients
+using these steps:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup nginx</span>
+sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/nginx/conf.d
+sudo<span class="w"> </span>cp<span class="w"> </span>/usr/share/nginx/conf/nginx.conf.example<span class="w"> </span>/etc/nginx/nginx.conf
+
+<span class="c1"># grant $USER permission to run the web server</span>
+sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/nginx/nginx.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">user $USER;</span>
+<span class="s">EOF</span>
+
+<span class="c1"># web server config</span>
+sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/nginx/conf.d/<span class="si">${</span><span class="nv">IPXE_APP_NAME</span><span class="si">}</span>.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">server {</span>
+<span class="s">  listen ${IPXE_PORT};</span>
+<span class="s">  server_name localhost;</span>
+
+<span class="s">  # directory to store ipxe</span>
+<span class="s">  location /${IPXE_APP_NAME}/ {</span>
+<span class="s">    root ${WEB_ROOT_DIR}/${IPXE_APP_NAME};</span>
+<span class="s">    rewrite ^/${IPXE_APP_NAME}(/.*)$ \$1 break;</span>
+<span class="s">  }</span>
+
+<span class="s">  # directory to store clr-installer configs</span>
+<span class="s">  location /${CLR_INSTALLER_CONF_DIR}/ {</span>
+<span class="s">    root ${WEB_ROOT_DIR}/${CLR_INSTALLER_CONF_DIR};</span>
+<span class="s">    rewrite ^/${CLR_INSTALLER_CONF_DIR}(/.*)$ \$1 break;</span>
+<span class="s">  }</span>
+<span class="s">}</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set nginx to start automatically on boot and then start it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>nginx<span class="w"> </span>--now
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="configure-ipxe">
+<h2>Configure iPXE<a class="headerlink" href="#configure-ipxe" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Download the latest Clear Linux OS PXE image and extract the files into the iPXE root.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>curl<span class="w"> </span>-o<span class="w"> </span>/tmp/clear-pxe.tar.xz<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://cdn.download.clearlinux.org/current/clear-<span class="k">$(</span>curl<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>https://cdn.download.clearlinux.org/latest<span class="k">)</span>-pxe.tar.xz
+sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">IPXE_ROOT_DIR</span><span class="si">}</span>
+sudo<span class="w"> </span>tar<span class="w"> </span>-xJf<span class="w"> </span>/tmp/clear-pxe.tar.xz<span class="w"> </span>-C<span class="w"> </span><span class="si">${</span><span class="nv">IPXE_ROOT_DIR</span><span class="si">}</span>
+sudo<span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span><span class="k">$(</span>ls<span class="w"> </span><span class="si">${</span><span class="nv">IPXE_ROOT_DIR</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s1">&#39;org.clearlinux.*&#39;</span><span class="k">)</span><span class="w"> </span><span class="si">${</span><span class="nv">IPXE_ROOT_DIR</span><span class="si">}</span>/linux
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ensure that the initial ramdisk file is named <code class="file docutils literal notranslate"><span class="pre">initrd</span></code> and
+the kernel file is named <code class="file docutils literal notranslate"><span class="pre">linux</span></code>, which is a symbolic link to the
+actual kernel file.</p>
+</div>
+</li>
+<li><p>Create an iPXE boot script. The script presents a menu of bootable images to
+download, boot, and install Clear Linux OS, according to a designated clr-installer
+YAML configuration file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span><span class="si">${</span><span class="nv">IPXE_ROOT_DIR</span><span class="si">}</span>/ipxe_boot_script.ipxe<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">#!ipxe</span>
+
+<span class="s">set menu-timeout 5000</span>
+<span class="s">set submenu-timeout \${menu-timeout}</span>
+<span class="s">isset \${menu-default} || set menu-default clr-server</span>
+
+<span class="s">:menu</span>
+<span class="s">menu Select a version of Clear Linux OS to install</span>
+<span class="s">item clr-desktop Clear Linux OS (Desktop)</span>
+<span class="s">item clr-server Clear Linux OS (Server)</span>
+<span class="s">item ipxe-shell iPXE Shell</span>
+<span class="s">item reboot Reboot</span>
+
+<span class="s">choose --timeout \${menu-timeout} --default \${menu-default} selected || goto cancel</span>
+<span class="s">set menu-timeout 0</span>
+<span class="s">goto \${selected}</span>
+
+<span class="s">:clr-desktop</span>
+<span class="s">echo Booting and installing Clear Linux OS (Desktop)...</span>
+<span class="s">kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug \\</span>
+<span class="s">tsc=reliable no_timer_check noreplace-smp rw initrd=initrd \\</span>
+<span class="s">clri.descriptor=http://${IPXE_LAN_IP}:${IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-desktop.yaml</span>
+<span class="s">initrd initrd</span>
+<span class="s">boot || goto failed</span>
+
+<span class="s">:clr-server</span>
+<span class="s">echo Booting and installing Clear Linux OS (Server)...</span>
+<span class="s">kernel linux quiet init=/usr/lib/systemd/systemd-bootchart initcall_debug \\</span>
+<span class="s">tsc=reliable no_timer_check noreplace-smp rw initrd=initrd \\</span>
+<span class="s">clri.descriptor=http://${IPXE_LAN_IP}:${IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-server.yaml</span>
+<span class="s">initrd initrd</span>
+<span class="s">boot || goto failed</span>
+
+<span class="s">:cancel</span>
+<span class="s">echo Menu canceled, going to iPXE shell</span>
+
+<span class="s">:ipxe-shell</span>
+<span class="s">echo Type &#39;exit&#39; to return to the menu</span>
+<span class="s">shell</span>
+<span class="s">set menu-timeout 0</span>
+<span class="s">set submenu-timeout 0</span>
+<span class="s">goto menu</span>
+
+<span class="s">echo Booting</span>
+<span class="s">:failed</span>
+<span class="s">echo Booting failed, going to iPXE shell</span>
+<span class="s">goto shell</span>
+
+<span class="s">:reboot</span>
+<span class="s">echo Rebooting...</span>
+<span class="s">sleep 1</span>
+<span class="s">reboot</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <cite>clri.discriptor</cite> option tells clr-installer where to download a YAML
+configuration file to use. Without this option, the Clear Linux OS PXE image will
+simply boot and not perform any installation.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="add-clr-installer-yaml-configuration-files">
+<h2>Add clr-installer YAML configuration files<a class="headerlink" href="#add-clr-installer-yaml-configuration-files" title="Link to this heading">¶</a></h2>
+<p>After the Clear Linux OS PXE image boot, clr-installer downloads the YAML configuration file
+specified in the kernel command-line and installs accordingly.</p>
+<p>See <a class="reference external" href="https://github.com/clearlinux/clr-installer/blob/master/scripts/InstallerYAMLSyntax.md">Installer YAML Syntax</a> for more information on clr-installer configuration
+YAML syntax.</p>
+<ol class="arabic">
+<li><p>Create the directory to store the configuration files.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">WEB_ROOT_DIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLR_INSTALLER_CONF_DIR</span><span class="si">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create this sample <cite>Desktop</cite> configuration called <code class="file docutils literal notranslate"><span class="pre">clr-desktop.yaml</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span><span class="si">${</span><span class="nv">WEB_ROOT_DIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLR_INSTALLER_CONF_DIR</span><span class="si">}</span>/clr-desktop.yaml<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">#clear-linux-config</span>
+
+<span class="s"># switch between aliases if you want to install to an actuall block device</span>
+<span class="s"># i.e /dev/sda</span>
+<span class="s">block-devices: [</span>
+<span class="s">   {name: &quot;bdevice&quot;, file: &quot;/dev/sda&quot;}</span>
+<span class="s">]</span>
+
+<span class="s">targetMedia:</span>
+<span class="s">- name: \${bdevice}</span>
+<span class="s">  type: disk</span>
+<span class="s">  children:</span>
+<span class="s">  - name: \${bdevice}1</span>
+<span class="s">    fstype: vfat</span>
+<span class="s">    mountpoint: /boot</span>
+<span class="s">    size: &quot;150M&quot;</span>
+<span class="s">    type: part</span>
+<span class="s">  - name: \${bdevice}2</span>
+<span class="s">    fstype: swap</span>
+<span class="s">    size: &quot;250M&quot;</span>
+<span class="s">    type: part</span>
+<span class="s">  - name: \${bdevice}3</span>
+<span class="s">    fstype: ext4</span>
+<span class="s">    mountpoint: /</span>
+<span class="s">    size: &quot;0&quot;     # Use remaining disk space</span>
+<span class="s">    type: part</span>
+
+<span class="s">bundles: [ bootloader, os-core, os-core-update, desktop-autostart, libreoffice,</span>
+<span class="s">           vlc, c-basic, git, openssh-server, vim ]</span>
+
+<span class="s">autoUpdate: true</span>
+<span class="s">postArchive: false</span>
+<span class="s">postReboot: true</span>
+<span class="s">telemetry: false</span>
+<span class="s">hostname: clrlinux-desktop</span>
+<span class="s">keyboard: us</span>
+<span class="s">language: en_US.UTF-8</span>
+<span class="s">kernel: kernel-native</span>
+
+<span class="s">users:</span>
+<span class="s">- login: clrlinux</span>
+<span class="s">  username: Clear Linux</span>
+<span class="s">  # Password is &quot;clear123&quot;</span>
+<span class="s">  password: $6$SJJMfnInWQg.CvMA$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/</span>
+<span class="s">  admin: true</span>
+<span class="s">- login: root</span>
+<span class="s">  username: Root Root</span>
+<span class="s">  # Password is &quot;clear123&quot;</span>
+<span class="s">  password: $6$SJJMfnInWQg.CvMA$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/</span>
+<span class="s">  admin: true</span>
+
+<span class="s">pre-install: [</span>
+<span class="s">  {cmd: &quot;curl -o /tmp/add-issue.sh http://${IPXE_LAN_IP}:${IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/add-issue.sh&quot;},</span>
+<span class="s">  {cmd: &quot;chmod +x /tmp/add-issue.sh&quot;}</span>
+<span class="s">]</span>
+
+<span class="s">post-install: [</span>
+<span class="s">  {cmd: &quot;echo PermitRootLogin yes &gt; \${chrootDir}/etc/ssh/sshd_config&quot;},</span>
+<span class="s">  {cmd: &quot;/tmp/add-issue.sh \${chrootDir}&quot;}</span>
+<span class="s">]</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Create this sample <cite>Server</cite> configuration called <code class="file docutils literal notranslate"><span class="pre">clr-server.yaml</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span><span class="si">${</span><span class="nv">WEB_ROOT_DIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLR_INSTALLER_CONF_DIR</span><span class="si">}</span>/clr-server.yaml<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">#clear-linux-config</span>
+
+<span class="s"># switch between aliases if you want to install to an actuall block device</span>
+<span class="s"># i.e /dev/sda</span>
+<span class="s">block-devices: [</span>
+<span class="s">   {name: &quot;bdevice&quot;, file: &quot;/dev/sda&quot;}</span>
+<span class="s">]</span>
+
+<span class="s">targetMedia:</span>
+<span class="s">- name: \${bdevice}</span>
+<span class="s">  type: disk</span>
+<span class="s">  children:</span>
+<span class="s">  - name: \${bdevice}1</span>
+<span class="s">    fstype: vfat</span>
+<span class="s">    mountpoint: /boot</span>
+<span class="s">    size: &quot;150M&quot;</span>
+<span class="s">    type: part</span>
+<span class="s">  - name: \${bdevice}2</span>
+<span class="s">    fstype: swap</span>
+<span class="s">    size: &quot;250M&quot;</span>
+<span class="s">    type: part</span>
+<span class="s">  - name: \${bdevice}3</span>
+<span class="s">    fstype: ext4</span>
+<span class="s">    mountpoint: /</span>
+<span class="s">    size: &quot;0&quot;     # Use remaining disk space</span>
+<span class="s">    type: part</span>
+
+<span class="s">bundles: [ bootloader, os-core, os-core-update, vim ]</span>
+
+<span class="s">autoUpdate: true</span>
+<span class="s">postArchive: false</span>
+<span class="s">postReboot: true</span>
+<span class="s">telemetry: false</span>
+<span class="s">hostname: clrlinux-server</span>
+<span class="s">keyboard: us</span>
+<span class="s">language: en_US.UTF-8</span>
+<span class="s">kernel: kernel-native</span>
+
+<span class="s">users:</span>
+<span class="s">- login: clrlinux</span>
+<span class="s">  username: Clear Linux</span>
+<span class="s">  # Password is &quot;clear123&quot;</span>
+<span class="s">  password: \$6\$SJJMfnInWQg.CvMA\$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/</span>
+<span class="s">  admin: true</span>
+<span class="s">- login: root</span>
+<span class="s">  username: Root Root</span>
+<span class="s">  # Password is &quot;clear123&quot;</span>
+<span class="s">  password: \$6\$SJJMfnInWQg.CvMA\$m2F8dJGj71zvi9mSNMktHMsPH3qhBm8pgXDNdaBe2yFfgi479JXvEqWkvQ6OxIUgGNQ5YXFIF0tCn.hEXB90G/</span>
+<span class="s">  admin: true</span>
+
+<span class="s">pre-install: [</span>
+<span class="s">  {cmd: &quot;curl -o /tmp/add-issue.sh http://${IPXE_LAN_IP}:${IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/add-issue.sh&quot;},</span>
+<span class="s">  {cmd: &quot;chmod +x /tmp/add-issue.sh&quot;}</span>
+<span class="s">]</span>
+
+<span class="s">post-install: [</span>
+<span class="s">  {cmd: &quot;echo PermitRootLogin yes &gt; \${chrootDir}/etc/ssh/sshd_config&quot;},</span>
+<span class="s">  {cmd: &quot;/tmp/add-issue.sh \${chrootDir}&quot;}</span>
+<span class="s">]</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add following content to the <code class="file docutils literal notranslate"><span class="pre">add-issue.sh</span></code> script, which will be
+used by the above two YAML configuration files:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span><span class="si">${</span><span class="nv">WEB_ROOT_DIR</span><span class="si">}</span>/<span class="si">${</span><span class="nv">CLR_INSTALLER_CONF_DIR</span><span class="si">}</span>/add-issue.sh<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">#!/bin/bash</span>
+<span class="s">echo &quot;Creating custom issue file for \$1&quot;</span>
+
+<span class="s">echo &quot;Welcome to the Clear Linux* OS</span>
+
+<span class="s">* Documentation:     https://clearlinux.org/documentation</span>
+<span class="s">* Community Support: https://community.clearlinux.org</span>
+
+<span class="s">&quot; &gt;&gt; \$1/etc/issue</span>
+
+<span class="s">exit 0</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="configure-network">
+<h2>Configure network<a class="headerlink" href="#configure-network" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>The DNS server, included with the <cite>pxe-server</cite> bundle,
+conflicts with the DNS stub listener provided in <cite>systemd-resolved</cite>.
+Disable the DNS stub listener and temporarily stop <cite>systemd-resolved</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd
+sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/systemd/resolved.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">[Resolve]</span>
+<span class="s">DNSStubListener=no</span>
+<span class="s">EOF</span>
+
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>systemd-resolved
+</pre></div>
+</div>
+</li>
+<li><p>Disable NetworkManager. The base installation of Clear Linux OS comes with two
+network managers, systemd-networkd and NetworkManager, with the latter
+being the default. systemd-networkd is recommended for a server use case,
+so we will disable NetworkManager.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>mask<span class="w"> </span>--now<span class="w"> </span>NetworkManager
+</pre></div>
+</div>
+</li>
+<li><p>Assign a static IP address to the LAN side network adapter
+and restart <cite>systemd-networkd</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/systemd/network
+sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/systemd/network/70-internal-static.network<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">[Match]</span>
+<span class="s">Name=${LAN_INTERFACE}</span>
+<span class="s">[Network]</span>
+<span class="s">DHCP=no</span>
+<span class="s">Address=${IPXE_LAN_IP}/${IPXE_SUBNET_BITMASK}</span>
+<span class="s">EOF</span>
+
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>systemd-networkd
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>systemd-networkd
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="setup-nat">
+<h2>Setup NAT<a class="headerlink" href="#setup-nat" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Configure <abbr title="Network Address Translation">NAT</abbr> to route traffic from
+the LAN to the WAN network so clients can download upstream bundles for
+installation. And to make these changes persistent during reboots, save the
+changes to the firewall.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-F<span class="w"> </span>POSTROUTING
+sudo<span class="w"> </span>iptables<span class="w"> </span>-t<span class="w"> </span>nat<span class="w"> </span>-A<span class="w"> </span>POSTROUTING<span class="w"> </span>-o<span class="w"> </span><span class="si">${</span><span class="nv">WAN_INTERFACE</span><span class="si">}</span><span class="w"> </span>-j<span class="w"> </span>MASQUERADE
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>iptables-save.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>iptables-save.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>iptables-restore.service
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>iptables-restore.service
+</pre></div>
+</div>
+</li>
+<li><p>Configure the kernel to forward network packets to different interfaces.
+Otherwise, NAT will not work.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/sysctl.d
+sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/sysctl.d/80-nat-forwarding.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">net.ipv4.ip_forward=1</span>
+<span class="s">EOF</span>
+
+sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/proc/sys/net/ipv4/ip_forward<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">1</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="setup-dnsmaq-for-dhcp-dns-and-tftp-functionalities">
+<h2>Setup dnsmaq for DHCP, DNS, and TFTP functionalities<a class="headerlink" href="#setup-dnsmaq-for-dhcp-dns-and-tftp-functionalities" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Create a configuration file for <cite>dnsmasq</cite> to listen on a dedicated IP address
+for TFTP, DNS, and DHCP functions. PXE clients on the LAN network will talk to
+this IP address.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/dnsmasq.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">listen-address=${IPXE_LAN_IP}</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the options to serve iPXE firmware images to clients over TFTP to
+the <code class="file docutils literal notranslate"><span class="pre">dnsmasq</span></code> configuration file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/dnsmasq.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">enable-tftp</span>
+<span class="s">tftp-root=${TFTP_ROOT_DIR}</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the options to host a DHCP server for clients to the <code class="file docutils literal notranslate"><span class="pre">dnsmasq</span></code>
+configuration file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>tee<span class="w"> </span>-a<span class="w"> </span>/etc/dnsmasq.conf<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">dhcp-leasefile=/var/db/dnsmasq.leases</span>
+
+<span class="s">dhcp-authoritative</span>
+<span class="s">dhcp-option=option:router,${IPXE_LAN_IP}</span>
+<span class="s">dhcp-option=option:dns-server,${IPXE_LAN_IP}</span>
+
+<span class="s">dhcp-match=set:ipxeclient,60,IPXEClient*</span>
+<span class="s">dhcp-range=tag:ipxeclient,${IPXE_SUBNET}.2,${IPXE_SUBNET}.253,${IPXE_SUBNET_MASK_IP},15m</span>
+<span class="s">dhcp-range=tag:!ipxeclient,${IPXE_SUBNET}.2,${IPXE_SUBNET}.253,${IPXE_SUBNET_MASK_IP},6h</span>
+
+<span class="s">dhcp-match=set:ipxeboot,175</span>
+<span class="s">dhcp-boot=tag:ipxeboot,http://${IPXE_LAN_IP}:${IPXE_PORT}/${IPXE_APP_NAME}/ipxe_boot_script.ipxe</span>
+<span class="s">dhcp-boot=tag:!ipxeboot,undionly.kpxe,${IPXE_LAN_IP}</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>The configuration provides the following important functions:</p>
+<ul class="simple">
+<li><p>Directs clients without an iPXE implementation to the TFTP server
+to acquire architecture-specific iPXE firmware images that allow them
+to perform an iPXE boot.</p></li>
+<li><p>Activates only on the network adapter that has an IP address on the
+defined subnet.</p></li>
+<li><p>Directs clients to the DNS server.</p></li>
+<li><p>Directs clients to the iPXE server for routing via NAT.</p></li>
+<li><p>Divides the private network into two pools of IP addresses. One pool
+is for network boot and one pool is used after boot. Each pool has
+their own lease times.</p></li>
+</ul>
+</li>
+<li><p>Create a file for <cite>dnsmasq</cite> to record the IP addresses it provides
+to clients.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/var/db
+sudo<span class="w"> </span>touch<span class="w"> </span>/var/db/dnsmasq.leases
+</pre></div>
+</div>
+</li>
+<li><p>Create a TFTP hosting directory and populate it with the iPXE firmware.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span><span class="si">${</span><span class="nv">TFTP_ROOT_DIR</span><span class="si">}</span>
+sudo<span class="w"> </span>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/ipxe/undionly.kpxe<span class="w"> </span><span class="si">${</span><span class="nv">TFTP_ROOT_DIR</span><span class="si">}</span>/undionly.kpxe
+</pre></div>
+</div>
+</li>
+<li><p>Start <cite>dnsmasq</cite> and enable startup on boot.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>daemon-reload
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>dnsmasq
+sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>dnsmasq
+</pre></div>
+</div>
+</li>
+<li><p>Start <cite>systemd-resolved</cite>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>systemd-resolved
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><cite>systemd-resolved</cite> dynamically updates the list of DNS servers for the
+LAN network if you use the <cite>dnsmasq</cite> DNS server. The setup creates a
+pass-through DNS server that relies on the DNS servers listed in
+<code class="file docutils literal notranslate"><span class="pre">/etc/resolv.conf</span></code>.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="verify-setup">
+<h2>Verify setup<a class="headerlink" href="#verify-setup" title="Link to this heading">¶</a></h2>
+<p>Verify you can access these URLs before deploying:</p>
+<ul class="simple">
+<li><p>http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${IPXE_APP_NAME}/ipxe_boot_script.ipxe</p></li>
+<li><p>http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-desktop.yaml</p></li>
+<li><p>http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/clr-server.yaml</p></li>
+<li><p>http://{$IPXE_LAN_IP}:{$IPXE_PORT}/${CLR_INSTALLER_CONF_DIR}/add-issue.sh</p></li>
+</ul>
+</section>
+<section id="deploy">
+<h2>Deploy<a class="headerlink" href="#deploy" title="Link to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Connect your client system to the LAN network.</p></li>
+<li><p>Power on the client.</p></li>
+<li><p>Set your client to network boot. It should get an IP address and download
+the iPXE script.</p></li>
+<li><p>When presented with the iPXE menu, select one of the options.  The client
+will then download and boot the Clear Linux OS image. Once booted, clr-installer will
+download the assigned YAML configuration file and begin to install Clear Linux OS.
+After installation, the client will reboot to Clear Linux OS.</p></li>
+</ol>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Install Clear Linux OS Over the Network with iPXE</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#install-cl-on-server">Install Clear Linux OS on server</a></li>
+<li><a class="reference internal" href="#setup-nginx-web-server-to-host-ipxe">Setup nginx web server to host iPXE</a></li>
+<li><a class="reference internal" href="#configure-ipxe">Configure iPXE</a></li>
+<li><a class="reference internal" href="#add-clr-installer-yaml-configuration-files">Add clr-installer YAML configuration files</a></li>
+<li><a class="reference internal" href="#configure-network">Configure network</a></li>
+<li><a class="reference internal" href="#setup-nat">Setup NAT</a></li>
+<li><a class="reference internal" href="#setup-dnsmaq-for-dhcp-dns-and-tftp-functionalities">Setup dnsmaq for DHCP, DNS, and TFTP functionalities</a></li>
+<li><a class="reference internal" href="#verify-setup">Verify setup</a></li>
+<li><a class="reference internal" href="#deploy">Deploy</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="install-configfile.html"
+                          title="previous chapter">Install using clr-installer and a configuration file</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="virtual-machine-install/hyper-v.html"
+                          title="next chapter">Clear Linux* OS on Microsoft Hyper-V*</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/get-started/ipxe-install.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="virtual-machine-install/hyper-v.html" title="Clear Linux* OS on Microsoft Hyper-V*"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="install-configfile.html" title="Install using clr-installer and a configuration file"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Install Clear Linux OS Over the Network with iPXE</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,421 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS on QingCloud* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/cloud-install/qingcloud.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clear Linux* OS container images" href="../containers/container-images.html" />
+    <link rel="prev" title="Import Clear Linux Image and Launch Instance on AWS" href="import-clr-aws.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../containers/container-images.html" title="Clear Linux* OS container images"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="import-clr-aws.html" title="Import Clear Linux Image and Launch Instance on AWS"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on QingCloud*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-on-qingcloud">
+<span id="qingcloud"></span><h1>Clear Linux* OS on QingCloud*<a class="headerlink" href="#cl-attr-on-qingcloud" title="Link to this heading">¶</a></h1>
+<p>This tutorial describes how to create and launch a Clear Linux OS instance
+from the QingCloud console.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id21">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#select-and-start-cl-virtual-host-with-qingcloud-console" id="id22">Select and start Clear Linux OS virtual host with QingCloud console</a></p></li>
+<li><p><a class="reference internal" href="#apply-for-a-public-ip-and-add-it-to-the-virtual-host" id="id23">Apply for a public IP and add it to the virtual host</a></p></li>
+<li><p><a class="reference internal" href="#connect-to-cl-virtual-host" id="id24">Connect to Clear Linux OS virtual host</a></p></li>
+<li><p><a class="reference internal" href="#remove-cl-virtual-host" id="id25">Remove Clear Linux OS virtual host</a></p></li>
+<li><p><a class="reference internal" href="#delete-the-applied-public-ip" id="id26">Delete the applied public IP</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id21" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<p>This tutorial assumes that you have completed the following configuration steps:</p>
+<ul class="simple">
+<li><p>Your environment can run SSH to access remote Clear Linux OS virtual hosts.</p></li>
+<li><p>You know the absolute path where the browser downloaded the file.</p></li>
+<li><p>You have set up a user account for QingCloud and that the account is
+enabled and logged in to the QingCloud console. To learn more about
+QingCloud and setting up an account, please visit QingCloud’s official
+<a class="reference external" href="https://www.qingcloud.com">website</a>.</p></li>
+</ul>
+</section>
+<section id="select-and-start-cl-virtual-host-with-qingcloud-console">
+<h2><a class="toc-backref" href="#id22" role="doc-backlink">Select and start Clear Linux OS virtual host with QingCloud console</a><a class="headerlink" href="#select-and-start-cl-virtual-host-with-qingcloud-console" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Select <span class="guilabel">计算&gt;主机</span> (Compute&gt;Host) in the main menu of the
+QingCloud console and click the <span class="guilabel">创建</span> (Create) option.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="../../_images/QingCloud-1.png"><img alt="QingCloud console" src="../../_images/QingCloud-1.png" style="width: 960.0px; height: 515.5px;" />
+</a>
+</figure>
+</li>
+<li><p>On the host creation page, first click the <span class="guilabel">系统</span> (System) option,
+click the Clear Linux OS icon on the far right.  Click the <span class="guilabel">下一步</span> (Next)
+button to continue.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/QingCloud-2.png"><img alt="Select Clear Linux OS to create virtual host" src="../../_images/QingCloud-2.png" style="width: 960.0px; height: 514.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Select Clear Linux OS to create a virtual host</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the configuration selection interface, you can configure the
+number of CPU cores, memory size, and the storage backup method.
+For demonstration purposes, we will choose the default configuration.
+Click the <span class="guilabel">下一步</span> (Next) button to go to the network settings
+interface.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/QingCloud-3.png"><img alt="Configuration selection" src="../../_images/QingCloud-3.png" style="width: 960.0px; height: 514.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Configuration selection</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select <span class="guilabel">基础网络</span> (Basic Network) in the network settings
+interface.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/QingCloud-4.png"><img alt="Network settings" src="../../_images/QingCloud-4.png" style="width: 959.0px; height: 513.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Network Settings</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the basic information setting interface, you need to enter the virtual
+host name and set the SSH key login method.</p></li>
+</ol>
+<section id="create-an-ssh-key-optional">
+<h3>Create an SSH key (Optional)<a class="headerlink" href="#create-an-ssh-key-optional" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>If you haven’t created an SSH key before, click the <span class="guilabel">创建一个</span>
+(Create one) button to create an SSH key.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../../_images/QingCloud-6.png"><img alt="Create SSH key" src="../../_images/QingCloud-6.png" style="width: 959.0px; height: 515.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Create SSH Key</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the SSH key creation interface, you can fill in the key name, and select
+encryption method you prefer. After confirming that they are correct, click
+the <span class="guilabel">提交</span> (Submit) button.</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../../_images/QingCloud-6.png"><img alt="New SSH key" src="../../_images/QingCloud-6.png" style="width: 959.0px; height: 515.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">New SSH Key</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>After the download button appears, please download the key within 10
+minutes, and save the key locally for connecting to the virtual host later.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../../_images/QingCloud-7.png"><img alt="Download SSH key" src="../../_images/QingCloud-7.png" style="width: 960.0px; height: 515.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Download SSH Key</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>After ensuring that the SSH key has been properly downloaded and saved,
+check the basic information of the virtual host. After confirming that they
+are correct, click the <span class="guilabel">创建</span> (Create) button.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../../_images/QingCloud-8.png"><img alt="Confirm the information and create a virtual host" src="../../_images/QingCloud-8.png" style="width: 960.0px; height: 514.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Confirm the information and create a virtual host</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+<p>QingCloud will now create the Clear Linux OS virtual host. You
+can check the state of the virtual host in the new interface.</p>
+</section>
+</section>
+<section id="apply-for-a-public-ip-and-add-it-to-the-virtual-host">
+<h2><a class="toc-backref" href="#id23" role="doc-backlink">Apply for a public IP and add it to the virtual host</a><a class="headerlink" href="#apply-for-a-public-ip-and-add-it-to-the-virtual-host" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Since QingCloud does not automatically assign a public IP address to a
+virtual host created using the default network, we need to manually apply
+and add it to the virtual host. Click the <span class="guilabel">网络与CDN</span> (Network and
+CDN) button on the left side of the navigation bar .</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../../_images/QingCloud-9.png"><img alt="Network and CDN" src="../../_images/QingCloud-9.png" style="width: 960.0px; height: 515.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Network and CDN</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>In the network and CDN configuration interface, click the <span class="guilabel">公网IP</span>
+(Public IP) button on the left , and click the <span class="guilabel">申请</span> (Apply)
+button in the middle to create a public IP.</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../../_images/QingCloud-10.png"><img alt="Apply for public IP" src="../../_images/QingCloud-10.png" style="width: 960.0px; height: 516.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Apply for public IP</span><a class="headerlink" href="#id9" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>After clicking the apply button, a dialog will pop up. Read it
+carefully and click the <span class="guilabel">继续申请公网IP</span> (Continue to apply for
+public IP) button.</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../../_images/QingCloud-11.png"><img alt="Confirmation dialog" src="../../_images/QingCloud-11.png" style="width: 960.0px; height: 515.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Confirmation dialog</span><a class="headerlink" href="#id10" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the public network IP application page, confirm and fill in the
+relevant information, including the charging mode and bandwidth upper limit
+(the charge-by-bandwidth mode is used in this tutorial and the 2Mbps
+bandwidth limit is set). After confirming that they are correct, click
+<span class="guilabel">提交</span> (Submit) button.</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../../_images/QingCloud-12.png"><img alt="Confirmation of Public IP Application" src="../../_images/QingCloud-12.png" style="width: 960.0px; height: 513.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Confirmation of Public IP Application</span><a class="headerlink" href="#id11" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>After that, click the <span class="guilabel">计算&gt;网卡</span> (Compute&gt;Network Card) buttons
+in the navigation bar to come to the network card interface.</p>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="../../_images/QingCloud-13.png"><img alt="NIC interface" src="../../_images/QingCloud-13.png" style="width: 960.0px; height: 514.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Network Interface</span><a class="headerlink" href="#id12" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the network card interface, select the network card of the Clear Linux OS host
+that you just created. Click the <span class="guilabel">更多操作</span> (More Actions)
+button above, and then click the <span class="guilabel">绑定公网IPv4</span> (Binding Public
+Network IPv4) button.</p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../../_images/QingCloud-14.png"><img alt="Bind selected" src="../../_images/QingCloud-14.png" style="width: 960.0px; height: 513.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Bind selected</span><a class="headerlink" href="#id13" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>On the binding public network IP confirmation interface, select the public
+IP address that has just been applied for, and click the <span class="guilabel">提交</span>
+(Submit) button below . After waiting a moment, the state of the Clear Linux OS
+virtual host will change.</p>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../../_images/QingCloud-15.png"><img alt="Commit binding" src="../../_images/QingCloud-15.png" style="width: 960.0px; height: 515.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Commit binding</span><a class="headerlink" href="#id14" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../../_images/QingCloud-16.png"><img alt="Public network IP binding succeeded" src="../../_images/QingCloud-16.png" style="width: 960.0px; height: 516.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Public network IP binding succeeded</span><a class="headerlink" href="#id15" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="connect-to-cl-virtual-host">
+<h2><a class="toc-backref" href="#id24" role="doc-backlink">Connect to Clear Linux OS virtual host</a><a class="headerlink" href="#connect-to-cl-virtual-host" title="Link to this heading">¶</a></h2>
+<p>Click the <span class="guilabel">计算&gt;主机</span> (Compute&gt;Host) buttons on the left side of the
+navigation bar to confirm that the current virtual host is running and has a public IP address.</p>
+<figure class="align-default" id="id16">
+<a class="reference internal image-reference" href="../../_images/QingCloud-17.png"><img alt="Confirm that the virtual host is currently in a normal state" src="../../_images/QingCloud-17.png" style="width: 960.0px; height: 514.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Confirm that the virtual host is currently in a normal state</span><a class="headerlink" href="#id16" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic">
+<li><p>Copy the public IP address of the current Clear Linux OS virtual host and
+connect to it from an SSH client. Here we need to use the previously saved
+SSH key.</p></li>
+<li><p>In this tutorial, the MobaXterm client is used as an example to demonstrate
+the login process. Check each item as shown. For the user name, we choose
+<code class="docutils literal notranslate"><span class="pre">root</span></code>. For the key, select the SSH key that was downloaded and saved to
+the local computer .</p>
+<figure class="align-default" id="id17">
+<a class="reference internal image-reference" href="../../_images/QingCloud-18.png"><img alt="SSH login virtual host settings" src="../../_images/QingCloud-18.png" style="width: 960.0px; height: 500.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">SSH login virtual host settings</span><a class="headerlink" href="#id17" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Login</span> to log in to the
+Clear Linux OS virtual host after completing the setup process.</p>
+<figure class="align-default" id="id18">
+<a class="reference internal image-reference" href="../../_images/QingCloud-19.png"><img alt="SSH login successful" src="../../_images/QingCloud-19.png" style="width: 959.5px; height: 501.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">SSH login successful</span><a class="headerlink" href="#id18" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+</ol>
+</section>
+<section id="remove-cl-virtual-host">
+<h2><a class="toc-backref" href="#id25" role="doc-backlink">Remove Clear Linux OS virtual host</a><a class="headerlink" href="#remove-cl-virtual-host" title="Link to this heading">¶</a></h2>
+<p>This section explains how to delete a Clear Linux OS virtual host created on QingCloud.</p>
+<p>On the left navigation bar select <span class="guilabel">计算&gt;主机</span> (Compute&gt;Master), find
+the Clear Linux OS host you just created, and click the checkbox next to it. Select
+<span class="guilabel">更多操作&gt;删除</span> (More Actions&gt;Delete) to delete the virtual host.</p>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../../_images/QingCloud-20.png"><img alt="Remove Clear Linux OS Virtual Host" src="../../_images/QingCloud-20.png" style="width: 960.0px; height: 516.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Remove Clear Linux OS Virtual Host</span><a class="headerlink" href="#id19" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="delete-the-applied-public-ip">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink">Delete the applied public IP</a><a class="headerlink" href="#delete-the-applied-public-ip" title="Link to this heading">¶</a></h2>
+<p>Select <span class="guilabel">网络与CDN&gt;公网IP</span> (Network and CDN&gt;Public IP) from the
+navigation bar on the left , and then find the public IP address just applied.
+Select it as shown, then click <span class="guilabel">更多操作&gt;删除</span> (More Actions&gt;Delete)
+to delete.</p>
+<figure class="align-default" id="id20">
+<a class="reference internal image-reference" href="../../_images/QingCloud-21.png"><img alt="Delete public network IP address" src="../../_images/QingCloud-21.png" style="width: 956.0px; height: 517.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Delete public network IP address</span><a class="headerlink" href="#id20" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Clear Linux* OS on QingCloud*</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#select-and-start-cl-virtual-host-with-qingcloud-console">Select and start Clear Linux OS virtual host with QingCloud console</a><ul>
+<li><a class="reference internal" href="#create-an-ssh-key-optional">Create an SSH key (Optional)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#apply-for-a-public-ip-and-add-it-to-the-virtual-host">Apply for a public IP and add it to the virtual host</a></li>
+<li><a class="reference internal" href="#connect-to-cl-virtual-host">Connect to Clear Linux OS virtual host</a></li>
+<li><a class="reference internal" href="#remove-cl-virtual-host">Remove Clear Linux OS virtual host</a></li>
+<li><a class="reference internal" href="#delete-the-applied-public-ip">Delete the applied public IP</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="import-clr-aws.html"
+                          title="previous chapter">Import Clear Linux Image and Launch Instance on AWS</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="../containers/container-images.html"
+                          title="next chapter">Clear Linux* OS container images</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/cloud-install/qingcloud.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../containers/container-images.html" title="Clear Linux* OS container images"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="import-clr-aws.html" title="Import Clear Linux Image and Launch Instance on AWS"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on QingCloud*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,449 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>swupd &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/clear/swupd.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="swupd 3rd-party" href="swupd-3rd-party.html" />
+    <link rel="prev" title="Stateless" href="stateless.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="swupd-3rd-party.html" title="swupd 3rd-party"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="stateless.html" title="Stateless"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swupd</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="swupd">
+<span id="swupd-guide"></span><h1>swupd<a class="headerlink" href="#swupd" title="Link to this heading">¶</a></h1>
+<p><strong class="command">swupd</strong> links a Clear Linux* OS installation with upstream updates and
+software.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#description" id="id1">Description</a></p></li>
+<li><p><a class="reference internal" href="#how-it-works" id="id2">How it works</a></p></li>
+<li><p><a class="reference internal" href="#examples" id="id3">Examples</a></p></li>
+<li><p><a class="reference internal" href="#quick-reference" id="id4">Quick reference</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id5">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="description">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p><strong class="command">swupd</strong> has two main functions:</p>
+<ol class="arabic simple">
+<li><p>Manage software and replace APT or YUM, by installing bundles
+rather than packages.</p></li>
+<li><p>Check for system updates and install them.</p></li>
+</ol>
+<p><strong class="command">swupd</strong> manages overlapping dependencies behind the scenes, ensuring
+that all software is compatible across the system. It can be used to verify
+the OS, clean cached files, and fix issues.</p>
+<p><a class="reference internal" href="../../reference/bundles/bundles.html#bundles"><span class="std std-ref">Bundles</span></a> contain everything needed to deliver a software
+capability. They are the smallest granularity component that is
+managed by Clear Linux OS. A bundle comes with all of its dependencies rather than
+downloading a cascade of package dependencies when installing a piece of
+software.</p>
+<section id="versioning">
+<h3>Versioning<a class="headerlink" href="#versioning" title="Link to this heading">¶</a></h3>
+<p>Using package managers to monitor software version compatibility or
+compare multiple systems on many Linux distributions can be cumbersome.</p>
+<p>With Clear Linux OS <strong class="command">swupd</strong>, versioning happens at the individual file level.
+This means Clear Linux OS generates an entirely new OS version with any set of software
+changes to the system, including software downgrades or removals. This
+rolling release versioning model is similar to <strong class="command">git</strong> internal version
+tracking, where any of the individual file commits are tracked and move the
+pointer forward when changed.</p>
+<p>A number that represents the <strong>current</strong> release of the OS describes the
+versions of all the software on the OS. Each build is composed of a specific
+set of bundles made from a particular version of packages. On a daily basis,
+this matters to system administrators who need to determine which of their
+systems do not have the latest security fixes, or which combinations of
+software have been tested. Every release of the same number is guaranteed to
+contain the same versions of software, so there’s no ambiguity between two
+systems running the same version of Clear Linux OS.</p>
+</section>
+<section id="updating">
+<h3>Updating<a class="headerlink" href="#updating" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS enforces regular updating of the OS by default and automatically
+checks for updates against a version server. The content server provides the
+file and metadata content for all versions and can be the same as the
+version server. The content url server provides metadata in the form of
+<em>manifests</em>, which list and describe file contents, symlinks,
+and directories. Additionally, the actual content is provided to clients
+in the form of archive files.</p>
+<p>Software updates with Clear Linux OS are also efficient. Unlike package-based
+distributions, <strong class="command">swupd</strong> only updates files that have changed, rather
+than entire packages. For example, it is quite common for an OS security
+patch to be as small as 15 KB. Using binary deltas, Clear Linux OS is able to
+apply only what is needed.</p>
+<p>For details on how to generate update content for Clear Linux OS, see the
+<a class="reference internal" href="mixer.html#mixer"><span class="std std-ref">mixer</span></a> tool.</p>
+</section>
+</section>
+<section id="how-it-works">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">How it works</a><a class="headerlink" href="#how-it-works" title="Link to this heading">¶</a></h2>
+<section id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>The device is on a well-connected network.</p></li>
+<li><p>The device is able to connect to an update server. The default server is:
+<a class="reference external" href="https://cdn.download.clearlinux.org/update/">https://cdn.download.clearlinux.org/update/</a></p></li>
+</ul>
+</section>
+<section id="updates">
+<h3>Updates<a class="headerlink" href="#updates" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS updates are automatic by default, but can be set to occur only on
+demand. <strong class="command">swupd</strong> makes sure that regular updates are simple and
+secure. It can also check the validity of currently installed files and
+software, and can correct any problems.</p>
+<section id="manifests">
+<h4>Manifests<a class="headerlink" href="#manifests" title="Link to this heading">¶</a></h4>
+<p>The Clear Linux OS software update content consists of data and metadata. The data is
+the files that end up in the OS. The metadata contains relevant information to
+properly provision the data to the OS file system, as well as update the
+system and add or remove additional content to the OS.</p>
+<p>The manifests are mostly long lists of hashes that describe content.
+Each bundle gets its own manifest file. There is a master manifest
+file that describes all manifests to tie it all together.</p>
+</section>
+<section id="fullfiles-packs-and-delta-packs">
+<h4>Fullfiles, packs, and delta packs<a class="headerlink" href="#fullfiles-packs-and-delta-packs" title="Link to this heading">¶</a></h4>
+<p>To speed up updates and optimize content delivery, update data provisioned to
+a system is obtained by one of the following methods:</p>
+<ul class="simple">
+<li><p><em>Fullfiles</em> are always generated for every file in every release. This
+allows any Clear Linux OS to obtain the exact copy of the content
+for each version directly. This is used if the OS verification
+needs to replace a single file, for instance.</p></li>
+<li><p><em>Packs</em> are available for some releases. They combine many files to speed
+up the creation of installation media and large updates.</p></li>
+<li><p><em>Delta packs</em> are an optimized version of packs that only contain updates
+(binary diffs). They cannot be used without having the original file content.</p></li>
+</ul>
+</section>
+</section>
+<section id="bundle-search">
+<h3>Bundle search<a class="headerlink" href="#bundle-search" title="Link to this heading">¶</a></h3>
+<p><strong class="command">swupd</strong> searches download manifest data for
+bundles that match the term. Enter only one term, or hyphenated term, per
+search. Use the command <strong class="command">man swupd</strong> to learn more.</p>
+<p>Only the base bundle is returned. Bundles can contain other bundles via
+includes. For more details, see <a class="reference external" href="https://github.com/clearlinux/clr-bundles">Bundle Definition Files</a> and its
+subdirectory bundles.</p>
+<p>Bundles that are already installed are marked <strong>(installed)</strong> in search
+results.</p>
+<p>Optionally, you can review our <a class="reference external" href="https://github.com/clearlinux/clr-bundles/tree/master/bundles">bundles</a> on GitHub*.</p>
+</section>
+</section>
+<section id="examples">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Examples</a><a class="headerlink" href="#examples" title="Link to this heading">¶</a></h2>
+<section id="example-1-disable-and-enable-automatic-updates">
+<h3>Example 1: Disable and enable automatic updates<a class="headerlink" href="#example-1-disable-and-enable-automatic-updates" title="Link to this heading">¶</a></h3>
+<p>Clear Linux OS updates are automatic by default, but can be set to occur only
+on demand.</p>
+<ol class="arabic">
+<li><p>Verify your current auto-update setting.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>autoupdate
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Enabled</span>
+</pre></div>
+</div>
+</li>
+<li><p>Disable automatic updates.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>autoupdate<span class="w"> </span>--disable
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Warning: disabling automatic updates may take you out of compliance with your IT policy</span>
+
+<span class="go">Running systemctl to disable updates</span>
+<span class="go">Created symlink /etc/systemd/system/swupd-update.service → /dev/null.</span>
+<span class="go">Created symlink /etc/systemd/system/swupd-update.timer → /dev/null.</span>
+</pre></div>
+</div>
+</li>
+<li><p>Check manually for updates.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>check-update
+</pre></div>
+</div>
+</li>
+<li><p>Install an update after identifying one that you need.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>update<span class="w"> </span>--version<span class="w"> </span>&lt;version<span class="w"> </span>number&gt;
+</pre></div>
+</div>
+</li>
+<li><p>Re-enable automatic installs.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>autoupdate<span class="w"> </span>--enable
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="example-2-find-and-install-kata-containers">
+<span id="swupd-guide-example-install-bundle"></span><h3>Example 2: Find and install Kata Containers*<a class="headerlink" href="#example-2-find-and-install-kata-containers" title="Link to this heading">¶</a></h3>
+<p>Kata Containers is a popular container implementation. Unlike other
+container implementations, each Kata Container has its own
+kernel instance and runs on its own <abbr title="Virtual Machine">VM</abbr> for
+improved security.</p>
+<p>Clear Linux OS makes it very easy to install, since you only need to add
+one bundle to use <a class="reference external" href="https://clearlinux.org/downloads/containers">Kata Containers</a>: <a class="reference external" href="https://github.com/clearlinux/clr-bundles/blob/master/bundles/containers-virt">containers-virt</a>, despite a
+number of dependencies.  Also, check out our tutorial: <a class="reference internal" href="../../tutorials/kata.html#kata"><span class="std std-ref">Kata Containers*</span></a>.</p>
+<ol class="arabic">
+<li><p>Find the correct bundle.</p>
+<p>To return all possible matches for the search string, enter
+<strong class="command">swupd search</strong>, followed by ‘kata’:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>search<span class="w"> </span>kata
+</pre></div>
+</div>
+<p>The output should be similar to:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Bundle with the best search result:</span>
+
+<span class="go">containers-virt - Run container applications from Dockerhub in</span>
+<span class="go">lightweight virtual machines</span>
+
+<span class="go">This bundle can be installed with:</span>
+
+<span class="go">     swupd bundle-add  containers-virt</span>
+
+<span class="go">Alternative bundle options are</span>
+
+<span class="go">     cloud-native-basic - Contains ClearLinux native software for Cloud</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your search does not produce results with a specific term, shorten
+the search term. For example, use <em>kube</em> instead of <em>kubernetes</em>.</p>
+</div>
+</li>
+<li><p>Add the bundle.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>containers-virt
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To add multiple bundles, add a space followed by the bundle name.</p>
+</div>
+<p>The output of a successful installation should be similar to:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Downloading packs...</span>
+
+<span class="go">Extracting containers-virt pack for version 24430</span>
+<span class="go">    ...50%</span>
+<span class="go">Extracting kernel-container pack for version 24430</span>
+<span class="go">    ...100%</span>
+<span class="go">Starting download of remaining update content. This may take a while...</span>
+<span class="go">    ...100%</span>
+<span class="go">Finishing download of update content...</span>
+<span class="go">Installing bundle(s) files...</span>
+<span class="go">    ...100%</span>
+<span class="go">Calling post-update helper scripts.</span>
+<span class="go">Successfully installed 1 bundle</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="example-3-verify-and-correct-system-file-mismatch">
+<h3>Example 3: Verify and correct system file mismatch<a class="headerlink" href="#example-3-verify-and-correct-system-file-mismatch" title="Link to this heading">¶</a></h3>
+<p><strong class="command">swupd</strong> can determine whether system directories and files have
+been added to, overwritten, removed, or modified (e.g., permissions).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>diagnose
+</pre></div>
+</div>
+<p>All directories that are watched by <strong class="command">swupd</strong> are verified according
+to the manifest data. Hash mismatches are flagged as follows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Verifying version 23300</span>
+<span class="go">Verifying files</span>
+<span class="go">   ...0%</span>
+<span class="go">Hash mismatch for file: /usr/bin/chardetect</span>
+<span class="go">...</span>
+<span class="go">...</span>
+<span class="go">Hash mismatch for file: /usr/lib/python3.6/site-packages/urllib3/util/wait.py</span>
+<span class="go">   ...100%</span>
+<span class="go">Inspected 237180 files</span>
+<span class="go">   423 files did not match</span>
+<span class="go">Verify successful</span>
+</pre></div>
+</div>
+<p>In this case, Python* packages that were installed on top of the default
+install were flagged as mismatched. <strong class="command">swupd</strong> can be directed to
+ignore or fix issues based on command line options.</p>
+<p><strong class="command">swupd</strong> can correct any issues it detects. Additional directives
+can be added including a white list of directories to be ignored.</p>
+<p>The following command repairs issues, removes unknown items, and
+ignores files or directories matching <code class="file docutils literal notranslate"><span class="pre">/usr/lib/python</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>repair<span class="w"> </span>--picky<span class="w"> </span>--picky-whitelist<span class="o">=</span>/usr/lib/python
+</pre></div>
+</div>
+</section>
+</section>
+<section id="quick-reference">
+<span id="swupd-quick-ref"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Quick reference</a><a class="headerlink" href="#quick-reference" title="Link to this heading">¶</a></h2>
+<dl class="simple">
+<dt>swupd info</dt><dd><p>Returns the currently installed version and update servers.</p>
+</dd>
+<dt>swupd update &lt;version number&gt;</dt><dd><p>Updates to a specific version or updates to latest version if no
+arguments are used.</p>
+</dd>
+<dt>swupd bundle-list [–all]</dt><dd><p>Lists installed bundles.</p>
+</dd>
+<dt>swupd search &lt;term&gt;</dt><dd><p>Finds a bundle that contains your search term.</p>
+</dd>
+<dt>swupd bundle-add &lt;bundle name&gt;</dt><dd><p>Adds a bundle.</p>
+</dd>
+<dt>swupd bundle-remove &lt;bundle name&gt;</dt><dd><p>Removes a bundle.</p>
+</dd>
+<dt>swupd –help</dt><dd><p>Lists additional <strong class="command">swupd</strong> commands.</p>
+</dd>
+<dt>man swupd</dt><dd><p>Opens the <strong class="command">swupd</strong> man page.</p>
+</dd>
+</dl>
+<p>Refer to <a class="reference external" href="https://github.com/clearlinux/swupd-client/blob/master/docs/swupd.1.rst">swupd source documentation</a> on GitHub for more details.</p>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="autospec.html#autospec"><span class="std std-ref">autospec</span></a></p></li>
+<li><p><a class="reference internal" href="mixer.html#mixer"><span class="std std-ref">mixer</span></a></p></li>
+<li><p><a class="reference internal" href="../../reference/bundles/bundles.html#bundles"><span class="std std-ref">Available bundles</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">swupd</a><ul>
+<li><a class="reference internal" href="#description">Description</a><ul>
+<li><a class="reference internal" href="#versioning">Versioning</a></li>
+<li><a class="reference internal" href="#updating">Updating</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-it-works">How it works</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#updates">Updates</a><ul>
+<li><a class="reference internal" href="#manifests">Manifests</a></li>
+<li><a class="reference internal" href="#fullfiles-packs-and-delta-packs">Fullfiles, packs, and delta packs</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#bundle-search">Bundle search</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#example-1-disable-and-enable-automatic-updates">Example 1: Disable and enable automatic updates</a></li>
+<li><a class="reference internal" href="#example-2-find-and-install-kata-containers">Example 2: Find and install Kata Containers*</a></li>
+<li><a class="reference internal" href="#example-3-verify-and-correct-system-file-mismatch">Example 3: Verify and correct system file mismatch</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#quick-reference">Quick reference</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="stateless.html"
+                          title="previous chapter">Stateless</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="swupd-3rd-party.html"
+                          title="next chapter">swupd 3rd-party</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/clear/swupd.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="swupd-3rd-party.html" title="swupd 3rd-party"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="stateless.html" title="Stateless"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">swupd</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

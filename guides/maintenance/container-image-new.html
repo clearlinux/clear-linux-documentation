@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Build a new Clear Linux OS-based container image &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/maintenance/container-image-new.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="CPU Power and Performance" href="cpu-performance.html" />
+    <link rel="prev" title="Modify a Clear Linux OS-based container image" href="container-image-modify.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cpu-performance.html" title="CPU Power and Performance"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="container-image-modify.html" title="Modify a Clear Linux OS-based container image"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Build a new Clear Linux OS-based container image</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="build-a-new-cl-based-container-image">
+<span id="container-image-new"></span><h1>Build a new Clear Linux OS-based container image<a class="headerlink" href="#build-a-new-cl-based-container-image" title="Link to this heading">¶</a></h1>
+<p>This guide describes how to build a new Clear Linux* OS-based container image. The
+official base Clear Linux* OS container image is published on Docker* Hub and is
+updated on a regular basis.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id1">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#build-the-base-container-image" id="id2">Build the base container image</a></p></li>
+<li><p><a class="reference internal" href="#manage-bundles-in-a-container" id="id3">Manage bundles in a container</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>You must perform these steps on a Clear Linux OS system because the
+<abbr title="software updater">swupd</abbr> is used to manage bundles in the
+container.</p></li>
+<li><p>You must install the <code class="file docutils literal notranslate"><span class="pre">containers-basic</span></code> bundle on the Clear Linux OS system
+or Docker will not work.</p></li>
+<li><p>You have a basic understanding of Docker.</p></li>
+</ul>
+</section>
+<section id="build-the-base-container-image">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Build the base container image</a><a class="headerlink" href="#build-the-base-container-image" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Log in and get root privileges.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>-s
+</pre></div>
+</div>
+</li>
+<li><p>Verify Docker is installed and running.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>info
+</pre></div>
+</div>
+<p>If Docker is installed and running, the output is similar to
+this example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Containers: 0</span>
+<span class="go"> Running: 0</span>
+<span class="go"> Paused: 0</span>
+<span class="go"> Stopped: 0</span>
+<span class="go">Images: 4</span>
+<span class="go">Server Version: 17.05.0-ce</span>
+<span class="go">Storage Driver: overlay</span>
+<span class="go"> Backing Filesystem: extfs</span>
+<span class="go"> Supports d_type: true</span>
+<span class="go">Logging Driver: json-file</span>
+<span class="go">Cgroup Driver: cgroupfs</span>
+<span class="go">Plugins:</span>
+<span class="go"> Volume: local</span>
+<span class="go"> Network: bridge host macvlan null overlay</span>
+<span class="go">Swarm: inactive</span>
+<span class="go">Runtimes: runc</span>
+<span class="go">Default Runtime: runc</span>
+<span class="go">Init Binary: docker-init</span>
+<span class="go">containerd version:  (expected: 9048e5e50717ea4497b757314bad98ea3763c145)</span>
+<span class="go">runc version: N/A (expected: 9c2d8d184e5da67c95d601382adf14862e4f2228)</span>
+<span class="go">init version: N/A (expected: )</span>
+<span class="go">Kernel Version: 4.12.7-377.native</span>
+<span class="go">Operating System: Clear Linux OS for Intel Architecture</span>
+<span class="go">OSType: linux</span>
+<span class="go">Architecture: x86_64</span>
+<span class="go">CPUs: 4</span>
+<span class="go">Total Memory: 15.62GiB</span>
+<span class="go">Name: clr-os</span>
+<span class="go">ID: XQHJ:DYEM:3Q4D:DKLM:JOA4:RUSF:GAFR:DLPA:HOJP:W5FF:ULEE:7HZ3</span>
+<span class="go">Docker Root Dir: /var/lib/docker</span>
+<span class="go">Debug Mode (client): false</span>
+<span class="go">Debug Mode (server): false</span>
+<span class="go">Registry: https://index.docker.io/v1/</span>
+<span class="go">Experimental: false</span>
+<span class="go">Insecure Registries:</span>
+<span class="go"> 127.0.0.0/8</span>
+<span class="go">Live Restore Enabled: false</span>
+</pre></div>
+</div>
+<p>If Docker is not installed, enter the commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>containers-basic
+systemctl<span class="w"> </span>start<span class="w"> </span>docker
+</pre></div>
+</div>
+</li>
+<li><p>Use <strong class="command">os-install</strong> to download and install the bundles.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swupd<span class="w"> </span>os-install<span class="w"> </span>--url<span class="w"> </span>https://cdn.download.clearlinux.org/update<span class="w"> </span>--statedir<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$PWD</span><span class="s2">&quot;</span>/swupd-state<span class="w"> </span>--no-boot-update<span class="w"> </span>-B<span class="w"> </span>os-core-update,editors,network-basic<span class="w"> </span>base
+</pre></div>
+</div>
+<p>The swupd example uses the following flags:</p>
+<ul class="simple">
+<li><p><strong class="command">os-install</strong> tells swupd to download and install.</p></li>
+<li><p><strong class="command">--url</strong> specifies the URL of the bundles repository.</p></li>
+<li><p><strong class="command">--statedir</strong> specifies the state directory where downloaded bundles and any state information are stored.</p></li>
+<li><p><strong class="command">--no-boot-update</strong> tells swupd to skip updating boot files because
+boot files are not required for a container.</p></li>
+</ul>
+<p>For more information on swupd flags, enter the <strong class="command">swupd os-install -h</strong>
+command.</p>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">swupd-client software verify 3.12.2</span>
+<span class="go">Copyright (C) 2012-2017 Intel Corporation</span>
+
+<span class="go">Verifying version 17870</span>
+<span class="go">Attempting to download version string to memory</span>
+<span class="go">Downloading packs...</span>
+
+<span class="go">Extracting python-basic pack for version 17820</span>
+<span class="go">  ...14%</span>
+<span class="go">Extracting perl-basic pack for version 17790</span>
+<span class="go">  ...28%</span>
+<span class="go">Extracting openssh-server pack for version 17660</span>
+<span class="go">  ...42%</span>
+<span class="go">Extracting editors pack for version 17850</span>
+<span class="go">  ...57%</span>
+<span class="go">Extracting network-basic pack for version 17650</span>
+<span class="go">  ...71%</span>
+<span class="go">Extracting os-core pack for version 17870</span>
+<span class="go">  ...85%</span>
+<span class="go">Extracting os-core-update pack for version 17870</span>
+<span class="go">  ...100%</span>
+<span class="go">Adding any missing files</span>
+<span class="go">  ...88%</span>
+<span class="go">Inspected 33982 files</span>
+<span class="go">  33974 files were missing</span>
+<span class="go">    33974 of 33974 missing files were replaced</span>
+<span class="go">    0 of 33974 missing files were not replaced</span>
+<span class="go">Calling post-update helper scripts.</span>
+<span class="go">WARNING: boot files update skipped due to --no-boot-update argument</span>
+<span class="go">Fix successful</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The WARNING message is expected and can be ignored.</p>
+</div>
+</li>
+<li><p>Create a tarball and compress it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tar<span class="w"> </span>-C<span class="w"> </span>base<span class="w"> </span>-cf<span class="w"> </span>base.tar<span class="w"> </span>.
+xz<span class="w"> </span>-v<span class="w"> </span>-T0<span class="w"> </span>base.tar
+</pre></div>
+</div>
+</li>
+<li><p>Create the Dockerfile to build the image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>Dockerfile<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">FROM scratch</span>
+<span class="s">MAINTAINER First Last &lt;first.last@example.com&gt;</span>
+<span class="s">ADD base.tar.xz /</span>
+<span class="s">CMD [&quot;/bin/bash&quot;]</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+</li>
+<li><p>Build the Clear Linux OS container image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>my-custom-clear-linux-container<span class="w"> </span>.
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Sending build context to Docker daemon  806.5MB</span>
+<span class="go">Step 1/4 : FROM scratch</span>
+<span class="go">  ---&gt;</span>
+<span class="go">Step 2/4 : MAINTAINER First Last &lt;first.last@example.com&gt;</span>
+<span class="go">  ---&gt; Running in 7238f35abcd0</span>
+<span class="go">  ---&gt; ec5064287c60</span>
+<span class="go">Removing intermediate container 7238f35abcd0</span>
+<span class="go">Step 3/4 : ADD base.tar.xz /</span>
+<span class="go">  ---&gt; 2723b7d20716</span>
+<span class="go">Removing intermediate container 16e3ed0df8da</span>
+<span class="go">Step 4/4 : CMD /bin/bash</span>
+<span class="go">  ---&gt; Running in efa893350647</span>
+<span class="go">  ---&gt; 5414c3a12993</span>
+<span class="go">Removing intermediate container efa893350647</span>
+<span class="go">Successfully built 5414c3a12993</span>
+<span class="go">Successfully tagged my-custom-clear-linux-container:latest</span>
+</pre></div>
+</div>
+</li>
+<li><p>List the newly created Clear Linux OS container image.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>images
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">REPOSITORY                        TAG                 IMAGE ID            CREATED              SIZE</span>
+<span class="go">my-custom-clear-linux-container   latest              5414c3a12993        About a minute ago   616MB</span>
+</pre></div>
+</div>
+</li>
+<li><p>Launch the built Clear Linux OS container.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>my-custom-clear-linux-container
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="manage-bundles-in-a-container">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Manage bundles in a container</a><a class="headerlink" href="#manage-bundles-in-a-container" title="Link to this heading">¶</a></h2>
+<p>You can add and remove bundles from a Clear Linux OS container using the
+<strong class="command">RUN swupd</strong> command in the Dockerfile.</p>
+<section id="add-a-bundle">
+<h3>Add a bundle<a class="headerlink" href="#add-a-bundle" title="Link to this heading">¶</a></h3>
+<p>This example Dockerfile adds the <code class="file docutils literal notranslate"><span class="pre">pxe-server</span></code> bundle to an existing Clear Linux OS
+Docker image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>Dockerfile<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">FROM my-customer-clear-linux-container</span>
+<span class="s">MAINTAINER First Last &lt;first.last@example.com&gt;</span>
+<span class="s">RUN swupd bundle-add pxe-server</span>
+<span class="s">CMD [&quot;/bin/bash/bash&quot;]</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker build -t my-clearlinux-with-pxe-server-bundle .</span>
+
+<span class="go">Sending build context to Docker daemon  806.5MB</span>
+<span class="go">Step 1/4 : FROM my-custom-clear-linux-container</span>
+<span class="go"> ---&gt; 5414c3a12993</span>
+<span class="go">Step 2/4 : MAINTAINER First Last &lt;first.last@example.com&gt;</span>
+<span class="go"> ---&gt; Running in 19b4411cf4bd</span>
+<span class="go"> ---&gt; 08d400baffde</span>
+<span class="go">Removing intermediate container 19b4411cf4bd</span>
+<span class="go">Step 3/4 : RUN swupd bundle-add pxe-server</span>
+<span class="go"> ---&gt; Running in 3e634d6e0792</span>
+<span class="go">swupd-client bundle adder 3.12.2</span>
+<span class="go">   Copyright (C) 2012-2017 Intel Corporation</span>
+
+<span class="go">Attempting to download version string to memory</span>
+<span class="go">Downloading packs...</span>
+
+<span class="go">Extracting pxe-server pack for version 17820</span>
+<span class="go">.</span>
+<span class="go">Installing bundle(s) files...</span>
+<span class="go">..............................................................................</span>
+<span class="go">..............................................................................</span>
+<span class="go">..............................................................................</span>
+<span class="go">..............................................................................</span>
+<span class="go">..............................................................................</span>
+<span class="go">..............................................................................</span>
+<span class="go">Calling post-update helper scripts.</span>
+<span class="go">WARNING: systemctl not operable, unable to run systemd update triggers</span>
+<span class="go">Bundle(s) installation done.</span>
+<span class="go"> ---&gt; 8ead5f2c0c33</span>
+<span class="go">Removing intermediate container 3e634d6e0792</span>
+<span class="go">Step 4/4 : CMD /bin/bash</span>
+<span class="go"> ---&gt; Running in 0ceae320279b</span>
+<span class="go"> ---&gt; dcd9adb40611</span>
+<span class="go">Removing intermediate container 0ceae320279b</span>
+<span class="go">Successfully built dcd9adb40611</span>
+<span class="go">Successfully tagged my-clearlinux-with-pxe-server-bundle:latest</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The WARNING message can be ignored because systemd does not run inside
+a container.</p>
+</div>
+</section>
+<section id="remove-a-bundle">
+<h3>Remove a bundle<a class="headerlink" href="#remove-a-bundle" title="Link to this heading">¶</a></h3>
+<p>This example Dockerfile removes the <code class="file docutils literal notranslate"><span class="pre">pxe-server</span></code> bundle from an existing
+Clear Linux OS Docker image:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>&gt;<span class="w"> </span>Dockerfile<span class="w"> </span><span class="s">&lt;&lt; EOF</span>
+<span class="s">FROM my-clearlinux-with-pxe-server-bundle</span>
+<span class="s">MAINTAINER First Last &lt;first.last@example.com&gt;</span>
+<span class="s">RUN swupd bundle-remove pxe-server</span>
+<span class="s">CMD [&quot;/bin/bash/bash&quot;]</span>
+<span class="s">EOF</span>
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">docker build -t my-clearlinux-remove-pxe-server-bundle .</span>
+
+<span class="go">Sending build context to Docker daemon  806.5MB</span>
+<span class="go">Step 1/4 : FROM my-clearlinux-with-pxe-server-bundle</span>
+<span class="go"> ---&gt; dcd9adb40611</span>
+<span class="go">Step 2/4 : MAINTAINER First Last &lt;first.last@example.com&gt;</span>
+<span class="go"> ---&gt; Running in 71b60f15003e</span>
+<span class="go"> ---&gt; 742192751c1a</span>
+<span class="go">Removing intermediate container 71b60f15003e</span>
+<span class="go">Step 3/4 : RUN swupd bundle-remove pxe-server</span>
+<span class="go"> ---&gt; Running in ad28a3390ecc</span>
+<span class="go">swupd-client bundle remover 3.12.2</span>
+<span class="go">   Copyright (C) 2012-2017 Intel Corporation</span>
+
+<span class="go">Removing bundle: pxe-server</span>
+<span class="go">Deleting bundle files...</span>
+<span class="go">Total deleted files: 92</span>
+<span class="go">Untracking bundle from system...</span>
+<span class="go">Success: Bundle removed</span>
+<span class="go">1 bundle(s) were removed successfully</span>
+<span class="go"> ---&gt; d6ee7903e14d</span>
+<span class="go">Removing intermediate container ad28a3390ecc</span>
+<span class="go">Step 4/4 : CMD /bin/bash</span>
+<span class="go"> ---&gt; Running in 7694989e97de</span>
+<span class="go"> ---&gt; ec23189ef954</span>
+<span class="go">Removing intermediate container 7694989e97de</span>
+<span class="go">Successfully built ec23189ef954</span>
+<span class="go">Successfully tagged my-clearlinux-remove-pxe-server-bundle:latest</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Build a new Clear Linux OS-based container image</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#build-the-base-container-image">Build the base container image</a></li>
+<li><a class="reference internal" href="#manage-bundles-in-a-container">Manage bundles in a container</a><ul>
+<li><a class="reference internal" href="#add-a-bundle">Add a bundle</a></li>
+<li><a class="reference internal" href="#remove-a-bundle">Remove a bundle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="container-image-modify.html"
+                          title="previous chapter">Modify a Clear Linux OS-based container image</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="cpu-performance.html"
+                          title="next chapter">CPU Power and Performance</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/maintenance/container-image-new.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cpu-performance.html" title="CPU Power and Performance"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="container-image-modify.html" title="Modify a Clear Linux OS-based container image"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Build a new Clear Linux OS-based container image</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

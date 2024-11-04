@@ -1,0 +1,597 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Writing guide &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/collaboration/writing-guide.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Structure and formatting" href="structure-formatting.html" />
+    <link rel="prev" title="Contribute" href="collaboration.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="structure-formatting.html" title="Structure and formatting"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="collaboration.html" title="Contribute"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="collaboration.html" accesskey="U">Contribute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Writing guide</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="writing-guide">
+<span id="id1"></span><h1>Writing guide<a class="headerlink" href="#writing-guide" title="Link to this heading">¶</a></h1>
+<p>We want our documentation to be easy to read and understand. This document
+describes guidelines for writing documentation that is clear, concise,
+confident, and courteous.</p>
+<p>Refer to <a class="reference internal" href="structure-formatting.html#structure-formatting"><span class="std std-ref">Structure and formatting</span></a> for details on organizing content and how
+we use reStructuredText and Sphinx.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#use-simple-english" id="id3">Use simple English</a></p></li>
+<li><p><a class="reference internal" href="#make-content-scannable" id="id4">Make content scannable</a></p></li>
+<li><p><a class="reference internal" href="#use-strong-verbs" id="id5">Use strong verbs</a></p></li>
+<li><p><a class="reference internal" href="#avoid-long-noun-phrases" id="id6">Avoid long noun phrases</a></p></li>
+<li><p><a class="reference internal" href="#parallelism" id="id7">Parallelism</a></p></li>
+<li><p><a class="reference internal" href="#grammar-and-punctuation" id="id8">Grammar and punctuation</a></p></li>
+</ul>
+</nav>
+<section id="use-simple-english">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Use simple English</a><a class="headerlink" href="#use-simple-english" title="Link to this heading">¶</a></h2>
+<p>Write using simple English: Be brief and communicate only the information that
+is needed. Be friendly and informative. Emphasize clarity and avoid
+unnecessary complicated or technical terms. Make the content accessible to
+non-native speakers.</p>
+<section id="be-brief">
+<h3>Be brief<a class="headerlink" href="#be-brief" title="Link to this heading">¶</a></h3>
+<p>Use short sentences and paragraphs. Stick to the principle of one main
+idea per sentence, plus one additional point if needed. Each paragraph
+should address one main idea. Remember the basic structure of a paragraph:
+Introduction, body, and conclusion.</p>
+</section>
+<section id="be-friendly">
+<h3>Be friendly<a class="headerlink" href="#be-friendly" title="Link to this heading">¶</a></h3>
+<p>We write for our peers and want to be familiar. Take a personal tone as if you
+were speaking directly to the reader. Use “you” to address the reader and “we”
+to refer to our view. Be professional, respectful, and cooperative.</p>
+<p>Assume your audience has the same level of technical understanding and expertise
+as you did when you first started collaborating. Do not talk down to our
+readers, but also do not assume they know everything about the subject. Offer
+brief explanations or summaries of common knowledge if a significant portion of
+readers might benefit.</p>
+</section>
+<section id="use-simple-words">
+<h3>Use simple words<a class="headerlink" href="#use-simple-words" title="Link to this heading">¶</a></h3>
+<p>Use simple words to increase reader comprehension and reduce ambiguity. Follow
+our tips for making good word choices:</p>
+<ul>
+<li><p><strong>Avoid jargon</strong>: Write for your audience, using everyday language where
+possible, and technical terms where appropriate. Avoid clichés, idioms, and
+metaphors.</p></li>
+<li><p><strong>Be consistent</strong>: Use one term for each concept or action and use it
+consistently.</p></li>
+<li><p><strong>Avoid “fancy” words and phrases</strong>: If there is a simpler word or phrase,
+use it.</p>
+<p>For example:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Use this</p></th>
+<th class="head"><p>Not this</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>start, begin</p></td>
+<td><p>commence</p></td>
+</tr>
+<tr class="row-odd"><td><p>so</p></td>
+<td><p>consequently</p></td>
+</tr>
+<tr class="row-even"><td><p>more than</p></td>
+<td><p>in excess of</p></td>
+</tr>
+<tr class="row-odd"><td><p>if</p></td>
+<td><p>in the event of</p></td>
+</tr>
+<tr class="row-even"><td><p>before</p></td>
+<td><p>prior to</p></td>
+</tr>
+<tr class="row-odd"><td><p>if you want</p></td>
+<td><p>should one wish</p></td>
+</tr>
+<tr class="row-even"><td><p>use</p></td>
+<td><p>utilize</p></td>
+</tr>
+<tr class="row-odd"><td><p>example</p></td>
+<td><p>instance</p></td>
+</tr>
+</tbody>
+</table>
+</li>
+</ul>
+</section>
+<section id="avoid-overuse-of-product-name">
+<h3>Avoid overuse of product name<a class="headerlink" href="#avoid-overuse-of-product-name" title="Link to this heading">¶</a></h3>
+<p>Use product names only when necessary. Typically, you can rewrite sentences to
+remove the product name with no change in meaning, which keeps the content
+concise and scannable.</p>
+<p>Avoid using the product name in page titles and headings.</p>
+</section>
+</section>
+<section id="make-content-scannable">
+<span id="scannable-content"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink">Make content scannable</a><a class="headerlink" href="#make-content-scannable" title="Link to this heading">¶</a></h2>
+<p>Organize your content to make it scannable for the reader, which helps them find
+what they need quickly, and to understand the information more efficiently.</p>
+<ul class="simple">
+<li><p><strong>Put the most important content first.</strong> Make sure your introduction clearly
+communicates what the reader can find on the page. Present the point of the
+document first, and organize supporting information towards the end of the
+page.</p></li>
+<li><p><strong>Write scannable headings.</strong> Expect readers of documentation to skim and scan
+the content, and to leave if they don’t find what they need quickly. Good
+headings add organization to your content and help the reader to find and
+understand content more effectively. Follow our guidelines for writing
+effective <a class="reference internal" href="#headings">Headings</a>.</p></li>
+<li><p><strong>Write great link text.</strong> Great link text tells the reader what they can
+expect when they click on a link. It also helps make the page more scannable.
+Follow our guidelines for writing <a class="reference internal" href="#link-text">Link text</a>.</p></li>
+</ul>
+<section id="headings">
+<h3>Headings<a class="headerlink" href="#headings" title="Link to this heading">¶</a></h3>
+<p>Use these guidelines to write effective headings:</p>
+<ul class="simple">
+<li><p><strong>Be concise and descriptive.</strong> Use only the words necessary to describe the
+section.</p></li>
+<li><p><strong>Use sentence case.</strong> Capitalize only the first word and proper nouns in a
+heading.</p></li>
+<li><p><strong>Avoid punctuation.</strong> Unless your heading is a question, don’t use sentence
+punctuation in headings.</p></li>
+<li><p><strong>Use parallel structure.</strong> Headings at the same level should use the same
+grammatical pattern. This provides structure to the document and helps users
+find information more easily. See <a class="reference internal" href="#parallelism"><span class="std std-ref">Parallelism</span></a>.</p></li>
+<li><p><strong>Use strong verbs.</strong> Strong, active verbs get to the point. Avoid -ing verbs,
+such as <em>Running</em>, <em>Testing</em>, etc.</p></li>
+</ul>
+<p>For example, two headings at the same level:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Install</span> <span class="n">software</span>
+
+<span class="n">Configure</span> <span class="n">software</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Installing</span> <span class="n">the</span> <span class="n">Software</span> <span class="n">on</span> <span class="n">the</span> <span class="n">Platform</span>
+
+<span class="n">Software</span> <span class="n">Configuration</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="link-text">
+<h3>Link text<a class="headerlink" href="#link-text" title="Link to this heading">¶</a></h3>
+<p>All links in content should follow these guidelines:</p>
+<ul class="simple">
+<li><p><strong>Write descriptive link text</strong>: Link text should describe where the link
+goes, without having to read the surrounding text.</p></li>
+<li><p><strong>Keep link text concise</strong>: Use only the words needed to accurately describe
+the destination.</p></li>
+<li><p><strong>Use unique link text</strong>: Each link on a page should be unique. If users see
+the same link text twice on a page, they’ll assume it goes to the same place.</p></li>
+<li><p><strong>Start link text with keywords</strong>: Frontload the link text with the most
+important words to help users scan the text.</p></li>
+<li><p><strong>Avoid generic text</strong>: Don’t use generic, uninformative link text such as
+“click here” or “read more”.</p></li>
+</ul>
+<p>For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For more information about dogs, read the `dog wiki article`_.
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For more information about dogs, `click here`_.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="use-strong-verbs">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Use strong verbs</a><a class="headerlink" href="#use-strong-verbs" title="Link to this heading">¶</a></h2>
+<p>Passive verbs make writing stuffy and formal. Use strong verbs to get to the
+point and avoid unnecessary words and phrases.</p>
+<section id="use-imperatives">
+<h3>Use imperatives<a class="headerlink" href="#use-imperatives" title="Link to this heading">¶</a></h3>
+<p>Commands, also called imperatives, are the fastest and most direct way of giving
+someone instructions. For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Send</span> <span class="n">it</span> <span class="n">to</span> <span class="n">me</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">would</span> <span class="n">appreciate</span> <span class="n">it</span> <span class="k">if</span> <span class="n">you</span> <span class="n">would</span> <span class="n">send</span> <span class="n">it</span> <span class="n">to</span> <span class="n">me</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="use-present-tense">
+<h3>Use present tense<a class="headerlink" href="#use-present-tense" title="Link to this heading">¶</a></h3>
+<p>Use simple present tense instead of future tense for most text. Search for the
+words “will” or “shall” to find future tense instances. Future tense is
+acceptable for conditional statements, such as in a caution or a warning. For
+example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">system</span> <span class="n">operates</span> <span class="n">at</span> <span class="n">a</span> <span class="n">nominal</span> <span class="n">temperature</span> <span class="n">of</span> <span class="mi">180</span> <span class="n">degrees</span> <span class="n">Fahrenheit</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">system</span> <span class="n">will</span> <span class="n">operate</span> <span class="n">at</span> <span class="n">a</span> <span class="n">nominal</span> <span class="n">temperature</span> <span class="n">of</span> <span class="mi">180</span> <span class="n">degrees</span> <span class="n">Fahrenheit</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="avoid-nominalizations">
+<h3>Avoid nominalizations<a class="headerlink" href="#avoid-nominalizations" title="Link to this heading">¶</a></h3>
+<p>Avoid nominalizations, which are nouns formed from verbs.</p>
+<p>For example:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Verb</p></th>
+<th class="head"><p>Nominalization</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>complete</p></td>
+<td><p>completion</p></td>
+</tr>
+<tr class="row-odd"><td><p>provide</p></td>
+<td><p>provision</p></td>
+</tr>
+<tr class="row-even"><td><p>fail</p></td>
+<td><p>failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>install</p></td>
+<td><p>installation</p></td>
+</tr>
+</tbody>
+</table>
+<p>For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">We</span> <span class="n">discussed</span> <span class="n">the</span> <span class="n">matter</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">We</span> <span class="n">had</span> <span class="n">a</span> <span class="n">discussion</span> <span class="n">about</span> <span class="n">the</span> <span class="n">matter</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Or:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IT</span> <span class="n">has</span> <span class="n">installed</span> <span class="n">the</span> <span class="n">software</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IT</span> <span class="n">has</span> <span class="n">completed</span> <span class="n">the</span> <span class="n">installation</span> <span class="n">of</span> <span class="n">the</span> <span class="n">software</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="avoid-words-ending-in-ing">
+<h3>Avoid words ending in -ing<a class="headerlink" href="#avoid-words-ending-in-ing" title="Link to this heading">¶</a></h3>
+<p>Avoid using words ending in -ing unless they are part of a technical name. For
+example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">way</span> <span class="n">to</span> <span class="n">verify</span> <span class="n">this</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">There</span> <span class="ow">is</span> <span class="n">no</span> <span class="n">way</span> <span class="n">of</span> <span class="n">verifying</span> <span class="n">this</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="use-the-active-voice">
+<h3>Use the active voice<a class="headerlink" href="#use-the-active-voice" title="Link to this heading">¶</a></h3>
+<p>Use active voice whenever possible to show who or what is performing an
+action.</p>
+<ul class="simple">
+<li><p>Active voice follows standard English word order: SUBJECT–VERB–OBJECT
+(where the OBJECT is optional).</p></li>
+<li><p>Passive voice reverses the order and weakens the verb: OBJECT–be VERB–by
+SUBJECT (where the OBJECT is optional).</p></li>
+</ul>
+<p>For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">made</span> <span class="n">a</span> <span class="n">mistake</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A mistake was made. *(By whom?)*
+</pre></div>
+</div>
+<p>Or:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">We</span> <span class="n">released</span> <span class="n">version</span> <span class="mf">2.0</span> <span class="ow">in</span> <span class="n">June</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Version</span> <span class="mf">2.0</span> <span class="n">was</span> <span class="n">released</span> <span class="ow">in</span> <span class="n">June</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="avoid-long-noun-phrases">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Avoid long noun phrases</a><a class="headerlink" href="#avoid-long-noun-phrases" title="Link to this heading">¶</a></h2>
+<p>Noun phrases (a noun and other words that describe or modify it) can be
+difficult to understand. Try to limit the number of modifiers in a noun phrase
+to two. For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Integration</span> <span class="n">policies</span> <span class="k">for</span> <span class="n">power</span> <span class="n">management</span> <span class="n">mechanisms</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Power</span> <span class="n">management</span> <span class="n">mechanism</span> <span class="n">integration</span> <span class="n">policies</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="parallelism">
+<span id="id2"></span><h2><a class="toc-backref" href="#id7" role="doc-backlink">Parallelism</a><a class="headerlink" href="#parallelism" title="Link to this heading">¶</a></h2>
+<p>Parallelism refers to the practice of using similar patterns of grammar, and
+sometimes length, to coordinate words, phrases, and clauses.</p>
+<p>Use parallel construction in lists. The table below shows some unparallel
+structures and how they can be made parallel with a little rewording.</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parallel (do)</p></th>
+<th class="head"><p>Unparallel (don’t)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><ol class="arabic simple">
+<li><p>Mount the panel.</p></li>
+<li><p>Install the battery.</p></li>
+<li><p>Wire the keypad.</p></li>
+</ol>
+</td>
+<td><ol class="arabic simple">
+<li><p>Mount the panel.</p></li>
+<li><p>Battery installation.</p></li>
+<li><p>Wiring the keypad.</p></li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><p>I like practicing my accordion,
+reading sci-fi, and eating
+peanut butter and pickle
+sandwiches.</p></td>
+<td><p>I like practicing my accordion,
+reading sci-fi, and to eat
+peanut butter and pickle
+sandwiches.</p></td>
+</tr>
+<tr class="row-even"><td><p>For breakfast he likes coffee
+and bacon.</p></td>
+<td><p>For breakfast he likes coffee
+and to fry bacon.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Apples or bananas are a good
+snack.</p></td>
+<td><p>Apples or a banana are a good
+snack.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="grammar-and-punctuation">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Grammar and punctuation</a><a class="headerlink" href="#grammar-and-punctuation" title="Link to this heading">¶</a></h2>
+<p>This section covers common grammatical topics relevant to our
+documentation. For detailed explanations of correct grammar and punctuation,
+use one of our <a class="reference internal" href="collaboration.html#references"><span class="std std-ref">preferred references</span></a>.</p>
+<section id="capitalization">
+<h3>Capitalization<a class="headerlink" href="#capitalization" title="Link to this heading">¶</a></h3>
+<p>The capitalization style for all documentation is sentence case. Words should
+only be capitalized when they are proper nouns or refer to trademarked product
+names.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not capitalize a word to indicate it is more important than other
+words. Never change the case of variable, function or file names - always
+keep the original case.</p>
+</div>
+<section id="menu-capitalization">
+<h4>Menu capitalization<a class="headerlink" href="#menu-capitalization" title="Link to this heading">¶</a></h4>
+<p>When referring to software menu items by name, use the same capitalization as
+seen in the actual menu.</p>
+<p>A few other tips when referring to menu items:</p>
+<ul>
+<li><p>Reference the specific menu item using “Select <span class="menuselection">File ‣ New</span>.”</p></li>
+<li><p>Put the option to be selected last. “Select
+<span class="menuselection">View ‣ Side Bar ‣ Hide Side Bar</span>”</p></li>
+<li><p>Do not include more than 3 navigation steps in a menu selection. If
+more than three steps are needed, divide the steps using
+<code class="docutils literal notranslate"><span class="pre">:guilabel:</span></code> or <code class="docutils literal notranslate"><span class="pre">:menuselection:</span></code>.</p>
+<p>For example: “Go to <span class="guilabel">File</span> and select
+<span class="menuselection">Print ‣ Print Preview ‣ Set Up</span>.”</p>
+</li>
+</ul>
+</section>
+<section id="software-version-capitalization">
+<h4>Software version capitalization<a class="headerlink" href="#software-version-capitalization" title="Link to this heading">¶</a></h4>
+<p>When listing software or hardware version numbers, the word “version” or letter
+“v” are lowercase. The v is closed with the number (no period).</p>
+<p>For example:</p>
+<ul class="simple">
+<li><p>Widget Pro version 5.0</p></li>
+<li><p>Widget Master v2.1.12</p></li>
+</ul>
+</section>
+</section>
+<section id="contractions">
+<h3>Contractions<a class="headerlink" href="#contractions" title="Link to this heading">¶</a></h3>
+<p>Avoid using contractions, such as it’s, they’re, and you’re, because they may be
+unclear to non-native English-speaking audiences.</p>
+</section>
+<section id="quotation-marks">
+<h3>Quotation marks<a class="headerlink" href="#quotation-marks" title="Link to this heading">¶</a></h3>
+<p>Follow these guidelines for quotation marks:</p>
+<ul class="simple">
+<li><p>Restrict use of quotation marks to terms as terms.</p></li>
+<li><p>Do not use quotation marks for emphasis; use <em>italics</em> for emphasis.</p></li>
+<li><p>Avoid using single-quote marks.</p></li>
+</ul>
+</section>
+<section id="commas-and-colons">
+<h3>Commas and colons<a class="headerlink" href="#commas-and-colons" title="Link to this heading">¶</a></h3>
+<p>This section addresses common use of commas, semicolons, and colons in our
+documentation. Refer to one of our <a class="reference internal" href="collaboration.html#references"><span class="std std-ref">preferred references</span></a>
+for further details.</p>
+<section id="use-the-serial-comma">
+<h4>Use the serial comma<a class="headerlink" href="#use-the-serial-comma" title="Link to this heading">¶</a></h4>
+<p>When writing a series of items, use the serial comma before the final <em>and</em> and
+<em>or</em> to avoid confusion and ambiguity. For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mom</span><span class="p">,</span> <span class="n">Dad</span><span class="p">,</span> <span class="ow">and</span> <span class="n">I</span> <span class="n">are</span> <span class="n">going</span> <span class="n">to</span> <span class="n">the</span> <span class="n">game</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Mom</span><span class="p">,</span> <span class="n">Dad</span> <span class="ow">and</span> <span class="n">I</span> <span class="n">are</span> <span class="n">going</span> <span class="n">to</span> <span class="n">the</span> <span class="n">game</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Writing guide</a><ul>
+<li><a class="reference internal" href="#use-simple-english">Use simple English</a><ul>
+<li><a class="reference internal" href="#be-brief">Be brief</a></li>
+<li><a class="reference internal" href="#be-friendly">Be friendly</a></li>
+<li><a class="reference internal" href="#use-simple-words">Use simple words</a></li>
+<li><a class="reference internal" href="#avoid-overuse-of-product-name">Avoid overuse of product name</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#make-content-scannable">Make content scannable</a><ul>
+<li><a class="reference internal" href="#headings">Headings</a></li>
+<li><a class="reference internal" href="#link-text">Link text</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#use-strong-verbs">Use strong verbs</a><ul>
+<li><a class="reference internal" href="#use-imperatives">Use imperatives</a></li>
+<li><a class="reference internal" href="#use-present-tense">Use present tense</a></li>
+<li><a class="reference internal" href="#avoid-nominalizations">Avoid nominalizations</a></li>
+<li><a class="reference internal" href="#avoid-words-ending-in-ing">Avoid words ending in -ing</a></li>
+<li><a class="reference internal" href="#use-the-active-voice">Use the active voice</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#avoid-long-noun-phrases">Avoid long noun phrases</a></li>
+<li><a class="reference internal" href="#parallelism">Parallelism</a></li>
+<li><a class="reference internal" href="#grammar-and-punctuation">Grammar and punctuation</a><ul>
+<li><a class="reference internal" href="#capitalization">Capitalization</a><ul>
+<li><a class="reference internal" href="#menu-capitalization">Menu capitalization</a></li>
+<li><a class="reference internal" href="#software-version-capitalization">Software version capitalization</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#contractions">Contractions</a></li>
+<li><a class="reference internal" href="#quotation-marks">Quotation marks</a></li>
+<li><a class="reference internal" href="#commas-and-colons">Commas and colons</a><ul>
+<li><a class="reference internal" href="#use-the-serial-comma">Use the serial comma</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="collaboration.html"
+                          title="previous chapter">Contribute</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="structure-formatting.html"
+                          title="next chapter">Structure and formatting</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/collaboration/writing-guide.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="structure-formatting.html" title="Structure and formatting"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="collaboration.html" title="Contribute"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="collaboration.html" >Contribute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Writing guide</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

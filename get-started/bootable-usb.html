@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Create a bootable USB drive using Etcher* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/bootable-usb.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Clear Linux* OS from the live desktop" href="bare-metal-install-desktop.html" />
+    <link rel="prev" title="Check Processor Compatibility" href="compatibility-check.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="bare-metal-install-desktop.html" title="Install Clear Linux* OS from the live desktop"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="compatibility-check.html" title="Check Processor Compatibility"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Create a bootable USB drive using Etcher*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="create-a-bootable-usb-drive-using-etcher">
+<span id="bootable-usb"></span><h1>Create a bootable USB drive using Etcher*<a class="headerlink" href="#create-a-bootable-usb-drive-using-etcher" title="Link to this heading">¶</a></h1>
+<p>Use Etcher* software from Balena* to flash the Clear Linux OS image to a USB drive.
+An <a class="reference internal" href="#advanced-linux-cli">Advanced: Linux CLI</a> option is also available.</p>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Download the Clear Linux OS Desktop or Server image from the <a class="reference external" href="https://clearlinux.org/downloads">Downloads</a> page</p></li>
+<li><p>Recommended minimum <strong>4GB</strong> USB drive or larger</p></li>
+<li><p>Download and install the <a class="reference external" href="https://www.balena.io/etcher/">Etcher</a> version per your operating system.</p></li>
+</ul>
+<section id="burn-the-cl-image-onto-a-usb-drive">
+<h3>Burn the Clear Linux OS image onto a USB drive<a class="headerlink" href="#burn-the-cl-image-onto-a-usb-drive" title="Link to this heading">¶</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Burning an image formats the USB drive and destroys all pre-existing
+content.  Back up your data before proceeding.</p>
+</div>
+<ol class="arabic">
+<li><p>Launch Etcher.</p>
+<figure class="dropshadow align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_Start.PNG"><img alt="Start screen" src="../_images/balenaEtcher_Start.PNG" style="width: 625.0px; height: 375.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Start screen</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Press <span class="guilabel">Select Image</span>.</p></li>
+<li><p>Change directory to where the image resides.</p></li>
+<li><p>Select the image and click <span class="guilabel">Open</span>.</p>
+<figure class="dropshadow align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_ImageSelect.PNG"><img alt="In Open, select the image" src="../_images/balenaEtcher_ImageSelect.PNG" style="width: 625.0px; height: 376.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: In Open, select the image</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Plug in the USB drive.</p></li>
+<li><p>Identify the USB drive or click <span class="guilabel">Change</span> to select a
+different USB.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This shows all USB drives attached to the system.</p>
+</div>
+<figure class="dropshadow align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_DriveSlect.PNG"><img alt="USB drives attached" src="../_images/balenaEtcher_DriveSlect.PNG" style="width: 625.0px; height: 375.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: USB drives attached</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Select the proper device and press <span class="guilabel">Continue</span>.</p>
+<figure class="dropshadow align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_ReadyToFlash.PNG"><img alt="USB Flash Device selected" src="../_images/balenaEtcher_ReadyToFlash.PNG" style="width: 625.0px; height: 375.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 4: USB Flash Device selected</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>When ready press the <span class="guilabel">Flash!</span> Button.
+The dialog shows <span class="guilabel">Flashing</span> while in progress.</p>
+<figure class="dropshadow align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_StartingToFlash.PNG"><img alt="Starting to flash" src="../_images/balenaEtcher_StartingToFlash.PNG" style="width: 625.0px; height: 375.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 5: Starting to flash</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="dropshadow align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_Flashing.PNG"><img alt="Flashing, percentage complete" src="../_images/balenaEtcher_Flashing.PNG" style="width: 625.0px; height: 375.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 6: Flashing, percentage complete</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p><span class="guilabel">Flash complete!</span> shows when the process is finished.</p>
+<figure class="dropshadow align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/balenaEtcher_Done.PNG"><img alt="Flash Complete!" src="../_images/balenaEtcher_Done.PNG" style="width: 625.0px; height: 375.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 7: Flash Complete!</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The process may take more than a few minutes. When the process completes, close BalenaEtcher.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="advanced-linux-cli">
+<h3>Advanced: Linux CLI<a class="headerlink" href="#advanced-linux-cli" title="Link to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Open a Terminal window.</p></li>
+<li><p>Change directory to where the image resides.</p></li>
+<li><p>Plug in the USB drive.</p></li>
+<li><p>Identify all drives attached to the system. In the example output below, there are 3 drives (<cite>/dev/sda</cite>, <cite>/dev/sdb</cite>, and <cite>/dev/sdc</cite>) attached, where <cite>/dev/sda</cite> is the primary drive and the remaining are USB drives.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lsblk<span class="w"> </span>-po<span class="w"> </span>NAME,SIZE,VENDOR,MODEL,TRAN,TYPE,PARTLABEL,MOUNTPOINT
+</pre></div>
+</div>
+<p>Example output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">NAME          SIZE VENDOR   MODEL                    TRAN   TYPE PARTLABEL                    MOUNTPOINT</span>
+<span class="go">/dev/sda    119.2G ATA      SAMSUNG_MZ7PC128HAFU-000 sata   disk</span>
+<span class="go">├─/dev/sda1   450M                                          part Basic data partition</span>
+<span class="go">├─/dev/sda2   100M                                          part EFI system partition</span>
+<span class="go">├─/dev/sda3    16M                                          part Microsoft reserved partition</span>
+<span class="go">├─/dev/sda4  97.2G                                          part Basic data partition</span>
+<span class="go">├─/dev/sda5   142M                                          part EFI</span>
+<span class="go">├─/dev/sda6   245M                                          part linux-swap                   [SWAP]</span>
+<span class="go">└─/dev/sda7  21.1G                                          part /                            /</span>
+<span class="go">/dev/sdb      7.5G General  UDisk                    usb    disk</span>
+<span class="go">└─/dev/sdb1   7.5G                                          part Microsoft Basic Data         /run/media/clear/CENA_X64FRE</span>
+<span class="go">/dev/sdc       15G          Patriot_Memory           usb    disk</span>
+<span class="go">└─/dev/sdc1    15G                                          part                              /run/media/clear/U</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some Linux distros may automatically mount a USB drive when it is plugged in.</p>
+</div>
+</li>
+<li><p>Unmount the USB drive you want to use before burning an image onto it.
+Use the <strong class="command">umount</strong> command followed by the device identifier/partition. For example, to unmount all <code class="docutils literal notranslate"><span class="pre">/dev/sdc</span></code> partitions:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>umount<span class="w"> </span>/dev/sdc*
+</pre></div>
+</div>
+</li>
+<li><p>Burn the image onto the USB drive. This example burns an image onto
+<code class="docutils literal notranslate"><span class="pre">/dev/sdc</span></code>. The device name of the USB may vary.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dd<span class="w"> </span><span class="k">if</span><span class="o">=</span>./clear-<span class="o">[</span>version<span class="w"> </span>number<span class="o">]</span>-live-<span class="o">[</span>desktop<span class="w"> </span><span class="p">|</span><span class="w"> </span>server<span class="o">]</span>.iso<span class="w"> </span><span class="nv">of</span><span class="o">=</span>/dev/sdc<span class="w"> </span><span class="nv">oflag</span><span class="o">=</span>sync<span class="w"> </span><span class="nv">bs</span><span class="o">=</span>4M<span class="w"> </span><span class="nv">status</span><span class="o">=</span>progress
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="eject-the-cl-image-usb-drive">
+<h3>Eject the Clear Linux OS image USB drive<a class="headerlink" href="#eject-the-cl-image-usb-drive" title="Link to this heading">¶</a></h3>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If you do not properly unmount the USB drive before removing it, it may cause file system checksum errors in it. If this happens, burn the image again, ensuring all the USB drive partitions are unmounted first before removing drive.</p>
+</div>
+<ol class="arabic simple">
+<li><p>Unmount the USB per your OS instructions.</p></li>
+<li><p>Then eject the USB.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Create a bootable USB drive using Etcher*</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#burn-the-cl-image-onto-a-usb-drive">Burn the Clear Linux OS image onto a USB drive</a></li>
+<li><a class="reference internal" href="#advanced-linux-cli">Advanced: Linux CLI</a></li>
+<li><a class="reference internal" href="#eject-the-cl-image-usb-drive">Eject the Clear Linux OS image USB drive</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="compatibility-check.html"
+                          title="previous chapter">Check Processor Compatibility</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="bare-metal-install-desktop.html"
+                          title="next chapter">Install Clear Linux* OS from the live desktop</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/get-started/bootable-usb.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="bare-metal-install-desktop.html" title="Install Clear Linux* OS from the live desktop"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="compatibility-check.html" title="Check Processor Compatibility"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Create a bootable USB drive using Etcher*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

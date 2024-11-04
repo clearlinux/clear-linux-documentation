@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Clear Linux* OS on Microsoft Hyper-V* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/get-started/virtual-machine-install/hyper-v.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Clear Linux* OS on KVM" href="kvm.html" />
+    <link rel="prev" title="Install Clear Linux OS Over the Network with iPXE" href="../ipxe-install.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="kvm.html" title="Clear Linux* OS on KVM"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../ipxe-install.html" title="Install Clear Linux OS Over the Network with iPXE"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on Microsoft Hyper-V*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="cl-attr-on-microsoft-hyper-v">
+<span id="hyper-v"></span><h1>Clear Linux* OS on Microsoft Hyper-V*<a class="headerlink" href="#cl-attr-on-microsoft-hyper-v" title="Link to this heading">¶</a></h1>
+<p>This page explains how to run a Clear Linux* OS <abbr title="virtual machine">VM</abbr> on a
+Microsoft* Hyper-V* hypervisor.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id4">Overview</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id5">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#download-the-cl-disk-image-for-hyper-v" id="id6">Download the Clear Linux OS disk image for Hyper-V</a></p></li>
+<li><p><a class="reference internal" href="#create-and-configure-new-vm" id="id7">Create and configure new VM</a></p></li>
+<li><p><a class="reference internal" href="#start-the-vm" id="id8">Start the VM</a></p></li>
+<li><p><a class="reference internal" href="#related-topics" id="id9">Related topics</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Overview</a><a class="headerlink" href="#overview" title="Link to this heading">¶</a></h2>
+<p>Hyper-V is a type 1 bare-metal hypervisor that runs directly on system
+hardware. It is available for <a class="reference external" href="https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/hyper-v-on-windows-server">Windows* server</a> and client operating
+systems, including <a class="reference external" href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/index">Windows 10</a>.</p>
+<p>Clear Linux OS provides a virtual disk image for Hyper-V, which also includes
+a <a class="reference internal" href="../../guides/clear/compatible-kernels.html#compatible-kernels"><span class="std std-ref">Hyper-V specific kernel</span></a> and drivers.</p>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Enable virtualization on the host system from EFI/BIOS, such as:</p>
+<ul>
+<li><p><a class="reference external" href="http://www.intel.com/content/www/us/en/virtualization/virtualization-technology/intel-virtualization-technology.html">Intel® Virtualization Technology</a> (Intel® VT)</p></li>
+<li><p><a class="reference external" href="https://software.intel.com/en-us/articles/intel-virtualization-technology-for-directed-io-vt-d-enhancing-intel-platforms-for-efficient-virtualization-of-io-devices">Intel® Virtualization Technology for Directed I/O</a> (Intel® VT-d)</p></li>
+</ul>
+</li>
+<li><p>Install Hyper-V on the appropriate Windows operating system:</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server">Install the Hyper-V role on Windows Server</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v">Install Hyper-V on Windows 10</a></p></li>
+</ul>
+</li>
+<li><p>Configure the appropriate virtual networking in Hyper-V:</p>
+<ul>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines">Create a virtual network on Windows Server</a></p></li>
+<li><p><a class="reference external" href="https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/connect-to-network">Create a virtual network on Windows 10</a></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="download-the-cl-disk-image-for-hyper-v">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Download the Clear Linux OS disk image for Hyper-V</a><a class="headerlink" href="#download-the-cl-disk-image-for-hyper-v" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Download the <code class="file docutils literal notranslate"><span class="pre">clear-[VERSION]-azure-hyperv.vhd.gz</span></code> for Microsoft*
+Hyper-V from the <a class="reference external" href="https://clearlinux.org/downloads">downloads</a> website.</p></li>
+<li><p>Verify and extract the image using these instructions:
+<a class="reference internal" href="../../guides/maintenance/download-verify-decompress.html#download-verify-decompress"><span class="std std-ref">Download, verify, and decompress a Clear Linux* OS image</span></a>.</p></li>
+<li><p>Extract the compressed file using software such as the
+7-Zip* tool or the WinZip* tool.</p>
+<p>After extraction, the file should be named <code class="file docutils literal notranslate"><span class="pre">clear-[VERSION]-azure-hyperv.vhd</span></code>.</p>
+</li>
+</ol>
+</section>
+<section id="create-and-configure-new-vm">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Create and configure new VM</a><a class="headerlink" href="#create-and-configure-new-vm" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Open the <strong>Hyper-V Manager</strong> from the Start menu.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/hyper-v-01.png"><img alt="Hyper-V Manager from the Start menu" src="../../_images/hyper-v-01.png" style="width: 394.0px; height: 109.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Hyper-V Manager from the Start menu</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You may need to manually enable Hyper-V on a Windows* machine. Review
+<code class="docutils literal notranslate"><span class="pre">Windows</span> <span class="pre">Features</span></code>.</p>
+</div>
+</li>
+<li><p>Create a <em>New Virtual Machine</em> by clicking the <span class="guilabel">Action</span> menu,
+then selecting <span class="guilabel">New</span> and <span class="guilabel">Virtual Machine…</span>.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../../_images/hyper-v-02.png"><img alt="New Virtual Machine in Hyper-V Manager" src="../../_images/hyper-v-02.png" style="width: 432.0px; height: 327.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 2: New Virtual Machine in Hyper-V Manager</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Follow the <em>New Virtual Machine Wizard</em> to create a new virtual machine
+specifying the options below:</p>
+<ul class="simple">
+<li><p><strong>Name</strong>: Choose name (for example, ClearLinuxOS-VM)</p></li>
+<li><p><strong>Specify Generation</strong>: Generation 1</p></li>
+<li><p><strong>Startup memory</strong>: 2048 MB or more</p></li>
+<li><p><strong>Configure Networking</strong>: Change <span class="guilabel">Connection</span> to <cite>Default Switch</cite></p></li>
+<li><p><strong>Connect Virtual Hard Disk</strong>: Select <span class="guilabel">Use an existing virtual
+hard disk</span> and browse to find the
+<code class="file docutils literal notranslate"><span class="pre">clear-[VERSION]-azure-hyperv.vhd</span></code> file.</p></li>
+</ul>
+<p>After finishing the wizard, the VM will be created but not powered on.</p>
+</li>
+<li><p>Configure the VM by right-clicking it in the Hyper-V Manager and selecting
+<span class="guilabel">Settings…</span>. Figure 3 shows the Settings page after configuration selections.</p>
+<p><strong>Optional</strong></p>
+<ul class="simple">
+<li><p>If you wish to <cite>Encrypt state and virtual machine traffic, under
+:guilabel:`Security</cite>, select <span class="guilabel">Add Key Storage Drive</span>.</p></li>
+<li><p>Under <span class="guilabel">Processor</span>, consider increasing the number of virtual
+processors assigned to the Clear Linux OS VM to improve performance.</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../../_images/hyper-v-03.png"><img alt="|CL| VM Settings in Hyper-V Manager" src="../../_images/hyper-v-03.png" style="width: 236.0px; height: 251.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 3: Clear Linux OS VM Settings page after configuration</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</li>
+<li><p>Click <span class="guilabel">Apply</span> at the bottom of the VM Settings screen.</p></li>
+<li><p>Click <span class="guilabel">OK</span> at the bottom of the VM Settings screen.</p></li>
+</ol>
+</section>
+<section id="start-the-vm">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Start the VM</a><a class="headerlink" href="#start-the-vm" title="Link to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>Start the Clear Linux OS VM by right-clicking the VM in Hyper-V Manager and
+selecting <span class="guilabel">Start</span>.</p></li>
+<li><p>Connect to the VM console by right-clicking the VM in Hyper-V Manager and
+selecting <span class="guilabel">Connect…</span>. A new <em>Virtual Machine Connection</em>
+window is displayed.</p></li>
+<li><p>After Clear Linux OS is booted, log in to the console with user <em>root</em>. You are
+prompted to set a new password immediately.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt; User: root</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>Clear Linux* OS on Microsoft Hyper-V* is ready for use.</p>
+</section>
+<section id="related-topics">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink">Related topics</a><a class="headerlink" href="#related-topics" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../guides/maintenance/increase-virtual-disk-size.html#increase-virtual-disk-size"><span class="std std-ref">Increase Virtual Disk Size of an Image</span></a></p></li>
+</ul>
+<p><em>Intel and the Intel logo are trademarks of Intel Corporation or its subsidiaries.</em></p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Clear Linux* OS on Microsoft Hyper-V*</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#download-the-cl-disk-image-for-hyper-v">Download the Clear Linux OS disk image for Hyper-V</a></li>
+<li><a class="reference internal" href="#create-and-configure-new-vm">Create and configure new VM</a></li>
+<li><a class="reference internal" href="#start-the-vm">Start the VM</a></li>
+<li><a class="reference internal" href="#related-topics">Related topics</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../ipxe-install.html"
+                          title="previous chapter">Install Clear Linux OS Over the Network with iPXE</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="kvm.html"
+                          title="next chapter">Clear Linux* OS on KVM</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/get-started/virtual-machine-install/hyper-v.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="kvm.html" title="Clear Linux* OS on KVM"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../ipxe-install.html" title="Install Clear Linux OS Over the Network with iPXE"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Get started</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Clear Linux* OS on Microsoft Hyper-V*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

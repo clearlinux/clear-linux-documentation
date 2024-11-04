@@ -1,0 +1,621 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Structure and formatting &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/collaboration/structure-formatting.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Writing guide" href="writing-guide.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="writing-guide.html" title="Writing guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="collaboration.html" accesskey="U">Contribute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Structure and formatting</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="structure-and-formatting">
+<span id="structure-formatting"></span><h1>Structure and formatting<a class="headerlink" href="#structure-and-formatting" title="Link to this heading">¶</a></h1>
+<p>Content should be organized to support scanning. Consistent organization,
+formatting, and writing style helps readers quickly find what they need and to
+understand the content more effectively. This document describes our
+organization and formatting guidelines.</p>
+<p>Refer to <a class="reference internal" href="writing-guide.html#writing-guide"><span class="std std-ref">Writing guide</span></a> to learn how we keep our documents clear and
+concise.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#markup" id="id1">Markup</a></p></li>
+<li><p><a class="reference internal" href="#documentation-organization" id="id2">Documentation organization</a></p></li>
+<li><p><a class="reference internal" href="#inline-text-formatting" id="id3">Inline text formatting</a></p></li>
+<li><p><a class="reference internal" href="#code-blocks-and-examples" id="id4">Code blocks and examples</a></p></li>
+<li><p><a class="reference internal" href="#lists-and-instructions" id="id5">Lists and instructions</a></p></li>
+<li><p><a class="reference internal" href="#notices" id="id6">Notices</a></p></li>
+<li><p><a class="reference internal" href="#links" id="id7">Links</a></p></li>
+<li><p><a class="reference internal" href="#images" id="id8">Images</a></p></li>
+</ul>
+</nav>
+<section id="markup">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Markup</a><a class="headerlink" href="#markup" title="Link to this heading">¶</a></h2>
+<p>Our documentation is written in the reStructuredText markup language, using
+Sphinx roles and directives. We use Sphinx to generate the final documentation.
+You can read more about reStructuredText and Sphinx on their respective
+websites:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html">Sphinx documentation</a></p></li>
+<li><p><a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a></p></li>
+</ul>
+<p>You can view the content directly in the .rst markup files, or generate the HTML
+content by installing and building the documentation locally. To run the
+documentation locally, follow the instructions found in the
+<a class="reference external" href="https://github.com/clearlinux/clear-linux-documentation">documentation repository</a> README.</p>
+<section id="new-pages">
+<h3>New pages<a class="headerlink" href="#new-pages" title="Link to this heading">¶</a></h3>
+<p>There are a few additional steps to consider when adding a new page to the
+documentation. First, identify where your new page should be located within the
+existing <a class="reference internal" href="#documentation-organization">Documentation organization</a>. Second, make sure the new page is picked
+up in the Sphinx build and easily linkable from other content.</p>
+<p>Each page must be included in a <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/quickstart.html?highlight=toctree#defining-document-structure">Sphinx toctree</a> in order to be included in the
+documentation content tree. Typically, pages are added to the section landing
+page toctree.</p>
+<p>For example, the <a class="reference internal" href="collaboration.html#collaboration"><span class="std std-ref">Contribute</span></a> page toctree looks like:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">toctree</span><span class="p">::</span>
+   <span class="nc">:maxdepth:</span> 1
+
+   writing-guide
+   structure-formatting
+</pre></div>
+</div>
+<p>Additionally, each page must include a uniquely named reST label directly before
+the page title, to enable the <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#role-ref">Sphinx ref role</a> for linking to a page.</p>
+<p>For example, this page “Structure and formatting” has the label
+<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">_structure-formatting</span></code>:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_structure-formatting:</span>
+
+<span class="gh">Structure and formatting</span>
+<span class="gh">########################</span>
+</pre></div>
+</div>
+<p>This page can then be referenced from other pages in the documentation using the
+<cite>:ref:</cite> role:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="na">:ref:</span><span class="nv">`structure-formatting`</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="documentation-organization">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Documentation organization</a><a class="headerlink" href="#documentation-organization" title="Link to this heading">¶</a></h2>
+<p>The documentation is organized into five general sections:</p>
+<ol class="arabic simple">
+<li><p><strong>Concepts</strong>: Introduction and overview of Clear Linux OS specific concepts or
+features.</p></li>
+<li><p><strong>Get started</strong>: Information about getting started with Clear Linux OS.</p></li>
+<li><p><strong>Guides</strong>: Detailed information and instruction on using Clear Linux OS features.</p></li>
+<li><p><strong>Tutorials</strong>: Step-by-step instruction for using Clear Linux OS in specific use cases.</p></li>
+<li><p><strong>Reference</strong>: Supplementary and reference information for Clear Linux OS.</p></li>
+</ol>
+<section id="page-structure">
+<h3>Page structure<a class="headerlink" href="#page-structure" title="Link to this heading">¶</a></h3>
+<p>Each page in the documentation should follow the basic format of:</p>
+<ul class="simple">
+<li><p>Overview: 1-2 sentences describing what this page shows and why it matters</p></li>
+<li><p>Prerequisites: Describe any pre-work necessary to the content (if appropriate)</p></li>
+<li><p>Content</p></li>
+<li><p>Next steps: List links to next steps (if appropriate)</p></li>
+<li><p>Related topics: List links to related content (if appropriate)</p></li>
+</ul>
+</section>
+<section id="headings">
+<h3>Headings<a class="headerlink" href="#headings" title="Link to this heading">¶</a></h3>
+<p>Use headings to section and organize your content for better readability and
+clarity.</p>
+<ul class="simple">
+<li><p>All files must have a top level heading, which is the title for the page.</p></li>
+<li><p>Up to three additional levels of headings are allowed under the title heading.</p></li>
+<li><p>Each heading should be followed by at least one paragraph of content. Avoid
+two or more consecutive headings.</p></li>
+</ul>
+<p>Refer to the <a class="reference internal" href="writing-guide.html#writing-guide"><span class="std std-ref">Writing guide</span></a> for tips on using headings to create
+<a class="reference internal" href="writing-guide.html#scannable-content"><span class="std std-ref">scannable content</span></a>.</p>
+<p>To mark up headings in the .rst file:</p>
+<ul>
+<li><p>Use hash-tags to underline the file’s main title:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="gh">Main title</span>
+<span class="gh">##########</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use asterisks to underline the file’s first level headings:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="gh">First level heading</span>
+<span class="gh">*******************</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use equal signs to underline the file’s second level of headings:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="gh">Second level heading</span>
+<span class="gh">====================</span>
+</pre></div>
+</div>
+</li>
+<li><p>Use dashes to underline the file’s third level of headings:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="gh">Third level heading</span>
+<span class="gh">-------------------</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="in-page-navigation">
+<h3>In-page navigation<a class="headerlink" href="#in-page-navigation" title="Link to this heading">¶</a></h3>
+<p>If a page has three or more sections, provide quick links to each section. Place
+the quick links after the overview section.</p>
+<p>Use the standard <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/directives.html#table-of-contents">reST contents directive</a> with depth: 1 for quick links.</p>
+</section>
+</section>
+<section id="inline-text-formatting">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Inline text formatting</a><a class="headerlink" href="#inline-text-formatting" title="Link to this heading">¶</a></h2>
+<p>We use the <a class="reference external" href="https://docs.microsoft.com/en-us/style-guide/welcome/">Microsoft Writing Style Guide</a> as our starting point for text
+formatting. We apply the formatting using reST and Sphinx markup.</p>
+<p>Use our quick reference for the most commonly used inline text elements:</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>Element</strong></p></td>
+<td><p><strong>Convention</strong></p></td>
+<td><p><strong>reST/Sphinx</strong></p></td>
+</tr>
+<tr class="row-even"><td><p>Acronyms</p></td>
+<td><p>Define acronym when first used. After
+first use and definition, use the
+acronym only.</p></td>
+<td><p>Use the <code class="docutils literal notranslate"><span class="pre">:abbr:</span></code> role, in
+the following format:</p>
+<p><code class="docutils literal notranslate"><span class="pre">:abbr:`Acronym</span> <span class="pre">(Def)`</span></code></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bundle names</p></td>
+<td><p>Bold</p></td>
+<td><p>Use the <code class="docutils literal notranslate"><span class="pre">:command:</span></code> role.</p></td>
+</tr>
+<tr class="row-even"><td><p>Callouts</p></td>
+<td></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">note::</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Code/command examples</p></td>
+<td><p>Monospace, visually distinct
+from rest of text. Use an
+indented call-out box.</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span></code>
+with the correct language
+setting.</p></td>
+</tr>
+<tr class="row-even"><td><p>Commands</p></td>
+<td><p>Bold</p></td>
+<td><p>Use the <code class="docutils literal notranslate"><span class="pre">:command:</span></code> role.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Command flags</p></td>
+<td><p>Bold</p></td>
+<td><p>Use the <code class="docutils literal notranslate"><span class="pre">:command:</span></code> role.</p></td>
+</tr>
+<tr class="row-even"><td><p>Console output</p></td>
+<td><p>Monospace, visual distinction
+from rest of text. Use an
+indented call-out box.</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span></code>
+with console as the
+language setting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Emphasis</p></td>
+<td><p>Italic</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*strong*</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Environment variables</p></td>
+<td><p>Use the case format of the
+environment variable.</p></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">:envvar:</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Example commands with
+optional or replaceable
+parts</p></td>
+<td><p>Use angle brackets for swapping
+in the specific name,
+e.g. &lt;package-name&gt;.</p>
+<p>Use square brackets for optional
+parts,
+e.g. [–build].</p>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Example URLs (not linked)</p></td>
+<td><p>Plain text</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>File extensions</p></td>
+<td><p>Lowercase</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>File names, directories, paths</p></td>
+<td><p>Title style capitalization</p></td>
+<td><p>Use the <code class="docutils literal notranslate"><span class="pre">:file:</span></code> role.</p></td>
+</tr>
+<tr class="row-odd"><td><p>GUI labels</p></td>
+<td></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">:guilabel:</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Inline comments</p></td>
+<td></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">..</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Keystrokes</p></td>
+<td></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">:kbd:</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Local navigation</p></td>
+<td></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">contents::</span> <span class="pre">:local:</span></code>
+with a depth of 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>Menu selection</p></td>
+<td></td>
+<td><p>Use <code class="docutils literal notranslate"><span class="pre">:menuselection:</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>New terms</p></td>
+<td><p>Italic for first use, normal for all
+subsequent uses.</p>
+<p>If it is used outside of the source
+of definition, link the term.</p>
+</td>
+<td><p><code class="docutils literal notranslate"><span class="pre">*term*</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Product name</p></td>
+<td><p>Follow correct trademark and
+attribution guidelines.</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Tool names</p></td>
+<td><p>Correctly capitalized, no quotes,
+bold, or italics as the basic rule.</p>
+<p>If the tool name is the command, like
+most Linux tools, treat it like a
+command.</p>
+<p>If the tool name is lowercase and
+used at the start of a sentence, use
+bold.</p>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<section id="white-space-and-line-length">
+<h3>White space and line length<a class="headerlink" href="#white-space-and-line-length" title="Link to this heading">¶</a></h3>
+<p>Limit line length to 78 characters. The GitHub web interface forces this
+limitation for readability.</p>
+<p>Remove trailing whitespace from your documents.</p>
+</section>
+</section>
+<section id="code-blocks-and-examples">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Code blocks and examples</a><a class="headerlink" href="#code-blocks-and-examples" title="Link to this heading">¶</a></h2>
+<p>When providing example code or commands use the <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-code-block">Sphinx code-block directive</a>.
+Select the appropriate syntax highlighting for the example command or code.</p>
+<p>For example, if showing console output, use console highlighting:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> console
+</pre></div>
+</div>
+<p>Sphinx provides other ways of <a class="reference external" href="http://www.sphinx-doc.org/en/1.6/markup/code.html">marking up example code</a> if needed.</p>
+</section>
+<section id="lists-and-instructions">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Lists and instructions</a><a class="headerlink" href="#lists-and-instructions" title="Link to this heading">¶</a></h2>
+<p>Use a numbered list when the order or priority of the items is important, such
+as step-by-step instructions.</p>
+<p>Use a bulleted list when the order of the items is not important.</p>
+<p>For both list types, keep all items in the list parallel. See
+<a class="reference internal" href="writing-guide.html#parallelism"><span class="std std-ref">Parallelism</span></a>.</p>
+<p>Use standard <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#lists-and-quote-like-blocks">reST list markup</a>.</p>
+<section id="numbered-lists">
+<h3>Numbered lists<a class="headerlink" href="#numbered-lists" title="Link to this heading">¶</a></h3>
+<p>Numbered lists are most frequently used for procedures. Use numbered lists to
+show sequence for the items. Follow our guidelines for numbered lists:</p>
+<ul class="simple">
+<li><p>Make sure the list is sequential and not just a collection of items.</p></li>
+<li><p>Introduce a numbered list with a sentence. End the setup text with a
+colon. Example: “To configure the unit, perform the following steps:”</p></li>
+<li><p>Each item in the list should be parallel.</p></li>
+<li><p>Treat numbered list items as full sentences with correct ending
+punctuation.</p></li>
+<li><p>You may interrupt numbered lists with other content, if relevant,
+e.g. explanatory text, commands, or code.</p></li>
+<li><p>Second-level steps are acceptable; avoid third-level steps.</p></li>
+<li><p>Avoid single-step procedures; the minimum number of steps in a procedure
+is two.</p></li>
+<li><p>Do not create numbered lists that emulate flowcharts. The reader should be
+able to execute the list of steps from first to last without branching or
+looping.</p></li>
+<li><p>Avoid over-using numbered lists, except in procedural documents such as
+tutorials and step-by-step guides.</p></li>
+</ul>
+</section>
+<section id="bulleted-lists">
+<h3>Bulleted lists<a class="headerlink" href="#bulleted-lists" title="Link to this heading">¶</a></h3>
+<p>Use bulleted lists to reduce wordiness and paragraph density, especially when
+a sequence is not required. Here are some guidelines for bulleted lists:</p>
+<ul class="simple">
+<li><p>Introduce a bulleted list with a sentence. End the setup text with a
+colon. Example: “To repair the unit, you will need the following items:”</p></li>
+<li><p>Each item in the list should be parallel.</p></li>
+<li><p>Avoid interrupting bulleted lists with other paragraph styles.</p></li>
+<li><p>Second-level bullets are acceptable; avoid third-level bullets.</p></li>
+</ul>
+<p>Use the correct ending punctuation for sentence style bullet lists. For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">setting</span> <span class="n">the</span> <span class="n">user</span> <span class="n">code</span><span class="p">,</span> <span class="n">remember</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">Use</span> <span class="n">a</span> <span class="n">number</span> <span class="n">that</span> <span class="n">has</span> <span class="n">a</span> <span class="n">meaning</span> <span class="k">for</span> <span class="n">you</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">Change</span> <span class="n">the</span> <span class="n">code</span> <span class="n">once</span> <span class="n">a</span> <span class="n">month</span><span class="o">.</span>
+<span class="o">*</span> <span class="n">Do</span> <span class="ow">not</span> <span class="n">disclose</span> <span class="n">the</span> <span class="n">user</span> <span class="n">code</span> <span class="n">to</span> <span class="n">anyone</span><span class="p">,</span> <span class="n">including</span> <span class="n">the</span> <span class="n">security</span> <span class="n">company</span><span class="o">.</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">When</span> <span class="n">setting</span> <span class="n">the</span> <span class="n">user</span> <span class="n">code</span> <span class="n">remember</span><span class="p">:</span>
+
+<span class="o">*</span> <span class="n">make</span> <span class="n">the</span> <span class="n">user</span> <span class="n">code</span> <span class="n">easy</span> <span class="n">to</span> <span class="n">remember</span><span class="o">.</span> <span class="n">Use</span> <span class="n">a</span> <span class="n">number</span> <span class="n">that</span> <span class="n">has</span> <span class="n">a</span> <span class="n">meaning</span> <span class="k">for</span> <span class="n">you</span>
+<span class="o">*</span> <span class="n">change</span> <span class="n">the</span> <span class="n">code</span> <span class="n">once</span> <span class="n">a</span> <span class="n">month</span>
+<span class="o">*</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">disclose</span> <span class="n">the</span> <span class="n">user</span> <span class="n">code</span> <span class="n">to</span> <span class="n">anyone</span> <span class="k">else</span><span class="o">.</span> <span class="n">This</span> <span class="n">includes</span> <span class="n">the</span> <span class="n">security</span>
+  <span class="n">company</span>
+</pre></div>
+</div>
+</section>
+<section id="instructions">
+<h3>Instructions<a class="headerlink" href="#instructions" title="Link to this heading">¶</a></h3>
+<p>When presenting instructions, such as in a tutorial, present them in a numbered
+list according to these guidelines:</p>
+<ul>
+<li><p>Each step (list item) should describe one action.</p></li>
+<li><p>If the same steps are repeated, refer to the earlier steps rather than
+repeating them.</p></li>
+<li><p>When a step includes a command or code block as an example, put the command
+or code block after the step that includes them.</p></li>
+<li><p>Use supporting images where appropriate. If the series of steps is supported
+by one figure, refer to the figure in the introductory text.</p>
+<p>For example: “See Figure 15 and do the following:”</p>
+<p>When a series of steps is supported by two or more figures, refer to the
+specific figure in the relevant step and show the figure immediately after
+the reference. <strong>Do not write</strong>: “See figures 15 through 22 and do the
+following:”</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="notices">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Notices</a><a class="headerlink" href="#notices" title="Link to this heading">¶</a></h2>
+<p>We use four special types of notices: notes, cautions, warnings, and dangers.
+Here are some specific rules and tips regarding use of these notices:</p>
+<ul class="simple">
+<li><p>Do not use a notice directly after a heading. Notices must follow a variant of
+body text.</p></li>
+<li><p>Do not include more than one notice in a single notice block.</p></li>
+<li><p>Avoid back-to-back notices.</p></li>
+<li><p>If back-to-back notices are not avoidable, make sure each distinct notice in
+the notice block is clearly defined.</p></li>
+</ul>
+<p>Use the standard <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#directives">reST admonition directive</a>.</p>
+<section id="notes-cautions-and-warnings">
+<h3>Notes, cautions, and warnings<a class="headerlink" href="#notes-cautions-and-warnings" title="Link to this heading">¶</a></h3>
+<p>Use notes sparingly. Avoid having more than one note per section. If you exceed
+this number consistently, consider rewriting the notes as main body text.</p>
+<p>Use cautions and warnings to alert readers of potential problems or pitfalls.
+Use conditional phrases in cautions and warnings, such as “If you do X, then Y
+will occur.”</p>
+<p>These are examples of typical notices and the conditions for their usage:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Notes are extra bits of information that supplement the main content. Notes
+should be relatively short.</p>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Cautions are low-level hazard messages that alert the user of possible
+equipment, product, and software damage, including loss of data.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Warnings are mid-level hazards that are likely to cause product damage.</p>
+</div>
+</section>
+</section>
+<section id="links">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink">Links</a><a class="headerlink" href="#links" title="Link to this heading">¶</a></h2>
+<p>Use the standard <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#hyperlinks">reST markup for links</a>.</p>
+<p>To add a cross-reference to another documentation page, use the <cite>:ref:</cite> role:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="na">:ref:</span><span class="nv">`structure-formatting`</span>
+</pre></div>
+</div>
+<p>To add an external link, we use named references that refer to a defined
+link/label at the bottom of the page.</p>
+<p>For example, an external link is defined at the bottom of the page like this:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_wiki about dogs:</span> https://en.wikipedia.org/wiki/Dog
+</pre></div>
+</div>
+<p>The defined link is then used in the content like this:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span>Check out the great <span class="s">`wiki about dogs`_</span>.
+</pre></div>
+</div>
+</section>
+<section id="images">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink">Images</a><a class="headerlink" href="#images" title="Link to this heading">¶</a></h2>
+<p>Use images or figures to convey information that may be difficult to explain
+using words alone. Well-planned graphics reduce the amount of text required to
+explain a topic or example.</p>
+<p>Follow these guidelines when using graphics in support of your documentation:</p>
+<ul>
+<li><p>Keep it simple. Use images that serve a specific purpose in your document,
+and contain only the information the reader needs.</p></li>
+<li><p>Avoid graphics that will need frequent updating. Don’t include information in
+a graphic that might change with each release, such as product versions.</p></li>
+<li><p>Use either PNG or JPEG bitmap files for screenshots and SVG files for vector
+graphics.</p></li>
+<li><p>Place the image immediately after the text it helps clarify, or as close as
+possible.</p></li>
+<li><p>Use the <a class="reference external" href="http://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html#directives">Sphinx figure directive</a> to insert images and figures into the
+document. Include both alt text, a figure name, and caption.</p>
+<p>For example:</p>
+<div class="highlight-rest notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">figure</span><span class="p">::</span> figures/topic-1.png
+   <span class="nc">:alt:</span> An image supporting the topic.
+
+   Figure 1: This is the figure 1 caption.
+</pre></div>
+</div>
+</li>
+<li><p>Include at least one direct reference to an image from the main text, using
+the figure number. For example:</p>
+<p><strong>Use this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Figure</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p><strong>Not this:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">figure</span> <span class="n">above</span> <span class="ow">or</span> <span class="n">below</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Images should follow these naming and location conventions:</p>
+<ul class="simple">
+<li><p>Save the image files in a <code class="file docutils literal notranslate"><span class="pre">figures</span></code> folder at the same level as the file
+that will reference the image.</p></li>
+<li><p>Name image files according to the following rules:</p>
+<ul>
+<li><p>Use only lower case letters.</p></li>
+<li><p>Separate multiple words in filenames using dashes.</p></li>
+<li><p>Name images using the filename of the file they appear on and add a number
+to indicate their place in the file. For example, the third figure added to
+the <code class="file docutils literal notranslate"><span class="pre">welcome.rst</span></code> file must be named <code class="file docutils literal notranslate"><span class="pre">welcome-3.png</span></code>.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Structure and formatting</a><ul>
+<li><a class="reference internal" href="#markup">Markup</a><ul>
+<li><a class="reference internal" href="#new-pages">New pages</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#documentation-organization">Documentation organization</a><ul>
+<li><a class="reference internal" href="#page-structure">Page structure</a></li>
+<li><a class="reference internal" href="#headings">Headings</a></li>
+<li><a class="reference internal" href="#in-page-navigation">In-page navigation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#inline-text-formatting">Inline text formatting</a><ul>
+<li><a class="reference internal" href="#white-space-and-line-length">White space and line length</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#code-blocks-and-examples">Code blocks and examples</a></li>
+<li><a class="reference internal" href="#lists-and-instructions">Lists and instructions</a><ul>
+<li><a class="reference internal" href="#numbered-lists">Numbered lists</a></li>
+<li><a class="reference internal" href="#bulleted-lists">Bulleted lists</a></li>
+<li><a class="reference internal" href="#instructions">Instructions</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notices">Notices</a><ul>
+<li><a class="reference internal" href="#notes-cautions-and-warnings">Notes, cautions, and warnings</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#links">Links</a></li>
+<li><a class="reference internal" href="#images">Images</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="writing-guide.html"
+                          title="previous chapter">Writing guide</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/collaboration/structure-formatting.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="writing-guide.html" title="Writing guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="collaboration.html" >Contribute</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Structure and formatting</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

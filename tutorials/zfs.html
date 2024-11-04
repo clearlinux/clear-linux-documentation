@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>OpenZFS* &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/tutorials/zfs.html" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Dual-boot Clear Linux* OS with Any GRUB-based Linux* Distro" href="multi-boot/dual-boot-linux.html" />
+    <link rel="prev" title="YubiKey* Support" href="yubikey-u2f.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="multi-boot/dual-boot-linux.html" title="Dual-boot Clear Linux* OS with Any GRUB-based Linux* Distro"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="yubikey-u2f.html" title="YubiKey* Support"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OpenZFS*</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="openzfs">
+<span id="zfs"></span><h1>OpenZFS*<a class="headerlink" href="#openzfs" title="Link to this heading">¶</a></h1>
+<p>This tutorial shows how to set up <a class="reference external" href="https://github.com/openzfs/zfs">OpenZFS* file system and volume manager</a> on Clear Linux* OS, using a non-root device for zpools.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#background" id="id1">Background</a></p></li>
+<li><p><a class="reference internal" href="#known-issues" id="id2">Known Issues</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id3">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#install" id="id4">Install</a></p></li>
+<li><p><a class="reference internal" href="#next-steps" id="id5">Next steps</a></p></li>
+</ul>
+</nav>
+<section id="background">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Background</a><a class="headerlink" href="#background" title="Link to this heading">¶</a></h2>
+<p>The OpenZFS storage platform provides volume management, snapshot capabilities, and redundancy detection. Clear Linux OS <strong>does not</strong> ship with a binary ZFS kernel module (zfs.ko). Clear Linux OS users who wish to incorporate the zfs.ko kernel module must build and maintain this work themselves.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Use of the OpenZFS kernel module in connection with Clear Linux OS is neither recommended nor officially endorsed by the Clear Linux* Project.  Users who follow this tutorial and build zfs.ko kernel module are encouraged to seek independent legal counsel regarding any plan to redistribute a software package containing zfs.ko and Clear Linux OS.</p>
+</div>
+</section>
+<section id="known-issues">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Known Issues</a><a class="headerlink" href="#known-issues" title="Link to this heading">¶</a></h2>
+<p>Using a long-term-support (LTS) kernel when running OpenZFS reduces the risk of incompatibilities with kernel updates. When new kernels or new versions of OpenZFS are released, users bear the responsibility to test those releases and ensure compatibility before deploying any updates.</p>
+</section>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Learn to <a class="reference internal" href="../guides/kernel/kernel-modules-dkms.html#kernel-modules-dkms"><span class="std std-ref">Add kernel modules with DKMS</span></a></p></li>
+<li><p>Learn to use <a class="reference internal" href="../guides/clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a></p></li>
+</ul>
+<section id="install-the-dkms-kernel">
+<h3>Install the DKMS kernel<a class="headerlink" href="#install-the-dkms-kernel" title="Link to this heading">¶</a></h3>
+<p>Install the <strong class="command">kernel-native-dkms</strong> or <strong class="command">kernel-lts-dkms</strong>
+bundle.</p>
+<ol class="arabic">
+<li><p>Determine which kernel variant is running on Clear Linux OS. Only the <em>native</em>
+and <em>lts</em> kernels are enabled to build and load out-of-tree kernel modules
+with DKMS.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>uname<span class="w"> </span>-r
+<span class="go">5.XX.YY-ZZZZ.native</span>
+</pre></div>
+</div>
+<p>Ensure <em>.native</em> or <em>.lts</em> is in the kernel name.</p>
+</li>
+<li><p>Install the DKMS bundle corresponding to the installed kernel. Use
+<strong class="command">kernel-native-dkms</strong> for the native kernel or
+<strong class="command">kernel-lts-dkms</strong> for the lts kernel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>kernel-native-dkms
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>swupd<span class="w"> </span>bundle-add<span class="w"> </span>kernel-lts-dkms
+</pre></div>
+</div>
+</li>
+<li><p>Update the Clear Linux OS bootloader and reboot, and
+ensure that you can start the new kernel.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>clr-boot-manager<span class="w"> </span>update
+reboot
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="bundles">
+<h3>Bundles<a class="headerlink" href="#bundles" title="Link to this heading">¶</a></h3>
+<p>Before installing OpenZFS, install the bundles that contain the build dependencies.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo swupd bundle-add wget devpkg-openssl devpkg-util-linux</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="install">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Install</a><a class="headerlink" href="#install" title="Link to this heading">¶</a></h2>
+<section id="download-openzfs-release">
+<h3>Download OpenZFS release<a class="headerlink" href="#download-openzfs-release" title="Link to this heading">¶</a></h3>
+<p>In this section, we download release 2.0.0 directly from the <cite>OpenZFS repository</cite> (the latest available as of the latest revision of this page).</p>
+<p>Download release 2.0.0</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd /usr/src</span>
+<span class="go">sudo wget https://github.com/openzfs/zfs/releases/download/zfs-2.0.0/zfs-2.0.0.tar.gz</span>
+<span class="go">sudo tar -xvf zfs-2.0.0.tar.gz</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="compile-the-module">
+<h3>Compile the module<a class="headerlink" href="#compile-the-module" title="Link to this heading">¶</a></h3>
+<p>We will build the module using DKMS. This will enable us to keep the module up to date as new kernels are released in the future.</p>
+<p>The ZFS distribution provides a script to build a suitable dkms.conf file.</p>
+<blockquote>
+<div><p>Build dkms.conf and install it into the DKMS tree.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd /usr/src/zfs-2.0.0</span>
+<span class="go">sudo scripts/dkms.mkconf -n zfs -v 2.0.0 -f dkms.conf</span>
+<span class="go">sudo dkms add -m zfs -v 2.0.0</span>
+<span class="go">sudo dkms build -m zfs -v 2.0.0</span>
+<span class="go">sudo dkms install -m zfs -v 2.0.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Observe that this install the zfs kernel modules to:</p>
+<blockquote>
+<div><p><code class="file docutils literal notranslate"><span class="pre">/usr/lib/modules/&lt;kernel-name&gt;/extra/zfs</span></code></p>
+</div></blockquote>
+</section>
+<section id="compile-userspace-tools">
+<h3>Compile userspace tools<a class="headerlink" href="#compile-userspace-tools" title="Link to this heading">¶</a></h3>
+<p>Here we compile and install the zfs userspace tools (e.g., zpool, zfs, etc.).</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd /usr/src/zfs-2.0.0</span>
+<span class="go">sudo ./configure</span>
+<span class="go">sudo make</span>
+<span class="go">sudo make install</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>The binaries are installed at the following directory. While not required, it’s recommended to add <code class="file docutils literal notranslate"><span class="pre">/usr/local/sbin</span></code> to your path variable.</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">+ /usr/local/</span>
+<span class="go">|--+ bin/</span>
+<span class="go">   |--zvol_wait</span>
+<span class="go">   |--zgenhostid</span>
+<span class="go">   |--raidz_test</span>
+<span class="go">|--+ etc/</span>
+<span class="go">   |--+ zfs/</span>
+<span class="go">      |--* zed.d/</span>
+<span class="go">      |--+ zpool.d/</span>
+<span class="go">      |--zfs-functions</span>
+<span class="go">|--+ include/libzfs/ [contents omitted]</span>
+<span class="go">|--+ lib/</span>
+<span class="go">|--+ libexec/</span>
+<span class="go">   |--+ zfs/</span>
+<span class="go">      |-- zpool.d/</span>
+<span class="go">      |-- zed.d</span>
+<span class="go">|--+ share/zfs/ [contents omitted]</span>
+<span class="go">|--+ sbin/</span>
+<span class="go">   |--fsck.zfs</span>
+<span class="go">   |--zpool</span>
+<span class="go">   |--zdb</span>
+<span class="go">   |--zed</span>
+<span class="go">   |--zfs</span>
+<span class="go">   |--zhack</span>
+<span class="go">   |--zinject</span>
+<span class="go">   |--zpool</span>
+<span class="go">   |--ztest</span>
+<span class="go">   |--zstreamdump</span>
+<span class="go">|--+ src/</span>
+<span class="go">   |--+ zfs-2.0.0/</span>
+<span class="go">   |--+ spl-2.0.0/</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="set-up-systemd">
+<h3>Set up systemd<a class="headerlink" href="#set-up-systemd" title="Link to this heading">¶</a></h3>
+<p>We now have these unit files available.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">zfs-env-bootfs.service</span>
+<span class="go">zfs-zed.service</span>
+<span class="go">zfs-import-cache.service</span>
+<span class="go">zfs-import-scan.service</span>
+<span class="go">zfs-mount.service</span>
+<span class="go">zfs-share.service</span>
+<span class="go">zfs-volume-wait.service</span>
+</pre></div>
+</div>
+<p>OpenZFS requires that we  explicitly install and enable the services desired.</p>
+<p>To use ZFS automatic zpool import and filesystem mount services, enable them.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo systemctl enable zfs-import-cache</span>
+<span class="go">sudo systemctl enable zfs-import.target</span>
+<span class="go">sudo systemctl enable zfs-import-scan</span>
+<span class="go">sudo systemctl enable zfs-mount</span>
+<span class="go">sudo systemctl enable zfs.target</span>
+</pre></div>
+</div>
+</section>
+<section id="load-the-kernel-module-at-boot">
+<h3>Load the kernel module at boot<a class="headerlink" href="#load-the-kernel-module-at-boot" title="Link to this heading">¶</a></h3>
+<p>OpenZFS kernel modules must be loaded before any OpenZFS filesystems are mounted. For convenience, load the kernel modules at boot.</p>
+<p>Systemd uses the <cite>/etc/modules-load.d/</cite> directory to load out-of-tree kernel modules. Make sure that the directory exists:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>mkdir<span class="w"> </span>-p<span class="w"> </span>/etc/modules-load.d
+</pre></div>
+</div>
+</div></blockquote>
+<p>Create the configuration file:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;zfs&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/modules-load.d/01-zfs.conf
+</pre></div>
+</div>
+</div></blockquote>
+<p>Reboot your system. zfs.ko should be loaded automatically (the module should appear in the outout of command <code class="file docutils literal notranslate"><span class="pre">lsmod</span></code>).</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>When the Clear Linux OS kernel is upgraded, DKMS will attempt to rebuild the OpenZFS module for the new kernel.</p>
+<ul class="simple">
+<li><p>DKMS may not have rebuilt the module</p></li>
+<li><p>DKMS may not have auto-installed the module</p></li>
+<li><p>The new kernel might introduce breaking changes that prevent zfs
+from compiling</p></li>
+</ul>
+</div>
+<p>To fix this situation, recompile zfs.ko with the new kernel code. OpenZFS <em>might</em> not compile at all with the new kernel.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p><strong>Be sure not to put anything on an OpenZFS pool that will be needed to rebuild kernel modules.</strong> Ensure compatibility of OpenZFS with new Linux kernels when released.</p>
+</div>
+</section>
+<section id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h3>
+<p>If you suspect an issue with DKMS rebuilding your module, you can check two places for information. The dkms-new-kernel service will show status that may help in troubleshooting:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">systemctl status dkms-new-kernel.service</span>
+</pre></div>
+</div>
+<p>The systemd journal may also have important information:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">journalctl -xe</span>
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>As of OpenZFS 2.0.0, the included file <code class="file docutils literal notranslate"><span class="pre">script/dkms.mkconf</span></code> contains a minor incompability – it calls the command <code class="file docutils literal notranslate"><span class="pre">lsb_release</span></code>, which is not available on Clear    Linux by default. It is trivial to edit <code class="file docutils literal notranslate"><span class="pre">dkms.mkconf</span></code> and remove the singular reference to <code class="file docutils literal notranslate"><span class="pre">lsb_release</span></code> without any ill effects, and then execute the <code class="file docutils literal notranslate"><span class="pre">dkms</span></code> commands above. However, keeping the file as provided is perfectly fine, but <strong>will result in :file:`dkms` warnings</strong>.</p>
+</div>
+</section>
+</section>
+<section id="next-steps">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Next steps</a><a class="headerlink" href="#next-steps" title="Link to this heading">¶</a></h2>
+<p>You’re now ready to create zpools and datasets! For more information on using ZFS, see:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.freebsd.org/doc/handbook/zfs.html">FreeBSD Handbook chapter on ZFS</a></p></li>
+<li><p><a class="reference external" href="https://github.com/openzfs/zfs/issues/10068">ZFS-on-Linux issue tracker</a></p></li>
+</ul>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">OpenZFS*</a><ul>
+<li><a class="reference internal" href="#background">Background</a></li>
+<li><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#install-the-dkms-kernel">Install the DKMS kernel</a></li>
+<li><a class="reference internal" href="#bundles">Bundles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#install">Install</a><ul>
+<li><a class="reference internal" href="#download-openzfs-release">Download OpenZFS release</a></li>
+<li><a class="reference internal" href="#compile-the-module">Compile the module</a></li>
+<li><a class="reference internal" href="#compile-userspace-tools">Compile userspace tools</a></li>
+<li><a class="reference internal" href="#set-up-systemd">Set up systemd</a></li>
+<li><a class="reference internal" href="#load-the-kernel-module-at-boot">Load the kernel module at boot</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#next-steps">Next steps</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="yubikey-u2f.html"
+                          title="previous chapter">YubiKey* Support</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="multi-boot/dual-boot-linux.html"
+                          title="next chapter">Dual-boot Clear Linux* OS with Any GRUB-based Linux* Distro</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/tutorials/zfs.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="multi-boot/dual-boot-linux.html" title="Dual-boot Clear Linux* OS with Any GRUB-based Linux* Distro"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="yubikey-u2f.html" title="YubiKey* Support"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" >Tutorials</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">OpenZFS*</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

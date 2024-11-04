@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Architect the life-cycle of Clear Linux* OS &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/guides/maintenance/architect-lifecycle.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Configure Huge Pages" href="configure-hugepages.html" />
+    <link rel="prev" title="Telemetrics" href="../clear/telemetrics.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="configure-hugepages.html" title="Configure Huge Pages"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../clear/telemetrics.html" title="Telemetrics"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" accesskey="U">Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Architect the life-cycle of Clear Linux* OS</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="architect-the-life-cycle-of-cl-attr">
+<span id="architect-lifecycle"></span><h1>Architect the life-cycle of Clear Linux* OS<a class="headerlink" href="#architect-the-life-cycle-of-cl-attr" title="Link to this heading">¶</a></h1>
+<p>This guide describes the basic, recommended infrastructure and workflow for
+maintaining a Clear Linux* OS derivative.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#prerequisites" id="id2">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#description" id="id3">Description</a></p></li>
+<li><p><a class="reference internal" href="#content-workflow" id="id4">Content Workflow</a></p></li>
+<li><p><a class="reference internal" href="#release-workflow" id="id5">Release Workflow</a></p></li>
+<li><p><a class="reference internal" href="#implementation" id="id6">Implementation</a></p></li>
+</ul>
+</nav>
+<section id="prerequisites">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>A repository with software RPM artifacts and a CI/CD system with a Clear Linux OS
+machine for building <cite>mixes</cite></p></li>
+<li><p>Experience using <a class="reference internal" href="../clear/mixer.html#mixer"><span class="std std-ref">mixer</span></a> to create a Clear Linux OS-based distro</p></li>
+<li><p>Experience using <a class="reference internal" href="../clear/swupd.html#swupd-guide"><span class="std std-ref">swupd</span></a> for maintaining the Clear Linux OS
+build environment</p></li>
+<li><p>Familiarity with Clear Linux OS architecture and reuse of its content in releases</p></li>
+</ul>
+</section>
+<section id="description">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink">Description</a><a class="headerlink" href="#description" title="Link to this heading">¶</a></h2>
+<p>Maintaining a Clear Linux OS derivative requires:</p>
+<ul class="simple">
+<li><p>Monitoring upstream Clear Linux OS for new releases</p></li>
+<li><p>Building software packages and staging</p></li>
+<li><p>Employing CI/CD automation for building releases</p></li>
+<li><p>Integrating Quality Assurance for testing and validation</p></li>
+</ul>
+<p>Coordinated infrastructure is deployed to automate the life-cycle
+of your Clear Linux OS derivative. We divide deployment of this infrastructure in two
+parts: <em>Content Workflow</em>; and <em>Release Workflow</em>, shown in Figure 1.</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../../_images/architect-lifecycle-1.png"><img alt="Architect the life-cycle" src="../../_images/architect-lifecycle-1.png" style="width: 821.0px; height: 201.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Figure 1: Architect the life-cycle</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="content-workflow">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink">Content Workflow</a><a class="headerlink" href="#content-workflow" title="Link to this heading">¶</a></h2>
+<p>The Content Workflow (Figure 1) orchestrates the processes used to manage
+the creation of content for the distribution. This includes everything from
+detecting a new release in a custom software repository to generating RPM
+package files. The RPM files serve as intermediary artifacts that track software
+dependencies and provide file-level data consumed in a Release Workflow.  The
+<a class="reference external" href="https://github.com/clearlinux/clr-distro-factory/wiki/Watcher">Watcher Pipeline</a> checks Clear Linux OS and a content provider, such as Koji, to
+determine if a new release is necessary.</p>
+</section>
+<section id="release-workflow">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink">Release Workflow</a><a class="headerlink" href="#release-workflow" title="Link to this heading">¶</a></h2>
+<p>The Release Workflow (Figure 1) gathers the content of the RPMs and
+ensures it can be consumed by <a class="reference internal" href="../clear/mixer.html#mixer"><span class="std std-ref">mixer</span></a>. A content web server
+hosts the Clear Linux OS derivative, to which targets connect for updating their OSes.
+As an integral part of this toolchain, the <a class="reference external" href="https://github.com/clearlinux/clr-distro-factory/wiki/Release">Release Pipeline</a> enables these
+derivatives to incorporate Clear Linux OS content into their own custom
+content. The Watcher Pipeline triggers the Release Pipeline to create
+new releases.</p>
+</section>
+<section id="implementation">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink">Implementation</a><a class="headerlink" href="#implementation" title="Link to this heading">¶</a></h2>
+<p>The Clear Linux OS Distro Factory manages the Release Workflow. For detailed information
+about Distro Factory deployment, refer to the <a class="reference external" href="https://github.com/clearlinux/clr-distro-factory/wiki#clear-linux-distro-factory">clr-distro-factory</a> GitHub* repo.</p>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Architect the life-cycle of Clear Linux* OS</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
+<li><a class="reference internal" href="#content-workflow">Content Workflow</a></li>
+<li><a class="reference internal" href="#release-workflow">Release Workflow</a></li>
+<li><a class="reference internal" href="#implementation">Implementation</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../clear/telemetrics.html"
+                          title="previous chapter">Telemetrics</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="configure-hugepages.html"
+                          title="next chapter">Configure Huge Pages</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/guides/maintenance/architect-lifecycle.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="configure-hugepages.html" title="Configure Huge Pages"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../clear/telemetrics.html" title="Telemetrics"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Guides</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Architect the life-cycle of Clear Linux* OS</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>

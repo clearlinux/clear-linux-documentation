@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>stateless &#8212; Documentation for Clear Linux* project</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/bizstyle.css?v=5283bb3d" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=a56c686a"></script>
+    <script src="../../_static/bizstyle.js"></script>
+    <link rel="canonical" href="https://clearlinux.github.io/clear-linux-documentation/reference/manpages/stateless.7.html" />
+    <link rel="icon" href="../../_static/favicon.ico"/>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="os-core" href="os-core.7.html" />
+    <link rel="prev" title="Man pages" href="../man-pages.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="os-core.7.html" title="os-core"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../man-pages.html" title="Man pages"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" accesskey="U">Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">stateless</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <section id="stateless">
+<h1>stateless<a class="headerlink" href="#stateless" title="Link to this heading">¶</a></h1>
+<section id="a-guide-to-stateless-configuration-in-clear-linux-os-for-intel-architecture">
+<h2>A guide to stateless configuration in Clear Linux OS for Intel Architecture<a class="headerlink" href="#a-guide-to-stateless-configuration-in-clear-linux-os-for-intel-architecture" title="Link to this heading">¶</a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Copyright<span class="colon">:</span></dt>
+<dd class="field-odd"><p>(C) 2017 Intel Corporation, CC-BY-SA-3.0</p>
+</dd>
+<dt class="field-even">Manual section<span class="colon">:</span></dt>
+<dd class="field-even"><p>7</p>
+</dd>
+</dl>
+<section id="synopsis">
+<h3>SYNOPSIS<a class="headerlink" href="#synopsis" title="Link to this heading">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">/etc/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/share/defaults/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/share/defaults/etc/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/var/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/var/cache/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/local/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/src/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/lib/kernel/</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">/usr/lib/modules/</span></code></p>
+</section>
+<section id="description">
+<h3>DESCRIPTION<a class="headerlink" href="#description" title="Link to this heading">¶</a></h3>
+<p>The Clear Linux OS for Intel Architecture has a unique way of
+providing customization and configuration to system administrators and
+users. This man page aims to provide both an explanation of what this
+method is and how users of Clear Linux can use it and benefit from it.</p>
+<p>The goal of “stateless” is to provide a system OS that functions
+without user configuration. A system should not require editing of
+configuration files by the end user before it is functional, nor should
+it place lengthy and confusing configuration files automatically in
+user-maintained file system areas (<code class="docutils literal notranslate"><span class="pre">/etc/</span></code>) by default. And
+additionally, any configuration placed in user-maintained configuration
+should be removable without breaking functionality.</p>
+<p>This is achieved by several methods, each of which implements a part
+of the stateless goal.</p>
+<ul class="simple">
+<li><p>Removal of configuration files</p></li>
+</ul>
+<p>The first step taken to achieve stateless configuration is to embed
+proper default configuration values in the software. Any missing
+critical configuration value should have a built-in default value.</p>
+<ul class="simple">
+<li><p>Providing of default configuration files outside of <code class="docutils literal notranslate"><span class="pre">/etc/</span></code></p></li>
+</ul>
+<p>Software is adjusted to use a distribution provided default
+configuration file in <code class="docutils literal notranslate"><span class="pre">/usr/share/defaults</span></code>. If no configuration
+file exists in <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> for the software, the software must use the
+distribution default configuration file.</p>
+<ul class="simple">
+<li><p>Allowing the end user to provide configuration in <code class="docutils literal notranslate"><span class="pre">/etc/</span></code></p></li>
+</ul>
+<p>If the user provides a properly formatted configuration file in
+the <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> filesystem area (or, wherever it is relevant for the
+software), the software is instructed to use this configuration
+file instead of any other.</p>
+<section id="consequences-for-the-system-administrator-user">
+<h4>Consequences for the system administrator (user)<a class="headerlink" href="#consequences-for-the-system-administrator-user" title="Link to this heading">¶</a></h4>
+<p>The user should create configuration files as needed and avoid
+modifying distribution provided defaults. The filesystem folders and
+all content under <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> and <code class="docutils literal notranslate"><span class="pre">/var/</span></code> may be modified as needed, but
+the content under <code class="docutils literal notranslate"><span class="pre">/usr/</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib/</span></code>, <code class="docutils literal notranslate"><span class="pre">/lib64/</span></code>, <code class="docutils literal notranslate"><span class="pre">/bin/</span></code>, <code class="docutils literal notranslate"><span class="pre">/sbin/</span></code> should
+never be modified, and will be overwritten by <a class="reference external" href="swupd.1.html">swupd(1)</a> as needed.</p>
+<p>Some default configuration structure and data is automatically created
+under <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> and <code class="docutils literal notranslate"><span class="pre">/var/</span></code>. The user may remove these file system
+structures entirely - a reboot of the OS should properly restore the
+system to its factory default. This may also provide the user with
+a way to repair a defective system configuration.</p>
+<p>The user should, if user configuration of a service is needed,
+attempt to place the configuration file in the <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> structure as
+the service requests. Often, template files for the configuration
+format can be found under the <code class="docutils literal notranslate"><span class="pre">/usr/share/defaults/</span></code> file structure,
+and these files can be copied to the <code class="docutils literal notranslate"><span class="pre">/etc/</span></code> file structure.</p>
+<p>To modify system service configuration (<code class="docutils literal notranslate"><span class="pre">systemd</span></code>(1) service units),
+the user should not touch or modify unit files under the <code class="docutils literal notranslate"><span class="pre">/usr/</span></code>
+file structure directly, as changes in those files will be lost after
+a system software update with <a class="reference external" href="swupd.1.html">swupd(1)</a>.</p>
+<p>A list of package specific hints and best practices is listed below. In
+many cases, the man pages for the respective packages also provides
+detailed information as to how to configure the software. Please
+consult the relevant manual pages for the software to find information
+on the specific syntax and options for each software.</p>
+</section>
+<section id="where-can-i-install-system-wide-files-then">
+<h4>Where can I install system-wide files then?<a class="headerlink" href="#where-can-i-install-system-wide-files-then" title="Link to this heading">¶</a></h4>
+<p><a class="reference external" href="swupd.1.html">swupd(1)</a> has a list of exempted locations where the system
+administrator can place files that will not get overwritten or removed
+at all. The default whitelisted directories are:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">/usr/lib/modules</span></code>
+<code class="docutils literal notranslate"><span class="pre">/usr/lib/kernel</span></code>
+<code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>
+<code class="docutils literal notranslate"><span class="pre">/usr/src</span></code></p>
+</div></blockquote>
+<p>Using these locations for your own software is highly recommended. Not
+only do these locations provide a standard FHS compliant way of adding
+local software, they are sufficiently separated from OS software that
+maintaining them will be much more simple.</p>
+</section>
+<section id="ldconfig">
+<h4>ldconfig<a class="headerlink" href="#ldconfig" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ldconfig</span></code>(8)</p>
+</div></blockquote>
+<p>The default paths that the linker searches includes only <code class="docutils literal notranslate"><span class="pre">/usr/lib64</span></code>
+and paths below that. This explicitly omits <code class="docutils literal notranslate"><span class="pre">/usr/local/</span></code>. If you
+compile libraries manually and install them in other paths, you may
+need to configure the <code class="docutils literal notranslate"><span class="pre">ld.so</span></code>(8) linker to find these before you run
+<code class="docutils literal notranslate"><span class="pre">ldconfig</span></code>. For example:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">&quot;/usr/local/lib&quot;</span> <span class="pre">|</span> <span class="pre">sudo</span> <span class="pre">tee</span> <span class="pre">-a</span> <span class="pre">/etc/ld.so.conf</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ldconfig</span></code></p>
+</div></blockquote>
+</section>
+<section id="systemd">
+<h4>systemd<a class="headerlink" href="#systemd" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">systemd</span></code>(1)</p>
+</div></blockquote>
+<p>Unit files can be created under <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code> as needed and
+function normally. To override unit file options, the simplest method
+is to have <code class="docutils literal notranslate"><span class="pre">systemctl</span></code>(1) copy it for you by invoking it as:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span> <span class="pre">--full</span> <span class="pre">foo.service</span></code></p>
+</div></blockquote>
+<p>This creates an exact copy of the default unit file and invokes the
+editor for the user, allowing the user to override any part of the unit.</p>
+<p>Unit files can be started as normal with <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">&lt;unit&gt;</span></code>.</p>
+<p>To enable services to start at boot time, use <code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">&lt;unit&gt;</span></code>.</p>
+</section>
+<section id="sshd">
+<h4>sshd<a class="headerlink" href="#sshd" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sshd</span></code>(8)
+<code class="docutils literal notranslate"><span class="pre">sshd_config</span></code>(5)</p>
+</div></blockquote>
+<p>The SSH daemon has all of its configuration built in and no template
+configuration file is present on the file system. The man page for
+<code class="docutils literal notranslate"><span class="pre">sshd_config</span></code>(5) explains the format, and it suffices to put only a
+single option in the file</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code></p>
+</div></blockquote>
+<p>For example, to enable X11 forwarding through sshd all one has to do is
+add one line containing <code class="docutils literal notranslate"><span class="pre">X11Forwarding</span> <span class="pre">yes</span></code>. Other often used options
+include <code class="docutils literal notranslate"><span class="pre">PermitRootLogin</span> <span class="pre">yes</span></code> to allow root ssh login access, and the
+following 3 lines to disable password authentication entirely:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ChallengeResponseAuthentication</span> <span class="pre">no</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">PasswordAuthentication</span> <span class="pre">no</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">UsePAM</span> <span class="pre">no</span></code></p>
+</div></blockquote>
+<p>To modify the listening port of sshd, one needs to determine whether
+<code class="docutils literal notranslate"><span class="pre">sshd.socket</span></code> or <code class="docutils literal notranslate"><span class="pre">sshd.service</span></code> is enabled first, since the methods
+for changing the port number depend on whether <code class="docutils literal notranslate"><span class="pre">sshd</span></code>(8) is controlling
+the port number, or whether <code class="docutils literal notranslate"><span class="pre">systemd</span></code>(1) is:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">is-enabled</span> <span class="pre">sshd.socket</span></code></p>
+</div></blockquote>
+<p>If enabled, the <code class="docutils literal notranslate"><span class="pre">sshd.socket</span></code> unit should be edited to modify the port:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">systemctl</span> <span class="pre">edit</span> <span class="pre">--full</span> <span class="pre">sshd.socket</span></code></p>
+</div></blockquote>
+<p>And, the user should modify the port number at <code class="docutils literal notranslate"><span class="pre">ListenStream=</span></code> to the
+desired new port number.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">sshd.service</span></code> is enabled, the user should create, and edit a new
+<code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code> file:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/etc/ssh/</span></code>
+<code class="docutils literal notranslate"><span class="pre">vi</span> <span class="pre">/etc/ssh/sshd_config</span></code></p>
+</div></blockquote>
+<p>And add a line in that file that reads:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">Port</span> <span class="pre">10022</span></code></p>
+</div></blockquote>
+<p>to, for instance, change the port number sshd.service will listen on
+to port 10022.</p>
+<p>Root login over SSH is disabled by default and should remain disabled
+for most systemd. However, in some cases this is acceptable and it can
+be easily enabled by adding the following line to <code class="docutils literal notranslate"><span class="pre">/etc/ssh/sshd_config</span></code>
+that reads:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">PermitRootLogin</span> <span class="pre">yes</span></code></p>
+</div></blockquote>
+</section>
+<section id="nginx">
+<h4>nginx<a class="headerlink" href="#nginx" title="Link to this heading">¶</a></h4>
+<p>Nginx ships by default in a non-functional configuration. However,
+an example configuration file is present that can be used to enable
+a simple server. To use this template configuration, create:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/etc/nginx/conf.d</span></code></p>
+</div></blockquote>
+<p>And then copy configuration templates over to this folder:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/usr/share/nginx/conf/nginx.conf.example</span> <span class="pre">/etc/nginx/nginx.conf</span></code>
+<code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/usr/share/nginx/conf/server.conf.example</span> <span class="pre">/etc/nginx/conf.d/server.conf</span></code></p>
+</div></blockquote>
+<p>Edit the file to assure options such as SSL and PHP are enabled in
+the preferred method. In the default configuration, PHP is enabled
+to run listening to <code class="docutils literal notranslate"><span class="pre">/run/php-fpm.sock</span></code>. The template file has PHP
+by default disabled, but the listed example lines can be uncommented
+to make the nginx service process php documents.</p>
+</section>
+<section id="php-fpm">
+<h4>php-fpm<a class="headerlink" href="#php-fpm" title="Link to this heading">¶</a></h4>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">php-fpm</span></code>(8)</p>
+</div></blockquote>
+<p>Php’s default configuration file doesn’t allow us to provide an
+alternative as it is programmed to only read the builtin file. If you
+wish to have php-fpm use a different configuration, you must pass it a
+startup option to tell it where it is. This can be done by <code class="docutils literal notranslate"><span class="pre">systemctl</span>
+<span class="pre">edit</span> <span class="pre">--full</span> <span class="pre">php-fpm.service</span></code>. That command copies the default php-fpm
+service unit to <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/</span></code> and allows the user to override
+any option. It spawns an editor with the copy.</p>
+<p>Then, the user should change the line:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ExecStart=/usr/sbin/php-fpm</span> <span class="pre">--nodaemonize</span></code></p>
+</div></blockquote>
+<p>to:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">ExecStart=/usr/sbin/php-fpm</span> <span class="pre">--nodaemonize</span> <span class="pre">--fpm-config</span> <span class="pre">/etc/php-fpm.conf</span></code></p>
+</div></blockquote>
+<p>The template php-fpm.conf can be found at <code class="docutils literal notranslate"><span class="pre">/usr/share/defaults/php/php-fpm.conf</span></code>.
+One should copy this to a place in <code class="docutils literal notranslate"><span class="pre">/etc/</span></code>:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">cp</span> <span class="pre">/usr/share/defaults/php/php-fpm.conf</span> <span class="pre">/etc/php-fpm.conf</span></code></p>
+</div></blockquote>
+<p>Then, the user should edit <code class="docutils literal notranslate"><span class="pre">/etc/php-fpm.conf</span></code> and assure that
+configuration options are all properly set as needed.</p>
+<p>Care must be taken using the default <code class="docutils literal notranslate"><span class="pre">pool</span></code> configuration. If needed,
+the user should also create <code class="docutils literal notranslate"><span class="pre">/etc/php-fpm.d/</span></code> and include pool
+configuration files from either <code class="docutils literal notranslate"><span class="pre">/usr/share/defaults/php/php-fpm.d/</span></code> or
+copy them and modify them as needed as well, as well as adjust the
+<code class="docutils literal notranslate"><span class="pre">include</span></code> configuration option in <code class="docutils literal notranslate"><span class="pre">php-fpm.conf</span></code> to point to a new
+location for pool configuration files.</p>
+</section>
+<section id="network-interface-management">
+<h4>Network interface management<a class="headerlink" href="#network-interface-management" title="Link to this heading">¶</a></h4>
+<p>Clear Linux has switched the network interface management model to be fully
+managed by NetworkManager when installed on real hardware. Previously, Ethernet
+interfaces were managed by systemd-networkd whereas Wi-Fi and others were
+managed by NetworkManager. Clear Linux cloud images continue to use
+systemd-networkd.</p>
+<p>When updating from previous versions of Clear Linux, the installation will be
+reconfigured to continue with systemd-networkd managing the Ethernet interfaces.
+Since the connectivity could be lost during the procedure, physical access to the
+system is required. To switch to NetworkManager for all the interfaces, the
+user should disable and stop systemd-networkd:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">disable</span> <span class="pre">systemd-networkd</span></code>
+<code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">systemd-networkd</span></code></p>
+</div></blockquote>
+<p>Then, remove the file <code class="docutils literal notranslate"><span class="pre">/etc/NetworkManager/conf.d/systemd-networkd-unmanaged.conf</span></code></p>
+<p>Finally, restart NetworkManager</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">NetworkManager</span></code></p>
+</div></blockquote>
+</section>
+</section>
+<section id="see-also">
+<h3>SEE ALSO<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="swupd.1.html">swupd(1)</a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">systemd</span></code>(1)</p></li>
+<li><p><a class="reference external" href="https://clearlinux.org/documentation/">https://clearlinux.org/documentation/</a></p></li>
+<li><p><a class="reference external" href="https://clearlinux.org/features/stateless">https://clearlinux.org/features/stateless</a></p></li>
+<li><p><a class="reference external" href="https://github.com/clearlinux/swupd-client/">https://github.com/clearlinux/swupd-client/</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/clearlinux.png" alt="Logo of Clear Linux* Project Docs"/>
+            </a></p>
+  <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">stateless</a><ul>
+<li><a class="reference internal" href="#a-guide-to-stateless-configuration-in-clear-linux-os-for-intel-architecture">A guide to stateless configuration in Clear Linux OS for Intel Architecture</a><ul>
+<li><a class="reference internal" href="#synopsis">SYNOPSIS</a></li>
+<li><a class="reference internal" href="#description">DESCRIPTION</a><ul>
+<li><a class="reference internal" href="#consequences-for-the-system-administrator-user">Consequences for the system administrator (user)</a></li>
+<li><a class="reference internal" href="#where-can-i-install-system-wide-files-then">Where can I install system-wide files then?</a></li>
+<li><a class="reference internal" href="#ldconfig">ldconfig</a></li>
+<li><a class="reference internal" href="#systemd">systemd</a></li>
+<li><a class="reference internal" href="#sshd">sshd</a></li>
+<li><a class="reference internal" href="#nginx">nginx</a></li>
+<li><a class="reference internal" href="#php-fpm">php-fpm</a></li>
+<li><a class="reference internal" href="#network-interface-management">Network interface management</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#see-also">SEE ALSO</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../man-pages.html"
+                          title="previous chapter">Man pages</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="os-core.7.html"
+                          title="next chapter">os-core</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/reference/manpages/stateless.7.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<search id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="Related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="os-core.7.html" title="os-core"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../man-pages.html" title="Man pages"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">Documentation for Clear Linux* project</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../index.html" >Reference</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../man-pages.html" >Man pages</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">stateless</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+    &#169; Copyright 2022 Intel Corporation. All Rights Reserved..
+      Last updated on Nov 04, 2024.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    </div>
+  </body>
+</html>
