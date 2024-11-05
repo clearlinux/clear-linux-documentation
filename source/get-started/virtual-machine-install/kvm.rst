@@ -141,7 +141,7 @@ To add :abbr:`GDM (GNOME Display Manager)` to the |CL| VM, follow these steps:
           -m 4096 \
           -vga qxl \
           -nographic \
-          -spice port=5924,disable-ticketing \
+          -spice port=5924,disable-ticketing=on \
           -usb \
           -device usb-tablet,bus=usb-bus.0 \
           -drive file="$IMAGE",if=virtio,aio=threads,format=raw \
