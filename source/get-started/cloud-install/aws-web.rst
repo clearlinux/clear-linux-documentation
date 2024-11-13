@@ -160,6 +160,8 @@ Locate, select, and launch the |CL| Basic AMI
 
          Figure 9: :guilabel:`View Instance`
 
+.. _aws-web-connect:
+
 Connect to your Clear Linux OS basic instance
 *********************************************
 

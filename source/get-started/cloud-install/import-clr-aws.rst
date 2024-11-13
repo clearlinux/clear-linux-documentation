@@ -485,7 +485,7 @@ Launch an instance
 Connect to your |CL| instance
 *****************************
 
-#. Follow these steps to `connect to your instance`_.
+#. Follow these steps to :ref:`connect to your instance<aws-web-connect>`.
 
 Related topics
 **************
