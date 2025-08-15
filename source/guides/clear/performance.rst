@@ -214,7 +214,7 @@ CPU performance governor
 maximum clock frequency. In other words, P-state P0. The idea behind prioritizing
 maximum CPU performance is that the faster a program finishes execution, the
 faster the CPU can return to a low energy idle state. See the `CPU Power and
-Performance documentation <https://docs.01.org/clearlinux/latest/guides/maintenance/cpu-performance.html>`_
+Performance documentation <https://www.clearlinux.org/clear-linux-documentation/guides/maintenance/cpu-performance.html>`_
 for further details.
 
 Restructured boot sequence
